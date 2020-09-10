@@ -13,8 +13,8 @@ void Game::setAttacker() {
 }
 
 void Game::showStats() const {
-    for (unsigned int i = 0; i < units.size(); i++)
-        cout << units.at(i)->getName() <<": HP: "<< units.at(i)->getHP()<<", DMG: " << units.at(i)->getDmg() << endl;
+    for (auto u : units)
+        cout << u->getName() << ": HP: " << u->getHP() << ", DMG: " << u->getDmg() << endl;
 }
 
 void Game::initVector(int argc, char** argv) {
