@@ -1,4 +1,3 @@
-#pragma once
 #include "Unit.h"
 #include <iostream>
 #include <vector>
@@ -6,15 +5,11 @@
 class Game
 {
 private:
-    int round;
-    bool winner;
-    vector<Unit*> units;
-    Unit *att, *def;
-    void setAttacker();
+    Unit *u1, *u2;
     void showStats() const;
-    void initVector(int argc, char** argv);
+    void initUnits(char** argv);
 public:
-    Game(int argc, char** argv) : round(1), winner(false) { initVector(argc, argv); }
+    Game(char** argv)  { initUnits(argv); }
     ~Game();
     void runGame();
 };

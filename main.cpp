@@ -12,11 +12,11 @@ int main(int argc, char** argv)
 {
 	if (argc == 7)
 	{
-		Game g(argc, argv);
+		Game g(argv);
 		g.runGame();
 	}
 	else
-		cout << "Incorrect number of parameters!";
+		std::cout << "Incorrect number of parameters!";
     
 }
 

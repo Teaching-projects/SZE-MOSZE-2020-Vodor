@@ -1,43 +1,35 @@
 #include "Game.h"
 
-void Game::setAttacker() {
-    if (round % 2 == 0) {
-        att = units.at(1);
-        def = units.at(0);
-    }
-    else {
-        att = units.at(0);
-        def = units.at(1);
-    }
-    cout << att->getName() << " -> " << def->getName() << endl;
-}
-
 void Game::showStats() const {
-    for (auto u : units)
-        cout << u->getName() << ": HP: " << u->getHP() << ", DMG: " << u->getDmg() << endl;
+    std::cout << u1->getName() << ": HP: " << u1->getHP() << ", DMG: " << u1->getDmg() << std::endl;
+    std::cout << u2->getName() << ": HP: " << u2->getHP() << ", DMG: " << u2->getDmg() << std::endl;
 }
 
-void Game::initVector(int argc, char** argv) {
-    for (int i = 1; i < argc; i+=3)
-        units.push_back(new Unit(argv[i], stoi(argv[i + 1]), stoi(argv[i + 2])));
+void Game::initUnits(char** argv)
+{
+      u1 = new Unit(argv[1], std::stoi(argv[2]), std::stoi(argv[3]));
+      u2 = new Unit(argv[4], std::stoi(argv[5]), std::stoi(argv[6]));
 }
 
 void Game::runGame() {
     showStats();
-    while (!winner) {
-        setAttacker();
-        def->takeDmg(att->getDmg());
+    while (!u1->isDead() && !u2->isDead()) {
+        u2->takeDmg(u1->getDmg());
+        std::cout << u1->getName() << " -> " << u2->getName() << std::endl;
         showStats();
-        if (def->isDead()) {
-            winner = true;
-            cout << def->getName() << " died. " << att->getName() << " wins.";
-        }
+        if (u2->isDead()) 
+            std::cout << u2->getName() << " died. " << u1->getName() << " wins.";
         else
-            round++;
+        {
+            u1->takeDmg(u2->getDmg());
+            std::cout << u2->getName() << " -> " << u1->getName() << std::endl;
+            showStats();
+            if (u1->isDead())
+                std::cout << u1->getName() << " died. " << u2->getName() << " wins.";    
+        }
     }
 }
 
 Game::~Game() {
-    for (auto i : units)
-        delete i;
+    delete u1, u2;
 }

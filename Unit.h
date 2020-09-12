@@ -1,20 +1,19 @@
-#pragma once
 #include <string>
-using namespace std;
 
 class Unit
 {
 private:
-	const string name;
-	int hP;
-	const int dmg;
-public:
-	Unit(const string& n, int h, int d) : name(n), hP(h), dmg(d) {}
-	~Unit() { }
-	int getHP() const { return hP; }
-	string getName() const { return name; }
-	int getDmg() const { return dmg; }
+	const std::string b_name;
+	int b_hP;
+	const int b_dmg;
+	friend class Game;
+protected:
 	void takeDmg(int d);
-	bool isDead();
+	int getHP() const { return b_hP; }
+	std::string getName() const { return b_name; }
+	int getDmg() const { return b_dmg; }
+	bool isDead() const;
+public:
+	Unit(const std::string& name, int hP, int dmg) : b_name(name), b_hP(hP), b_dmg(dmg) {}
 };
 
