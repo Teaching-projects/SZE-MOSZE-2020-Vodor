@@ -14,14 +14,12 @@ A program lefutását két osztály biztosítja:
 Az osztály 3 adattaggal rendelkezik, amelyek a karakterek nevét, életerejét és sebzését határozzák meg. 
 
 Két függvényt - adattagokhoz tartozó getter függvényeken kívül - tartalmaz az osztály, az egyik a **takeDmg()**, ami sebzést oszt ki az adott karakterre egy előre megadaott érték alapján, a másik a(z) **isDead()**, ami azt vizsgálja, hogy az adott karakter meghalt-e.
+
 ### Game
-Ez az osztály a program lefutását vezényeli le. 5 adattagot tartalmaz:
-* **round**: a körök számát tartalmazza
-* **winner**: logikai változó, ami azt jelzi van-e győztes
-* **units**: egy vector, ami Unit osztályra mutató objektumokat tárol
-* **att**, **def**: éppen aktuálisan támadó és védekező karaktert emeli ki
-Ezenfelül 4 darab függvény van az osztályban.
-* **initVector()**: feltölti a korrában említett vectort, az inditási paraméterként megadott adatokkal
-* **setAttacker()**: kiválasztja a támadó és védekező felet
+Ez az osztály a program lefutását vezényeli le. 2 adattagot tartalmaz:
+* **u1**, **u2**: a játékban részt vevő két karakter
+
+Ezenfelül 3 darab függvény van az osztályban.
+* **initUnits()**: a korábban említett két karaktert inicializálja
 * **showStats()**: kiírja a karakterek információit 
 * **runGame()**: levezényli a játékot
