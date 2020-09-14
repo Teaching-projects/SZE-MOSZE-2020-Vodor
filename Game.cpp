@@ -14,15 +14,15 @@ void Game::initUnits(char** argv)
 void Game::runGame() {
     showStats();
     while (!u1->isDead() && !u2->isDead()) {
-        u2->takeDmg(u1->getDmg());
         std::cout << u1->getName() << " -> " << u2->getName() << std::endl;
+        u2->getHitBy(u1);
         showStats();
         if (u2->isDead()) 
             std::cout << u2->getName() << " died. " << u1->getName() << " wins.";
         else
         {
-            u1->takeDmg(u2->getDmg());
             std::cout << u2->getName() << " -> " << u1->getName() << std::endl;
+            u1->getHitBy(u2);
             showStats();
             if (u1->isDead())
                 std::cout << u1->getName() << " died. " << u2->getName() << " wins.";    
