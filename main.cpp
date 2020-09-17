@@ -1,4 +1,3 @@
-#include <iostream>
 #include "Game.h"
 
 /*
@@ -10,13 +9,17 @@
 
 int main(int argc, char** argv)
 {
-	if (argc == 7)
-	{
-		Game g(argv);
-		g.runGame();
-	}
+	if (argc == 3)
+		try
+		{
+			Game g(argv);
+			g.runGame();
+		}
+		catch(std::string e)
+		{
+			std::cout << e;
+		}
 	else
 		std::cout << "Incorrect number of parameters!";
-    
 }
 
