@@ -1,4 +1,4 @@
-name: output_test workflow
+name: outputtest workflow
 
 on:
   push
@@ -13,4 +13,4 @@ jobs:
       - name: Run test
         run: ./run_test.sh
       - name: Diff
-        run: diff units/output.txt units/good_output.txt
+        run: diff output.txt units/good_output.txt

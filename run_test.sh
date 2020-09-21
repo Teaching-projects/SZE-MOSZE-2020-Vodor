@@ -1,16 +1,16 @@
 #!/bin/bash
 
-if test -f units/output.txt
+if test -f output.txt
 then
-    rm units/output.txt
+    rm output.txt
 fi
 
 for file1 in units/*.json; do
     for file2 in units/*.json; do
-        if [ $file2 != $file1 ]
+        if [ $file1 != $file2 ]
         then
-            ./a.out $file1 $file2 >> units/output.txt
-            echo >> units/output.txt
+            ./a.out $file1 $file2 >> output.txt
+            echo >> output.txt
         fi
     done
 done
