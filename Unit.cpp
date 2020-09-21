@@ -1,27 +1,31 @@
 #include "Unit.h"
 
 Unit* Unit::parseUnit(const std::string& fname){
-	std::vector<std::string> data;
+	std::string name;
+	int hp, dmg;
 	std::ifstream file;  
 	file.open(fname);
     if (file.fail()) throw fname + " does not exist.";
     else
     {
-		std::string line;
+		std::string line, sbstr;
 		std::string parseS = " : ";
-		while (std::getline(file, line))
-			if (line != "}" && line != "{") 
-            {
-			    line.erase(0, line.find(parseS) + parseS.length() + 1);
-				if (line.find('"') != std::string::npos)
-					line.erase(line.find('"'), line.length());
-				else
-					line.erase(line.find(","), line.length());               
-				data.push_back(line);
-			}	
-			
+		while (std::getline(file, line)){
+			if (line.find("name") != std::string::npos){
+				name = line.substr(line.find(parseS)+1);
+				name = name.substr(name.find('"')+1,name.find_last_of('"')-3);
+			}
+			else if (line.find("hp") != std::string::npos){
+				sbstr = line.substr(line.find(parseS)+3);
+				hp = std::stoi(sbstr.substr(0,sbstr.find(",")));
+			}
+			else if (line.find("dmg") != std::string::npos){
+				sbstr = line.substr(line.find(parseS)+3);
+				dmg = std::stoi(sbstr);
+			}
+		}
 	    file.close();
-        return new Unit(data[0], stoi(data[1]), stoi(data[2]));
+        return new Unit(name,hp, dmg);
     }
 }
 

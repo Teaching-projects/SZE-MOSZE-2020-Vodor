@@ -1,5 +1,5 @@
 {
-  "name" : "Maytcreme",
-  "hp" : 30000,
-  "dmg" : "10000"
+    "name" : "Maytcreme",
+    "hp" : 30000,
+    "dmg" : 3100
 }
