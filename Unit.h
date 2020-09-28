@@ -1,4 +1,7 @@
 #include <string>
+#include <iostream>
+#include <fstream>
+#include <vector>
 
 class Unit
 {
@@ -14,4 +17,5 @@ protected:
 	int getDmg() const { return b_dmg; }
 	bool isDead() const;
 	Unit(const std::string& name, int hP, int dmg) : b_name(name), b_hP(hP), b_dmg(dmg) {}
+	static Unit* parseUnit(const std::string& fname);
 };

@@ -5,7 +5,7 @@ Ez a repository a Vödör csapat megoldását tartalmazza.
 * Vitéz Marcell
 * Voznek Péter
 ## Leírás
-Az indításnál 6 paramétert kell megadni a helyes lefutáshoz. Egy példa a bemenetre: *Maple 150 10 Sally 45 30*. Ezután lefut a játék, amelynek során folyamatosan kiírja a köröket. A játék addig tart, amíg az egyik karakter életereje el nem fogy, ekkor győztest hírdet a játék.
+Az indításnál 2 paramétert kell megadni a helyes lefutáshoz, ez két fájlnevet/elérési utat jelent. Egy példa a bemeneti paraméterekre: *unit1.json unit2.json*. Ezután lefut a játék, amely leszimulálja a két karakter közötti harcot. A játék addig tart, amíg az egyik karakter életereje el nem fogy, ekkor győztest hírdet a játék.
 
 A program lefutását két osztály biztosítja: 
 * Unit 
@@ -13,13 +13,11 @@ A program lefutását két osztály biztosítja:
 ### Unit 
 Az osztály 3 adattaggal rendelkezik, amelyek a karakterek nevét, életerejét és sebzését határozzák meg. 
 
-Két függvényt - adattagokhoz tartozó getter függvényeken kívül - tartalmaz az osztály, az egyik a **takeDmg()**, ami sebzést oszt ki az adott karakterre egy előre megadaott érték alapján, a másik a(z) **isDead()**, ami azt vizsgálja, hogy az adott karakter meghalt-e.
+Három függvényt - adattagokhoz tartozó getter függvényeken kívül - tartalmaz az osztály, az egyik a **takeDmg()**, ami sebzést oszt ki az adott karakterre egy előre megadaott érték alapján, a másik a(z) **isDead()**, ami azt vizsgálja, hogy az adott karakter meghalt-e. Ezeken felül a **parseUnit()**, amely az inputként megadott fájlok feldolgozásáért felelős.
 
 ### Game
 Ez az osztály a program lefutását vezényeli le. 2 adattagot tartalmaz:
 * **u1**, **u2**: a játékban részt vevő két karakter
 
-Ezenfelül 3 darab függvény van az osztályban.
-* **initUnits()**: a korábban említett két karaktert inicializálja
-* **showStats()**: kiírja a karakterek információit 
+Ezenfelül 1 darab függvény van az osztályban. 
 * **runGame()**: levezényli a játékot
