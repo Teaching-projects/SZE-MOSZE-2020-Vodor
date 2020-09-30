@@ -3,8 +3,9 @@
 std::map <std::string, std::string> Parser::parseJson(std::string json){
     //TODO: check if the string is a filename
 
-    attributes.clear();
     static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\w]*)\"?\\s*[,}]\\s*");
+    std::smatch matches;
+    std::map<std::string,std::string> attributes;
 
     while(std::regex_search(json, matches, parseRegex)){
         attributes[matches[1]] = matches[2];
@@ -14,6 +15,11 @@ std::map <std::string, std::string> Parser::parseJson(std::string json){
     return attributes;
 }
 
-/*Unit* Parser::parseJson(std::istream& jsonFile){
-    TODO: finish this
-}*/
+std::map <std::string, std::string> Parser::parseJson(std::istream& jsonFile){
+    std::string line;
+    std::string json = ""; 
+    while(getline(jsonFile,line))
+        json += line;
+
+    return parseJson(json);
+}
