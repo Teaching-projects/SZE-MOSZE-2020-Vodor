@@ -1,7 +1,7 @@
 #include "Parser.h"
 
 const std::map <std::string, std::string> Parser::parseJson(std::string json) {
-    static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\w]*)\"?\\s*[,}]\\s*");
+    static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\w\\.]*)\"?\\s*[,}]\\s*");
     std::smatch matches;
     std::map<std::string,std::string> attributes;
 
