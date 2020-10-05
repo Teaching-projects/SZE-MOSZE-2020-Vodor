@@ -45,3 +45,76 @@ void Unit::getHitBy(const Unit *other) {
 bool Unit::isDead() const {
 	return b_hP == 0;
 }
+
+void Unit::fight(Unit *other) {
+	other->getHitBy(this);
+	if(other->isDead())
+		std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP()<<".";
+
+	this->getHitBy(other);
+    if (this->isDead())
+    	std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP() <<".";
+
+	double acdthis = this->getAcd();
+	double acdother = other->getAcd();
+	std::string lastname = other->getName();
+
+	while(!this->isDead() && !other->isDead())
+	{
+		if(acdthis == acdother)
+		{
+			if (lastname == this->getName())
+			{
+				other->getHitBy(this);
+				if(other->isDead())
+				{
+					std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP()<<".";
+				}
+				else
+				{
+					this->getHitBy(other);
+            		if (this->isDead())
+                		std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP() <<".";
+				}
+				acdthis = this->getAcd();
+				acdother = other->getAcd();
+				lastname = other->getName();
+			}
+			else
+			{
+				this->getHitBy(other);
+				if(this->isDead())
+				{
+					std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP()<<".";
+				}
+				else
+				{
+					other->getHitBy(this);
+            		if (other->isDead())
+                		std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP() <<".";
+				}
+				acdthis = this->getAcd();
+				acdother = other->getAcd();
+				lastname = this->getName();
+			}	
+		}
+		else if((acdthis - acdother) < 0)
+		{
+			other->getHitBy(this);
+			if (other->isDead())
+                std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP() <<".";
+			acdother -= acdthis;
+			lastname = this->getName();
+			acdthis = this->getAcd();
+		}
+		else 
+		{
+			this->getHitBy(other);
+			if(this->isDead())
+				std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP()<<".";
+			acdthis -= acdother;
+			acdother = other->getAcd();
+			lastname = other->getName();
+		}
+	}
+}
