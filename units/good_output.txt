@@ -1,6 +1,6 @@
-Hunkrow wins. Remaining hp: 500.
-Maytcreme wins. Remaining hp: 2000.
-Kakazhom wins. Remaining hp: 2200.
-Maytcreme wins. Remaining hp: 2500.
-Maytcreme wins. Remaining hp: 4800.
-Maytcreme wins. Remaining hp: 5000.
+Kakazhom wins. Remaining hp: 10600.
+Hunkrow wins. Remaining hp: 3200.
+Kakazhom wins. Remaining hp: 10600.
+Kakazhom wins. Remaining hp: 11300.
+Hunkrow wins. Remaining hp: 3200.
+Kakazhom wins. Remaining hp: 11300.
