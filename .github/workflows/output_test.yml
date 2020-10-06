@@ -1,4 +1,4 @@
-name: outputtest workflow
+name: Tests workflow
 
 on:
   push
@@ -11,7 +11,7 @@ jobs:
       - name: Build
         run: g++ -std=c++17 *.cpp
       - name: Run output test
-        run: run_test.sh
+        run: ./run_test.sh
       - name: Diff
         run: diff test/output.txt test/units/good_output.txt
       - name: Run parser test
