@@ -57,64 +57,48 @@ void Unit::fight(Unit *other) {
 
 	double acdthis = this->getAcd();
 	double acdother = other->getAcd();
-	std::string lastname = other->getName();
+	Unit* last = other;
 
 	while(!this->isDead() && !other->isDead())
 	{
 		if(acdthis == acdother)
 		{
-			if (lastname == this->getName())
+			if (last->getName() == this->getName())
 			{
 				other->getHitBy(this);
-				if(other->isDead())
-				{
-					std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP()<<".";
-				}
-				else
-				{
+				if(!other->isDead())
 					this->getHitBy(other);
-            		if (this->isDead())
-                		std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP() <<".";
-				}
 				acdthis = this->getAcd();
 				acdother = other->getAcd();
-				lastname = other->getName();
+				last = other;
 			}
 			else
 			{
 				this->getHitBy(other);
-				if(this->isDead())
-				{
-					std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP()<<".";
-				}
-				else
-				{
+				if(!this->isDead())
 					other->getHitBy(this);
-            		if (other->isDead())
-                		std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP() <<".";
-				}
 				acdthis = this->getAcd();
 				acdother = other->getAcd();
-				lastname = this->getName();
+				last = this;
 			}	
 		}
 		else if((acdthis - acdother) < 0)
 		{
 			other->getHitBy(this);
-			if (other->isDead())
-                std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP() <<".";
 			acdother -= acdthis;
-			lastname = this->getName();
 			acdthis = this->getAcd();
+			last = this;
 		}
 		else 
 		{
 			this->getHitBy(other);
-			if(this->isDead())
-				std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP()<<".";
 			acdthis -= acdother;
 			acdother = other->getAcd();
-			lastname = other->getName();
+			last = other;
 		}
+		if(this->isDead())
+			std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP()<<".";
+		if(other->isDead())
+			std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP()<<".";
 	}
 }
