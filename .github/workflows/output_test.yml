@@ -13,6 +13,6 @@ jobs:
       - name: Run output test
         run: ./run_test.sh
       - name: Diff
-        run: diff test/output.txt test/units/good_output.txt
+        run: diff output.txt test/units/good_output.txt
       - name: Run parser test
         run: test/parserTest
