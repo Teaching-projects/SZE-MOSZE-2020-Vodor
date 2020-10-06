@@ -95,10 +95,7 @@ void Unit::fight(Unit *other) {
 			acdthis -= acdother;
 			acdother = other->getAcd();
 			last = other;
-		}
-		if(this->isDead())
-			std::cout << other->getName() << " wins." << " Remaining hp: "<< other->getHP()<<".";
-		if(other->isDead())
-			std::cout << this->getName() << " wins." << " Remaining hp: "<< this->getHP()<<".";
+		}		
 	}
+	std::cout << last->getName() << " wins." << " Remaining hp: "<< last->getHP()<<".";
 }
