@@ -8,11 +8,16 @@ class Unit
 private:
 	const std::string b_name;
 	int b_hP;
-	const int b_dmg;
-	friend class Game;
-protected:
-	void getHitBy(const Unit *other);
+	int b_dmg;
+	int b_maxHp;
+	int b_level;
+	int b_xp; 
+	void levelup();
+public:
+	void getHitBy(Unit *other);
 	int getHP() const { return b_hP; }
+	int getXp() const { return b_xp; }
+	int getLevel() const {return b_level; }
 	std::string getName() const { return b_name; }
 	int getDmg() const { return b_dmg; }
 	bool isDead() const;
