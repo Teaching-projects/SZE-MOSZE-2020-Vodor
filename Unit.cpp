@@ -30,13 +30,15 @@ Unit* Unit::parseUnit(const std::string& fname){
 }
 
 void Unit::levelup(){
-	if (b_xp >= 100){
+	while (b_xp >= 100){		
 		b_maxHp *= 1.1;
 		b_hP = b_maxHp;
 		b_dmg *= 1.1;
-		b_xp = 0;
+		b_xp -= 100;
 		b_level++;
 	}
+	if(b_xp < 0)
+		b_xp =0;
 }
 
 void Unit::getHitBy(Unit *other) {
