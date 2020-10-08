@@ -12,3 +12,7 @@ void Game::runGame() {
         }
     }
 }
+
+Game::~Game(){
+    delete u1, u2;
+}

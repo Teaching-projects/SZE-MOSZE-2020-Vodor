@@ -21,6 +21,6 @@ public:
 	std::string getName() const { return b_name; }
 	int getDmg() const { return b_dmg; }
 	bool isDead() const;
-	Unit(const std::string& name, int hP, int dmg) : b_name(name), b_hP(hP), b_dmg(dmg) {}
+	Unit(const std::string& name, int hP, int dmg) : b_name(name), b_hP(hP), b_dmg(dmg), b_maxHp(hP), b_xp(0), b_level(1) {}
 	static Unit* parseUnit(const std::string& fname);
 };
