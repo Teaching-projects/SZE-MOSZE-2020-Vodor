@@ -63,7 +63,7 @@ void Unit::fight(Unit *other) {
 	{
 		if(acdthis == acdother)
 		{
-			if (last->getName() == this->getName())
+			if (last == this)
 			{
 				other->getHitBy(this);
 				if(!other->isDead())
