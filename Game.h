@@ -7,11 +7,11 @@
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 3.0
+ * \version 3.1
  * 
- * \date 2020/10/08 20:41
+ * \date 2020/10/10 12:33
  * 
- * Created on 2020/10/08 20:41
+ * Created on 2020/10/10 12:33
  */
 
 #include "Unit.h"
@@ -29,7 +29,7 @@ public:
     *  \param argv [in] karaktertípusú tömb az argumentumokkal  
     */
     Game(char** argv) : u1(Unit::parseUnit(argv[1])), u2(Unit::parseUnit(argv[2])) { }
-    /// Game osztály destruktora
+    /// Game osztály destruktora.
     ~Game();
     /// A runGame függvény lefuttatja a csatát.
     void runGame();
