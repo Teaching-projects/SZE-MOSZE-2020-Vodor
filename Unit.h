@@ -44,7 +44,7 @@ private:
 	friend class Game;
 protected:
 	/// A fight függvény levezényli a csatát és a végén kiírja a győztest. 
-	void fight(Unit *other /** [in] ellenfél karakter Unit */);
+	Unit* fight(Unit *other /** [in] ellenfél karakter Unit */);
 	/*! \brief Unit konstruktor
  	*         
  	*  
