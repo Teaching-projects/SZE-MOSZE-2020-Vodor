@@ -21,3 +21,6 @@ Ez az osztály a program lefutását vezényeli le. 2 adattagot tartalmaz:
 
 Ezenfelül 1 darab függvény van az osztályban. 
 * **runGame()**: levezényli a játékot
+
+### Documentation
+https://teaching-projects.github.io/SZE-MOSZE-2020-Vodor/
