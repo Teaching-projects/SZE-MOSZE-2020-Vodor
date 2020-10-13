@@ -61,7 +61,7 @@ TEST(parserTest, test_string){
 TEST(parserTest, wrongJsonFile){
     Parser p;
     const std::string expectedError = "Error in file: incorrect value.";
-    const std::string fname = "test/units/wrongUnit.json";
+    const std::string fname = "test/wrongUnit.json";
     std::ifstream jsonFile;
     jsonFile.open(fname);
     try{
