@@ -1,0 +1,27 @@
+name: test workflow
+
+on:
+  push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install
+        run: sudo apt-get install -y valgrind cppcheck
+      - name: Cppcheck warning
+        run: cppcheck *.cpp --enable=warning --error-exitcode=1
+      - name: Upload CPPCheck report
+        run: cppcheck *.cpp --enable=all --output-file=cppreport.txt
+      - uses: actions/upload-artifact@v2
+        with:
+          path: ./cppreport.txt
+      - name: Build
+        run: g++ -Wall -Werror -std=c++17 *.cpp
+      - name: Memory check
+        run: valgrind --error-exitcode=1 ./a.out
+      - name: Run test
+        run: ./run_test.sh
+      - name: Diff
+        run: diff output.txt units/good_output.txt
