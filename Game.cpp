@@ -14,5 +14,6 @@ void Game::runGame() {
 }
 
 Game::~Game(){
-    delete u1, u2;
+    delete u1;
+    delete u2;
 }

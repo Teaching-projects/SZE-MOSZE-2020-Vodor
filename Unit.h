@@ -5,14 +5,6 @@
 
 class Unit
 {
-private:
-	const std::string b_name;
-	int b_hP;
-	int b_dmg;
-	int b_maxHp;
-	int b_level;
-	int b_xp; 
-	void levelup();
 public:
 	void getHitBy(Unit *other);
 	int getHP() const { return b_hP; }
@@ -23,4 +15,13 @@ public:
 	bool isDead() const;
 	Unit(const std::string& name, int hP, int dmg) : b_name(name), b_hP(hP), b_dmg(dmg), b_maxHp(hP), b_xp(0), b_level(1) {}
 	static Unit* parseUnit(const std::string& fname);
+
+private:
+	const std::string b_name;
+	int b_hP;
+	int b_dmg;
+	int b_maxHp;
+	int b_level;
+	int b_xp; 
+	void levelup();
 };
