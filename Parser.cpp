@@ -1,6 +1,41 @@
 #include "Parser.h"
 
-const std::map <std::string, std::string> Parser::parseJson(std::string json) {
+const std::map <std::string, std::string> Parser::parseFromString(std::string inputString){
+    static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\w\\.]*)\"?\\s*[,}]\\s*");
+    std::smatch matches;
+    std::map<std::string,std::string> attributes;
+    std::string errMsg;
+    if (inputString.substr(0,1) != "{"){
+        errMsg = "Error in file: missing { from the top.";
+        throw errMsg; 
+    }
+    else if (inputString.substr(inputString.size()-1, inputString.size()) != "}"){
+        errMsg = "Error in file: missing } from the bottom.";
+        throw errMsg; 
+    }
+
+    while(std::regex_search(inputString, matches, parseRegex)){
+        if (matches[1] == "") {
+            errMsg = "Error in file: incorrect key.";
+            throw errMsg; 
+        }
+
+        else if (matches[2] == "") {
+            errMsg = "Error in file: incorrect value.";
+            throw errMsg; 
+        }
+
+        else
+        {
+            attributes[matches[1]] = matches[2];
+            inputString = matches.suffix().str();
+        }            
+    }
+        return attributes;
+}
+
+
+const std::map <std::string, std::string> Parser::parseJson(const std::string& json) {
     static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\w\\.]*)\"?\\s*[,}]\\s*");
     std::smatch matches;
     std::map<std::string,std::string> attributes;
@@ -18,15 +53,8 @@ const std::map <std::string, std::string> Parser::parseJson(std::string json) {
            return attributes;
         }
     }
-    else
-    {
-        while(std::regex_search(json, matches, parseRegex))
-        {
-            attributes[matches[1]] = matches[2];
-            json = matches.suffix().str();
-        }
-        return attributes;
-    }
+    else return parseFromString(json);
+    
 }
 
 const std::map <std::string, std::string> Parser::parseJson(std::istream& jsonFile) {
@@ -36,5 +64,5 @@ const std::map <std::string, std::string> Parser::parseJson(std::istream& jsonFi
     while (getline(jsonFile, jsonLine))
         json += jsonLine;
 
-    return parseJson(json);
+    return parseFromString(json);
 }

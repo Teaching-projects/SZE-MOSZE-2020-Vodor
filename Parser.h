@@ -5,7 +5,9 @@
 
 class Parser
 {
+private:
+    static const std::map <std::string, std::string> parseFromString(std::string inputString);
 public:
-    const std::map <std::string, std::string> parseJson(std::string json);
-    const std::map <std::string, std::string> parseJson(std::istream& jsonFile);
+    static const std::map <std::string, std::string> parseJson(const std::string& json);
+    static const std::map <std::string, std::string> parseJson(std::istream& jsonFile);
 };
