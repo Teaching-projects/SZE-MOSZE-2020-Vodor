@@ -9,7 +9,7 @@ const std::map <std::string, std::string> Parser::parseFromString(std::string in
         errMsg = "Error in file: missing { from the top.";
         throw errMsg; 
     }
-    else if (inputString.substr(inputString.size()-1, inputString.size()) != "}"){
+    else if (inputString.substr(inputString.size()-1, 1) != "}"){
         errMsg = "Error in file: missing } from the bottom.";
         throw errMsg; 
     }
@@ -36,7 +36,6 @@ const std::map <std::string, std::string> Parser::parseFromString(std::string in
 
 
 const std::map <std::string, std::string> Parser::parseJson(const std::string& json) {
-    static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\w\\.]*)\"?\\s*[,}]\\s*");
     std::smatch matches;
     std::map<std::string,std::string> attributes;
 
