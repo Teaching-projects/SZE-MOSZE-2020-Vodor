@@ -69,8 +69,8 @@ Unit* Unit::fight(Unit *other) {
 		return this;
 
 	this->getHitBy(other);
-    if (this->isDead())
-    	return other;
+    	if (this->isDead())
+    		return other;
 
 	double acdthis = this->getAcd();
 	double acdother = other->getAcd();
