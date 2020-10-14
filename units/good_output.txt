@@ -1,6 +1,6 @@
-Kakazhom wins. Remaining hp: 16034. XP: 62. Level: 50.
-Hunkrow wins. Remaining hp: 617. XP: 57. Level: 13.
-Kakazhom wins. Remaining hp: 8227. XP: 76. Level: 43.
-Kakazhom wins. Remaining hp: 200. XP: 0. Level: 4.
-Hunkrow wins. Remaining hp: 622. XP: 38. Level: 13.
-Kakazhom wins. Remaining hp: 200. XP: 0. Level: 4.
+Kakazhom wins. Remaining hp: 10600.
+Hunkrow wins. Remaining hp: 3200.
+Kakazhom wins. Remaining hp: 10600.
+Kakazhom wins. Remaining hp: 11300.
+Hunkrow wins. Remaining hp: 3200.
+Kakazhom wins. Remaining hp: 11300.

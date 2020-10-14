@@ -1,5 +1,6 @@
 {
     "name" : "Hunkrow",
     "hp" : 200,
-    "dmg" : 11
+    "dmg" : 11,
+    "attackcooldown" : 12.123
 }
