@@ -64,6 +64,9 @@ bool Unit::isDead() const {
 }
 
 Unit* Unit::fight(Unit *other) {
+	if(this->isDead()) return other;
+	if(other->isDead()) return this;
+	
 	other->getHitBy(this);
 	if(other->isDead())
 		return this;
