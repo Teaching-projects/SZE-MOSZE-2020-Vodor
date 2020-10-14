@@ -33,25 +33,22 @@ void Unit::levelup(){
 	while (b_xp >= 100){		
 		b_maxHp *= 1.1;
 		b_hP = b_maxHp;
-		b_dmg *= 1.1;
+		b_dmg = round((b_dmg*1.1));
 		b_xp -= 100;
 		b_level++;
 	}
-	if(b_xp < 0)
-		b_xp =0;
 }
 
 void Unit::getHitBy(Unit *other) {
 	if (b_hP - other->getDmg() > 0) {
 		other->b_xp += other->getDmg();
 		b_hP -= other->getDmg();
-		other->levelup();
 	}
 	else { 
 		other->b_xp += b_hP;
 		b_hP = 0;
-		other->levelup();
 	}
+	other->levelup();
 }
 
 bool Unit::isDead() const {
