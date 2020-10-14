@@ -19,7 +19,7 @@
 class Game
 {
 private:
-    Unit *u1, *u2, *winner;
+    Unit *u1, *u2;
 public:
     /*! \brief Game konstruktor
     *         
@@ -28,7 +28,7 @@ public:
     *  
     *  \param argv [in] karaktertípusú tömb az argumentumokkal  
     */
-    Game(char** argv) : u1(Unit::parseUnit(argv[1])), u2(Unit::parseUnit(argv[2])), winner(new Unit("winner",0,0,0.0)) { }
+    Game(char** argv) : u1(Unit::parseUnit(argv[1])), u2(Unit::parseUnit(argv[2])) { }
     /// Game osztály destruktora.
     ~Game();
     /// A runGame függvény lefuttatja a csatát.
