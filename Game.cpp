@@ -1,8 +1,7 @@
 #include "Game.h"
 
 void Game::runGame() {
-    u1 = u1->fight(u2);
-    std::cout << u1->getName() << " wins." << " Remaining hp: "<< u1->getHP()<<".";
+    std::cout << u1->fight(u2)->getName() << " wins." << " Remaining hp: "<< u1->fight(u2)->getHP()<<".";
 }
 
 Game::~Game(){
