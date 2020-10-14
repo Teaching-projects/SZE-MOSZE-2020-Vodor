@@ -40,6 +40,10 @@ public:
 	Unit(const std::string& name, int hP, int dmg, double acd) : b_name(name), b_hP(hP), b_dmg(dmg), b_acd(acd), b_maxHp(hP), b_xp(0), b_level(1) {}
 	/// Ez a függvény a .json file parse-olja. 
 	static Unit* parseUnit(const std::string& fname/** [in] elérési út */);
+	/// Ez a függvény visszaadja a karakter életerejét.
+	int getHP() const { return b_hP; }
+	/// Ez a függvény visszaadja a karakter nevét.
+	std::string getName() const { return b_name; }
 private:
 	const std::string b_name;  ///< A karakter neve. 
 	int b_hP; ///< A karakter életereje.
@@ -56,10 +60,6 @@ private:
 	int getDmg() const { return b_dmg; }
 	/// Ez a függvény visszaadja a karakter támadási idejét.
 	double getAcd() const { return b_acd; } 
-	/// Ez a függvény visszaadja a karakter életerejét.
-	int getHP() const { return b_hP; }
-	/// Ez a függvény visszaadja a karakter nevét.
-	std::string getName() const { return b_name; }
 	int getXp() const { return b_xp; }
 	int getLevel() const { return b_level; }
 	/// Ez a függvény visszaadja a karakter meghalt-e.
