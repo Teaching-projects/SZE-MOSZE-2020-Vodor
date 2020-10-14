@@ -43,6 +43,7 @@ void Unit::levelup(){
 		b_dmg *= 1.1;
 		b_xp -= 100;
 		b_level++;
+		b_acd *= 0.9;
 	}
 }
 
