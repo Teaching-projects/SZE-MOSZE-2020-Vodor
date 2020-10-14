@@ -31,9 +31,9 @@ Unit* Unit::parseUnit(const std::string& fname){
 
 void Unit::levelup(){
 	while (b_xp >= 100){		
-		b_maxHp *= 1.1;
+		b_maxHp = round((b_maxHp*1.1));
 		b_hP = b_maxHp;
-		b_dmg = round((b_dmg*1.1));
+		b_dmg *= 1.1;
 		b_xp -= 100;
 		b_level++;
 	}
