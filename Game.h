@@ -19,7 +19,7 @@
 class Game
 {
 private:
-    Unit *u1, *u2;
+    Unit *u1, *u2, *winner;
 public:
     /*! \brief Game konstruktor
     *         
