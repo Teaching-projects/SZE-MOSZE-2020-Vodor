@@ -1,4 +1,5 @@
 #include "Unit.h"
+#include <cmath>
 
 Unit* Unit::parseUnit(const std::string& fname){
 	std::string name;
