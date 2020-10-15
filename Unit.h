@@ -8,11 +8,11 @@
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 3.1
+ * \version 3.2
  * 
- * \date 2020/10/10 12:33
+ * \date 2020/10/15 17:05
  * 
- * Created on 2020/10/10 12:33
+ * Created on 2020/10/15 17:05
  */
 
 
@@ -40,16 +40,18 @@ public:
 	int getHP() const { return b_hP; }
 	/// Ez a függvény visszaadja a karakter nevét.
 	std::string getName() const { return b_name; }
+
 private:
 	const std::string b_name;  ///< A karakter neve. 
 	int b_hP; ///< A karakter életereje.
 	int b_dmg; ///< A karakter támadási ereje.
 	double b_acd; ///< Karakter támadási ideje.
-	int b_maxHp;
-	int b_xp;
-	int b_level;
-	void levelup();
+	int b_maxHp; ///< Karakter maximális életereje.
+	int b_xp; ///< Karakter fejlődési pont.
+	int b_level; ///< Karakter szintje.
 
+	/// Ez a függvény ellenőrzi/végzi a szintlépést.
+	void levelup();
 	/// Ez a függvény sebzést oszt ki a karakterre.
 	void getHitBy(Unit *other /** [in] ellenfél karakter Unit */ );
 	/// Ez a függvény visszaadja a karakter támadási erejét.

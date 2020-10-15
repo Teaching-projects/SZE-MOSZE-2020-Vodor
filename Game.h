@@ -7,11 +7,11 @@
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 3.1
+ * \version 3.2
  * 
- * \date 2020/10/10 12:33
+ * \date 2020/10/15 17:05
  * 
- * Created on 2020/10/10 12:33
+ * Created on 2020/10/15 17:05
  */
 
 #include "Unit.h"

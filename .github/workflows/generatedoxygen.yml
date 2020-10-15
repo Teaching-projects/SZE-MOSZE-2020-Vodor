@@ -3,7 +3,7 @@ name: generatedoxygen
 on:
   push:	
     branches:	
-      - attackspeed
+      - levelup
       - gh-pages
 
 jobs:
