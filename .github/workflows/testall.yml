@@ -20,7 +20,7 @@ jobs:
       - name: Build
         run: g++ -Wall -Werror -std=c++17 *.cpp
       - name: Memory check
-        run: valgrind --error-exitcode=1 ./a.out units/unit1.json units/unit2.json
+        run: valgrind --error-exitcode=1 --leak-check=full ./a.out units/unit1.json units/unit2.json
       - name: Run test
         run: ./run_test.sh
       - name: Diff
