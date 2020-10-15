@@ -1,5 +1,6 @@
 {
     "name" : "Kakazhom",
     "hp" : 33000,
-    "dmg" : 2500
+    "dmg" : 2500,
+    "attackcooldown" : 8.63
 }

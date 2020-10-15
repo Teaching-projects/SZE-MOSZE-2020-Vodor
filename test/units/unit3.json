@@ -1,5 +1,6 @@
 {
     "name" : "Maytcreme",
     "hp" : 30000,
-    "dmg" : 3100
+    "dmg" : 3100,
+    "attackcooldown" : 15.34
 }
