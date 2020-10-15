@@ -6,8 +6,8 @@ Unit* Unit::parseUnit(const std::string& fname) {
 	if (attributes.find("name") != attributes.end() && 
 		attributes.find("hp") != attributes.end() &&
 		attributes.find("dmg") != attributes.end() &&
-		attributes.find("attackspeed") != attributes.end()) 
-			return new Unit(attributes["name"], stoi(attributes["hp"]), stoi(attributes["dmg"], stod(attributes["attackspeed"])));
+		attributes.find("attackcooldown") != attributes.end()) 
+			return new Unit(attributes["name"], stoi(attributes["hp"]), stoi(attributes["dmg"]), stod(attributes["attackcooldown"]));
 	else throw "Incorrect attributes in " + fname + "!";
 }
 
