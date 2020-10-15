@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <iostream>
 
 void Game::runGame() {
     u1 = u1->fight(u2);
