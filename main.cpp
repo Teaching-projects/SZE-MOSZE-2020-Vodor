@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <iostream>
 
 /*
 	Szechenyi Istvan Egyetem - MOSZE 2020 - Vodor
