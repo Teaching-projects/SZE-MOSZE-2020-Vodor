@@ -7,8 +7,8 @@ TEST(parserTest, test_iostream){
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Hunkrow"},
-        {"hp", "28000"},
-        {"dmg", "2800"}};                       
+        {"hp", "200"},
+        {"dmg", "11"}};                       
     std::ifstream jsonFile;
     jsonFile.open("test/units/unit1.json");
     outputMap = p.parseJson(jsonFile);
@@ -23,8 +23,8 @@ TEST(parserTest, test_filename){
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Kakazhom"},
-        {"hp", "33000"},
-        {"dmg", "2500"}};                       
+        {"hp", "150"},
+        {"dmg", "15"}};                       
     std::string fname = "test/units/unit2.json";
     outputMap = p.parseJson(fname);
 
@@ -38,8 +38,8 @@ TEST(parserTest, test_string){
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Maytcreme"},
-        {"hp", "30000"},
-        {"dmg", "3100"}};             
+        {"hp", "300"},
+        {"dmg", "5"}};             
               
     std::string fname = "test/units/unit3.json";
     std::ifstream jsonFile;
