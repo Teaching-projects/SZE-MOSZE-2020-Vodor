@@ -1,6 +1,6 @@
-Kakazhom wins. Remaining hp: 10600.
-Hunkrow wins. Remaining hp: 3200.
-Kakazhom wins. Remaining hp: 10600.
-Kakazhom wins. Remaining hp: 11300.
-Hunkrow wins. Remaining hp: 3200.
-Kakazhom wins. Remaining hp: 11300.
+Kakazhom wins. Remaining hp: 182.
+Hunkrow wins. Remaining hp: 266.
+Kakazhom wins. Remaining hp: 182.
+Kakazhom wins. Remaining hp: 200.
+Hunkrow wins. Remaining hp: 266.
+Kakazhom wins. Remaining hp: 200.

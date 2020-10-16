@@ -1,4 +1,6 @@
 #include "Unit.h"
+#include <cmath>
+#include <fstream>
 
 Unit* Unit::parseUnit(const std::string& fname) {
 	Parser p;
@@ -11,10 +13,27 @@ Unit* Unit::parseUnit(const std::string& fname) {
 	else throw "Incorrect attributes in " + fname + "!";
 }
 
-void Unit::getHitBy(const Unit *other) {
-	if (b_hP - other->getDmg() > 0)
+void Unit::levelup(){
+	while (b_xp >= 100){		
+		b_maxHp = round((b_maxHp*1.1));
+		b_hP = b_maxHp;
+		b_dmg *= 1.1;
+		b_xp -= 100;
+		b_level++;
+		b_acd *= 0.9;
+	}
+}
+
+void Unit::getHitBy(Unit *other) {
+	if (b_hP - other->getDmg() > 0) {
+		other->b_xp += other->getDmg();
 		b_hP -= other->getDmg();
-	else b_hP = 0;
+	}
+	else { 
+		other->b_xp += b_hP;
+		b_hP = 0;
+	}
+	other->levelup();
 }
 
 bool Unit::isDead() const {
@@ -22,16 +41,16 @@ bool Unit::isDead() const {
 }
 
 Unit* Unit::fight(Unit *other) {
-	if(this->isDead())	return other;
-	if(other->isDead())	return this;
-
+	if(this->isDead()) return other;
+	if(other->isDead()) return this;
+	
 	other->getHitBy(this);
 	if(other->isDead())
 		return this;
 
 	this->getHitBy(other);
-    if (this->isDead())
-    	return other;
+    	if (this->isDead())
+    		return other;
 
 	double acdthis = this->getAcd();
 	double acdother = other->getAcd();
