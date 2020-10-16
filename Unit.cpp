@@ -1,10 +1,10 @@
 #include "Unit.h"
 #include <cmath>
 #include <fstream>
+#include <map>
 
 Unit* Unit::parseUnit(const std::string& fname) {
-	Parser p;
-	std::map<std::string, std::string> attributes = p.parseJson(fname);
+	std::map<std::string, std::string> attributes = Parser::parseJson(fname);
 	if (attributes.find("name") != attributes.end() && 
 		attributes.find("hp") != attributes.end() &&
 		attributes.find("dmg") != attributes.end() &&
