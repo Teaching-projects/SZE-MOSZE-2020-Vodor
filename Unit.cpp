@@ -1,41 +1,16 @@
 #include "Unit.h"
 #include <cmath>
 #include <fstream>
+#include <map>
 
-Unit* Unit::parseUnit(const std::string& fname){
-	std::string name;
-	int hp, dmg;
-	double acd;
-	std::ifstream file;  
-	file.open(fname);
-    if (file.fail()) throw fname + " does not exist.";
-    else
-    {
-		std::string line, sbstr;
-		std::string parseS = " : ";
-		while (std::getline(file, line)){
-			if (line.find("name") != std::string::npos){
-				name = line.substr(line.find(parseS)+1);
-				name = name.substr(name.find('"')+1,name.find_last_of('"')-3);
-			}
-			else if (line.find("hp") != std::string::npos){
-				sbstr = line.substr(line.find(parseS)+3);
-				hp = std::stoi(sbstr.substr(0,sbstr.find(",")));
-			}
-			else if (line.find("dmg") != std::string::npos){
-				sbstr = line.substr(line.find(parseS)+3);
-				dmg = std::stoi(sbstr.substr(0,sbstr.find(",")));
-			}
-			else if (line.find("attackcooldown") != std::string::npos)
-			{
-				sbstr = line.substr(line.find(parseS)+3);
-				acd = std::stod(sbstr);
-			}
-			
-		}
-	    file.close();
-        return new Unit(name,hp, dmg, acd);
-    }
+Unit* Unit::parseUnit(const std::string& fname) {
+	std::map<std::string, std::string> attributes = Parser::parseJson(fname);
+	if (attributes.find("name") != attributes.end() && 
+		attributes.find("hp") != attributes.end() &&
+		attributes.find("dmg") != attributes.end() &&
+		attributes.find("attackcooldown") != attributes.end()) 
+			return new Unit(attributes["name"], stoi(attributes["hp"]), stoi(attributes["dmg"]), stod(attributes["attackcooldown"]));
+	else throw "Incorrect attributes in " + fname + "!";
 }
 
 void Unit::levelup(){
