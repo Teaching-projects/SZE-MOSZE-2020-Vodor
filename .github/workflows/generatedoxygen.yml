@@ -13,14 +13,13 @@ jobs:
     runs-on: ubuntu-latest    
     steps:
     - uses: actions/checkout@master
-    
-    - run: sudo apt-get install doxygen
-    - run: sudo apt-get install graphviz
-    - run: doxygen doxconf
-
+    - name: Install dependencies
+      run: sudo apt-get install doxygen && sudo apt-get install graphviz
+    - name: Run doxygen
+      run: make doxygen
     - name: Push git subdirectory as branch
       uses: s0/git-publish-subdir-action@v2.4.0
-
+    
       env:
         REPO: self
         BRANCH: gh-pages

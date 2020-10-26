@@ -39,3 +39,6 @@ valgrind:
 diff:
 	./run_test.sh /
 	diff $(DIFFOBJS)
+
+doxygen:
+	doxygen doxconf
