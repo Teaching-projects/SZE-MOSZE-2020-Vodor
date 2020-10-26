@@ -12,6 +12,7 @@ DIFFOBJS := output.txt test/units/good_output.txt
 CMAKEOBJ := CMakeLists.txt
 SUBDIR := test
 
+.PHONY: cppcheck cppcheckup valgrind diff doxygen buildunittest unittest
 all: runGame cppcheck cppcheckup valgrind diff
 
 runGame: $(OBJS)
