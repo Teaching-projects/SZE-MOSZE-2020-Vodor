@@ -18,9 +18,9 @@ jobs:
         with:
           path: ./cppreport.txt
       - name: Build
-        run: g++ -Wall -Werror -std=c++17 *.cpp
+        run: make
       - name: Memory check
-        run: valgrind --error-exitcode=1 --leak-check=full ./a.out test/units/unit1.json test/units/unit2.json
+        run: valgrind --error-exitcode=1 --leak-check=full ./runGame test/units/unit1.json test/units/unit2.json
       - name: Run test
         run: ./run_test.sh
       - name: Diff
