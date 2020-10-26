@@ -8,8 +8,9 @@ CPPCHCKFLAGS := --enable=warning --error-exitcode=1
 CPPCHCKUPFLAGS := --enable=all --output-file=cppreport.txt
 VALGRINDOBJS := ./runGame test/units/unit1.json test/units/unit2.json 
 VALGRINDFLAGS := --error-exitcode=1 --leak-check=full
+DIFFOBJS := output.txt test/units/good_output.txt
 
-all: runGame cppcheck cppcheckup valgrind
+all: runGame cppcheck cppcheckup valgrind diff
 
 runGame: $(OBJS)
 	$(RUN) $(CFLAGS) -o runGame $(OBJS)
@@ -34,3 +35,7 @@ cppcheckup:
 
 valgrind: 
 	valgrind $(VALGRINDFLAGS) $(VALGRINDOBJS)
+
+diff:
+	./run_test.sh /
+	diff $(DIFFOBJS)
