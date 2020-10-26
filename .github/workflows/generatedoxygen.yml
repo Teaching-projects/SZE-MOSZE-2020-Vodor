@@ -3,7 +3,7 @@ name: generatedoxygen
 on:
   push:	
     branches:	
-      - master
+      - documentation
       - gh-pages
 
 jobs:
