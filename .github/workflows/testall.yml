@@ -15,7 +15,3 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           path: ./cppreport.txt
-      - name: Run test
-        run: ./run_test.sh
-      - name: Diff
-        run: diff output.txt test/units/good_output.txt
