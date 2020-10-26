@@ -9,7 +9,7 @@ for file1 in test/units/*.json; do
     for file2 in test/units/*.json; do
         if [ $file1 != $file2 ]
         then
-            ./a.out $file1 $file2 >> output.txt
+            ./runGame $file1 $file2 >> output.txt
             echo >> output.txt
         fi
     done
