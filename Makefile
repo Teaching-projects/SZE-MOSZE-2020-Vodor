@@ -6,8 +6,10 @@ CPPCHCK := cppcheck
 CPPCHCKOBJS := Parser.cpp Game.cpp Unit.cpp main.cpp
 CPPCHCKFLAGS := --enable=warning --error-exitcode=1
 CPPCHCKUPFLAGS := --enable=all --output-file=cppreport.txt
+VALGRINDOBJS := ./runGame test/units/unit1.json test/units/unit2.json 
+VALGRINDFLAGS := --error-exitcode=1 --leak-check=full
 
-all: runGame cppcheck cppcheckup
+all: runGame cppcheck cppcheckup valgrind
 
 runGame: $(OBJS)
 	$(RUN) $(CFLAGS) -o runGame $(OBJS)
@@ -29,3 +31,6 @@ cppcheck:
 
 cppcheckup:
 	$(CPPCHCK) $(CPPCHCKOBJS) $(CPPCHCKUPFLAGS)
+
+valgrind: 
+	valgrind $(VALGRINDFLAGS) $(VALGRINDOBJS)
