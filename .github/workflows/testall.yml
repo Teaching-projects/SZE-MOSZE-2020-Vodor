@@ -15,9 +15,6 @@ jobs:
       - uses: actions/upload-artifact@v2
         with:
           path: ./cppreport.txt
-
-      - name: Memory check
-        run: valgrind --error-exitcode=1 --leak-check=full ./runGame test/units/unit1.json test/units/unit2.json
       - name: Run test
         run: ./run_test.sh
       - name: Diff
