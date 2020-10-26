@@ -8,17 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install
+      - name: Install dependencies for valgrind and cppcheck
         run: sudo apt-get install -y valgrind cppcheck
-      - name: Cppcheck warning
-        run: cppcheck *.cpp --enable=warning --error-exitcode=1
-      - name: Upload CPPCheck report
-        run: cppcheck *.cpp --enable=all --output-file=cppreport.txt
+      - name: Run makefile
+        run: make all
       - uses: actions/upload-artifact@v2
         with:
           path: ./cppreport.txt
-      - name: Build
-        run: make
+
       - name: Memory check
         run: valgrind --error-exitcode=1 --leak-check=full ./runGame test/units/unit1.json test/units/unit2.json
       - name: Run test
