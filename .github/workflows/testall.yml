@@ -12,7 +12,7 @@ jobs:
       - name: Install dependencies for valgrind
         run: sudo apt-get install -y valgrind cppcheck
       - name: run Makefile
-        run: make all
+        run: make tests
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:

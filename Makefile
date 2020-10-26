@@ -14,7 +14,7 @@ SUBDIR := test
 
 .DEFAULT_GOAL: runGame
 .PHONY: cppcheck cppcheckup valgrind diff doxygen buildunittest unittest
-all: runGame cppcheck cppcheckup valgrind diff
+tests: runGame cppcheck cppcheckup valgrind diff
 
 runGame: $(OBJS)
 	$(RUN) $(CFLAGS) -o runGame $(OBJS)
