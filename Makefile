@@ -13,8 +13,8 @@ CMAKEOBJ := CMakeLists.txt
 SUBDIR := test
 
 .DEFAULT_GOAL: runGame
-all: cppcheck cppcheckup valgrind diff
-.PHONY: all doxygen buildunittest unittest
+.PHONY: cppcheck cppcheckup valgrind diff doxygen buildunittest unittest
+all: runGame cppcheck cppcheckup valgrind diff
 
 runGame: $(OBJS)
 	$(RUN) $(CFLAGS) -o runGame $(OBJS)
