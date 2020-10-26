@@ -9,6 +9,8 @@ CPPCHCKUPFLAGS := --enable=all --output-file=cppreport.txt
 VALGRINDOBJS := ./runGame test/units/unit1.json test/units/unit2.json 
 VALGRINDFLAGS := --error-exitcode=1 --leak-check=full
 DIFFOBJS := output.txt test/units/good_output.txt
+CMAKEOBJ := CMakeLists.txt
+SUBDIR := test
 
 all: runGame cppcheck cppcheckup valgrind diff
 
@@ -42,3 +44,10 @@ diff:
 
 doxygen:
 	doxygen doxconf
+
+buildunittest:
+	cmake $(SUBDIR)/$(CMAKEOBJ) /
+	$(MAKE) -C $(SUBDIR)
+
+unittest: buildunittest
+	$(SUBDIR)/parserTest
