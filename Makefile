@@ -19,17 +19,17 @@ tests: runGame cppcheck cppcheckup valgrind diff
 runGame: $(OBJS)
 	$(RUN) $(CFLAGS) -o runGame $(OBJS)
 
-Parser.o: Parser.cpp
-	$(RUN) $(CFLAGS) -c Parser.cpp Parser.h
+Parser.o: Parser.cpp Parser.h
+	$(RUN) $(CFLAGS) -c Parser.cpp
+	
+Game.o: Game.cpp Game.h
+	$(RUN) $(CFLAGS) -c Game.cpp
 
-Game.o: Game.cpp
-	$(RUN) $(CFLAGS) -c Game.cpp Game.h
+Unit.o: Unit.cpp Unit.h
+	$(RUN) $(CFLAGS) -c Unit.cpp
 
-Unit.o: Unit.cpp
-	$(RUN) $(CFLAGS) -c Unit.cpp Unit.h
-
-main.o: main.cpp
-	$(RUN) $(CFLAGS) -c main.cpp Game.h
+main.o: main.cpp Game.h
+	$(RUN) $(CFLAGS) -c main.cpp
 
 cppcheck:
 	$(CPPCHCK) $(CPPCHCKOBJS) $(CPPCHCKFLAGS)  
