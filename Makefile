@@ -1,5 +1,5 @@
 OBJS := Parser.o Game.o Unit.o main.o
-CLFAGS := -Wall -Werror -std=c++17
+CFLAGS := -Wall -Werror -std=c++17
 RUN := g++
 
 CPPCHCK := cppcheck
