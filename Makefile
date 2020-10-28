@@ -20,16 +20,16 @@ runGame: $(OBJS)
 	$(RUN) $(CFLAGS) -o runGame $(OBJS)
 
 Parser.o: Parser.cpp
-	$(RUN) $(CFLAGS) -c Parser.cpp
+	$(RUN) $(CFLAGS) -c Parser.cpp Parser.h
 
 Game.o: Game.cpp
-	$(RUN) $(CFLAGS) -c Game.cpp
+	$(RUN) $(CFLAGS) -c Game.cpp Game.h
 
 Unit.o: Unit.cpp
-	$(RUN) $(CFLAGS) -c Unit.cpp
+	$(RUN) $(CFLAGS) -c Unit.cpp Unit.h
 
 main.o: main.cpp
-	$(RUN) $(CFLAGS) -c main.cpp
+	$(RUN) $(CFLAGS) -c main.cpp Game.h
 
 cppcheck:
 	$(CPPCHCK) $(CPPCHCKOBJS) $(CPPCHCKFLAGS)  
