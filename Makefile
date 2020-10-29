@@ -26,10 +26,10 @@ Parser.o: Parser.cpp Parser.h
 Unit.o: Unit.cpp Unit.h Parser.h
 	$(RUN) $(CFLAGS) -c Unit.cpp
 
-Game.o: Game.cpp Game.h Unit.h
+Game.o: Game.cpp Game.h Unit.h Parser.h
 	$(RUN) $(CFLAGS) -c Game.cpp
 
-main.o: main.cpp Game.h
+main.o: main.cpp Game.h Unit.h Parser.h
 	$(RUN) $(CFLAGS) -c main.cpp
 
 sca:
