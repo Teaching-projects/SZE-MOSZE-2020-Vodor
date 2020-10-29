@@ -2,19 +2,20 @@ OBJS := Parser.o Game.o Unit.o main.o
 CFLAGS := -Wall -Werror -std=c++17
 RUN := g++
 
-CPPCHCK := cppcheck
-CPPCHCKOBJS := Parser.cpp Game.cpp Unit.cpp main.cpp
-CPPCHCKFLAGS := --enable=warning --error-exitcode=1
-CPPCHCKUPFLAGS := --enable=all --output-file=cppreport.txt
-VALGRINDOBJS := ./runGame test/units/unit1.json test/units/unit2.json 
-VALGRINDFLAGS := --error-exitcode=1 --leak-check=full
+SCA := cppcheck
+SCAOBJS := Parser.cpp Game.cpp Unit.cpp main.cpp
+SCAFLAGS := --enable=warning --error-exitcode=1
+SCAUPFLAGS := --enable=all --output-file=cppreport.txt
+MEMCHECK := valgrind
+MEMCHECKOBJS := ./runGame test/units/unit1.json test/units/unit2.json 
+MEMCHECKFLAGS := --error-exitcode=1 --leak-check=full
 DIFFOBJS := output.txt test/units/good_output.txt
 CMAKEOBJ := CMakeLists.txt
 SUBDIR := test
 
 .DEFAULT_GOAL: runGame
-.PHONY: cppcheck cppcheckup valgrind diff doc buildunittest unittest
-tests: runGame cppcheck cppcheckup valgrind diff
+.PHONY: sca scaup memcheck diff doc buildunittest unittest
+tests: runGame sca scaup memcheck diff
 
 runGame: $(OBJS)
 	$(RUN) $(CFLAGS) -o runGame $(OBJS)
@@ -22,23 +23,23 @@ runGame: $(OBJS)
 Parser.o: Parser.cpp Parser.h
 	$(RUN) $(CFLAGS) -c Parser.cpp
 	
-Game.o: Game.cpp Game.h
-	$(RUN) $(CFLAGS) -c Game.cpp
-
-Unit.o: Unit.cpp Unit.h
+Unit.o: Unit.cpp Unit.h Parser.h
 	$(RUN) $(CFLAGS) -c Unit.cpp
+
+Game.o: Game.cpp Game.h Unit.h
+	$(RUN) $(CFLAGS) -c Game.cpp
 
 main.o: main.cpp Game.h
 	$(RUN) $(CFLAGS) -c main.cpp
 
-cppcheck:
-	$(CPPCHCK) $(CPPCHCKOBJS) $(CPPCHCKFLAGS)  
+sca:
+	$(SCA) $(SCAOBJS) $(SCAFLAGS)  
 
-cppcheckup:
-	$(CPPCHCK) $(CPPCHCKOBJS) $(CPPCHCKUPFLAGS)
+scaup:
+	$(SCA) $(SCAOBJS) $(SCAUPFLAGS)
 
-valgrind: 
-	valgrind $(VALGRINDFLAGS) $(VALGRINDOBJS)
+memcheck: 
+	$(MEMCHECK) $(MEMCHECKFLAGS) $(MEMCHECKOBJS)
 
 diff:
 	./run_test.sh /
