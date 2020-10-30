@@ -50,7 +50,7 @@ public:
 	/*!
 		\return A karakter életereje.
 	*/
-	int getHP() const { return b_hP; }
+	int getHp() const { return b_hP; }
 
 	//! Ez a függvény visszaadja a karakter nevét.
 	/*!
@@ -58,6 +58,24 @@ public:
 	*/
 	std::string getName() const { return b_name; }
 
+	//! Ez a függvény visszaadja a karakter aktuális szintjét.
+	/*!
+		\return A karakter aktuális szintje.
+	*/
+	int getLevel() const { return b_level; }
+
+	//! Ez a függvény visszaadja a karakter támadási erejét.
+	/*!
+		\return A karakter támadási ereje.
+	*/
+	int getDmg() const { return b_dmg; }
+
+	//! Ez a függvény visszaadja a karakter két támadása közti időt.
+	/*!
+	 	\return A karakter két támadása közti idő.
+	*/
+	double getAcd() const { return b_acd; } 
+	
 private:
 	const std::string b_name;  ///< A karakter neve. 
 	int b_hP; ///< A karakter életereje.
@@ -71,19 +89,7 @@ private:
 	void levelup();
 	/// Ez a függvény sebzést oszt ki a karakterre.
 	void getHitBy(Unit *other /** [in] ellenfél karakter Unit */ );
-
-	//! Ez a függvény visszaadja a karakter támadási erejét.
-	/*
-		\return A karakter támadási ereje.
-	*/
-	int getDmg() const { return b_dmg; }
-
-	//! Ez a függvény visszaadja a karakter támadási idejét.
-	/*
-		\return A karakter támadási ideje.
-	*/
-	double getAcd() const { return b_acd; } 
-
+	
 	//! Ez a függvény visszaadja a karakter meghalt-e.
 	/*
 		\return Logikai változó, annak függvényében, hogy a karatker életben van-e.

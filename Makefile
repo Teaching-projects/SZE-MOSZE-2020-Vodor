@@ -53,4 +53,4 @@ buildunittest:
 	$(MAKE) -C $(SUBDIR)
 
 unittest: buildunittest
-	$(SUBDIR)/parserTest
+	$(SUBDIR)/unitTest
