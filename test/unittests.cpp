@@ -87,8 +87,7 @@ TEST(unittests, hp_check){
 }
 
 TEST(unittests, parsunit_test){
-
-    ASSERT_THROW(Unit::parseUnit("test/units/unit1.json"),std::runtime_error );
+    ASSERT_THROW(Parser::parseJson("test/units/unit1.json"),std::runtime_error );
 }
 
 TEST(UnitTest, whitespaceTest){
@@ -97,7 +96,7 @@ TEST(UnitTest, whitespaceTest){
         {"hp", "12"},
         {"dmg", "20"}}; 
     
-    std::map<std::string, std::string> outputMap = Parser::jsonParser("test/whitespaceTest.json");
+    std::map<std::string, std::string> outputMap = Parser::parseJson("test/whitespaceTest.json");
 
     for (auto e : expectedMap)
         ASSERT_EQ(outputMap[e.first], e.second);
@@ -112,7 +111,7 @@ TEST(UnitTest, mixedupAttributes){
 }
 
 TEST(UniTest, brokenFile){
-    ASSERT_THROW(Parser::jsonParser("test/brokenFile.json"), std::string);
+    ASSERT_THROW(Parser::parseJson("test/brokenFile.json"), std::string);
 }
 
 TEST(UnitTest, parseUnitTest){
