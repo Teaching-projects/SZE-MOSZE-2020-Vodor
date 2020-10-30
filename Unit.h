@@ -22,8 +22,12 @@
 class Unit
 {
 public:
-	/// A fight függvény levezényli a csatát és a végén kiírja a győztest. 
+	//! A fight függvény levezényli a csatát 2 Unit között.
+	/*!
+		\return A győztesre Unitra mutató objektum.
+	*/ 
 	Unit* fight(Unit *other /** [in] ellenfél karakter Unit */);
+
 	/*! \brief Unit konstruktor
  	*         
  	*  
@@ -34,20 +38,44 @@ public:
 	*  \param dmg [in] karakter támadási ereje
 	*  \param acd [in] karakter támadási ideje
  	*/
-	Unit(const std::string& name, int hP, int dmg, double acd) : b_name(name), b_hP(hP), b_dmg(dmg), b_acd(acd), b_maxHp(hP), b_xp(0), b_level(1) {}
-	/// Ez a függvény a .json file parse-olja. 
+ 	Unit(const std::string& name, int hP, int dmg, double acd) : b_name(name), b_hP(hP), b_dmg(dmg), b_acd(acd), b_maxHp(hP), b_xp(0), b_level(1) {}
+	
+	//! Ez a függvény a különböző Unitok értékeit parzolja le a bemeneti fájl alapján. 
+	/*!
+		\return A leparzolt Unitra mutató objektum.
+	*/
 	static Unit* parseUnit(const std::string& fname/** [in] elérési út */);
-	/// Ez a függvény visszaadja a karakter életerejét.
+
+	//! Ez a függvény visszaadja a karakter életerejét.
+	/*!
+		\return A karakter életereje.
+	*/
 	int getHp() const { return b_hP; }
-	/// Ez a függvény visszaadja a karakter nevét.
+
+	//! Ez a függvény visszaadja a karakter nevét.
+	/*!
+		\return A karakter neve.
+	*/
 	std::string getName() const { return b_name; }
 
-	// Ez a függvény visszaadja a karakter aktuális szintjét.
+	//! Ez a függvény visszaadja a karakter aktuális szintjét.
+	/*!
+		\return A karakter aktuális szintje.
+	*/
 	int getLevel() const { return b_level; }
-	/// Ez a függvény visszaadja a karakter támadási erejét.
+
+	//! Ez a függvény visszaadja a karakter támadási erejét.
+	/*!
+		\return A karakter támadási ereje.
+	*/
 	int getDmg() const { return b_dmg; }
-	/// Ez a függvény visszaadja a karakter támadási idejét.
+
+	//! Ez a függvény visszaadja a karakter két támadása közti időt.
+	/*!
+	 	\return A karakter két támadása közti idő.
+	*/
 	double getAcd() const { return b_acd; } 
+	
 private:
 	const std::string b_name;  ///< A karakter neve. 
 	int b_hP; ///< A karakter életereje.
@@ -61,6 +89,22 @@ private:
 	void levelup();
 	/// Ez a függvény sebzést oszt ki a karakterre.
 	void getHitBy(Unit *other /** [in] ellenfél karakter Unit */ );
-	/// Ez a függvény visszaadja a karakter meghalt-e.
+
+	//! Ez a függvény visszaadja a karakter támadási erejét.
+	/*
+		\return A karakter támadási ereje.
+	*/
+	int getDmg() const { return b_dmg; }
+
+	//! Ez a függvény visszaadja a karakter támadási idejét.
+	/*
+		\return A karakter támadási ideje.
+	*/
+	double getAcd() const { return b_acd; } 
+
+	//! Ez a függvény visszaadja a karakter meghalt-e.
+	/*
+		\return Logikai változó, annak függvényében, hogy a karatker életben van-e.
+	*/
 	bool isDead() const;
 };
