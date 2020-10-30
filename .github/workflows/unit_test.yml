@@ -21,4 +21,4 @@ jobs:
       - name: Build the test
         run: cd test && make
       - name: Run the unit tests
-        run: test/parserTest
+        run: test/unitTest

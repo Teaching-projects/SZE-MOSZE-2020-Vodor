@@ -24,6 +24,7 @@ void Unit::levelup(){
 	}
 }
 
+
 void Unit::getHitBy(Unit *other) {
 	if (b_hP - other->getDmg() > 0) {
 		other->b_xp += other->getDmg();
@@ -39,6 +40,8 @@ void Unit::getHitBy(Unit *other) {
 bool Unit::isDead() const {
 	return b_hP == 0;
 }
+
+
 
 Unit* Unit::fight(Unit *other) {
 	if(this->isDead()) return other;
