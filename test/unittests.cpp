@@ -75,69 +75,69 @@ TEST(unittests,good_levelup){
 TEST(unittests, name_check){
     Unit* u1 = Unit::parseUnit("test/units/unit1.json");
 
-    ASSERT_EQ(u1->getName(),"Kakazhom");
+    ASSERT_EQ(u1->getName(),"Hunkrow");
 
 }
 
 TEST(unittests, hp_check){
     Unit* u1 = Unit::parseUnit("test/units/unit1.json");
 
-    ASSERT_EQ(u1->getHp(),182);
+    ASSERT_EQ(u1->getHp(),200);
 
 }
 
 TEST(unittests, parsunit_test){
-    ASSERT_THROW(Parser::parseJson("test/units/unit1.json"),std::runtime_error );
+    ASSERT_NO_THROW(Parser::parseJson("test/units/unit1.json"));
 }
 
-TEST(UnitTest, whitespaceTest){
+TEST(unittests, whitespaceTest){
     std::map<std::string, std::string> expectedMap{
         {"name", "Teszt"},
         {"hp", "12"},
         {"dmg", "20"}}; 
     
-    std::map<std::string, std::string> outputMap = Parser::parseJson("test/whitespaceTest.json");
+    std::map<std::string, std::string> outputMap = Parser::parseJson("test/muchWhitespace.json");
 
     for (auto e : expectedMap)
         ASSERT_EQ(outputMap[e.first], e.second);
 }
 
-TEST(UnitTest, missingKeys){
+TEST(unittests, missingKeys){
     ASSERT_THROW(Unit::parseUnit("test/missingKeys.json"), std::string);
 }
 
-TEST(UnitTest, mixedupAttributes){
+TEST(unittests, mixedupAttributes){
     ASSERT_NO_THROW(Unit::parseUnit("test/mixedupKeys.json"));    
 }
 
-TEST(UniTest, brokenFile){
+TEST(unittests, brokenFile){
     ASSERT_THROW(Parser::parseJson("test/brokenFile.json"), std::string);
 }
 
-TEST(UnitTest, parseUnitTest){
+TEST(unittests, parseUnitTest){
     ASSERT_NO_THROW(Unit::parseUnit("test/units/unit1.json"));
     ASSERT_NO_THROW(Unit::parseUnit("test/units/unit2.json"));
 }
 
-TEST(UnitTest, fightTest){
+TEST(unittests, fightTest){
     Unit* u1 = Unit::parseUnit("test/units/unit1.json");
     Unit* u2 = Unit::parseUnit("test/units/unit2.json");
 
     ASSERT_EQ(u1->fight(u2)->getName(),"Kakazhom");
 }
 
-TEST(UnitTest, levelUpTest){
+TEST(unittests, levelUpTest){
     Unit* u1 = Unit::parseUnit("test/units/unit1.json");
     Unit* u2 = Unit::parseUnit("test/units/unit3.json");
 
     ASSERT_EQ(u1->fight(u2)->getLevel(), 4);
 }
 
-TEST(UnitTest, wrongPathTaken){
+TEST(unittests, wrongPathTaken){
     ASSERT_THROW(Unit::parseUnit("test/thisfiledoesnotexist.json"), std::string);
 }
 
-TEST(UnitTest, parseUnitTest2){
+TEST(unittests, parseUnitTest2){
     Unit* u1 = Unit::parseUnit("test/units/unit1.json");
     ASSERT_EQ(u1->getName(), "Hunkrow");
     ASSERT_EQ(u1->getHp(), 200);
