@@ -89,19 +89,7 @@ private:
 	void levelup();
 	/// Ez a függvény sebzést oszt ki a karakterre.
 	void getHitBy(Unit *other /** [in] ellenfél karakter Unit */ );
-
-	//! Ez a függvény visszaadja a karakter támadási erejét.
-	/*
-		\return A karakter támadási ereje.
-	*/
-	int getDmg() const { return b_dmg; }
-
-	//! Ez a függvény visszaadja a karakter támadási idejét.
-	/*
-		\return A karakter támadási ideje.
-	*/
-	double getAcd() const { return b_acd; } 
-
+	
 	//! Ez a függvény visszaadja a karakter meghalt-e.
 	/*
 		\return Logikai változó, annak függvényében, hogy a karatker életben van-e.
