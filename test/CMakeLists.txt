@@ -5,7 +5,7 @@ include_directories(${GTEST_INCLUDE_DIRS})
  
 # Link runTests with what we want to test 
 # and the GTest and pthread library
-add_library(codeToTest ../Parser.cpp)
+add_library(codeToTest ../Parser.cpp ../Unit.cpp)
 add_executable(unitTest unittests.cpp)
 
 target_link_libraries(unitTest ${GTEST_LIBRARIES} pthread codeToTest)
