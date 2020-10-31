@@ -3,10 +3,23 @@
 #include <iostream>
 #include <fstream>
 
-class Parser
+class JSON
 {
+private:
+    std::map <std::string, std::string> data;
 public:
-    static const std::map <std::string, std::string> parseFromString(std::string inputString);
-    static const std::map <std::string, std::string> parseJson(const std::string& json);
-    static const std::map <std::string, std::string> parseJson(std::istream& jsonFile);
+    JSON(std::map <std::string, std::string> data) : data(data){}
+    static const JSON parseFromString(std::string inputString);
+    static const JSON parseFromFile(const std::string& json);
+    static const JSON parseJson(std::istream& jsonFile);
+    const int count(const std::string& key);
+    
+    template <class T> T get(const std::string& key){
+        return data[key];
+    }
+
+    class ParseException : public std::runtime_error{
+    public:
+        ParseException(const std::string& errMsg) : std::runtime_error(errMsg){}
+    };
 };

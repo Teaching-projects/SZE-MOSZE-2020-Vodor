@@ -1,28 +1,28 @@
-#include "Parser.h"
+#include "JSON.h"
 
-const std::map <std::string, std::string> Parser::parseFromString(std::string inputString){
+const JSON JSON::parseFromString(std::string inputString){
     static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\w\\.]*)\"?\\s*[,}]\\s*");
     std::smatch matches;
     std::map<std::string,std::string> attributes;
     std::string errMsg;
     if (inputString.substr(0,1) != "{"){
         errMsg = "Error in file: missing { from the top.";
-        throw errMsg; 
+        throw ParseException(errMsg); 
     }
     else if (inputString.substr(inputString.size()-1, 1) != "}"){
         errMsg = "Error in file: missing } from the bottom.";
-        throw errMsg; 
+        throw ParseException(errMsg); 
     }
 
     while(std::regex_search(inputString, matches, parseRegex)){
         if (matches[1] == "") {
             errMsg = "Error in file: incorrect key.";
-            throw errMsg; 
+            throw ParseException(errMsg); 
         }
 
         else if (matches[2] == "") {
             errMsg = "Error in file: incorrect value.";
-            throw errMsg; 
+            throw ParseException(errMsg); 
         }
 
         else
@@ -31,32 +31,31 @@ const std::map <std::string, std::string> Parser::parseFromString(std::string in
             inputString = matches.suffix().str();
         }            
     }
-        return attributes;
+        return JSON(attributes);
 }
 
 
-const std::map <std::string, std::string> Parser::parseJson(const std::string& json) {
+const JSON JSON::parseFromFile(const std::string& json) {
     std::smatch matches;
-    std::map<std::string,std::string> attributes;
 
     static const std::regex fileNameRegex("([\\w]*).json$");
     if (std::regex_search(json, matches, fileNameRegex))
     {
         std::ifstream jsonFile;
         jsonFile.open(json);
-        if (jsonFile.fail()) throw json + " does not exist!";
+        if (jsonFile.fail()) throw ParseException(json + " does not exist!");
         else
         {
-           attributes = parseJson(jsonFile);
+           JSON toReturn = parseJson(jsonFile);
            jsonFile.close();
-           return attributes;
+           return JSON(toReturn);
         }
     }
     else return parseFromString(json);
     
 }
 
-const std::map <std::string, std::string> Parser::parseJson(std::istream& jsonFile) {
+const JSON JSON::parseJson(std::istream& jsonFile) {
     std::string jsonLine;
     std::string json = ""; 
 
@@ -64,4 +63,8 @@ const std::map <std::string, std::string> Parser::parseJson(std::istream& jsonFi
         json += jsonLine;
 
     return parseFromString(json);
+}
+
+const int JSON::count(const std::string& key){
+    return data.count(key);
 }
