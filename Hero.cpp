@@ -1,19 +1,23 @@
-#include "Unit.h"
+#include "Hero.h"
 #include <cmath>
 #include <fstream>
 #include <map>
 
-Unit* Unit::parseUnit(const std::string& fname) {
-	std::map<std::string, std::string> attributes = Parser::parseJson(fname);
-	if (attributes.find("name") != attributes.end() && 
-		attributes.find("hp") != attributes.end() &&
-		attributes.find("dmg") != attributes.end() &&
-		attributes.find("attackcooldown") != attributes.end()) 
-			return new Unit(attributes["name"], stoi(attributes["hp"]), stoi(attributes["dmg"]), stod(attributes["attackcooldown"]));
+Hero Hero::parse(const std::string& fname) {
+	JSON returnedJSON = JSON::parseFromFile(fname);
+
+	if (returnedJSON.checkIfKeyExists("name") &&
+		returnedJSON.checkIfKeyExists("health_points") &&
+		returnedJSON.checkIfKeyExists("damage") &&
+		returnedJSON.checkIfKeyExists("attack_cooldown")) 
+			return Hero(returnedJSON.get<std::string>("name"), 
+					stoi(returnedJSON.get<std::string>("health_points")),
+					stoi(returnedJSON.get<std::string>("damage")),
+					stod(returnedJSON.get<std::string>("attack_cooldown")));
 	else throw "Incorrect attributes in " + fname + "!";
 }
 
-void Unit::levelup(){
+void Hero::levelup(){
 	while (b_xp >= 100){		
 		b_maxHp = round((b_maxHp*1.1));
 		b_hP = b_maxHp;
@@ -24,7 +28,7 @@ void Unit::levelup(){
 	}
 }
 
-void Unit::getHitBy(Unit *other) {
+void Hero::getHitBy(Monster *other) {
 	if (b_hP - other->getDmg() > 0) {
 		other->b_xp += other->getDmg();
 		b_hP -= other->getDmg();
@@ -36,34 +40,25 @@ void Unit::getHitBy(Unit *other) {
 	other->levelup();
 }
 
-bool Unit::isDead() const {
-	return b_hP == 0;
+bool Hero::isAlive() const {
+	return b_hP > 0;
 }
 
-Unit* Unit::fight(Unit *other) {
-	if(this->isDead()) return other;
-	if(other->isDead()) return this;
-	
+void Hero::fightTilDeath(Monster *other) {
+
 	other->getHitBy(this);
-	if(other->isDead())
-		return this;
-
-	this->getHitBy(other);
-    	if (this->isDead())
-    		return other;
-
 	double acdthis = this->getAcd();
 	double acdother = other->getAcd();
-	Unit* last = other;
+	Hero* last = this;
 
-	while(!this->isDead() && !other->isDead())
+	while(this->isAlive() && other->isAlive())
 	{
 		if(acdthis == acdother)
 		{
 			if (last == this)
 			{
 				other->getHitBy(this);
-				if(!other->isDead())
+				if(other->isAlive())
 					this->getHitBy(other);
 				acdthis = this->getAcd();
 				acdother = other->getAcd();
@@ -72,7 +67,7 @@ Unit* Unit::fight(Unit *other) {
 			else
 			{
 				this->getHitBy(other);
-				if(!this->isDead())
+				if(this->isAlive())
 					other->getHitBy(this);
 				acdthis = this->getAcd();
 				acdother = other->getAcd();
@@ -94,5 +89,4 @@ Unit* Unit::fight(Unit *other) {
 			last = other;
 		}		
 	}
-	return last;
 }
