@@ -2,24 +2,23 @@
 #include <vector>
 
 void Hero::fightTilDeath(Unit other) {
-
 	other.getHitBy(this);
 	double acdthis = this->getAttackCoolDown();
 	double acdother = other.getAttackCoolDown();
-	Unit last = *this; //copy constructor kell
+	bool lastthis = true; 
 
 	while(this->isAlive() && other.isAlive())
 	{
 		if(acdthis == acdother)
 		{
-			if (last == this) //operator overload kell?
+			if (lastthis) 
 			{
 				other.getHitBy(this);
 				if(other.isAlive())
 					this->getHitBy(&other);
 				acdthis = this->getAttackCoolDown();
 				acdother = other.getAttackCoolDown();
-				last = other;
+				lastthis = false;
 			}
 			else
 			{
@@ -28,7 +27,7 @@ void Hero::fightTilDeath(Unit other) {
 					other.getHitBy(this);
 				acdthis = this->getAttackCoolDown();
 				acdother = other.getAttackCoolDown();
-				last = *this;
+				lastthis = true;
 			}	
 		}
 		else if((acdthis - acdother) < 0)
@@ -36,14 +35,14 @@ void Hero::fightTilDeath(Unit other) {
 			other.getHitBy(this);
 			acdother -= acdthis;
 			acdthis = this->getAttackCoolDown();
-			last = *this;
+			lastthis = true;
 		}
 		else 
 		{
 			this->getHitBy(&other);
 			acdthis -= acdother;
 			acdother = other.getAttackCoolDown();
-			last = other;
+			lastthis = false;
 		}		
 	}
 }
