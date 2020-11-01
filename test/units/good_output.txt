@@ -11,7 +11,6 @@ Prince Aidan of Khanduras: LVL8
    HP: 57/65
   DMG: 10
   ACD: 0.526127
-
 Prince Aidan of Khanduras(1) vs Blood Raven
 The hero died.
 Prince Aidan of Khanduras: LVL1
