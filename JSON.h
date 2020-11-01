@@ -1,3 +1,6 @@
+#ifndef JSON_H
+#define JSON_H
+
 #include <map>
 #include <regex>
 #include <iostream>
@@ -25,3 +28,5 @@ public:
         ParseException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 };
+
+#endif

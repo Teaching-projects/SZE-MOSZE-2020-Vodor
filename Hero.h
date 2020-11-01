@@ -1,3 +1,6 @@
+#ifndef HERO_H
+#define HERO_H
+
 #include "Unit.h"
 #include "Monster.h"
 
@@ -22,3 +25,5 @@ public:
 
     static Hero parse(const std::string& fname/** [in] elérési út */);   
 };
+
+#endif

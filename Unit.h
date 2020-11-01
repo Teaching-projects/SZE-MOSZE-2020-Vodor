@@ -1,9 +1,12 @@
+#ifndef UNIT_H
+#define UNIT_H
+
 /*!
- * \class Hero
+ * \class Unit
  * 
- * \brief Hero class
+ * \brief Unit class
  * 
- * A Hero karakterért felelős osztály.
+ * A Unit karakterért felelős osztály.
  * 
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
@@ -34,8 +37,6 @@ public:
 	*  \param acd [in] karakter támadási ideje
  	*/
 	Unit(const std::string& name, int hP, int dmg, double acd) : b_name(name), b_hP(hP), b_dmg(dmg), b_acd(acd), b_maxHp(hP), b_xp(0), b_level(1) {}
-	/// Ez a függvény a .json file parse-olja. 
-	static Unit parse(const std::string& fname/** [in] elérési út */);
 	/// Ez a függvény visszaadja a karakter életerejét.
 	int getHealthPoints() const { return b_hP; }
 	/// Ez a függvény visszaadja a karakter maximális életerejét.
@@ -65,3 +66,5 @@ protected:
 	int b_xp; ///< Karakter fejlődési pont.
 	int b_level; ///< Karakter szintje.
 };
+
+#endif
