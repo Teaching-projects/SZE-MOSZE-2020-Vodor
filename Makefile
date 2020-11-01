@@ -1,13 +1,13 @@
-OBJS := Parser.o Game.o Unit.o main.o
+OBJS := JSON.o Hero.o Monster.o Unit.o main.o
 CFLAGS := -Wall -Werror -std=c++17
-RUN := g++
+RUN := g++-10
 
 SCA := cppcheck
-SCAOBJS := Parser.cpp Game.cpp Unit.cpp main.cpp
+SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp
 SCAFLAGS := --enable=warning --error-exitcode=1
 SCAUPFLAGS := --enable=all --output-file=cppreport.txt
 MEMCHECK := valgrind
-MEMCHECKOBJS := ./runGame test/units/unit1.json test/units/unit2.json 
+MEMCHECKOBJS := ./runGame scenarios/scenario1.json 
 MEMCHECKFLAGS := --error-exitcode=1 --leak-check=full
 DIFFOBJS := output.txt test/units/good_output.txt
 CMAKEOBJ := CMakeLists.txt
@@ -20,16 +20,18 @@ tests: runGame sca scaup memcheck diff
 runGame: $(OBJS)
 	$(RUN) $(CFLAGS) -o runGame $(OBJS)
 
-Parser.o: Parser.cpp Parser.h
-	$(RUN) $(CFLAGS) -c Parser.cpp
+JSON.o: JSON.cpp JSON.h
+	$(RUN) $(CFLAGS) -c JSON.cpp
 	
-Unit.o: Unit.cpp Unit.h Parser.h
+Unit.o: Unit.cpp Unit.h JSON.h
 	$(RUN) $(CFLAGS) -c Unit.cpp
 
-Game.o: Game.cpp Game.h Unit.h Parser.h
+Monster.o: Monster.cpp Hero.h Unit.h JSON.h
+
+Hero.o: Hero.cpp Monster.h Unit.h JSON.h
 	$(RUN) $(CFLAGS) -c Game.cpp
 
-main.o: main.cpp Game.h Unit.h Parser.h
+main.o: main.cpp Monster.h Hero.h JSON.h
 	$(RUN) $(CFLAGS) -c main.cpp
 
 sca:
