@@ -4,6 +4,8 @@
 #include "Unit.h"
 #include "Hero.h"
 
+class Hero;
+
 class Monster : public Unit{
 public:
     Monster(std::string name, int hp, int dmg, double acd) : Unit(name, hp, dmg, acd){}

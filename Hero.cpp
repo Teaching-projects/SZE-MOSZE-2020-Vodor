@@ -2,11 +2,10 @@
 #include <vector>
 #include <cmath>
 
-void Hero::fightTilDeath(Unit other) {
-	other.getHitBy(this);
+void Hero::fightTilDeath(Monster& other) {
 	double acdthis = this->getAttackCoolDown();
 	double acdother = other.getAttackCoolDown();
-	bool lastthis = true; 
+	bool lastthis = false; 
 
 	while(this->isAlive() && other.isAlive())
 	{
@@ -70,11 +69,11 @@ Hero Hero::parse(const std::string& fname) {
 }
 
 void Hero::levelup(){
-	while (b_xp >= 100){		
+	while (b_xp >= 20){		
 		b_maxHp += b_health_point_bonus_per_level;
 		b_hP = b_maxHp;
 		b_dmg += b_damage_bonus_per_level;
-		b_xp -= 100;
+		b_xp -= 20;
 		b_level++;
 		b_acd *= b_cooldown_multiplier_per_level;
 	}
