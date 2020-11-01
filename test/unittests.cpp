@@ -1,44 +1,48 @@
-#include "../Unit.h"
+#include "../Hero.h"
+#include "../JSON.h"
+#include "../Monster.h"
 #include <gtest/gtest.h>
 
 TEST(parserTest, test_iostream){
-    Parser p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Hunkrow"},
-        {"hp", "200"},
-        {"dmg", "11"}};                       
+        {"health_points", "200"},
+        {"damage", "11"}};                       
     std::ifstream jsonFile;
     jsonFile.open("test/units/unit1.json");
-    outputMap = p.parseJson(jsonFile);
+    JSON testJSON = JSON::parseJson(jsonFile);
     jsonFile.close();
+    outputMap["name"]=testJSON.get<std::string>("name");
+    outputMap["health_points"]=testJSON.get<std::string>("health_points");
+    outputMap["damage"]=testJSON.get<std::string>("damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
 }
 
 TEST(parserTest, test_filename){
-    Parser p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Kakazhom"},
-        {"hp", "150"},
-        {"dmg", "15"}};                       
+        {"health_points", "150"},
+        {"damage", "15"}};                       
     std::string fname = "test/units/unit2.json";
-    outputMap = p.parseJson(fname);
-
+    JSON testJSON = JSON::parseFromFile(fname);
+    outputMap["name"]=testJSON.get<std::string>("name");
+    outputMap["health_points"]=testJSON.get<std::string>("health_points");
+    outputMap["damage"]=testJSON.get<std::string>("damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
 }
 
 TEST(parserTest, test_string){
-    Parser p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Maytcreme"},
-        {"hp", "300"},
-        {"dmg", "5"}};             
+        {"health_points", "300"},
+        {"damage", "5"}};             
               
     std::string fname = "test/units/unit3.json";
     std::ifstream jsonFile;
@@ -50,99 +54,93 @@ TEST(parserTest, test_string){
         jsonToString += line;
 
     jsonFile.close();
-    outputMap = p.parseJson(jsonToString);
-
+    JSON testJSON = JSON::parseFromString(jsonToString);
+    outputMap["name"]=testJSON.get<std::string>("name");
+    outputMap["health_points"]=testJSON.get<std::string>("health_points");
+    outputMap["damage"]=testJSON.get<std::string>("damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
 }
 
 TEST(unittests, good_battle_end){
-    Unit* u1 = Unit::parseUnit("test/units/unit1.json");
-    Unit* u2 = Unit::parseUnit("test/units/unit2.json");
-
-    ASSERT_EQ(u1->fight(u2)->getName(),"Kakazhom");
+    Hero hero = Hero::parse("test/units/unit1.json");
+    Monster monster = Monster::parse("Fallen.json");
+    hero.fightTilDeath(monster);
+    ASSERT_EQ(hero.isALive(),1);
 }
 
 TEST(unittests,good_levelup){
-    Unit* u1 = Unit::parseUnit("test/units/unit1.json");
-    Unit* u2 = Unit::parseUnit("test/units/unit2.json");
+    Hero hero = Hero::parse("test/units/unit1.json");
+    Monster monster = Monster::parse("Zombie.json");
+    hero.fightTilDeath(monster);
 
-    ASSERT_EQ(u1->fight(u2)->getLevel(),3);
+    ASSERT_EQ(hero.getLevel(),3);
    
 }
 
 TEST(unittests, name_check){
-    Unit* u1 = Unit::parseUnit("test/units/unit1.json");
+    Hero hero = Hero::parse("test/units/unit1.json");
 
-    ASSERT_EQ(u1->getName(),"Hunkrow");
+    ASSERT_EQ(hero.getName(),"Hunkrow");
 
 }
 
 TEST(unittests, hp_check){
-    Unit* u1 = Unit::parseUnit("test/units/unit1.json");
+    Hero hero = Hero::parse("test/units/unit1.json");
 
-    ASSERT_EQ(u1->getHp(),200);
+    ASSERT_EQ(hero.getHealthPoints(),200);
 
 }
 
 TEST(unittests, parsunit_test){
-    ASSERT_NO_THROW(Parser::parseJson("test/units/unit1.json"));
+    ASSERT_NO_THROW(JSON::parseFromFile("test/units/unit1.json"));
 }
 
 TEST(unittests, whitespaceTest){
     std::map<std::string, std::string> expectedMap{
         {"name", "Teszt"},
-        {"hp", "12"},
-        {"dmg", "20"}}; 
+        {"health_points", "12"},
+        {"damage", "20"}}; 
     
-    std::map<std::string, std::string> outputMap = Parser::parseJson("test/muchWhitespace.json");
+    std::map<std::string, std::string> outputMap;
+    JSON testJSON = JSON::parseFromFile("test/muchWhitespace.json");
+
+    outputMap["name"]=testJSON.get<std::string>("name");
+    outputMap["health_points"]=testJSON.get<std::string>("health_points");
+    outputMap["damage"]=testJSON.get<std::string>("damage");
 
     for (auto e : expectedMap)
         ASSERT_EQ(outputMap[e.first], e.second);
 }
 
 TEST(unittests, missingKeys){
-    ASSERT_THROW(Unit::parseUnit("test/missingKeys.json"), std::string);
+    ASSERT_THROW(Monster::parse("test/missingKeys.json"), JSON::ParseException);
 }
 
 TEST(unittests, mixedupAttributes){
-    ASSERT_NO_THROW(Unit::parseUnit("test/mixedupKeys.json"));    
+    ASSERT_NO_THROW(Monster::parse("test/mixedupKeys.json"));    
 }
 
 TEST(unittests, brokenFile){
-    ASSERT_THROW(Parser::parseJson("test/brokenFile.json"), std::string);
+    ASSERT_THROW(Hero::parse("test/brokenFile.json"), JSON::ParseException);
 }
 
-TEST(unittests, parseUnitTest){
-    ASSERT_NO_THROW(Unit::parseUnit("test/units/unit1.json"));
-    ASSERT_NO_THROW(Unit::parseUnit("test/units/unit2.json"));
-}
-
-TEST(unittests, fightTest){
-    Unit* u1 = Unit::parseUnit("test/units/unit1.json");
-    Unit* u2 = Unit::parseUnit("test/units/unit2.json");
-
-    ASSERT_EQ(u1->fight(u2)->getName(),"Kakazhom");
-}
-
-TEST(unittests, levelUpTest){
-    Unit* u1 = Unit::parseUnit("test/units/unit1.json");
-    Unit* u2 = Unit::parseUnit("test/units/unit3.json");
-
-    ASSERT_EQ(u1->fight(u2)->getLevel(), 4);
+TEST(unittests, parseTest){
+    ASSERT_NO_THROW(Hero::parse("test/units/unit1.json"));
+    ASSERT_NO_THROW(Monster::parse("Zombie.jsoon"));
 }
 
 TEST(unittests, wrongPathTaken){
-    ASSERT_THROW(Unit::parseUnit("test/thisfiledoesnotexist.json"), std::string);
+    ASSERT_THROW(JSON::parseFromFile("test/thisfiledoesnotexist.json"), JSON::ParseException);
 }
 
-TEST(unittests, parseUnitTest2){
-    Unit* u1 = Unit::parseUnit("test/units/unit1.json");
-    ASSERT_EQ(u1->getName(), "Hunkrow");
-    ASSERT_EQ(u1->getHp(), 200);
-    ASSERT_EQ(u1->getDmg(), 11);
-    ASSERT_DOUBLE_EQ(u1->getAcd(), 12.123);
+TEST(unittests, parseTest2){
+    Hero hero = Hero::parse("test/units/unit1.json");
+    ASSERT_EQ(hero.getName(), "Hunkrow");
+    ASSERT_EQ(hero.getHealthPoints(), 200);
+    ASSERT_EQ(hero.getDamage(), 11);
+    ASSERT_DOUBLE_EQ(hero.getAttackCoolDown(), 12.123);
 }
 
 int main(int argc, char** argv){
