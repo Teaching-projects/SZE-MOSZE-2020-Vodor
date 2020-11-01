@@ -69,11 +69,11 @@ Hero Hero::parse(const std::string& fname) {
 }
 
 void Hero::levelup(){
-	while (b_xp >= 20){		
+	while (b_xp >= b_experience_per_level){		
 		b_maxHp += b_health_point_bonus_per_level;
 		b_hP = b_maxHp;
 		b_dmg += b_damage_bonus_per_level;
-		b_xp -= 20;
+		b_xp -= b_experience_per_level;
 		b_level++;
 		b_acd *= b_cooldown_multiplier_per_level;
 	}
