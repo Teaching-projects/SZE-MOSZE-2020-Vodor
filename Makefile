@@ -27,9 +27,10 @@ Unit.o: Unit.cpp Unit.h JSON.h
 	$(RUN) $(CFLAGS) -c Unit.cpp
 
 Monster.o: Monster.cpp Hero.h Unit.h JSON.h
+	$(RUN) $(CFLAGS) -c Monster.cpp
 
 Hero.o: Hero.cpp Monster.h Unit.h JSON.h
-	$(RUN) $(CFLAGS) -c Game.cpp
+	$(RUN) $(CFLAGS) -c Hero.cpp
 
 main.o: main.cpp Monster.h Hero.h JSON.h
 	$(RUN) $(CFLAGS) -c main.cpp
