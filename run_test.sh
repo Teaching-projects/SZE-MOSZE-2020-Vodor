@@ -7,5 +7,4 @@ fi
 
 for file in test/scenarios/*.json; do
     ./a.out $file >> output.txt
-    echo >> output.txt
 done
