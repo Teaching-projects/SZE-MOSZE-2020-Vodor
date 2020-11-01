@@ -48,12 +48,12 @@ void Hero::fightTilDeath(Unit other) {
 }
 
 Hero Hero::parse(const std::string& fname) {
-	std::vector <std::string, std::string> keysNeeded = {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level",
+	std::vector <std::string, std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level",
 							 "cooldown_multiplier_per_level","name", "healh_points", "damage", "attack_cooldown"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
     	bool okay = true;
     	for (auto key : keysNeeded)
-        	if(!returnedJSON.checkIfKeyExists(key));
+        	if(!returnedJSON.checkIfKeyExists(key))
 			okay = false;
     
 	if (okay) 
