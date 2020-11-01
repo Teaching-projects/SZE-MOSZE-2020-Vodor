@@ -12,9 +12,9 @@ TEST(parserTest, test_iostream){
     jsonFile.open("test/units/unit1.json");
     JSON testJSON = JSON::parseJson(jsonFile);
     jsonFile.close();
-    outputmap["name"]=testJSON.get<std::string>("name");
-    outputmap["hp"]=testJSON.get<std::string>("hp");
-    outputmap["dmg"]=testJSON.get<std::string>("dmg");
+    outputMap["name"]=testJSON.get<std::string>("name");
+    outputMap["hp"]=testJSON.get<std::string>("hp");
+    outputMap["dmg"]=testJSON.get<std::string>("dmg");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
@@ -28,9 +28,9 @@ TEST(parserTest, test_filename){
         {"dmg", "15"}};                       
     std::string fname = "test/units/unit2.json";
     JSON testJSON = JSON::parseFromFile(fname);
-    outputmap["name"]=testJSON.get<std::string>("name");
-    outputmap["hp"]=testJSON.get<std::string>("hp");
-    outputmap["dmg"]=testJSON.get<std::string>("dmg");
+    outputMap["name"]=testJSON.get<std::string>("name");
+    outputMap["hp"]=testJSON.get<std::string>("hp");
+    outputMap["dmg"]=testJSON.get<std::string>("dmg");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
@@ -54,9 +54,9 @@ TEST(parserTest, test_string){
 
     jsonFile.close();
     JSON testJSON = JSON::parseFromString(jsonToString);
-    outputmap["name"]=testJSON.get<std::string>("name");
-    outputmap["hp"]=testJSON.get<std::string>("hp");
-    outputmap["dmg"]=testJSON.get<std::string>("dmg");
+    outputMap["name"]=testJSON.get<std::string>("name");
+    outputMap["hp"]=testJSON.get<std::string>("hp");
+    outputMap["dmg"]=testJSON.get<std::string>("dmg");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
