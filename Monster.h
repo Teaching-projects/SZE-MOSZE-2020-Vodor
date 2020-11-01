@@ -3,7 +3,6 @@
 
 #include "Unit.h"
 #include "Hero.h"
-class Hero;
 
 class Monster : public Unit{
 public:
