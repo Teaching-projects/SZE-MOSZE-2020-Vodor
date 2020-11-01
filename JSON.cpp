@@ -1,7 +1,7 @@
 #include "JSON.h"
 
 const JSON JSON::parseFromString(std::string inputString){
-    static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\w\\.]*)\"?\\s*[,}]\\s*");
+    static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\s\\w\\.]*)\"?\\s*[,}]\\s*");
     std::smatch matches;
     std::map<std::string,std::string> attributes;
     std::string errMsg;
@@ -46,7 +46,7 @@ const JSON JSON::parseFromFile(const std::string& json) {
         if (jsonFile.fail()) throw ParseException(json + " does not exist!");
         else
         {
-           JSON toReturn = parseJson(jsonFile);
+           std::map<std::string, std::string> toReturn = parseJson(jsonFile).data;
            jsonFile.close();
            return JSON(toReturn);
         }
@@ -65,7 +65,7 @@ const JSON JSON::parseJson(std::istream& jsonFile) {
     return parseFromString(json);
 }
 
-bool JSON::checkIfKeyExists(const std::string& key){
-    if (data.find(key) != data.end()) return true;
-    else return false;
+const int count(const std::string& key){
+    if (data.find(key) != data.end()) return 1;
+    else return 0;
 }
