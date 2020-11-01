@@ -55,7 +55,7 @@ Hero Hero::parse(const std::string& fname) {
     bool okay = true;
     for (auto key : keysNeeded)
         if(!returnedJSON.checkIfKeyExists(key));
-            okay = false;
+			okay = false;
     
 	if (okay) 
 	    return Hero(returnedJSON.get<std::string>("name"), 
