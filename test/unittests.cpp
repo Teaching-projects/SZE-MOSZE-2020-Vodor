@@ -1,6 +1,7 @@
 #include "../Hero.h"
 #include "../JSON.h"
 #include "../Monster.h"
+#include "../Unit.h"
 #include <gtest/gtest.h>
 
 TEST(parserTest, test_iostream){
