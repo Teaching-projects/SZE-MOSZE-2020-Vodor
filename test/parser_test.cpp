@@ -1,4 +1,4 @@
-#include "../Parser.h"
+#include "../JSON.h"
 #include <gtest/gtest.h>
 
 
@@ -26,7 +26,7 @@ TEST(parserTest, test_filename){
         {"hp", "150"},
         {"dmg", "15"}};                       
     std::string fname = "test/units/unit2.json";
-    outputMap = p.parseJson(fname);
+    outputMap = p.parseFromFile(fname);
 
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
@@ -51,7 +51,7 @@ TEST(parserTest, test_string){
         jsonToString += line;
 
     jsonFile.close();
-    outputMap = p.parseJson(jsonToString);
+    outputMap = p.parseFromString(jsonToString);
 
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
