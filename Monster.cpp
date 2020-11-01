@@ -15,3 +15,16 @@ Monster Monster::parse(const std::string& fname) {
 			stod(returnedJSON.get<std::string>("attack_cooldown")));
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
+
+
+void Monster::getHitBy(Hero* other) {
+	if (b_hP - other->getDamage() > 0) {
+		other->addXp(other->getDamage());
+		b_hP -= other->getDamage();
+	}
+	else { 
+		other->addXp(b_hP);
+		b_hP = 0;
+	}
+	other->levelup();
+}

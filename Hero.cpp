@@ -1,5 +1,6 @@
 #include "Hero.h"
 #include <vector>
+#include <cmath>
 
 void Hero::fightTilDeath(Unit other) {
 	other.getHitBy(this);
@@ -66,4 +67,24 @@ Hero Hero::parse(const std::string& fname) {
 			stoi(returnedJSON.get<std::string>("damage_bonus_per_level")),
 			stod(returnedJSON.get<std::string>("cooldown_multiplier_per_level")));
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
+}
+
+void Hero::levelup(){
+	while (b_xp >= 100){		
+		b_maxHp += b_health_point_bonus_per_level;
+		b_hP = b_maxHp;
+		b_dmg += b_damage_bonus_per_level;
+		b_xp -= 100;
+		b_level++;
+		b_acd *= b_cooldown_multiplier_per_level;
+	}
+}
+
+void Hero::getHitBy(Unit* other){
+	if (b_hP - other->getDamage() > 0) {
+		b_hP -= other->getDamage();
+	}
+	else { 
+		b_hP = 0;
+	}
 }
