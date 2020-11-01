@@ -2,7 +2,6 @@
 #define HERO_H
 
 #include "Unit.h"
-#include "Monster.h"
 
 class Hero : public Unit{
 private:
