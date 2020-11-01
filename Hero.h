@@ -15,7 +15,7 @@ private:
 
 public:
     /// A fight függvény levezényli a csatát és a végén kiírja a győztest. 
-	void fightTilDeath(Unit other /** [in] ellenfél karakter */);
+	void fightTilDeath(Unit other /** [in] ellenfél karakter */); //ide mégis hero kellene a unit helyett
     Hero(const std::string& name, int hP, int dmg, double acd,
     int experience_per_level,
     int health_point_bonus_per_level,

@@ -43,7 +43,7 @@ public:
 	std::string getName() const { return b_name; }
 	/// Ez a függvény visszaadja a karakter meghalt-e.
 	bool isAlive() const;
-	virtual void getHitBy(Unit* other);
+	void getHitBy(Unit* other);
 	/// Ez a függvény visszaadja a karakter támadási erejét.
 	int getDamage() const { return b_dmg; }
 	/// Ez a függvény visszaadja a karakter támadási idejét.
