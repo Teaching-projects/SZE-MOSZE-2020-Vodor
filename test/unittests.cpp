@@ -8,15 +8,15 @@ TEST(parserTest, test_iostream){
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Hunkrow"},
-        {"health_points", "200"},
-        {"damage", "11"}};                       
+        {"base_health_points", "200"},
+        {"base_damage", "11"}};                       
     std::ifstream jsonFile;
     jsonFile.open("test/units/unit1.json");
     JSON testJSON = JSON::parseJson(jsonFile);
     jsonFile.close();
     outputMap["name"]=testJSON.get<std::string>("name");
-    outputMap["health_points"]=testJSON.get<std::string>("health_points");
-    outputMap["damage"]=testJSON.get<std::string>("damage");
+    outputMap["base_health_points"]=testJSON.get<std::string>("base_health_points");
+    outputMap["base_damage"]=testJSON.get<std::string>("base_damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
@@ -26,13 +26,13 @@ TEST(parserTest, test_filename){
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Kakazhom"},
-        {"health_points", "150"},
-        {"damage", "15"}};                       
+        {"base_health_points", "150"},
+        {"base_damage", "15"}};                       
     std::string fname = "test/units/unit2.json";
     JSON testJSON = JSON::parseFromFile(fname);
     outputMap["name"]=testJSON.get<std::string>("name");
-    outputMap["health_points"]=testJSON.get<std::string>("health_points");
-    outputMap["damage"]=testJSON.get<std::string>("damage");
+    outputMap["base_health_points"]=testJSON.get<std::string>("base_health_points");
+    outputMap["base_damage"]=testJSON.get<std::string>("base_damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
@@ -42,8 +42,8 @@ TEST(parserTest, test_string){
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Maytcreme"},
-        {"health_points", "300"},
-        {"damage", "5"}};             
+        {"base_health_points", "300"},
+        {"base_damage", "5"}};             
               
     std::string fname = "test/units/unit3.json";
     std::ifstream jsonFile;
@@ -57,8 +57,8 @@ TEST(parserTest, test_string){
     jsonFile.close();
     JSON testJSON = JSON::parseFromString(jsonToString);
     outputMap["name"]=testJSON.get<std::string>("name");
-    outputMap["health_points"]=testJSON.get<std::string>("health_points");
-    outputMap["damage"]=testJSON.get<std::string>("damage");
+    outputMap["base_health_points"]=testJSON.get<std::string>("base_health_points");
+    outputMap["base_damage"]=testJSON.get<std::string>("base_damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
@@ -76,7 +76,7 @@ TEST(unittests,good_levelup){
     Monster monster = Monster::parse("Zombie.json");
     hero.fightTilDeath(monster);
 
-    ASSERT_EQ(hero.getLevel(),3);
+    ASSERT_EQ(hero.getLevel(),1);
    
 }
 
@@ -129,7 +129,7 @@ TEST(unittests, brokenFile){
 
 TEST(unittests, parseTest){
     ASSERT_NO_THROW(Hero::parse("test/units/unit1.json"));
-    ASSERT_NO_THROW(Monster::parse("Zombie.jsoon"));
+    ASSERT_NO_THROW(Monster::parse("Zombie.json"));
 }
 
 TEST(unittests, wrongPathTaken){
