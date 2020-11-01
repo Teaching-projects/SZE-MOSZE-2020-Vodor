@@ -6,5 +6,5 @@ then
 fi
 
 for file in test/scenarios/*.json; do
-    ./a.out $file >> output.txt
+    ./runGame $file >> output.txt
 done
