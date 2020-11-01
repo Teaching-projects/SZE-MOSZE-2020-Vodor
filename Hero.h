@@ -10,7 +10,6 @@ private:
     int b_maxHp; ///< Karakter maximális életereje.
 	int b_xp; ///< Karakter fejlődési pont.
 	int b_level; ///< Karakter szintje.
-    int b_xpall;
     int b_experience_per_level;
     int b_health_point_bonus_per_level;
     int b_damage_bonus_per_level;
