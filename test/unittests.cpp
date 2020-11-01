@@ -67,7 +67,7 @@ TEST(unittests, good_battle_end){
     Hero hero = Hero::parse("test/units/unit1.json");
     Monster monster = Monster::parse("Fallen.json");
     hero.fightTilDeath(monster);
-    ASSERT_EQ(hero.isALive(),1);
+    ASSERT_EQ(hero.isAlive(),1);
 }
 
 TEST(unittests,good_levelup){
