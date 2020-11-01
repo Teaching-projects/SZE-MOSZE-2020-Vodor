@@ -3,7 +3,7 @@
 
 
 TEST(parserTest, test_iostream){
-    Parser p;
+    JSON p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Hunkrow"},
@@ -19,7 +19,7 @@ TEST(parserTest, test_iostream){
 }
 
 TEST(parserTest, test_filename){
-    Parser p;
+    JSON p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Kakazhom"},
@@ -34,7 +34,7 @@ TEST(parserTest, test_filename){
 }
 
 TEST(parserTest, test_string){
-    Parser p;
+    JSON p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Maytcreme"},
@@ -59,7 +59,7 @@ TEST(parserTest, test_string){
 }
 
 TEST(parserTest, wrongJsonFile){
-    Parser p;
+    JSON p;
     const std::string expectedError = "Error in file: incorrect value.";
     const std::string fname = "test/wrongUnit.json";
     std::ifstream jsonFile;
