@@ -3,7 +3,6 @@
 
 
 TEST(parserTest, test_iostream){
-    JSON p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Hunkrow"},
@@ -11,30 +10,33 @@ TEST(parserTest, test_iostream){
         {"dmg", "11"}};                       
     std::ifstream jsonFile;
     jsonFile.open("test/units/unit1.json");
-    outputMap = p.parseJson(jsonFile);
+    JSON testJSON = JSON::parseJson(jsonFile);
     jsonFile.close();
+    outputmap["name"]=testJSON.get<std::string>("name");
+    outputmap["hp"]=testJSON.get<std::string>("hp");
+    outputmap["dmg"]=testJSON.get<std::string>("dmg");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
 }
 
 TEST(parserTest, test_filename){
-    JSON p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Kakazhom"},
         {"hp", "150"},
         {"dmg", "15"}};                       
     std::string fname = "test/units/unit2.json";
-    outputMap = p.parseFromFile(fname);
-
+    JSON testJSON = JSON::parseFromFile(fname);
+    outputmap["name"]=testJSON.get<std::string>("name");
+    outputmap["hp"]=testJSON.get<std::string>("hp");
+    outputmap["dmg"]=testJSON.get<std::string>("dmg");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
 }
 
 TEST(parserTest, test_string){
-    JSON p;
     std::map<std::string, std::string> outputMap; 
     std::map<std::string, std::string> expectedMap{
         {"name", "Maytcreme"},
@@ -51,21 +53,22 @@ TEST(parserTest, test_string){
         jsonToString += line;
 
     jsonFile.close();
-    outputMap = p.parseFromString(jsonToString);
-
+    JSON testJSON = JSON::parseFromString(jsonToString);
+    outputmap["name"]=testJSON.get<std::string>("name");
+    outputmap["hp"]=testJSON.get<std::string>("hp");
+    outputmap["dmg"]=testJSON.get<std::string>("dmg");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
 }
 
 TEST(parserTest, wrongJsonFile){
-    JSON p;
     const std::string expectedError = "Error in file: incorrect value.";
     const std::string fname = "test/wrongUnit.json";
     std::ifstream jsonFile;
     jsonFile.open(fname);
     try{
-        p.parseJson(jsonFile);
+        JSON testJSON = JSON::parseJson(jsonFile);
     }
     catch(std::string e){
         ASSERT_EQ(e, expectedError);
