@@ -49,21 +49,21 @@ void Hero::fightTilDeath(Unit other) {
 
 Hero Hero::parse(const std::string& fname) {
 	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level",
-							 "cooldown_multiplier_per_level","name", "healh_points", "damage", "attack_cooldown"};
+							 "cooldown_multiplier_per_level","name", "base_health_points", "base_damage", "base_attack_cooldown"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
     	bool okay = true;
     	for (auto key : keysNeeded)
-        	if(!returnedJSON.checkIfKeyExists(key))
+        	if(!returnedJSON.count(key))
 			okay = false;
     
 	if (okay) 
 	    return Hero(returnedJSON.get<std::string>("name"), 
-			stoi(returnedJSON.get<std::string>("health_points")),
-			stoi(returnedJSON.get<std::string>("damage")),
-			stod(returnedJSON.get<std::string>("attack_cooldown")),
+			stoi(returnedJSON.get<std::string>("base_health_points")),
+			stoi(returnedJSON.get<std::string>("base_damage")),
+			stod(returnedJSON.get<std::string>("base_attack_cooldown")),
 			stoi(returnedJSON.get<std::string>("experience_per_level")),
 			stoi(returnedJSON.get<std::string>("health_point_bonus_per_level")),
 			stoi(returnedJSON.get<std::string>("damage_bonus_per_level")),
 			stod(returnedJSON.get<std::string>("cooldown_multiplier_per_level")));
-	else throw "Incorrect attributes in " + fname + "!";
+	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
