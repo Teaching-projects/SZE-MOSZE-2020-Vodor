@@ -67,12 +67,8 @@ TEST(parserTest, wrongJsonFile){
     const std::string fname = "test/wrongUnit.json";
     std::ifstream jsonFile;
     jsonFile.open(fname);
-    try{
-        JSON testJSON = JSON::parseJson(jsonFile);
-    }
-    catch(std::string e){
-        ASSERT_EQ(e, expectedError);
-    }
+    ASSERT_THROW(JSON::parseJson(jsonFile),JSON::ParseException);
+    
     
 }
 
