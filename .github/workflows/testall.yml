@@ -1,27 +1,32 @@
-name: test workflow
+name: Run tests
 
 on:
   push
 
 jobs:
-  build:
+  runtests:
+    name: Run cppcheck, valgrind and diff
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install
+      - name: Install dependencies for valgrind
         run: sudo apt-get install -y valgrind cppcheck
-      - name: Cppcheck warning
-        run: cppcheck *.cpp --enable=warning --error-exitcode=1
-      - name: Upload CPPCheck report
-        run: cppcheck *.cpp --enable=all --output-file=cppreport.txt
-      - uses: actions/upload-artifact@v2
+      - name: run Makefile
+        run: make tests
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
         with:
           path: ./cppreport.txt
-      - name: Build
-        run: g++-10 -Wall -Werror -std=c++17 *.cpp
-      - name: Memory check
-        run: valgrind --error-exitcode=1 --leak-check=full ./a.out test/scenarios/scenario1.json
+  unittest:
+    name: Run Unit test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: sudo apt install libgtest-dev && sudo apt install cmake
+      - name: Make build environment
+        run: cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
+      - name: Create references
+        run: sudo ln -st /usr/lib/ /usr/src/gtest/libgtest.a && sudo ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
       - name: Run test
-        run: ./run_test.sh
-      - name: Diff
-        run: diff output.txt test/units/good_output.txt
+        run: make unittest
