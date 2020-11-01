@@ -65,7 +65,7 @@ const JSON JSON::parseJson(std::istream& jsonFile) {
     return parseFromString(json);
 }
 
-const int count(const std::string& key){
+const int JSON::count(const std::string& key){
     if (data.find(key) != data.end()) return 1;
     else return 0;
 }
