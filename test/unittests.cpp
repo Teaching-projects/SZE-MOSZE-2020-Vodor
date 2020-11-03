@@ -3,6 +3,7 @@
 #include "../Monster.h"
 #include "../Unit.h"
 #include <gtest/gtest.h>
+#include <variant>
 
 TEST(parserTest, test_iostream){
     std::map<std::string, std::variant<std::string, int, double>> outputMap; 
