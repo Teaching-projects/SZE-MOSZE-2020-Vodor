@@ -10,9 +10,9 @@ Monster Monster::parse(const std::string& fname) {
 
 	if (okay) 
 	    return Monster(returnedJSON.get<std::string>("name"), 
-			stoi(returnedJSON.get<std::string>("health_points")),
-			stoi(returnedJSON.get<std::string>("damage")),
-			stod(returnedJSON.get<std::string>("attack_cooldown")));
+			returnedJSON.get<int>("health_points"),
+			returnedJSON.get<int>("damage"),
+			returnedJSON.get<double>("attack_cooldown"));
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
 

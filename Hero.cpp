@@ -57,14 +57,14 @@ Hero Hero::parse(const std::string& fname) {
 			okay = false;
     
 	if (okay) 
-	    return Hero(returnedJSON.get<std::string>("name"), 
-			stoi(returnedJSON.get<std::string>("base_health_points")),
-			stoi(returnedJSON.get<std::string>("base_damage")),
-			stod(returnedJSON.get<std::string>("base_attack_cooldown")),
-			stoi(returnedJSON.get<std::string>("experience_per_level")),
-			stoi(returnedJSON.get<std::string>("health_point_bonus_per_level")),
-			stoi(returnedJSON.get<std::string>("damage_bonus_per_level")),
-			stod(returnedJSON.get<std::string>("cooldown_multiplier_per_level")));
+	     return Hero(returnedJSON.get<std::string>("name"), 
+			returnedJSON.get<int>("base_health_points"),
+			returnedJSON.get<int>("base_damage"),
+			returnedJSON.get<double>("base_attack_cooldown"),
+			returnedJSON.get<int>("experience_per_level"),
+			returnedJSON.get<int>("health_point_bonus_per_level"),
+			returnedJSON.get<int>("damage_bonus_per_level"),
+			returnedJSON.get<double>("cooldown_multiplier_per_level"));
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
 
