@@ -10,7 +10,7 @@ TEST(parserTest, test_iostream){
     JSON testJSON = JSON::parseJson(jsonFile);
     jsonFile.close();
     ASSERT_EQ(testJSON.get<std::string>("name"),"Hunkrow");
-    ASSER_EQ(testJSON.get<int>("base_health_points"),200);
+    ASSERT_EQ(testJSON.get<int>("base_health_points"),200);
     ASSERT_EQ(testJSON.get<int>("base_damage"),11);
 }
 
@@ -37,9 +37,6 @@ TEST(parserTest, test_string){
     ASSERT_EQ(testJSON.get<std::string>("name"),"Maytcreme");
     ASSERT_EQ(testJSON.get<int>("base_health_points"),300);
     ASSERT_EQ(testJSON.get<int>("base_damage"),5);
-    for (auto e : expectedMap){
-        ASSERT_EQ(outputMap[e.first],e.second);
-    }
 }
 
 TEST(unittests, good_battle_end){
