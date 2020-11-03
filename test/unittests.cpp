@@ -77,8 +77,8 @@ TEST(unittests, whitespaceTest){
     JSON testJSON = JSON::parseFromFile("test/muchWhitespace.json");
 
     ASSERT_EQ(testJSON.get<std::string>("name"),"Teszt");
-    ASSERT_EQ(testJSON.get<int>("base_health_points"),12);
-    ASSERT_EQ(testJSON.get<int>("base_damage"),20);
+    ASSERT_EQ(testJSON.get<int>("health_points"),12);
+    ASSERT_EQ(testJSON.get<int>("damage"),20);
     ASSERT_EQ(testJSON.get<double>("attack_cooldown"),2.2);
 }
 
