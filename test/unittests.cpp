@@ -5,45 +5,45 @@
 #include <gtest/gtest.h>
 
 TEST(parserTest, test_iostream){
-    std::map<std::string, std::string> outputMap; 
-    std::map<std::string, std::string> expectedMap{
+    std::map<std::string, std::variant<std::string, int, double>> outputMap; 
+    std::map<std::string, std::variant<std::string, int, double>> expectedMap{
         {"name", "Hunkrow"},
-        {"base_health_points", "200"},
-        {"base_damage", "11"}};                       
+        {"base_health_points", 200},
+        {"base_damage", 11}};                       
     std::ifstream jsonFile;
     jsonFile.open("test/units/unit1.json");
     JSON testJSON = JSON::parseJson(jsonFile);
     jsonFile.close();
     outputMap["name"]=testJSON.get<std::string>("name");
-    outputMap["base_health_points"]=testJSON.get<std::string>("base_health_points");
-    outputMap["base_damage"]=testJSON.get<std::string>("base_damage");
+    outputMap["base_health_points"]=testJSON.get<int>("base_health_points");
+    outputMap["base_damage"]=testJSON.get<int>("base_damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
 }
 
 TEST(parserTest, test_filename){
-    std::map<std::string, std::string> outputMap; 
-    std::map<std::string, std::string> expectedMap{
+    std::map<std::string, std::variant<std::string, int, double>> outputMap; 
+    std::map<std::string, std::variant<std::string, int, double>> expectedMap{
         {"name", "Kakazhom"},
-        {"base_health_points", "150"},
-        {"base_damage", "15"}};                       
+        {"base_health_points", 150},
+        {"base_damage", 15}};                       
     std::string fname = "test/units/unit2.json";
     JSON testJSON = JSON::parseFromFile(fname);
     outputMap["name"]=testJSON.get<std::string>("name");
-    outputMap["base_health_points"]=testJSON.get<std::string>("base_health_points");
-    outputMap["base_damage"]=testJSON.get<std::string>("base_damage");
+    outputMap["base_health_points"]=testJSON.get<int>("base_health_points");
+    outputMap["base_damage"]=testJSON.get<int>("base_damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
 }
 
 TEST(parserTest, test_string){
-    std::map<std::string, std::string> outputMap; 
-    std::map<std::string, std::string> expectedMap{
+    std::map<std::string, std::variant<std::string, int, double>> outputMap; 
+    std::map<std::string, std::variant<std::string, int, double>> expectedMap{
         {"name", "Maytcreme"},
-        {"base_health_points", "300"},
-        {"base_damage", "5"}};             
+        {"base_health_points", 300},
+        {"base_damage", 5}};             
               
     std::string fname = "test/units/unit3.json";
     std::ifstream jsonFile;
@@ -57,8 +57,8 @@ TEST(parserTest, test_string){
     jsonFile.close();
     JSON testJSON = JSON::parseFromString(jsonToString);
     outputMap["name"]=testJSON.get<std::string>("name");
-    outputMap["base_health_points"]=testJSON.get<std::string>("base_health_points");
-    outputMap["base_damage"]=testJSON.get<std::string>("base_damage");
+    outputMap["base_health_points"]=testJSON.get<int>("base_health_points");
+    outputMap["base_damage"]=testJSON.get<int>("base_damage");
     for (auto e : expectedMap){
         ASSERT_EQ(outputMap[e.first],e.second);
     }
@@ -99,17 +99,19 @@ TEST(unittests, parsunit_test){
 }
 
 TEST(unittests, whitespaceTest){
-    std::map<std::string, std::string> expectedMap{
+    std::map<std::string, std::variant<std::string, int, double>> outputMap; 
+    std::map<std::string, std::variant<std::string, int, double>> expectedMap{
         {"name", "Teszt"},
-        {"health_points", "12"},
-        {"damage", "20"}}; 
+        {"health_points", 12},
+        {"damage", 20},
+        {"attack_cooldown", 2.2}};
     
-    std::map<std::string, std::string> outputMap;
     JSON testJSON = JSON::parseFromFile("test/muchWhitespace.json");
 
     outputMap["name"]=testJSON.get<std::string>("name");
-    outputMap["health_points"]=testJSON.get<std::string>("health_points");
-    outputMap["damage"]=testJSON.get<std::string>("damage");
+    outputMap["base_health_points"]=testJSON.get<int>("base_health_points");
+    outputMap["base_damage"]=testJSON.get<int>("base_damage");
+    outputMap["attack_cooldown"] = testJSON.get<double>("attack_cooldown");
 
     for (auto e : expectedMap)
         ASSERT_EQ(outputMap[e.first], e.second);
