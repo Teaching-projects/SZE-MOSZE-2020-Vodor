@@ -1,6 +1,6 @@
 {
-    "hp" : 2,
-    "attackcooldown" : 20.24,
+    "health_points" : 2,
+    "attack_cooldown" : 20.24,
     "name" : "MixedUp",
-    "dmg" : 45
+    "damage" : 45
 }

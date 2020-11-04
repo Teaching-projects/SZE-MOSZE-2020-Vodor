@@ -8,4 +8,8 @@
 
 
 
-    "hp" : 12,"dmg" : 20}
+    "health_points" : 12,"damage" : 20,
+
+"attack_cooldown" : 2.2
+
+}
