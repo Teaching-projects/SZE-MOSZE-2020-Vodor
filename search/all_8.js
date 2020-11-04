@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sze_2dmosze_2d2020_2dvodor',['SZE-MOSZE-2020-Vodor',['../autotoc_md0.html',1,'']]]
+  ['levelup',['levelup',['../classHero.html#a0fe5b6710e307afc14deff752ce54706',1,'Hero']]]
 ];

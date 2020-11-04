@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['rungame',['runGame',['../classGame.html#abc9436a9d18e48c6e1e4fbc4ea879449',1,'Game']]]
+  ['json',['JSON',['../classJSON.html',1,'JSON'],['../classJSON.html#aa01e26294300ef22c5423792274a1eb1',1,'JSON::JSON()']]]
 ];
