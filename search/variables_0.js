@@ -3,7 +3,7 @@ var searchData=
   ['b_5facd',['b_acd',['../classUnit.html#a65bb4162b503a1f6434f2ab01dfb6164',1,'Unit']]],
   ['b_5fcooldown_5fmultiplier_5fper_5flevel',['b_cooldown_multiplier_per_level',['../classHero.html#a77ef3b91fce345553fa2315a31adcf80',1,'Hero']]],
   ['b_5fdamage_5fbonus_5fper_5flevel',['b_damage_bonus_per_level',['../classHero.html#ae3ecc2881f4cf644b0147ae760fe5083',1,'Hero']]],
-  ['b_5fdata',['b_data',['../classJSON.html#a06f2086b3e7d9767a77e43fcf4918861',1,'JSON']]],
+  ['b_5fdata',['b_data',['../classJSON.html#adc670b8c18728f3f18b73b7a15ae1671',1,'JSON']]],
   ['b_5fdmg',['b_dmg',['../classUnit.html#a2ed232ed2989584d5c0be118204b1986',1,'Unit']]],
   ['b_5fexperience_5fper_5flevel',['b_experience_per_level',['../classHero.html#ad5d1b8177f8a0505055a3097bff0d94a',1,'Hero']]],
   ['b_5fhealth_5fpoint_5fbonus_5fper_5flevel',['b_health_point_bonus_per_level',['../classHero.html#a9e03413029e2e780afbcc45cb95adb7c',1,'Hero']]],
