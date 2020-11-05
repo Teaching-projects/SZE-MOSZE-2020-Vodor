@@ -26,24 +26,26 @@
 #include <cctype>
 #include <algorithm>
 
+using jsonData = std::map <std::string, std::variant<std::string, int, double>>;
+
 class JSON
 {
 private:
-    std::map <std::string, std::variant<std::string, int, double>> b_data; ///< Adatoknak létrehozott map.
+    jsonData b_data; ///< Adatoknak létrehozott map.
 public:
     /*! \brief JSON konstruktor
  	*         
  	*  
 	*  \param data [in] adat.
  	*/
-    JSON(std::map <std::string, std::variant<std::string, int, double>> data) : b_data(data){}
+    JSON(jsonData data) : b_data(data){}
     /// Ez a függvény a String értéket parse-olja.
     static const JSON parseFromString(std::string inputString);
     /// Ez a függvény a Fájlt parse-olja.
     static const JSON parseFromFile(const std::string& json);
     /// Ez a függvény a .json file parse-olja.
     static const JSON parseJson(std::istream& jsonFile);
-    /// Ez a függvény viszgálja adott key benne van-e mapben.
+    /// Ez a függvény vizsgálja adott key benne van-e mapben.
     const int count(const std::string& key);
     /// Ez a függvény visszaad egy valuet a key alapján.
     template <typename T> T get(const std::string& key){
