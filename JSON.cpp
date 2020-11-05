@@ -3,7 +3,7 @@
 const JSON JSON::parseFromString(std::string inputString){
     static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\s\\w\\.]*)\"?\\s*[,}]\\s*");
     std::smatch matches;
-    std::map<std::string,std::variant<std::string, int, double>> attributes;
+    jsonData attributes;
     std::string errMsg;
     if (inputString.substr(0,1) != "{"){
         errMsg = "Error in file: missing { from the top.";
@@ -49,7 +49,7 @@ const JSON JSON::parseFromFile(const std::string& json) {
         if (jsonFile.fail()) throw ParseException(json + " does not exist!");
         else
         {
-           std::map<std::string, std::variant<std::string, int, double>> toReturn = parseJson(jsonFile).b_data;
+           jsonData toReturn = parseJson(jsonFile).b_data;
            jsonFile.close();
            return JSON(toReturn);
         }
