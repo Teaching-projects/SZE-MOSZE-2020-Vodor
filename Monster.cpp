@@ -5,7 +5,7 @@ Monster Monster::parse(const std::string& fname) {
 	JSON returnedJSON = JSON::parseFromFile(fname);
 	bool okay = true;
 	for (auto key : keysNeeded)
-        if(!returnedJSON.count(key))
+        	if(!returnedJSON.count(key))
 			okay = false;
 
 	if (okay) 
