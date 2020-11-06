@@ -7,10 +7,10 @@ jobs:
   runtests:
     name: Run cppcheck, valgrind and diff
     runs-on: ubuntu-latest
+    container: rolandborbely/tests-image:latest 
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies for valgrind
-        run: sudo apt-get install -y valgrind cppcheck
+      - run: echo 'Installing valgrind and cppcheck'
       - name: run Makefile
         run: make tests
       - name: Upload artifact
@@ -20,10 +20,10 @@ jobs:
   unittest:
     name: Run Unit test
     runs-on: ubuntu-latest
+    container: rolandborbely/tests-image:latest
     steps:
       - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: sudo apt install libgtest-dev && sudo apt install cmake
+      - run: echo 'Installing dependencies for the unit tests'
       - name: Make build environment
         run: cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
       - name: Create references
