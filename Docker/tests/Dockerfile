@@ -6,4 +6,5 @@ valgrind \
 cppcheck \
 libgtest-dev \
 cmake \
+g++ \
 && rm -rf /var/lib/apt/lists/*
