@@ -10,10 +10,10 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     runs-on: ubuntu-latest   
-    container: rolandborbely/doxygen_image 
+    container: rolandborbely/doxygen-image:latest 
     steps:
     - uses: actions/checkout@master
-    - run: echo "Installing dependencies"
+    - run: echo 'Installing dependencies'
     - name: Run doxygen
       run: make doc
     - name: Push git subdirectory as branch
