@@ -25,8 +25,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo 'Installing dependencies for the unit tests'
       - name: Make build environment
-        run: cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make
+        run: cd /usr/src/gtest && cmake CMakeLists.txt && make
       - name: Create references
-        run: sudo ln -st /usr/lib/ /usr/src/gtest/libgtest.a && sudo ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
+        run: ln -st /usr/lib/ /usr/src/gtest/libgtest.a && ln -st /usr/lib/ /usr/src/gtest/libgtest_main.a
       - name: Run test
         run: make unittest
