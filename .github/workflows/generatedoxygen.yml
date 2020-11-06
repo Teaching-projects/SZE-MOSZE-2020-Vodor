@@ -13,7 +13,6 @@ jobs:
     container: rolandborbely/doxygen-image:latest 
     steps:
     - uses: actions/checkout@v2
-    - run: echo 'Installing dependencies'
     - name: Run doxygen
       run: make doc
     - name: Push git subdirectory as branch

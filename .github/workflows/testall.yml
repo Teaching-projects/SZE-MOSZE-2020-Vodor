@@ -10,7 +10,6 @@ jobs:
     container: rolandborbely/tests-image:latest 
     steps:
       - uses: actions/checkout@v2
-      - run: echo 'Installing valgrind and cppcheck'
       - name: run Makefile
         run: make tests
       - name: Upload artifact
@@ -23,7 +22,6 @@ jobs:
     container: rolandborbely/tests-image:latest
     steps:
       - uses: actions/checkout@v2
-      - run: echo 'Installing dependencies for the unit tests'
       - name: Make build environment
         run: cd /usr/src/gtest && cmake CMakeLists.txt && make
       - name: Create references
