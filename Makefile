@@ -1,6 +1,6 @@
 OBJS := JSON.o Hero.o Monster.o Unit.o main.o
 CFLAGS := -Wall -Werror -std=c++17
-RUN := g++-10
+RUN := g++-9
 
 SCA := cppcheck
 SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp
