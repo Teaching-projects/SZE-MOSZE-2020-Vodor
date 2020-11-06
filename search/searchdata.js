@@ -22,6 +22,6 @@ var indexSectionLabels =
   1: "Osztályok",
   2: "Függvények",
   3: "Változók",
-  4: "Oldal"
+  4: "Oldalak"
 };
 

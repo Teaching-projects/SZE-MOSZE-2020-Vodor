@@ -1,9 +1,9 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.13"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>SZE-MOSZE-2020-Vodor: Jelmagyarázat</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,18 +30,21 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Készítette Doxygen 1.8.13 -->
+<!-- Készítette Doxygen 1.8.17 -->
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 var searchBox = new SearchBox("searchBox", "search",false,'Keresés');
+/* @license-end */
 </script>
 <script type="text/javascript" src="menudata.js"></script>
 <script type="text/javascript" src="menu.js"></script>
 <script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
 $(function() {
   initMenu('',true,false,'search.php','Keresés');
   $(document).ready(function() { init_search(); });
 });
-</script>
+/* @license-end */</script>
 <div id="main-nav"></div>
 </div><!-- top -->
 <!-- window showing the filter options -->
@@ -64,11 +67,42 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <p>Ez az oldal elmagyarázza hogyan kell értelmezni a doxygen által készített ábrákat.</p>
-<p>Vegyük a következő példát: </p><div class="fragment"><div class="line">/*! Vágás miatt nem látható osztály */</div><div class="line">class Invisible { };</div><div class="line"></div><div class="line">/*! Levágott osztály, származása rejtett */</div><div class="line">class Truncated : public Invisible { };</div><div class="line"></div><div class="line">/* Doxygen kommentekkel nem dokumentált osztály */</div><div class="line">class Undocumented { };</div><div class="line"></div><div class="line">/*! Publikus származtatásal levezetett osztály */</div><div class="line">class PublicBase : public Truncated { };</div><div class="line"></div><div class="line">/*! Egy sablonosztály */</div><div class="line">template&lt;class T&gt; class Templ { };</div><div class="line"></div><div class="line">/*! Védett származtatásal levezetett osztály */</div><div class="line">class ProtectedBase { };</div><div class="line"></div><div class="line">/*! Privát származtatásal levezetett osztály */</div><div class="line">class PrivateBase { };</div><div class="line"></div><div class="line">/*! Osztály, melyet a származtatott osztály használ */</div><div class="line">class Used { };</div><div class="line"></div><div class="line">/*! Osztály, mely több másiknak leszármazottja */</div><div class="line">class Inherited : public PublicBase,</div><div class="line">                  protected ProtectedBase,</div><div class="line">                  private PrivateBase,</div><div class="line">                  public Undocumented,</div><div class="line">                  public Templ&lt;int&gt;</div><div class="line">{</div><div class="line">  private:</div><div class="line">    Used *m_usedClass;</div><div class="line">};</div></div><!-- fragment --><p> Ha a konfigurációs fájl <code>MAX_DOT_GRAPH_HEIGHT</code> elemének értékét 240-re állítjuk, az eredmény a következő ábra lesz:</p>
-<center><div class="image">
-<img src="graph_legend.png"/>
-</div>
-</center> <p>Az ábrán levő dobozok jelentése: </p><ul>
+<p>Vegyük a következő példát: </p><div class="fragment"><div class="line"><span class="comment">/*! Vágás miatt nem látható osztály */</span></div>
+<div class="line"><span class="keyword">class </span>Invisible { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Levágott osztály, származása rejtett */</span></div>
+<div class="line"><span class="keyword">class </span>Truncated : <span class="keyword">public</span> Invisible { };</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/* Doxygen kommentekkel nem dokumentált osztály */</span></div>
+<div class="line"><span class="keyword">class </span>Undocumented { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Publikus származtatásal levezetett osztály */</span></div>
+<div class="line"><span class="keyword">class </span>PublicBase : <span class="keyword">public</span> Truncated { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Egy sablonosztály */</span></div>
+<div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>Templ { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Védett származtatásal levezetett osztály */</span></div>
+<div class="line"><span class="keyword">class </span>ProtectedBase { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Privát származtatásal levezetett osztály */</span></div>
+<div class="line"><span class="keyword">class </span>PrivateBase { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Osztály, melyet a származtatott osztály használ */</span></div>
+<div class="line"><span class="keyword">class </span>Used { };</div>
+<div class="line"><span class="comment"></span> </div>
+<div class="line"><span class="comment">/*! Osztály, mely több másiknak leszármazottja */</span></div>
+<div class="line"><span class="keyword">class </span>Inherited : <span class="keyword">public</span> PublicBase,</div>
+<div class="line">                  <span class="keyword">protected</span> ProtectedBase,</div>
+<div class="line">                  <span class="keyword">private</span> PrivateBase,</div>
+<div class="line">                  <span class="keyword">public</span> Undocumented,</div>
+<div class="line">                  <span class="keyword">public</span> Templ&lt;int&gt;</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">private</span>:</div>
+<div class="line">    Used *m_usedClass;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p> Az eredmény a következő ábra lesz:</p>
+<center><img src="graph_legend.png" alt="" class="inline"/></center><p>A fenti ábrán levő dobozok jelentése a következő: </p><ul>
 <li>
 Kitöltött fekete doboz jelzi azt az osztályt vagy struktúrát,amelyről az ábra szól. </li>
 <li>
@@ -76,11 +110,12 @@ Fekete keret jelzi a dokumentált osztályokat és struktúrákat. </li>
 <li>
 Szürke keret jelzi a nem dokumentált osztályokat és struktúrákat. </li>
 <li>
-Piros keret jelzi azokat az osztályokat és struktúrákat, amelyeknél vágás miatt nem látható az összes leszármaztatási kapcsolat. Egy ábra vágásra kerül, ha nem fér bele a megadott tartományba.</li>
+Piros keret jelzi azokat az osztályokat és struktúrákat, amelyeknél vágás miatt nem látható az összes leszármaztatási kapcsolat. Egy ábra vágásra kerül, ha nem fér bele a megadott tartományba. </li>
 </ul>
-<p>A nyilak jelentése: </p><ul>
+<p>A nyilak jelentése a következő: </p>
+<ul>
 <li>
-Sötétkék nyíl jelzi a publikus származtatást. </li>
+Sötétkék nyíl jelzi a publikus származtatás kapcsolatát két osztály között. </li>
 <li>
 Sötétzöld nyíl jelzi a védett származtatást. </li>
 <li>
@@ -95,7 +130,7 @@ Sárga szaggatott nyíl jelzi a kapcsolatot a sablonpéldány és a példányos�
 <hr class="footer"/><address class="footer"><small>
 Készítette &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.13
+</a> 1.8.17
 </small></address>
 </body>
 </html>
