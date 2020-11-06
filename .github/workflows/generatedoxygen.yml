@@ -9,11 +9,10 @@ jobs:
 
   deploy:
     name: Deploy to GitHub Pages
-    runs-on: ubuntu-latest    
+    runs-on: ubuntu-latest   
+    container: rolandborbely/doxygen-image:latest 
     steps:
-    - uses: actions/checkout@master
-    - name: Install dependencies
-      run: sudo apt-get install doxygen && sudo apt-get install graphviz
+    - uses: actions/checkout@v2
     - name: Run doxygen
       run: make doc
     - name: Push git subdirectory as branch
