@@ -3,7 +3,7 @@ name: Generate Doxygen
 on:
   push:	
     branches:	
-      - docker
+      - master
 
 jobs:
 
@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest   
     container: rolandborbely/doxygen-image:latest 
     steps:
-    - uses: actions/checkout@master
+    - uses: actions/checkout@v2
     - run: echo 'Installing dependencies'
     - name: Run doxygen
       run: make doc
