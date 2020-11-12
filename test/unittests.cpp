@@ -111,6 +111,10 @@ TEST(unittests, parseTest2){
     ASSERT_DOUBLE_EQ(hero.getAttackCoolDown(), 12.123);
 }
 
+TEST(unittests, scenarioParseTest){
+    ASSERT_NO_THROW(JSON::parseFromFile("test/testScenario.json"));
+}
+
 int main(int argc, char** argv){
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
