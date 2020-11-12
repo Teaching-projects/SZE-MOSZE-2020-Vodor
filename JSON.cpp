@@ -2,7 +2,9 @@
 
 const JSON JSON::parseFromString(std::string inputString){
     static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\s\\w\\.]*)\"?\\s*[,}]\\s*");
+    static const std::regex regexForList("\\s*\"([\\w]*)\"\\s*:\\s*\"?\\[?\\s*([\\w\\.\"?,?\\s*]*)\"?\\s*[,\\]}]");
     std::smatch matches;
+    std::smatch matchList;
     jsonData attributes;
     std::string errMsg;
     if (inputString.substr(0,1) != "{"){
@@ -28,13 +30,25 @@ const JSON JSON::parseFromString(std::string inputString){
         else
         {
             std::string value = matches[2];
+            
             if (!value.empty() && std::all_of(value.begin(), value.end(), [](char c){return std::isdigit(c);})) attributes[matches[1]] = std::stoi(value);
             else if (!value.empty() && std::all_of(value.begin(), value.end(), [](char c){return ((std::isdigit(c) || c == '.') ? true : false);})) attributes[matches[1]] = std::stod(value);
             else attributes[matches[1]] = value;
             inputString = matches.suffix().str();
         }            
     }
-        return JSON(attributes);
+    if(std::regex_search(inputString, matchList, regexForList)){
+        std::string values = matchList[2];
+        while (values.find(",")!=std::string::npos)
+            values.erase(values.find(","),1);
+            
+        while(values.find("\"")!= std::string::npos)
+            values.erase(values.find("\""),1);
+
+        attributes[matchList[1]]=values;
+        inputString = matchList.suffix().str();
+    }
+    return JSON(attributes);
 }
 
 
