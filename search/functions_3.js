@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['get_43',['get',['../classJSON.html#aebfe4eae3134bdc249f9695c6406bdba',1,'JSON']]],
+  ['get_43',['get',['../classJSON.html#a437b5cd773c3ad6c5761ff29ebd76a8c',1,'JSON::get(const std::string &amp;key)'],['../classJSON.html#a2e3d7b3d03297c4b09ce1f64ad4187d7',1,'JSON::get(const std::string &amp;key)']]],
   ['getattackcooldown_44',['getAttackCoolDown',['../classUnit.html#a5ba9ff456bd52cff5e94ddc159b376a1',1,'Unit']]],
   ['getdamage_45',['getDamage',['../classUnit.html#a0062c5fab5677c6b47e1d881b4dcc53c',1,'Unit']]],
   ['gethealthpoints_46',['getHealthPoints',['../classUnit.html#ad5296f2ce5cb21eb323d5eb0bc104eba',1,'Unit']]],
