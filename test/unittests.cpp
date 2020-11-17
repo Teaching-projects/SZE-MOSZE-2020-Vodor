@@ -2,7 +2,7 @@
 #include "../JSON.h"
 #include "../Monster.h"
 #include "../Unit.h"
-#inckude "../Map.h"
+#include "../Map.h"
 #include <gtest/gtest.h>
 
 TEST(parserTest, test_iostream){                       
@@ -118,7 +118,7 @@ TEST(unittests, scenarioParseTest){
 
 TEST(unittests, mapClassTest){
     ASSERT_NO_THROW(Map("exampleMap.txt"));
-    ASSERT_THROW(Map("nincsilyen.txt"))
+    ASSERT_THROW(Map("nincsilyen.txt"),std::runtime_error)
     Map test("exampleMap.txt")
     ASSERT_THROW(test.get(2689,3543),Map::WrongIndexException);       
 }
