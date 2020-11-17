@@ -41,7 +41,7 @@ public:
         \param y [in] y koordináta
         \return Járható út, vagy fal.
     */
-    Map::type get(int x, int y) const;
+    Map::type get(unsigned int x, unsigned int y) const;
 
     class WrongIndexException : public std::runtime_error{
     public:

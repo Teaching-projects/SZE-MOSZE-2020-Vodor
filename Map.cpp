@@ -13,7 +13,7 @@ Map::Map(const std::string& filename){
     mapFile.close();
 }
 
-Map::type Map::get(int x, int y) const{
+Map::type Map::get(unsigned int x, unsigned int y) const{
     if (y >= map.size() || y < 0 || x >= map[y].length() || x < 0) throw WrongIndexException("Given coordinate is out of range!");
     if(map[y][x] == ' ') return Map::type::Free;
     else return Map::type::Wall;
