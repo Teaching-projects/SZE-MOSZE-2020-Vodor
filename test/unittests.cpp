@@ -118,8 +118,8 @@ TEST(unittests, scenarioParseTest){
 
 TEST(unittests, mapClassTest){
     ASSERT_NO_THROW(Map("exampleMap.txt"));
-    ASSERT_THROW(Map("nincsilyen.txt"),std::runtime_error)
-    Map test("exampleMap.txt")
+    ASSERT_THROW(Map("nincsilyen.txt"),std::runtime_error);
+    Map test("exampleMap.txt");
     ASSERT_THROW(test.get(2689,3543),Map::WrongIndexException);       
 }
 
