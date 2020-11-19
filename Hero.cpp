@@ -48,18 +48,28 @@ void Hero::fightTilDeath(Monster& other) {
 }
 
 Hero Hero::parse(const std::string& fname) {
-	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level",
-							 "cooldown_multiplier_per_level","name", "base_health_points", "base_damage", "base_attack_cooldown"};
+	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level",
+							 "cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
-    	bool okay = true;
-    	for (auto key : keysNeeded)
-        	if(!returnedJSON.count(key))
-			okay = false;
+    bool okay = true;
+    for (auto key : keysNeeded)
+       	if(!returnedJSON.count(key))
+		okay = false;
+	
+	Damage damage;
+
+	if(returnedJSON.count("damage"))
+		damage.physical = returnedJSON.get<int>("damage");
+	else damage.physical = 0;
+	
+	if(returnedJSON.count("magical-damage"))
+		damage.magical = returnedJSON.get<int>("magical-damage");
+	else damage.magical = 0;
     
 	if (okay) 
 	     return Hero(returnedJSON.get<std::string>("name"), 
 			returnedJSON.get<int>("base_health_points"),
-			returnedJSON.get<int>("base_damage"),
+			damage,
 			returnedJSON.get<double>("base_attack_cooldown"),
 			returnedJSON.get<int>("experience_per_level"),
 			returnedJSON.get<int>("health_point_bonus_per_level"),
