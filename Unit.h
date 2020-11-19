@@ -21,6 +21,7 @@
 
 #include <string>
 #include "JSON.h"
+#include "Damage.h"
 
 class Unit
 {
@@ -36,7 +37,7 @@ public:
 	*  \param dmg [in] karakter támadási ereje
 	*  \param acd [in] karakter támadási ideje
  	*/
-	Unit(const std::string& name, int hP, int dmg, double acd) : b_name(name), b_hP(hP), b_dmg(dmg), b_acd(acd) {}
+	Unit(const std::string& name, int hP, Damage damage, double acd) : b_name(name), b_hP(hP), b_damage(damage), b_acd(acd) {}
 	/// Ez a függvény visszaadja a karakter életerejét.
 	int getHealthPoints() const { return b_hP; }
 	/// Ez a függvény visszaadja a karakter nevét.
@@ -44,14 +45,14 @@ public:
 	/// Ez a függvény visszaadja a karakter meghalt-e.
 	bool isAlive() const;
 	/// Ez a függvény visszaadja a karakter támadási erejét.
-	int getDamage() const { return b_dmg; }
+	Damage getDamage() const { return b_damage; }
 	/// Ez a függvény visszaadja a karakter támadási idejét.
 	double getAttackCoolDown() const { return b_acd; } 
 
 protected:
+	Damage b_damage;
 	const std::string b_name;  ///< A karakter neve. 
 	int b_hP; ///< A karakter életereje.
-	int b_dmg; ///< A karakter támadási ereje.
 	double b_acd; ///< Karakter támadási ideje.
 };
 
