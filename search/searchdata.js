@@ -1,10 +1,12 @@
 var indexSectionsWithContent =
 {
-  0: "abcfghijlmpsu",
-  1: "hjmpu",
+  0: "abcfghijlmpstuw",
+  1: "hjmpuw",
   2: "acfghijlmpu",
-  3: "b",
-  4: "s"
+  3: "bm",
+  4: "t",
+  5: "fw",
+  6: "s"
 };
 
 var indexSectionNames =
@@ -13,7 +15,9 @@ var indexSectionNames =
   1: "classes",
   2: "functions",
   3: "variables",
-  4: "pages"
+  4: "enums",
+  5: "enumvalues",
+  6: "pages"
 };
 
 var indexSectionLabels =
@@ -22,6 +26,8 @@ var indexSectionLabels =
   1: "Osztályok",
   2: "Függvények",
   3: "Változók",
-  4: "Oldalak"
+  4: "Enumerációk",
+  5: "Enumeráció-értékek",
+  6: "Oldalak"
 };
 

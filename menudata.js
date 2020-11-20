@@ -40,8 +40,12 @@ var menudata={children:[
 {text:"l",url:"functions.html#index_l"},
 {text:"m",url:"functions.html#index_m"},
 {text:"p",url:"functions.html#index_p"},
-{text:"u",url:"functions.html#index_u"}]},
+{text:"t",url:"functions.html#index_t"},
+{text:"u",url:"functions.html#index_u"},
+{text:"w",url:"functions.html#index_w"}]},
 {text:"Függvények",url:"functions_func.html"},
-{text:"Változók",url:"functions_vars.html"}]}]},
+{text:"Változók",url:"functions_vars.html"},
+{text:"Enumerációk",url:"functions_enum.html"},
+{text:"Enumeráció-értékek",url:"functions_eval.html"}]}]},
 {text:"Fájlok",url:"files.html",children:[
 {text:"Fájllista",url:"files.html"}]}]}
