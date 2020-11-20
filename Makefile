@@ -1,9 +1,9 @@
-OBJS := JSON.o Hero.o Monster.o Unit.o main.o
+OBJS := JSON.o Hero.o Monster.o Unit.o main.o Map.o
 CFLAGS := -Wall -Werror -std=c++17
 RUN := g++-9
 
 SCA := cppcheck
-SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp
+SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp Map.cpp
 SCAFLAGS := --enable=warning --error-exitcode=1
 SCAUPFLAGS := --enable=all --output-file=cppreport.txt
 MEMCHECK := valgrind
@@ -34,6 +34,9 @@ Hero.o: Hero.cpp Monster.h Hero.h Unit.h JSON.h
 
 main.o: main.cpp Monster.h Hero.h Unit.h JSON.h
 	$(RUN) $(CFLAGS) -c main.cpp
+
+Map.o: Map.cpp Map.h
+	$(RUN) $(CFLAGS) -c Map.cpp
 
 sca:
 	$(SCA) $(SCAOBJS) $(SCAFLAGS)  
