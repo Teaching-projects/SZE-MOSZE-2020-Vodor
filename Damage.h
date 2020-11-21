@@ -6,7 +6,7 @@ struct Damage
 		int physical; ///< A karakter támadási ereje.
 		int magical; ///< A karakter mágikus támadási ereje.
 
-        Damage& operator+(const Damage& other){
+        Damage operator+(const Damage& other){
             Damage dmgToReturn;
             dmgToReturn.physical = this->physical + other.physical;
             dmgToReturn.magical = this->magical + other.magical;

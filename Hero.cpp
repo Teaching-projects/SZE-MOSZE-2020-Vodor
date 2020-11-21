@@ -55,7 +55,6 @@ Hero Hero::parse(const std::string& fname) {
     for (auto key : keysNeeded)
        	if(!returnedJSON.count(key))
 		okay = false;
-	
 	Damage damage;
 
 	if(returnedJSON.count("damage")) damage.physical = returnedJSON.get<int>("damage");
