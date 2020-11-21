@@ -3,7 +3,7 @@
 #include "../Monster.h"
 #include "../Unit.h"
 #include "../Map.h"
-#invlude "../Damage.h"
+#include "../Damage.h"
 #include <gtest/gtest.h>
 
 TEST(parserTest, test_iostream){                       
