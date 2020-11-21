@@ -29,8 +29,8 @@ void Monster::getHitBy(Hero* other) {
 	if(b_hP - other->getDamage().physical>0){
 		other->addXp(other->getDamage().physical);
 		b_hP-=other->getDamage().physical;
-		other->levelup();
 		if(b_hP - other->getDamage().magical > 0) {
+			other->levelup();
 			other->addXp(other->getDamage().magical);
 			b_hP -= other->getDamage().magical;
 		}
