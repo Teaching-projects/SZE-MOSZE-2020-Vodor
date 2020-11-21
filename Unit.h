@@ -50,9 +50,9 @@ public:
 	double getAttackCoolDown() const { return b_acd; } 
 
 protected:
-	Damage b_damage;
 	const std::string b_name;  ///< A karakter neve. 
 	int b_hP; ///< A karakter életereje.
+	Damage b_damage;
 	double b_acd; ///< Karakter támadási ideje.
 };
 
