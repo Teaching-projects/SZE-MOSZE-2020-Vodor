@@ -57,13 +57,13 @@ public:
     	int experience_per_level,
     	int health_point_bonus_per_level,
     	int damage_bonus_per_level,
-		int magical_bonus_per_level,
+		int magical_damage_bonus_per_level,
     	double cooldown_multiplier_per_level) : Unit(name, hP, dmg, acd),
     	b_maxHp(hP), b_xp(0), b_level(1), 
     	b_experience_per_level(experience_per_level),
     	b_health_point_bonus_per_level(health_point_bonus_per_level),
     	b_damage_bonus_per_level(damage_bonus_per_level),
-		b_magical_damage_bonus_per_level(magical_bonus_per_level),
+		b_magical_damage_bonus_per_level(magical_damage_bonus_per_level),
     	b_cooldown_multiplier_per_level(cooldown_multiplier_per_level) {} 
     /// Ez a függvény parse-olja a megadott fájlt. 
     static Hero parse(const std::string& fname/** [in] elérési út */);   
