@@ -28,10 +28,10 @@ private:
 	int b_maxHp; ///< Hős maximális életereje.
 	int b_xp; ///< Hős fejlődési pont.
 	int b_level; ///< Hős szintje.
-    	int b_experience_per_level; ///< Hős szint növekedéséhez szükséges XP mértéke.
-    	int b_health_point_bonus_per_level; ///< Hős MAX életpontjának növekedése szintekként.
-    	int b_damage_bonus_per_level; ///< Hős sebzésének növekedése szintekként.
-    	double b_cooldown_multiplier_per_level; ///< Hős támadási idő csökkenés mértéke szintekként.
+    int b_experience_per_level; ///< Hős szint növekedéséhez szükséges XP mértéke.
+    int b_health_point_bonus_per_level; ///< Hős MAX életpontjának növekedése szintekként.
+    int b_damage_bonus_per_level; ///< Hős sebzésének növekedése szintekként.
+    double b_cooldown_multiplier_per_level; ///< Hős támadási idő csökkenés mértéke szintekként.
 
 public:
     /// A fightTilDeath függvény levezényli a csatát. 
