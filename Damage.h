@@ -27,7 +27,7 @@ struct Damage
         }
         
         friend std::ostream& operator<<(std::ostream& out, const Damage& dmg){
-            out<<"Physical DMG: "<<dmg.physical<<", Magical DMG: "<<dmg.magical<<std::endl;
+            out<<"Physical: "<<dmg.physical<<", Magical: "<<dmg.magical;
             return out;
         }
 	};
