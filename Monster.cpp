@@ -26,12 +26,10 @@ Monster Monster::parse(const std::string& fname) {
 
 
 void Monster::getHitBy(Hero* other) {
-	//itt két ütés között is lehet szintlépés, vagy csak, ha mind a két ütés megtörtént?
-	// phyiscal üt, megvan a 100 xp szintlépés, jön a magical
-	// vagy physical üt, magical üt és szintlépés?
 	if(b_hP - other->getDamage().physical>0){
 		other->addXp(other->getDamage().physical);
 		b_hP-=other->getDamage().physical;
+		other->levelup();
 		if(b_hP - other->getDamage().magical > 0) {
 			other->addXp(other->getDamage().magical);
 			b_hP -= other->getDamage().magical;
