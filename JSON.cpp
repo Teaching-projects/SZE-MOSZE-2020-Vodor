@@ -1,7 +1,6 @@
 #include "JSON.h"
-
 const JSON JSON::parseFromString(std::string inputString){
-    static const std::regex parseRegex("\\s*\"([\\w]*)\"\\s*:\\s*\"?([\\s\\w\\.]*)\"?\\s*[,}]\\s*");
+    static const std::regex parseRegex("\\s*\"([\\w-]*)\"\\s*:\\s*\"?([\\s\\w\\.-]*)\"?\\s*[,}]\\s*");
     static const std::regex regexForList("\\s*\"([\\w]*)\"\\s*:\\s*\"?\\[?\\s*([\\w\\.\"?,?\\s*]*)\"?\\s*[,\\]}]");
     std::smatch matches;
     std::smatch matchList;
@@ -30,7 +29,6 @@ const JSON JSON::parseFromString(std::string inputString){
         else
         {
             std::string value = matches[2];
-            
             if (!value.empty() && std::all_of(value.begin(), value.end(), [](char c){return std::isdigit(c);})) attributes[matches[1]] = std::stoi(value);
             else if (!value.empty() && std::all_of(value.begin(), value.end(), [](char c){return ((std::isdigit(c) || c == '.') ? true : false);})) attributes[matches[1]] = std::stod(value);
             else attributes[matches[1]] = value;
