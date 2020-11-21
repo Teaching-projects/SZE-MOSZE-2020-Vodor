@@ -51,10 +51,10 @@ Hero Hero::parse(const std::string& fname) {
 	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level"
 							 "cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown, magical_damage_bonus_per_level"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
-    bool okay = true;
-    for (auto key : keysNeeded)
-       	if(!returnedJSON.count(key))
-		okay = false;
+    	bool okay = true;
+    	for (auto key : keysNeeded)
+       		if(!returnedJSON.count(key))
+			okay = false;
 	Damage damage;
 
 	if(returnedJSON.count("damage")) damage.physical = returnedJSON.get<int>("damage");
