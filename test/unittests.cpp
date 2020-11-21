@@ -3,6 +3,7 @@
 #include "../Monster.h"
 #include "../Unit.h"
 #include "../Map.h"
+#invlude "../Damage.h"
 #include <gtest/gtest.h>
 
 TEST(parserTest, test_iostream){                       
@@ -12,7 +13,7 @@ TEST(parserTest, test_iostream){
     jsonFile.close();
     ASSERT_EQ(testJSON.get<std::string>("name"),"Hunkrow");
     ASSERT_EQ(testJSON.get<int>("base_health_points"),200);
-    ASSERT_EQ(testJSON.get<int>("base_damage"),11);
+    ASSERT_EQ(testJSON.get<int>("damage"),11);
 }
 
 TEST(parserTest, test_filename){
@@ -20,7 +21,7 @@ TEST(parserTest, test_filename){
     JSON testJSON = JSON::parseFromFile(fname);
     ASSERT_EQ(testJSON.get<std::string>("name"),"Kakazhom");
     ASSERT_EQ(testJSON.get<int>("base_health_points"),150);
-    ASSERT_EQ(testJSON.get<int>("base_damage"),15);
+    ASSERT_EQ(testJSON.get<int>("damage"),15);
 }
 
 TEST(parserTest, test_string){     
@@ -37,7 +38,7 @@ TEST(parserTest, test_string){
     JSON testJSON = JSON::parseFromString(jsonToString);
     ASSERT_EQ(testJSON.get<std::string>("name"),"Maytcreme");
     ASSERT_EQ(testJSON.get<int>("base_health_points"),300);
-    ASSERT_EQ(testJSON.get<int>("base_damage"),5);
+    ASSERT_EQ(testJSON.get<int>("damage"),5);
 }
 
 TEST(unittests, good_battle_end){
@@ -108,7 +109,7 @@ TEST(unittests, parseTest2){
     Hero hero = Hero::parse("test/units/unit1.json");
     ASSERT_EQ(hero.getName(), "Hunkrow");
     ASSERT_EQ(hero.getHealthPoints(), 200);
-    ASSERT_EQ(hero.getDamage(), 11);
+    ASSERT_EQ(hero.getDamage().physical, 11);
     ASSERT_DOUBLE_EQ(hero.getAttackCoolDown(), 12.123);
 }
 
