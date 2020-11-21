@@ -1,6 +1,6 @@
 #ifndef DAMAGE_H
 #define DAMAGE_H
-
+#include <iostream>
 struct Damage
 	{
 		int physical; ///< A karakter támadási ereje.
@@ -25,7 +25,11 @@ struct Damage
             this->magical *= other.magical;
             return *this;
         }
-
+        
+        friend std::ostream& operator<<(std::ostream& out, const Damage& dmg){
+            out<<"Physical DMG: "<<dmg.physical<<", Magical DMG: "<<dmg.magical<<std::endl;
+            return out;
+        }
 	};
 
 #endif
