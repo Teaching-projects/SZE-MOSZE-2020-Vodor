@@ -85,12 +85,21 @@ Az Unit osztály származási diagramja:</div>
 <area shape="rect" href="classMonster.html" title="Monster class." alt="" coords="83,80,157,107"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">Jelmagyarázat</a>]</span></center></div>
+<div class="dynheader">
+Az Unit osztály együttműködési diagramja:</div>
+<div class="dyncontent">
+<div class="center"><img src="classUnit__coll__graph.png" border="0" usemap="#Unit_coll__map" alt="Collaboration graph"/></div>
+<map name="Unit_coll__map" id="Unit_coll__map">
+<area shape="rect" title="Unit class." alt="" coords="19,95,69,121"/>
+<area shape="rect" href="structDamage.html" title=" " alt="" coords="5,5,83,32"/>
+</map>
+<center><span class="legend">[<a href="graph_legend.html">Jelmagyarázat</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Publikus tagfüggvények</h2></td></tr>
-<tr class="memitem:a76efe1141793613b11cf7db5edde807f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a76efe1141793613b11cf7db5edde807f">Unit</a> (const std::string &amp;name, int hP, int dmg, double acd)</td></tr>
-<tr class="memdesc:a76efe1141793613b11cf7db5edde807f"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classUnit.html" title="Unit class.">Unit</a> konstruktor.  <a href="classUnit.html#a76efe1141793613b11cf7db5edde807f">Részletek...</a><br /></td></tr>
-<tr class="separator:a76efe1141793613b11cf7db5edde807f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a096493732bf9a76d507414a805412b0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a096493732bf9a76d507414a805412b0e">Unit</a> (const std::string &amp;name, int hP, <a class="el" href="structDamage.html">Damage</a> damage, double acd)</td></tr>
+<tr class="memdesc:a096493732bf9a76d507414a805412b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classUnit.html" title="Unit class.">Unit</a> konstruktor.  <a href="classUnit.html#a096493732bf9a76d507414a805412b0e">Részletek...</a><br /></td></tr>
+<tr class="separator:a096493732bf9a76d507414a805412b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5296f2ce5cb21eb323d5eb0bc104eba"><td class="memItemLeft" align="right" valign="top"><a id="ad5296f2ce5cb21eb323d5eb0bc104eba"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#ad5296f2ce5cb21eb323d5eb0bc104eba">getHealthPoints</a> () const</td></tr>
 <tr class="memdesc:ad5296f2ce5cb21eb323d5eb0bc104eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ez a függvény visszaadja a karakter életerejét. <br /></td></tr>
@@ -103,10 +112,10 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hre
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#ad9245732ec5afbdb44b9942ae8ea98cc">isAlive</a> () const</td></tr>
 <tr class="memdesc:ad9245732ec5afbdb44b9942ae8ea98cc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ez a függvény visszaadja a karakter meghalt-e. <br /></td></tr>
 <tr class="separator:ad9245732ec5afbdb44b9942ae8ea98cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0062c5fab5677c6b47e1d881b4dcc53c"><td class="memItemLeft" align="right" valign="top"><a id="a0062c5fab5677c6b47e1d881b4dcc53c"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a0062c5fab5677c6b47e1d881b4dcc53c">getDamage</a> () const</td></tr>
-<tr class="memdesc:a0062c5fab5677c6b47e1d881b4dcc53c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ez a függvény visszaadja a karakter támadási erejét. <br /></td></tr>
-<tr class="separator:a0062c5fab5677c6b47e1d881b4dcc53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83bf3fcbd94e455174cbfa2f59dcc109"><td class="memItemLeft" align="right" valign="top"><a id="a83bf3fcbd94e455174cbfa2f59dcc109"></a>
+<a class="el" href="structDamage.html">Damage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a83bf3fcbd94e455174cbfa2f59dcc109">getDamage</a> () const</td></tr>
+<tr class="memdesc:a83bf3fcbd94e455174cbfa2f59dcc109"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ez a függvény visszaadja a karakter támadási erejét. <br /></td></tr>
+<tr class="separator:a83bf3fcbd94e455174cbfa2f59dcc109"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5ba9ff456bd52cff5e94ddc159b376a1"><td class="memItemLeft" align="right" valign="top"><a id="a5ba9ff456bd52cff5e94ddc159b376a1"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a5ba9ff456bd52cff5e94ddc159b376a1">getAttackCoolDown</a> () const</td></tr>
 <tr class="memdesc:a5ba9ff456bd52cff5e94ddc159b376a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ez a függvény visszaadja a karakter támadási idejét. <br /></td></tr>
@@ -122,10 +131,9 @@ const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="e
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a3b204ff195f0597886c846a302c248e4">b_hP</a></td></tr>
 <tr class="memdesc:a3b204ff195f0597886c846a302c248e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A karakter életereje. <br /></td></tr>
 <tr class="separator:a3b204ff195f0597886c846a302c248e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2ed232ed2989584d5c0be118204b1986"><td class="memItemLeft" align="right" valign="top"><a id="a2ed232ed2989584d5c0be118204b1986"></a>
-int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a2ed232ed2989584d5c0be118204b1986">b_dmg</a></td></tr>
-<tr class="memdesc:a2ed232ed2989584d5c0be118204b1986"><td class="mdescLeft">&#160;</td><td class="mdescRight">A karakter támadási ereje. <br /></td></tr>
-<tr class="separator:a2ed232ed2989584d5c0be118204b1986"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29adcbe9c2c3d3cd8394f0b457cfba43"><td class="memItemLeft" align="right" valign="top"><a id="a29adcbe9c2c3d3cd8394f0b457cfba43"></a>
+<a class="el" href="structDamage.html">Damage</a>&#160;</td><td class="memItemRight" valign="bottom"><b>b_damage</b></td></tr>
+<tr class="separator:a29adcbe9c2c3d3cd8394f0b457cfba43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65bb4162b503a1f6434f2ab01dfb6164"><td class="memItemLeft" align="right" valign="top"><a id="a65bb4162b503a1f6434f2ab01dfb6164"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a65bb4162b503a1f6434f2ab01dfb6164">b_acd</a></td></tr>
 <tr class="memdesc:a65bb4162b503a1f6434f2ab01dfb6164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Karakter támadási ideje. <br /></td></tr>
@@ -139,8 +147,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="section date"><dt>Dátum</dt><dd>2020/11/02 13:22</dd></dl>
 <p>Created on 2020/11/02 13:22 </p>
 </div><h2 class="groupheader">Konstruktorok és destruktorok dokumentációja</h2>
-<a id="a76efe1141793613b11cf7db5edde807f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76efe1141793613b11cf7db5edde807f">&#9670;&nbsp;</a></span>Unit()</h2>
+<a id="a096493732bf9a76d507414a805412b0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a096493732bf9a76d507414a805412b0e">&#9670;&nbsp;</a></span>Unit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,8 +171,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dmg</em>, </td>
+          <td class="paramtype"><a class="el" href="structDamage.html">Damage</a>&#160;</td>
+          <td class="paramname"><em>damage</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>

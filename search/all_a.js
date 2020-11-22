@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['parse_30',['parse',['../classHero.html#a77142e32749e388c38c214e0d87c7ebf',1,'Hero::parse()'],['../classMonster.html#af198de6146283046765fb0a9d6d05d93',1,'Monster::parse()']]],
-  ['parseexception_31',['ParseException',['../classJSON_1_1ParseException.html',1,'JSON::ParseException'],['../classJSON_1_1ParseException.html#ab9bc8a8beb467b699d5bd66b7dcb182e',1,'JSON::ParseException::ParseException()']]],
-  ['parsefromfile_32',['parseFromFile',['../classJSON.html#a1ddbdd0bdcb5e3398c7d62e4cddaaf26',1,'JSON']]],
-  ['parsefromstring_33',['parseFromString',['../classJSON.html#ae0d022fc019ef30dea72a925c96612c4',1,'JSON']]],
-  ['parsejson_34',['parseJson',['../classJSON.html#a14ee9e831cb7414daf9ab14fdfeca1e2',1,'JSON']]]
+  ['magical_28',['magical',['../structDamage.html#a496876891f196c2b4ac9afe9f31b77b4',1,'Damage']]],
+  ['map_29',['Map',['../classMap.html',1,'Map'],['../classMap.html#a871049c7b391e75039ccba5a4d757dae',1,'Map::Map(const std::string &amp;filename)'],['../classMap.html#acfd48b449ebeaa742732028840a5dc0c',1,'Map::map()']]],
+  ['monster_30',['Monster',['../classMonster.html',1,'Monster'],['../classMonster.html#a718aec058ba11af2424772a46efe0b7a',1,'Monster::Monster()']]]
 ];

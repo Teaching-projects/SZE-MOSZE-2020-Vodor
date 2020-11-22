@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['json_26',['JSON',['../classJSON.html',1,'JSON'],['../classJSON.html#a6eebb5d6068ade2e1150dcfc54d19618',1,'JSON::JSON()']]]
+  ['isalive_25',['isAlive',['../classUnit.html#ad9245732ec5afbdb44b9942ae8ea98cc',1,'Unit']]]
 ];

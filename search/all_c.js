@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['type_36',['type',['../classMap.html#a41697b848ea9a5aad1910714e0196b7b',1,'Map']]]
+  ['sze_2dmosze_2d2020_2dvodor_37',['SZE-MOSZE-2020-Vodor',['../md_README.html',1,'']]]
 ];
