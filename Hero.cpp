@@ -49,22 +49,30 @@ void Hero::fightTilDeath(Monster& other) {
 
 Hero Hero::parse(const std::string& fname) {
 	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level", "defense", "defense_bonus_per_level",
-							 "cooldown_multiplier_per_level","name", "base_health_points", "base_damage", "base_attack_cooldown"};
+							 "cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown", "magical_damage_bonus_per_level"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
     	bool okay = true;
     	for (auto key : keysNeeded)
-        	if(!returnedJSON.count(key))
+       		if(!returnedJSON.count(key))
 			okay = false;
+	Damage damage;
+
+	if(returnedJSON.count("damage")) damage.physical = returnedJSON.get<int>("damage");
+	else damage.physical = 0;
+	
+	if(returnedJSON.count("magical-damage")) damage.magical = returnedJSON.get<int>("magical-damage");
+	else damage.magical = 0;
     
 	if (okay) 
 	     return Hero(returnedJSON.get<std::string>("name"), 
 			returnedJSON.get<int>("base_health_points"),
-			returnedJSON.get<int>("base_damage"),
+			damage,
 			returnedJSON.get<double>("base_attack_cooldown"),
 			returnedJSON.get<int>("defense"),
 			returnedJSON.get<int>("experience_per_level"),
 			returnedJSON.get<int>("health_point_bonus_per_level"),
 			returnedJSON.get<int>("damage_bonus_per_level"),
+			returnedJSON.get<int>("magical_damage_bonus_per_level"),
 			returnedJSON.get<double>("cooldown_multiplier_per_level"),
 			returnedJSON.get<int>("defense_bonus_per_level"));
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
@@ -74,7 +82,8 @@ void Hero::levelup(){
 	while (b_xp >= b_experience_per_level){		
 		b_maxHp += b_health_point_bonus_per_level;
 		b_hP = b_maxHp;
-		b_dmg += b_damage_bonus_per_level;
+		b_damage.physical += b_damage_bonus_per_level;
+		b_damage.magical += b_magical_damage_bonus_per_level;
 		b_xp -= b_experience_per_level;
 		b_level++;
 		b_acd *= b_cooldown_multiplier_per_level;
@@ -82,10 +91,11 @@ void Hero::levelup(){
 }
 
 void Hero::getHitBy(Unit* other){
-	if (b_hP - other->getDamage() > 0) {
-		b_hP -= other->getDamage();
+	if (b_hP - other->getDamage().physical > 0){
+		b_hP -= other->getDamage().physical;
+		if (b_hP - other->getDamage().magical > 0) 
+			b_hP -= other->getDamage().magical;
+		else b_hP = 0;
 	}
-	else { 
-		b_hP = 0;
-	}
+	else b_hP = 0;
 }

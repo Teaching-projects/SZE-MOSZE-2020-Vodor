@@ -1,12 +1,14 @@
 {
     "name" : "Maytcreme",
     "base_health_points" : 300,
-    "base_damage" : 5,
+    "damage" : 5,
+    "magical-damage" : 3,
     "base_attack_cooldown" : 15.34,
     "experience_per_level" : 40,
     "health_point_bonus_per_level" : 1,
     "damage_bonus_per_level" : 2,
     "cooldown_multiplier_per_level": 0.6,
+    "magical_damage_bonus_per_level" : 122,
     "defense" : 1,
     "defense_bonus_per_level" : 1
 }
