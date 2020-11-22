@@ -36,7 +36,7 @@ public:
 	*  \param dmg [in] Szörny támadási ereje
 	*  \param acd [in] Szörny támadási ideje
  	*/
-   	Monster(std::string name, int hp, int dmg, double acd) : Unit(name, hp, dmg, acd){}
+   	Monster(std::string name, int hp, int dmg, double acd, int defense) : Unit(name, hp, dmg, acd, defense){}
     	/// Ez a függvény parse-olja a megadott JSON formátumú fájlt. 
 	static Monster parse(const std::string& fname/** [in] elérési út */);
     	/// Ez a függvény megüti a Szörnyet.

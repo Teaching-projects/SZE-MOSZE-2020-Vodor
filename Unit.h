@@ -36,7 +36,7 @@ public:
 	*  \param dmg [in] karakter támadási ereje
 	*  \param acd [in] karakter támadási ideje
  	*/
-	Unit(const std::string& name, int hP, int dmg, double acd) : b_name(name), b_hP(hP), b_dmg(dmg), b_acd(acd) {}
+	Unit(const std::string& name, int hP, int dmg, double acd, int defense) : b_name(name), b_hP(hP), b_dmg(dmg), b_acd(acd), b_defense(defense) {}
 	/// Ez a függvény visszaadja a karakter életerejét.
 	int getHealthPoints() const { return b_hP; }
 	/// Ez a függvény visszaadja a karakter nevét.
@@ -53,6 +53,7 @@ protected:
 	int b_hP; ///< A karakter életereje.
 	int b_dmg; ///< A karakter támadási ereje.
 	double b_acd; ///< Karakter támadási ideje.
+	int b_defense;
 };
 
 #endif

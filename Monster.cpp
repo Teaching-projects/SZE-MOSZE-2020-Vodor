@@ -1,7 +1,7 @@
 #include "Monster.h"
 
 Monster Monster::parse(const std::string& fname) {
-	std::vector <std::string> keysNeeded {"name", "health_points", "damage", "attack_cooldown"};
+	std::vector <std::string> keysNeeded {"name", "health_points", "damage", "attack_cooldown", "defense"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
 	bool okay = true;
 	for (auto key : keysNeeded)
@@ -12,7 +12,8 @@ Monster Monster::parse(const std::string& fname) {
 	    return Monster(returnedJSON.get<std::string>("name"), 
 			returnedJSON.get<int>("health_points"),
 			returnedJSON.get<int>("damage"),
-			returnedJSON.get<double>("attack_cooldown"));
+			returnedJSON.get<double>("attack_cooldown"),
+			returnedJSON.get<int>("defense"));
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
 
