@@ -27,11 +27,28 @@ Monster Monster::parse(const std::string& fname) {
 
 
 void Monster::getHitBy(Hero* other) {
-	if(b_hP - other->getDamage().physical>0){
-		other->addXp(other->getDamage().physical);
-		b_hP-=other->getDamage().physical;
-		if(b_hP - other->getDamage().magical > 0) {
+	if(other->getDamage().physical > b_defense){
+		if (b_hP - (other->getDamage().physical-b_defense) > 0){
+			other->addXp(other->getDamage().physical-b_defense);
+			b_hP -= (other->getDamage().physical-b_defense);
 			other->levelup();
+			if(b_hP - other->getDamage().magical > 0) {
+				other->addXp(other->getDamage().magical);
+				b_hP -= other->getDamage().magical;
+			}
+			else {
+			other->addXp(b_hP);
+			b_hP = 0;
+			}
+		}
+		else {
+		other->addXp(b_hP);
+		b_hP = 0;
+		}
+		other->levelup();
+	}
+	else{
+		if(b_hP - other->getDamage().magical > 0) {
 			other->addXp(other->getDamage().magical);
 			b_hP -= other->getDamage().magical;
 		}
@@ -39,10 +56,6 @@ void Monster::getHitBy(Hero* other) {
 			other->addXp(b_hP);
 			b_hP = 0;
 		}
+		other->levelup();
 	}
-	else {
-		other->addXp(b_hP);
-		b_hP = 0;
-	}
-	other->levelup();
 }
