@@ -1,10 +1,12 @@
 {
     "name" : "Kakazhom",
     "base_health_points" : 150,
-    "base_damage" : 15,
+    "damage" : 15,
+    "magical-damage" : 2,
     "base_attack_cooldown" : 8.63,
     "experience_per_level" : 300,
     "health_point_bonus_per_level" : 5,
     "damage_bonus_per_level" : 2,
-    "cooldown_multiplier_per_level": 0.9
+    "cooldown_multiplier_per_level": 0.9,
+    "magical_damage_bonus_per_level" : 2
 }
