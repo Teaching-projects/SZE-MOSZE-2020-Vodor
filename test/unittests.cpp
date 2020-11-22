@@ -117,6 +117,18 @@ TEST(unittests, scenarioParseTest){
     ASSERT_NO_THROW(JSON::parseFromFile("test/testScenario.json"));
 }
 
+TEST(unittests, checkMagicalDMG){
+    Hero hero = Hero::parse("test/units/unit1.json");
+    Monster monster = Monster::parse("Zombie.json");
+    ASSERT_EQ(hero.getDamage().magical, 20);
+    ASSERT_EQ(monster.getDamage().magical,0);
+    }
+
+TEST(unittests, checkMagicalDMG2){
+    JSON test = JSON::parseFromFile("test/units/unit2.json");
+    ASSERT_EQ(test.get<int>("magical-damage"), 2);
+
+    }
 TEST(unittests, mapClassTest){
     ASSERT_NO_THROW(Map("exampleMap.txt"));
     ASSERT_THROW(Map("nincsilyen.txt"),std::runtime_error);
