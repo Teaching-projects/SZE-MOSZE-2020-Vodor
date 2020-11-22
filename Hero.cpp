@@ -91,11 +91,19 @@ void Hero::levelup(){
 }
 
 void Hero::getHitBy(Unit* other){
-	if (b_hP - other->getDamage().physical > 0){
-		b_hP -= other->getDamage().physical;
+	if(other->getDamage().physical > b_defense){
+		if (b_hP - (other->getDamage().physical-b_defense) > 0){
+			b_hP -= (other->getDamage().physical-b_defense);
+			if (b_hP - other->getDamage().magical > 0) 
+				b_hP -= other->getDamage().magical;
+			else b_hP = 0;
+		}
+		else b_hP = 0;
+	}
+	else{
 		if (b_hP - other->getDamage().magical > 0) 
 			b_hP -= other->getDamage().magical;
 		else b_hP = 0;
 	}
-	else b_hP = 0;
+		
 }
