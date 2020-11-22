@@ -32,6 +32,8 @@ private:
     int b_health_point_bonus_per_level; ///< Hős MAX életpontjának növekedése szintekként.
     int b_damage_bonus_per_level; ///< Hős sebzésének növekedése szintekként.
     double b_cooldown_multiplier_per_level; ///< Hős támadási idő csökkenés mértéke szintekként.
+	int b_defense;
+	int b_defense_bonus_per_level;
 
 public:
     /// A fightTilDeath függvény levezényli a csatát. 
@@ -55,12 +57,16 @@ public:
     	int experience_per_level,
     	int health_point_bonus_per_level,
     	int damage_bonus_per_level,
-    	double cooldown_multiplier_per_level) : Unit(name, hP, dmg, acd),
+    	double cooldown_multiplier_per_level,
+		int defense, 
+		int defense_bonus_per_level) : Unit(name, hP, dmg, acd),
     	b_maxHp(hP), b_xp(0), b_level(1), 
     	b_experience_per_level(experience_per_level),
     	b_health_point_bonus_per_level(health_point_bonus_per_level),
     	b_damage_bonus_per_level(damage_bonus_per_level),
-    	b_cooldown_multiplier_per_level(cooldown_multiplier_per_level) {} 
+    	b_cooldown_multiplier_per_level(cooldown_multiplier_per_level),
+		b_defense(defense),
+		b_defense_bonus_per_level(defense_bonus_per_level) {} 
     	/// Ez a függvény parse-olja a megadott fájlt. 
     	static Hero parse(const std::string& fname/** [in] elérési út */);   
     	/// Ez a függvény visszaadja a Hős szintjét.

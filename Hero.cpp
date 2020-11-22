@@ -48,7 +48,7 @@ void Hero::fightTilDeath(Monster& other) {
 }
 
 Hero Hero::parse(const std::string& fname) {
-	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level",
+	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level", "defense", "defense_bonus_per_level",
 							 "cooldown_multiplier_per_level","name", "base_health_points", "base_damage", "base_attack_cooldown"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
     	bool okay = true;
@@ -64,7 +64,9 @@ Hero Hero::parse(const std::string& fname) {
 			returnedJSON.get<int>("experience_per_level"),
 			returnedJSON.get<int>("health_point_bonus_per_level"),
 			returnedJSON.get<int>("damage_bonus_per_level"),
-			returnedJSON.get<double>("cooldown_multiplier_per_level"));
+			returnedJSON.get<double>("cooldown_multiplier_per_level"),
+			returnedJSON.get<int>("defense"),
+			returnedJSON.get<int>("defense_bonus_per_level"));
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
 
