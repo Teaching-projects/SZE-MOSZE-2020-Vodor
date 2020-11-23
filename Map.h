@@ -26,6 +26,10 @@ class Map{
 private:
     std::vector<std::string> map; ///< A játék térképe.
 public:
+    int getMapSize() { return map.size();}
+    int getRowLength(int y) {return map[y].length(); }
+    int getMaxLength();
+
     /// Enum a térkép elemeinek.
     enum type{
         Free, ///< járható út 
