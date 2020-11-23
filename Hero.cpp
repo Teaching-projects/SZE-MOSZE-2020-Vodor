@@ -48,7 +48,7 @@ void Hero::fightTilDeath(Monster& other) {
 }
 
 Hero Hero::parse(const std::string& fname) {
-	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level",
+	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level", "defense", "defense_bonus_per_level",
 							 "cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown", "magical_damage_bonus_per_level"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
     	bool okay = true;
@@ -68,11 +68,13 @@ Hero Hero::parse(const std::string& fname) {
 			returnedJSON.get<int>("base_health_points"),
 			damage,
 			returnedJSON.get<double>("base_attack_cooldown"),
+			returnedJSON.get<int>("defense"),
 			returnedJSON.get<int>("experience_per_level"),
 			returnedJSON.get<int>("health_point_bonus_per_level"),
 			returnedJSON.get<int>("damage_bonus_per_level"),
 			returnedJSON.get<int>("magical_damage_bonus_per_level"),
-			returnedJSON.get<double>("cooldown_multiplier_per_level"));
+			returnedJSON.get<double>("cooldown_multiplier_per_level"),
+			returnedJSON.get<int>("defense_bonus_per_level"));
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
 
@@ -89,11 +91,19 @@ void Hero::levelup(){
 }
 
 void Hero::getHitBy(Unit* other){
-	if (b_hP - other->getDamage().physical > 0){
-		b_hP -= other->getDamage().physical;
+	if(other->getDamage().physical > b_defense){
+		if (b_hP - (other->getDamage().physical-b_defense) > 0){
+			b_hP -= (other->getDamage().physical-b_defense);
+			if (b_hP - other->getDamage().magical > 0) 
+				b_hP -= other->getDamage().magical;
+			else b_hP = 0;
+		}
+		else b_hP = 0;
+	}
+	else{
 		if (b_hP - other->getDamage().magical > 0) 
 			b_hP -= other->getDamage().magical;
 		else b_hP = 0;
 	}
-	else b_hP = 0;
+		
 }

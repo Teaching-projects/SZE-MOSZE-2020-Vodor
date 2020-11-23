@@ -8,5 +8,7 @@
     "health_point_bonus_per_level" : 5,
     "damage_bonus_per_level" : 2,
     "cooldown_multiplier_per_level": 0.9,
-    "magical_damage_bonus_per_level" : 2
+    "magical_damage_bonus_per_level" : 2,
+    "defense" : 1,
+    "defense_bonus_per_level" : 1
 }
