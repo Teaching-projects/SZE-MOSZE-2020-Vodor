@@ -12,13 +12,17 @@ struct MonsterCoords{
     int y;
 };
 
+struct HeroCoord{
+    Hero hero;
+    int x;
+    int y;
+};
+
 class Game{
 private:
     Map gameMap;
     std::list<MonsterCoords> monsters;
-    Hero hero;
-    int heroX;
-    int heroY;
+    std::list<HeroCoord> heros;
 public:
     Game();
     Game(const std::string& mapFileName) : gameMap(Map(mapFileName)){}
@@ -29,23 +33,28 @@ public:
     void print();
     void run();
 
-    class OccupiedException : public std::runtime_error{
+    class OccupiedException : public std::runtime_error{ 
+        public:
         OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class AlreadyHasHeroException : public std::runtime_error{
+        public:
         AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class AlreadyHasUnitException : public std::runtime_error{
+        public:
         AlreadyHasUnitException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class NotInitializedException : public std::runtime_error{
+        public:
         NotInitializedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class GameAlreadyStartedException : public std::runtime_error{
+        public:
         GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 };
