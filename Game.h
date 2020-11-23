@@ -5,15 +5,10 @@
 #include "Hero.h"
 #include <string>
 #include <list>
+#include <algorithm>
 
 struct MonsterCoords{
     Monster monster;
-    int x;
-    int y;
-};
-
-struct HeroCoord{
-    Hero hero;
     int x;
     int y;
 };
@@ -22,11 +17,17 @@ class Game{
 private:
     Map gameMap;
     bool mapsetready;
+    bool gamestarted;
     std::list<MonsterCoords> monsters;
-    std::list<HeroCoord> heros;
+    Hero* hero;
+    int heroX;
+    int heroY;
+    void printMonsters(int x, int y);
+    bool checkIfMoveIsValid(const std::string& direction);
+    void moveHero(const std::string& direction);
 public:
     Game();
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true){}
+    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false){}
     void setMap(Map map);
     void putHero(Hero hero, int x, int y);
     void putMonster(Monster monster, int x, int y);
