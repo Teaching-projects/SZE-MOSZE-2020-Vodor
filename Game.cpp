@@ -31,6 +31,16 @@ void Game::putHero(Hero hero, int x, int y){
 }
 
 void Game::putMonster(Monster monster, int x, int y){
+    if(mapsetready){
+        if(gameMap.get(x,y) == gameMap.Free){
+            MonsterCoords onemonster = {monster,x,y};
+            monsters.push_back(onemonster);
+        }
+        else
+            throw OccupiedException("Coordinate occupied");
+    }
+    else 
+        throw Map::WrongIndexException("Map not set");
 
 }
 
