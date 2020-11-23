@@ -21,11 +21,12 @@ struct HeroCoord{
 class Game{
 private:
     Map gameMap;
+    bool mapsetready;
     std::list<MonsterCoords> monsters;
     std::list<HeroCoord> heros;
 public:
     Game();
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)){}
+    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(false){}
     void setMap(Map map);
     void putHero(Hero hero, int x, int y);
     void putMonster(Monster monster, int x, int y);
