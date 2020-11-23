@@ -48,6 +48,8 @@ public:
 	Damage getDamage() const { return b_damage; }
 	/// Ez a függvény visszaadja a karakter támadási idejét.
 	double getAttackCoolDown() const { return b_acd; } 
+	/// ezt meg megirom
+	int getDefense() const{ return b_defense; }
 
 protected:
 	const std::string b_name;  ///< A karakter neve. 

@@ -136,6 +136,13 @@ TEST(unittests, mapClassTest){
     ASSERT_THROW(test.get(2689,3543),Map::WrongIndexException);       
 }
 
+TEST(unittests, checkDefense){
+    Hero hero = Hero::parse("test/units/unit1.json");
+    Monster monster = Monster::parse("Zombie.json");
+    ASSERT_EQ(hero.getDefense(), 1);
+    ASSERT_EQ(monster.getDefense(), 1);
+}
+
 int main(int argc, char** argv){
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
