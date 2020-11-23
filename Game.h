@@ -21,11 +21,12 @@ struct HeroCoord{
 class Game{
 private:
     Map gameMap;
+    bool mapsetready;
     std::list<MonsterCoords> monsters;
     std::list<HeroCoord> heros;
 public:
     Game();
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)){}
+    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(false){}
     void setMap(Map map);
     void putHero(Hero hero, int x, int y);
     void putMonster(Monster monster, int x, int y);
@@ -43,9 +44,9 @@ public:
         AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
-    class AlreadyHasUnitException : public std::runtime_error{
+    class AlreadyHasUnitsException : public std::runtime_error{
         public:
-        AlreadyHasUnitException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        AlreadyHasUnitsException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class NotInitializedException : public std::runtime_error{
