@@ -30,10 +30,10 @@ private:
 	int b_level; ///< Hős szintje.
     int b_experience_per_level; ///< Hős szint növekedéséhez szükséges XP mértéke.
     int b_health_point_bonus_per_level; ///< Hős MAX életpontjának növekedése szintekként.
-    int b_damage_bonus_per_level;
-	int b_magical_damage_bonus_per_level; ///< Hős sebzésének növekedése szintekként.
+    int b_damage_bonus_per_level; ///< Hős fizikai sebzésének növekedése szintekként.
+	int b_magical_damage_bonus_per_level; ///< Hős mágikus sebzésének növekedése szintekként.
     double b_cooldown_multiplier_per_level; ///< Hős támadási idő csökkenés mértéke szintekként.
-	int b_defense_bonus_per_level;
+	int b_defense_bonus_per_level; ///< Hős védelmi növekedése szintekként.
 
 public:
     /// A fightTilDeath függvény levezényli a csatát. 
@@ -48,11 +48,13 @@ public:
 	*  \param hp [in] Hős életereje.
 	*  \param dmg [in] Hős támadási ereje.
 	*  \param acd [in] Hős támadási ideje.
+	*  \param defense [in] Hős védelme.
   	*  \param experience_per_level [in] Hős szint növekedéséhez szükséges XP mértéke.
   	*  \param health_point_bonus_per_level [in] Hős MAX életpontjának növekedése szintekként.
   	*  \param damage_bonus_per_level [in] Hős fizikális sebzésének növekedése szintekként.
 	*  \param magical_damage_bonus_per_level [in] Hős mágikus sebézésének növekedése szintekként.
   	*  \param cooldown_multiplier_per_level [in] Hős támadási idő csökkenés mértéke szintekként.
+	*  \param defense_bonus_per_level [in] Hős védelmi növekedése szintekként.
  	*/
 	Hero(const std::string& name, int hP, Damage dmg, double acd, int defense, 
     	int experience_per_level,
