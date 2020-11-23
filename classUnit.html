@@ -97,9 +97,9 @@ Az Unit osztály együttműködési diagramja:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Publikus tagfüggvények</h2></td></tr>
-<tr class="memitem:a096493732bf9a76d507414a805412b0e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a096493732bf9a76d507414a805412b0e">Unit</a> (const std::string &amp;name, int hP, <a class="el" href="structDamage.html">Damage</a> damage, double acd)</td></tr>
-<tr class="memdesc:a096493732bf9a76d507414a805412b0e"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classUnit.html" title="Unit class.">Unit</a> konstruktor.  <a href="classUnit.html#a096493732bf9a76d507414a805412b0e">Részletek...</a><br /></td></tr>
-<tr class="separator:a096493732bf9a76d507414a805412b0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae04031d52016978a7f103784c6911ad8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#ae04031d52016978a7f103784c6911ad8">Unit</a> (const std::string &amp;name, int hP, <a class="el" href="structDamage.html">Damage</a> damage, double acd, int defense)</td></tr>
+<tr class="memdesc:ae04031d52016978a7f103784c6911ad8"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classUnit.html" title="Unit class.">Unit</a> konstruktor.  <a href="classUnit.html#ae04031d52016978a7f103784c6911ad8">Részletek...</a><br /></td></tr>
+<tr class="separator:ae04031d52016978a7f103784c6911ad8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5296f2ce5cb21eb323d5eb0bc104eba"><td class="memItemLeft" align="right" valign="top"><a id="ad5296f2ce5cb21eb323d5eb0bc104eba"></a>
 int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#ad5296f2ce5cb21eb323d5eb0bc104eba">getHealthPoints</a> () const</td></tr>
 <tr class="memdesc:ad5296f2ce5cb21eb323d5eb0bc104eba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ez a függvény visszaadja a karakter életerejét. <br /></td></tr>
@@ -120,6 +120,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a5ba9ff456bd52cff5e94ddc159b376a1">getAttackCoolDown</a> () const</td></tr>
 <tr class="memdesc:a5ba9ff456bd52cff5e94ddc159b376a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ez a függvény visszaadja a karakter támadási idejét. <br /></td></tr>
 <tr class="separator:a5ba9ff456bd52cff5e94ddc159b376a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf09131352e419af78ff0807fa8ddda3"><td class="memItemLeft" align="right" valign="top"><a id="aaf09131352e419af78ff0807fa8ddda3"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#aaf09131352e419af78ff0807fa8ddda3">getDefense</a> () const</td></tr>
+<tr class="memdesc:aaf09131352e419af78ff0807fa8ddda3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Ez a függvény visszaadja a karakter védelmi pontját. <br /></td></tr>
+<tr class="separator:aaf09131352e419af78ff0807fa8ddda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Védett attribútumok</h2></td></tr>
@@ -132,12 +136,17 @@ int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class
 <tr class="memdesc:a3b204ff195f0597886c846a302c248e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">A karakter életereje. <br /></td></tr>
 <tr class="separator:a3b204ff195f0597886c846a302c248e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29adcbe9c2c3d3cd8394f0b457cfba43"><td class="memItemLeft" align="right" valign="top"><a id="a29adcbe9c2c3d3cd8394f0b457cfba43"></a>
-<a class="el" href="structDamage.html">Damage</a>&#160;</td><td class="memItemRight" valign="bottom"><b>b_damage</b></td></tr>
+<a class="el" href="structDamage.html">Damage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a29adcbe9c2c3d3cd8394f0b457cfba43">b_damage</a></td></tr>
+<tr class="memdesc:a29adcbe9c2c3d3cd8394f0b457cfba43"><td class="mdescLeft">&#160;</td><td class="mdescRight">A karakter támadása. <br /></td></tr>
 <tr class="separator:a29adcbe9c2c3d3cd8394f0b457cfba43"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65bb4162b503a1f6434f2ab01dfb6164"><td class="memItemLeft" align="right" valign="top"><a id="a65bb4162b503a1f6434f2ab01dfb6164"></a>
 double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#a65bb4162b503a1f6434f2ab01dfb6164">b_acd</a></td></tr>
 <tr class="memdesc:a65bb4162b503a1f6434f2ab01dfb6164"><td class="mdescLeft">&#160;</td><td class="mdescRight">Karakter támadási ideje. <br /></td></tr>
 <tr class="separator:a65bb4162b503a1f6434f2ab01dfb6164"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7dc8d16a73c9d5547f4b2ae5917c059"><td class="memItemLeft" align="right" valign="top"><a id="aa7dc8d16a73c9d5547f4b2ae5917c059"></a>
+int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classUnit.html#aa7dc8d16a73c9d5547f4b2ae5917c059">b_defense</a></td></tr>
+<tr class="memdesc:aa7dc8d16a73c9d5547f4b2ae5917c059"><td class="mdescLeft">&#160;</td><td class="mdescRight">A karakter védelme. <br /></td></tr>
+<tr class="separator:aa7dc8d16a73c9d5547f4b2ae5917c059"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Részletes leírás</h2>
 <div class="textblock"><p><a class="el" href="classUnit.html" title="Unit class.">Unit</a> class. </p>
@@ -147,8 +156,8 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 <dl class="section date"><dt>Dátum</dt><dd>2020/11/02 13:22</dd></dl>
 <p>Created on 2020/11/02 13:22 </p>
 </div><h2 class="groupheader">Konstruktorok és destruktorok dokumentációja</h2>
-<a id="a096493732bf9a76d507414a805412b0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a096493732bf9a76d507414a805412b0e">&#9670;&nbsp;</a></span>Unit()</h2>
+<a id="ae04031d52016978a7f103784c6911ad8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae04031d52016978a7f103784c6911ad8">&#9670;&nbsp;</a></span>Unit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,7 +187,13 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">double&#160;</td>
-          <td class="paramname"><em>acd</em>&#160;</td>
+          <td class="paramname"><em>acd</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>defense</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -201,6 +216,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
     <tr><td class="paramname">hp</td><td>[in] karakter életereje </td></tr>
     <tr><td class="paramname">dmg</td><td>[in] karakter támadási ereje </td></tr>
     <tr><td class="paramname">acd</td><td>[in] karakter támadási ideje </td></tr>
+    <tr><td class="paramname">defense</td><td>[in] karakter védelme </td></tr>
   </table>
   </dd>
 </dl>
