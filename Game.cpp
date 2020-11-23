@@ -1,7 +1,7 @@
 #include "Game.h"
 
-void Game::setMap(Map map){
-    if(heros.size() == 0 && monsters.size() == 0){
+void Game::setMap(Map map){    
+    if(heros.empty() && monsters.empty()){
         gameMap = map;
         mapsetready = true;
     }
@@ -49,16 +49,6 @@ void Game::run(){
 }
 
 void Game::printMap(){
-/*
-        ╔════════════════════════════════════════╗
-        ║████████████████████████████████████████║
-        ║██░░░░░░░░MM░░░░░░░░░░░░░░M░░░████M░████║
-        ║██░░M░░░░░████████MM░░██████████░░MM████║
-        ║██░░░░░░M░██████████MM░░████░░░░░░MM████║
-        ║██░░┣┫░░░░████████████MM░░░░MM██████████║
-        ║████████████████████████████████████████║
-        ╚════════════════════════════════════════╝
-*/
     std::cout<<"╔";
 
     for (int i = 0; i < gameMap.getMaxLength(); i++)

@@ -26,7 +26,7 @@ private:
     std::list<HeroCoord> heros;
 public:
     Game();
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(false){}
+    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true){}
     void setMap(Map map);
     void putHero(Hero hero, int x, int y);
     void putMonster(Monster monster, int x, int y);
