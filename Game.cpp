@@ -1,8 +1,12 @@
 #include "Game.h"
 
 void Game::setMap(Map map){
-    gameMap = map;
-    mapsetready = true;
+    if(heros.size() == 0 && monsters.size() == 0){
+        gameMap = map;
+        mapsetready = true;
+    }
+    else 
+        throw AlreadyHasUnitsException("Game already has Units.");
 }
 
 void Game::putHero(Hero hero, int x, int y){

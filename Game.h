@@ -44,9 +44,9 @@ public:
         AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
-    class AlreadyHasUnitException : public std::runtime_error{
+    class AlreadyHasUnitsException : public std::runtime_error{
         public:
-        AlreadyHasUnitException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        AlreadyHasUnitsException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class NotInitializedException : public std::runtime_error{
