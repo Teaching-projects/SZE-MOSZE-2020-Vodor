@@ -22,8 +22,8 @@ Map::type Map::get(unsigned int x, unsigned int y) const{
 
 int Map::getMaxLength(){
     int maxLength = 0;
-    for (int i = 0; i < map.size(); i++)
-        if (map[i].length()>maxLength)
-            maxLength = map[i].length();
+    for (int i = 0; i < (int) map.size(); i++)
+        if ((int) map[i].length()>maxLength)
+            maxLength = (int) map[i].length();
     return maxLength;
 }
