@@ -30,7 +30,7 @@ public:
     void putHero(Hero hero, int x, int y);
     void putMonster(Monster monster, int x, int y);
     
-    void print();
+    void printMap();
     void run();
 
     class OccupiedException : public std::runtime_error{ 
