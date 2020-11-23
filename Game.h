@@ -13,21 +13,27 @@ struct MonsterCoords{
     int y;
 };
 
+struct b_Hero{
+    Hero* hero;
+    int x;
+    int y;
+    b_Hero(){}
+};
+
 class Game{
 private:
     Map gameMap;
     bool mapsetready;
     bool gamestarted;
     std::list<MonsterCoords> monsters;
-    Hero* hero;
-    int heroX;
-    int heroY;
+    b_Hero hero;
     void printMonsters(int x, int y);
     bool checkIfMoveIsValid(const std::string& direction);
     void moveHero(const std::string& direction);
 public:
     Game();
     Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false){}
+    ~Game(){ delete hero.hero; }
     void setMap(Map map);
     void putHero(Hero hero, int x, int y);
     void putMonster(Monster monster, int x, int y);
