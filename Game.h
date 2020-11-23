@@ -17,7 +17,7 @@ struct b_Hero{
     Hero* hero;
     int x;
     int y;
-    b_Hero(){}
+    b_Hero() : hero(nullptr), x(-1), y(-1){}
 };
 
 class Game{
