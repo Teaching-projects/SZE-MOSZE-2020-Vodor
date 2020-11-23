@@ -73,25 +73,33 @@ void Game::run(){
         std::string moveTo ="";
         gamestarted = true;
         std::list<std::string> expectedInputs = {"north", "east", "west", "south"};
-        while (!monsters.empty() || hero->isAlive())
+        std::list<MonsterCoords> monstersToFight;
+        while (!monsters.empty() && hero->isAlive())
         {
             printMap();
             do
             {
                 std::cout<<"Enter the direction you would like to move (north, east, west, south): ";
                 getline(std::cin, moveTo);
-            } while (std::find(expectedInputs.begin(), expectedInputs.end(), moveTo) == expectedInputs.end() || !checkIfMoveIsValid(moveTo));
+            } while (std::find(expectedInputs.begin(), expectedInputs.end(), moveTo) == expectedInputs.end() && !checkIfMoveIsValid(moveTo));
 
             moveHero(moveTo);
-            if (heroX == monsters.front().x && heroY == monsters.front().y){
+
+            for (auto &&monster : monsters)
+                if (heroX == monster.x && heroY == monster.y){
+                    monstersToFight.push_back(monsters.front());
+                    monsters.pop_front();
+                }
+            
+            while(!monstersToFight.empty() && hero->isAlive()){
                 std::cout 
                     << hero->getName() << "(" << hero->getLevel()<<")"
                     << " vs "
-                    << monsters.front().monster.getName()
+                    << monstersToFight.front().monster.getName()
                     <<std::endl;
-                hero->fightTilDeath(monsters.back().monster);
-                if (!monsters.front().monster.isAlive())
-                    monsters.pop_front();                
+                hero->fightTilDeath(monstersToFight.front().monster);
+                if (!monstersToFight.front().monster.isAlive())
+                    monstersToFight.pop_front();
             }
             
         }
@@ -103,6 +111,8 @@ void Game::run(){
                   << "  DMG: "<<hero->getDamage()<<std::endl
                   << "  ACD: "<<hero->getAttackCoolDown()<<std::endl
                   ;
+        delete hero;
+        //TODO: lehessen játszani több kört, új hero kell hozzá!
     }
     else throw NotInitializedException("Game was not initialized properly.");
     
