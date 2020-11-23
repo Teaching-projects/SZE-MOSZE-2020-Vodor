@@ -56,7 +56,8 @@ bool Game::checkIfMoveIsValid(const std::string& direction){
     if (direction == "north") return (gameMap.get(heroX, heroY-1) == Map::type::Free ? true : false); 
     else if (direction == "east") return (gameMap.get(heroX-1, heroY) == Map::type::Free ? true : false);
     else if (direction == "west") return (gameMap.get(heroX+1, heroY) == Map::type::Free ? true : false);
-    else if (direction == "south") return (gameMap.get(heroX, heroY+1) == Map::type::Free ? true : false);   
+    else if (direction == "south") return (gameMap.get(heroX, heroY+1) == Map::type::Free ? true : false);
+    else return false;
 }
 
 void Game::moveHero(const std::string& direction){
