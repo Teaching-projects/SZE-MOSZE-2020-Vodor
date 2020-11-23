@@ -1,4 +1,4 @@
-OBJS := JSON.o Hero.o Monster.o Unit.o main.o Map.o
+OBJS := JSON.o Hero.o Monster.o Unit.o main.o Map.o Game.o
 CFLAGS := -Wall -Werror -std=c++17
 RUN := g++-9
 
@@ -37,6 +37,9 @@ main.o: main.cpp Monster.h Hero.h Unit.h JSON.h
 
 Map.o: Map.cpp Map.h
 	$(RUN) $(CFLAGS) -c Map.cpp
+
+Game.o: Game.cpp Game.h Map.h Monster.h Hero.h Unit.h JSON.h
+	$(RUN) $(CFLAGS) -c Game.cpp
 
 sca:
 	$(SCA) $(SCAOBJS) $(SCAFLAGS)  
