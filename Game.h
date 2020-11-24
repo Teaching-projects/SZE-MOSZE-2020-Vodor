@@ -27,7 +27,7 @@ private:
     bool gamestarted;
     std::list<MonsterCoords> monsters;
     b_Hero hero;
-    void printMonsters(int x, int y);
+    bool printMonsters(int x, int y);
     bool checkIfMoveIsValid(const std::string& direction);
     void moveHero(const std::string& direction);
 public:

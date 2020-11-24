@@ -1,13 +1,21 @@
 #include "Game.h"
 
-void Game::printMonsters(int x, int y){
+bool Game::printMonsters(int x, int y){
     int count = 0;
     for (auto &&i : monsters)
         if (x == i.x && y == i.y)
             count++;
     
-    if (count == 1) std::cout<<"M░";
-    else if(count == 2) std::cout<<"MM";
+    if (count == 1)
+    {
+        std::cout<<"M░";
+        return true;
+    } 
+    else if(count >= 2){
+        std::cout<<"MM";
+        return true;
+    }
+    return false;
 }
 
 void Game::setMap(Map map){  
@@ -81,7 +89,7 @@ void Game::run(){
             {
                 std::cout<<"Enter the direction you would like to move (north, east, west, south): ";
                 getline(std::cin, moveTo);
-            } while (std::find(expectedInputs.begin(), expectedInputs.end(), moveTo) == expectedInputs.end() && !checkIfMoveIsValid(moveTo));
+            } while (std::find(expectedInputs.begin(), expectedInputs.end(), moveTo) == expectedInputs.end() || !checkIfMoveIsValid(moveTo));
 
             moveHero(moveTo);
 
@@ -129,10 +137,10 @@ void Game::printMap(){
     for (int y = 0; y < gameMap.getMapSize(); y++){
         std::cout<<"║";
         for (int x = 0; x < gameMap.getRowWidth(y); x++){
-            if (gameMap.get(x, y) == Map::type::Free) std::cout<<"░░";
             if (gameMap.get(x,y) == Map::type::Wall) std::cout<<"██";
-            if (hero.x == x && hero.y == y) std::cout<<"┣┫";
-            printMonsters(x,y);
+            else if (hero.x == x && hero.y == y) std::cout<<"┣┫";
+            else if (printMonsters(x,y));
+            else std::cout<<"░░";
         }
         if(gameMap.getRowWidth(y)<maxWidth)
             for (int i = 0; i < (maxWidth-gameMap.getRowWidth(y)); i++)
