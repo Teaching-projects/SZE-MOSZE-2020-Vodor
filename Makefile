@@ -23,22 +23,22 @@ runGame: $(OBJS)
 JSON.o: JSON.cpp JSON.h
 	$(RUN) $(CFLAGS) -c JSON.cpp
 	
-Unit.o: Unit.cpp Unit.h JSON.h
+Unit.o: Unit.cpp Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c Unit.cpp
 
-Monster.o: Monster.cpp Hero.h Monster.h Unit.h JSON.h
+Monster.o: Monster.cpp Hero.h Monster.h Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c Monster.cpp
 
-Hero.o: Hero.cpp Monster.h Hero.h Unit.h JSON.h
+Hero.o: Hero.cpp Monster.h Hero.h Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c Hero.cpp
 
-main.o: main.cpp Monster.h Hero.h Unit.h JSON.h
+main.o: main.cpp Monster.h Hero.h Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c main.cpp
 
 Map.o: Map.cpp Map.h
 	$(RUN) $(CFLAGS) -c Map.cpp
 
-Game.o: Game.cpp Game.h Map.h Monster.h Hero.h Unit.h JSON.h
+Game.o: Game.cpp Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c Game.cpp
 
 sca:
