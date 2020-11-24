@@ -130,9 +130,9 @@ void Game::printMap(){
         std::cout<<"║";
         for (int x = 0; x < gameMap.getRowWidth(y); x++){
             if (gameMap.get(x, y) == Map::type::Free) std::cout<<"░░";
-            else if (gameMap.get(x,y) == Map::type::Wall) std::cout<<"██";
-            else if (hero.x == x && hero.y == y) std::cout<<"┣┫";
-            else printMonsters(x,y);
+            if (gameMap.get(x,y) == Map::type::Wall) std::cout<<"██";
+            if (hero.x == x && hero.y == y) std::cout<<"┣┫";
+            printMonsters(x,y);
         }
         if(gameMap.getRowWidth(y)<maxWidth)
             for (int i = 0; i < (maxWidth-gameMap.getRowWidth(y)); i++)
