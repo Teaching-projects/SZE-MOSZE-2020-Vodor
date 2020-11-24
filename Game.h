@@ -31,7 +31,7 @@ private:
     bool checkIfMoveIsValid(const std::string& direction);
     void moveHero(const std::string& direction);
 public:
-    Game();
+    Game(){}
     Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false){}
     ~Game(){ delete hero.hero; }
     void setMap(Map map);
