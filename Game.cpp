@@ -112,7 +112,6 @@ void Game::run(){
                   << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl
                   ;
         delete hero.hero;
-        //TODO: lehessen játszani több kört, új hero kell hozzá!
     }
     else throw NotInitializedException("Game was not initialized properly.");
     

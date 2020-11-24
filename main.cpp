@@ -10,9 +10,7 @@
 #include "JSON.h"
 #include "Hero.h"
 #include "Monster.h"
- 
- 
- 
+#include "Game.h"
  
 const std::map<int,std::string> error_messages = {
     { 1 , "Bad number of arguments. Only a single scenario file should be provided." },
@@ -29,6 +27,61 @@ void bad_exit(int exitcode){
 }
  
 int main(int argc, char** argv){
+    Game thegame{};
+    std::string order, filename;
+    int x,y;
+    do{
+        std::cout<<"Pls tell order (setmap, puthero, putmonster, run, exit)!\n";
+        std::cin >> order;
+        if(order == "setmap")
+        {
+            std::cout<<"Pls add map filename!\n";
+            std::cin >> filename;
+            try
+            {
+                thegame.setMap(Map{filename});
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+        }
+        if(order == "puthero")
+        {
+            std::cout<<"Pls add Hero filename and coordinate (filename x y)!\n";
+            std::cin >> filename >> x >> y;
+            try
+            {
+                thegame.putHero(Hero{Hero::parse(filename)},x,y);
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+        }
+        if(order == "putmonster")
+        {
+            std::cout<<"Pls add Monster filename and coordinate (filename x y)!\n";
+            std::cin >> filename >> x >> y;
+            try
+            {
+                thegame.putMonster(Monster{Monster::parse(filename)},x,y);
+            }
+            catch(const std::exception& e)
+            {
+                std::cerr << e.what() << '\n';
+            }
+        }
+        if("run" == order)
+            thegame.run();
+
+    }while(order != "exit");
+    return 0;
+    
+
+
+
+    /*
     if (argc != 2) bad_exit(1);
     if (!std::filesystem::exists(argv[1])) bad_exit(2);
     std::string hero_file;
@@ -66,5 +119,5 @@ int main(int argc, char** argv){
                   << "  ACD: "<<hero.getAttackCoolDown()<<std::endl
                   ;
     } catch (const JSON::ParseException& e) {bad_exit(4);}
-    return 0;
+    return 0;*/
 }
