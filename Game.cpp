@@ -68,7 +68,7 @@ void Game::moveHero(const std::string& direction){
 }
 
 void Game::run(){
-    if (hero.hero == nullptr && !monsters.empty() && mapsetready)
+    if (hero.hero != nullptr && !monsters.empty() && mapsetready)
     {
         std::string moveTo ="";
         gamestarted = true;
