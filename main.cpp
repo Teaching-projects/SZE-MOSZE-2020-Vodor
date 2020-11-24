@@ -27,6 +27,7 @@ void bad_exit(int exitcode){
 }
  
 int main(int argc, char** argv){
+    if(argc==1){
     Game thegame{};
     std::string order, filename;
     int x,y;
@@ -76,12 +77,8 @@ int main(int argc, char** argv){
             thegame.run();
 
     }while(order != "exit");
-    return 0;
+    return 0;}
     
-
-
-
-    /*
     if (argc != 2) bad_exit(1);
     if (!std::filesystem::exists(argv[1])) bad_exit(2);
     std::string hero_file;
@@ -119,5 +116,5 @@ int main(int argc, char** argv){
                   << "  ACD: "<<hero.getAttackCoolDown()<<std::endl
                   ;
     } catch (const JSON::ParseException& e) {bad_exit(4);}
-    return 0;*/
+    return 0;
 }
