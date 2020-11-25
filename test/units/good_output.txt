@@ -1,4 +1,23 @@
-Prince Aidan of Khanduras(1) vs Fallen
+The selected map: 
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░░░░░░░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+Add the coordinates for the Hero(Dark_Wanderer.json) (x,y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Zombie.json) (x, y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Zombie.json) (x, y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Blood_Raven.json) (x, y): ╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██┣┫████████░░░░████░░░░████║
+║██MM░░░░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░░░░░░░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+Enter the direction you would like to move (north, east, west, south): Prince Aidan of Khanduras(1) vs Fallen
 Prince Aidan of Khanduras(1) vs Fallen
 Prince Aidan of Khanduras(1) vs Zombie
 Prince Aidan of Khanduras(1) vs Fallen
@@ -6,14 +25,9 @@ Prince Aidan of Khanduras(2) vs Fallen
 Prince Aidan of Khanduras(2) vs Zombie
 Prince Aidan of Khanduras(2) vs Fallen
 Prince Aidan of Khanduras(3) vs Blood Raven
-The hero won.
+
+Prince Aidan of Khanduras cleared the map.
 Prince Aidan of Khanduras: LVL8
    HP: 65/65
   DMG: Physical: 10, Magical: 8
   ACD: 0.526127
-Prince Aidan of Khanduras(1) vs Blood Raven
-The hero died.
-Prince Aidan of Khanduras: LVL1
-   HP: 0/30
-  DMG: Physical: 3, Magical: 1
-  ACD: 1.1
