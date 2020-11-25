@@ -125,7 +125,6 @@ void Game::run(){
                 << "  DMG: "<<hero.hero->getDamage()<<std::endl
                 << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl
                 ;
-            delete hero.hero;
             heroready = false;
         }
         gamestarted = false;
