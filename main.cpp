@@ -14,8 +14,8 @@
  
 const std::map<int,std::string> error_messages = {
     { 1 , "Bad number of arguments. Only a single scenario file should be provided." },
-    { 2 , "The provided scenario file is not accessible." },
-    { 3 , "The provided scenario file is invalid." },
+    { 2 , "The provided file is not accessible." },
+    { 3 , "The provided file is invalid." },
     { 4 , "JSON parsing error." },
     { 5 , "Game was not initialized properly."},
     { 6 , "Game already has units."},
@@ -110,11 +110,10 @@ int main(int argc, char** argv){
                     monster_files.push_back(std::get<std::string>(monster_file));
             }
         } catch (const JSON::ParseException& e) {bad_exit(4);}
-
-            
-        if (!std::filesystem::exists(mapFile)) bad_exit(2);
+        
         std::cout<<"Add the file path for the map!\n";
         std::cin >> mapFile;
+        if (!std::filesystem::exists(mapFile)) bad_exit(2);
         Game thegame{mapFile};
         std::cout<<"The selected map: "<<std::endl;
         thegame.printMap();
