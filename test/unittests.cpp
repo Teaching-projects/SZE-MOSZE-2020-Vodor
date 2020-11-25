@@ -153,6 +153,7 @@ TEST(unittests, gameTestNoThrow){
 }
 
 TEST(unittests, gameTestThrow){
+    Game game;
     ASSERT_THROW(game.run(), Game::NotInitializedException);
     ASSERT_THROW(game.putHero(Hero::parse("test/units/unit1.json"),1,2), Map::WrongIndexException);
 }
