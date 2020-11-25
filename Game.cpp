@@ -77,21 +77,13 @@ void Game::moveHero(const std::string& direction){
 }
 
 void Game::run(){
-    if (heroready && !monsters.empty() && mapsetready)
+    if (heroready && !monsters.empty() && mapsetready && !gamestarted)
     {
         std::string moveTo ="";
         gamestarted = true;
         std::list<std::string> expectedInputs = {"north", "east", "west", "south"};
         while ((hero.hero->isAlive() && !monsters.empty()))
         {
-            printMap();
-            do
-            {
-                std::cout<<"Enter the direction you would like to move (north, east, west, south): ";
-                getline(std::cin, moveTo);
-            } while (std::find(expectedInputs.begin(), expectedInputs.end(), moveTo) == expectedInputs.end() || !checkIfMoveIsValid(moveTo));
-            moveHero(moveTo);
-
             std::list<MonsterCoords>::iterator monster = monsters.begin();
             while (monster != monsters.end())
             {
@@ -106,7 +98,16 @@ void Game::run(){
                     }
                 if (!monster->monster.isAlive()) monster = monsters.erase(monster); 
                 else monster++;
-            }  
+            }
+            if(hero.hero->isAlive() && !monsters.empty()){
+            printMap();
+            do
+            {
+                std::cout<<"Enter the direction you would like to move (north, east, west, south): ";
+                std::cin >> moveTo;
+            } while (std::find(expectedInputs.begin(), expectedInputs.end(), moveTo) == expectedInputs.end() || !checkIfMoveIsValid(moveTo));
+            moveHero(moveTo);
+            }
         }
         if (hero.hero->isAlive()){
             std::cout<<std::endl<<hero.hero->getName()<<" cleared the map."<<std::endl;
@@ -127,6 +128,7 @@ void Game::run(){
             delete hero.hero;
             heroready = false;
         }
+        gamestarted = false;
     }
     else throw NotInitializedException("Game was not initialized properly.");
     
