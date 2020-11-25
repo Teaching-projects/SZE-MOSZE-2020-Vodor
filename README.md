@@ -5,9 +5,9 @@ Ez a repository a Vödör csapat megoldását tartalmazza.
 * Vitéz Marcell
 * Voznek Péter
 ## Leírás
-Az indításnál 0, vagy 1 paramétert kell megadni a helyes lefutáshoz:
+Az indításnál 0 vagy 1 paramétert kell megadni a helyes lefutáshoz:
  - **0 paraméter:** Ebben az esetben a játék során a felhasználónak kell megadni a pályát, a Herot, valamint a Monstereket is. Ezek mindegyikéhez elérési útvonalat kell adni az adott elemet tartalmazó fájlhoz, illetve a Hero és a Monsterek esetében koordinátákat is.
- - **1 paraméter:** Ebben az esetben paraméterként egy JSON formátumú scenario fájlt kell átadni. A játék során azonban itt is meg kell adni az egyes Unitok koordinátáit a felhasználónak.
+ - **1 paraméter:** Ebben az esetben paraméterként egy JSON formátumú scenario fájlt kell átadni. A játék során azonban itt is meg kell adni a pályát, illetve az egyes Unitok koordinátáit a felhasználónak. Példa: `./a.out scenario1.json`
 
 Egy játék elindítása után a játékos south, east, west, valamint north parancsokkal tud mozogni a pályán. Ha olyan mezőre lép a Hero, ahol Monster(ek) található(ak) csata veszi kezdetét. A csata addig tart, amíg a mezőn Monster(ek) található(ak). A játék addig tart, amíg a pályán van Monster, vagy a Hero meg nem hal.
  
