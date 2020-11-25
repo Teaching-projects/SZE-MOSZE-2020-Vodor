@@ -146,7 +146,7 @@ TEST(unittests, checkDefense){
 
 TEST(unittests, gameTestNoThrow){
     Game game;
-    ASSERT_NO_THROW(game.setMap("exampleMap.txt"));
+    ASSERT_NO_THROW(game.setMap(Map("exampleMap.txt")));
     ASSERT_NO_THROW(game.putHero(Hero::parse("Dark_Wanderer.json"),1,2));
     ASSERT_NO_THROW(game.putMonster(Monster::parse("Zombie.json"),1,3));
     ASSERT_NO_THROW(game.run());
