@@ -4,6 +4,7 @@
 #include "../Unit.h"
 #include "../Map.h"
 #include "../Damage.h"
+#include "../Game.h"
 #include <gtest/gtest.h>
 
 TEST(parserTest, test_iostream){                       
@@ -141,6 +142,20 @@ TEST(unittests, checkDefense){
     Monster monster = Monster::parse("Zombie.json");
     ASSERT_EQ(hero.getDefense(), 1);
     ASSERT_EQ(monster.getDefense(), 1);
+}
+
+TEST(unittests, gameTestNoThrow){
+    Game game;
+    ASSERT_NO_THROW(game.setMap("exampleMap.txt"));
+    ASSERT_NO_THROW(game.putHero(Hero::parse("Dark_Wanderer.json"),1,2));
+    ASSERT_NO_THROW(game.putMonster(Monster::parse("Zombie.json"),1,3));
+    ASSERT_NO_THROW(game.run());
+}
+
+TEST(unittests, gameTestThrow){
+    Game game("exampleMap.txt");
+    ASSERT_THROW(game.run(), Game::NotInitializedException);
+    ASSERT_THROW(game.putHero(Hero::parse("test/units/unit1.json"),1,2), Map::WrongIndexException);
 }
 
 int main(int argc, char** argv){
