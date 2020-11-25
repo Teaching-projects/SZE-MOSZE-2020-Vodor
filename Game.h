@@ -1,5 +1,23 @@
 #ifndef GAME_H
 #define GAME_H
+
+/*!
+ * \class Game
+ * 
+ * \brief Game class
+ * 
+ * A játékért felelős osztály.
+ * 
+ * 
+ * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+ * 
+ * \version 4.0
+ * 
+ * \date 2020/11/02 13:22
+ * 
+ * Created on 2020/11/02 13:22
+ */
+
 #include "Map.h"
 #include "Monster.h"
 #include "Hero.h"
@@ -22,24 +40,40 @@ struct b_Hero{
 
 class Game{
 private:
-    Map gameMap;
-    bool mapsetready;
-    bool gamestarted;
-    bool heroready;
-    std::list<MonsterCoords> monsters;
-    b_Hero hero;
-    bool printMonsters(int x, int y);
+    Map gameMap; ///< A játéktér.
+    bool mapsetready; ///< A játéktér betöltését jelző változó.
+    bool gamestarted; ///< A játék indulását jelző változó.
+    bool heroready;  ///< A hős betöltését jelző változó.
+    std::list<MonsterCoords> monsters;  ///< A ellenfelek listája.
+    b_Hero hero; ///< Hős változó
+    /// Ez a függvény kiírja az ellenfeleket.
+    bool printMonsters(int x, int y); 
+    /// Ez a függvény ellenőrzi a lépést.
     bool checkIfMoveIsValid(const std::string& direction);
+    /// Ez a függvény lép egyet a hőssel.
     void moveHero(const std::string& direction);
 public:
+    /// Game default konstruktor 
     Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){}
+    /*! \brief Game konstruktor
+ 	*         
+ 	*  
+ 	*  Beállítja a játékot a paramér alapján.
+ 	*  
+ 	*  \param mapFileName [in] jatéktér elérése .
+ 	*/
     Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){}
+    /// Game dekonstruktor
     ~Game(){ delete hero.hero; }
+    /// Ez a függvény beállítja a játékteret.
     void setMap(Map map);
+    /// Ez a függvény hozzáadja a hőst.
     void putHero(Hero hero, int x, int y);
+    /// Ez a függvény hozzáad egy ellenfelet.
     void putMonster(Monster monster, int x, int y);
-    
+    /// Ez a függvény kirajzolja a játékteret.
     void printMap();
+    /// Ez a függvény elindítja.
     void run();
 
     class OccupiedException : public std::runtime_error{ 
