@@ -7,7 +7,7 @@ SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp Map.cpp Game.cpp
 SCAFLAGS := --enable=warning --error-exitcode=1
 SCAUPFLAGS := --enable=all --output-file=cppreport.txt
 MEMCHECK := valgrind
-MEMCHECKOBJS := cat test/scenarios/scn1.txt | ./runGame test/scenarios/scenario1.json 
+MEMCHECKOBJS := cat test/scenarios/scn1.txt | ./runGame test/scenarios/scenario1.json
 MEMCHECKFLAGS := --error-exitcode=1 --leak-check=full
 DIFFOBJS := output.txt test/units/good_output.txt
 CMAKEOBJ := CMakeLists.txt
