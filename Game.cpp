@@ -39,6 +39,7 @@ void Game::putHero(Hero hero, int x, int y){
                     this->hero.hero = new Hero(hero);
                     this->hero.x = x;
                     this->hero.y = y;
+                    heroready = true;
                 }
                 else throw OccupiedException("Coordinate occupied");
             }
@@ -76,7 +77,7 @@ void Game::moveHero(const std::string& direction){
 }
 
 void Game::run(){
-    if (hero.hero != nullptr && !monsters.empty() && mapsetready)
+    if (heroready && !monsters.empty() && mapsetready)
     {
         std::string moveTo ="";
         gamestarted = true;
@@ -124,6 +125,7 @@ void Game::run(){
                 << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl
                 ;
             delete hero.hero;
+            heroready = false;
         }
     }
     else throw NotInitializedException("Game was not initialized properly.");

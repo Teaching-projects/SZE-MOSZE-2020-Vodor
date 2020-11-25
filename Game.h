@@ -25,14 +25,15 @@ private:
     Map gameMap;
     bool mapsetready;
     bool gamestarted;
+    bool heroready;
     std::list<MonsterCoords> monsters;
     b_Hero hero;
     bool printMonsters(int x, int y);
     bool checkIfMoveIsValid(const std::string& direction);
     void moveHero(const std::string& direction);
 public:
-    Game(): gameMap(Map()), mapsetready(false), gamestarted(false){}
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false){}
+    Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){}
+    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){}
     ~Game(){ delete hero.hero; }
     void setMap(Map map);
     void putHero(Hero hero, int x, int y);
