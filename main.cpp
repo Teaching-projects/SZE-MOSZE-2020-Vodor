@@ -73,13 +73,12 @@ int main(int argc, char** argv){
                 std::cerr << e.what() << '\n';
             }
         }
-        if("run" == order)
+        if("run" == order){
             thegame.run();
-
+        }
     }while(order != "exit");
-    return 0;}
-    
-    if (argc != 2) bad_exit(1);
+    }
+    else if (argc == 2){
     if (!std::filesystem::exists(argv[1])) bad_exit(2);
     std::string hero_file;
     std::list<std::string> monster_files;
@@ -95,26 +94,20 @@ int main(int argc, char** argv){
     } catch (const JSON::ParseException& e) {bad_exit(4);}
  
     try { 
-        Hero hero{Hero::parse(hero_file)};
-        std::list<Monster> monsters;
-        for (const auto& monster_file : monster_files)
-            monsters.push_back(Monster::parse(monster_file));        
- 
-        while (hero.isAlive() && !monsters.empty()) {
-            std::cout 
-                << hero.getName() << "(" << hero.getLevel()<<")"
-                << " vs "
-                << monsters.front().getName()
-                <<std::endl;
-            hero.fightTilDeath(monsters.front());
-            if (!monsters.front().isAlive()) monsters.pop_front();
+        int x,y;
+        std::string str;
+        std::cin >> str;
+        Game thegame{str};
+        for (const auto& monster_file : monster_files){
+            std::cin >> x >> y;
+            thegame.putMonster(Monster::parse(monster_file),x,y);
         }
-        std::cout << (hero.isAlive() ? "The hero won." : "The hero died.") << std::endl;
-        std::cout << hero.getName() << ": LVL" << hero.getLevel() << std::endl
-                  << "   HP: "<<hero.getHealthPoints()<<"/"<<hero.getMaxHealthPoints()<<std::endl
-                  << "  DMG: "<<hero.getDamage()<<std::endl
-                  << "  ACD: "<<hero.getAttackCoolDown()<<std::endl
-                  ;
+        std::cin >> x >> y;
+        thegame.putHero(Hero::parse(hero_file),x,y);
+        thegame.run();
     } catch (const JSON::ParseException& e) {bad_exit(4);}
+    }
+    else  bad_exit(1);
+    
     return 0;
 }
