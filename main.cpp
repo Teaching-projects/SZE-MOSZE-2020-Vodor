@@ -45,7 +45,7 @@ int main(int argc, char** argv){
                 std::cin >> filename;
                 try
                 {
-                    if (!std::filesystem::exists(filename) bad_exit(2);
+                    if (!std::filesystem::exists(filename)) bad_exit(2);
                     thegame.setMap(Map{filename});
                     std::cout<<"The selected map: "<<std::endl;
                     thegame.printMap();
@@ -59,7 +59,7 @@ int main(int argc, char** argv){
                 std::cin >> filename >> x >> y;
                 try
                 {
-                    if (!std::filesystem::exists(filename) bad_exit(2);
+                    if (!std::filesystem::exists(filename)) bad_exit(2);
                     if(std::cin.good()) bad_exit(-1);
                     thegame.putHero(Hero{Hero::parse(filename)},x,y);
                 }
@@ -73,7 +73,7 @@ int main(int argc, char** argv){
                 std::cin >> filename >> x >> y;
                 try
                 {
-                    if (!std::filesystem::exists(filename) bad_exit(2);
+                    if (!std::filesystem::exists(filename)) bad_exit(2);
                     if(!std::cin.good()) bad_exit(-1);
                     thegame.putMonster(Monster{Monster::parse(filename)},x,y);
                 }
@@ -112,7 +112,7 @@ int main(int argc, char** argv){
         } catch (const JSON::ParseException& e) {bad_exit(4);}
 
             
-        if (!std::filesystem::exists(mapFile) bad_exit(2);
+        if (!std::filesystem::exists(mapFile)) bad_exit(2);
         std::cout<<"Add the file path for the map!\n";
         std::cin >> mapFile;
         Game thegame{mapFile};
