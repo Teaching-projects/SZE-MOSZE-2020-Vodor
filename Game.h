@@ -25,18 +25,6 @@
 #include <list>
 #include <algorithm>
 
-const std::string TOP_LEFT = "\u2554";
-const std::string TOP_RIGHT = "\u2557";
-const std::string BOTTOM_LEFT = "\u255A";
-const std::string BOTTOM_RIGHT = "\u255D";
-const std::string HORIZONTAL = "\u2550\u2550";
-const std::string VERTICAL =  "\u2551\u2551";
-const std::string FREE = "\u2592\u2592";
-const std::string WALL = "\u2588\u2588"; 
-const std::string SINGLEMONSTER = "M\u2592";
-const std::string MULTIPLEMONSTERS = "MM";
-const std::string HERO = "\u2523\u252B";
-
 struct MonsterCoords{
     Monster monster;
     int x;
@@ -52,6 +40,17 @@ struct b_Hero{
 
 class Game{
 private:
+    const std::string TOP_LEFT = "\u2554";
+    const std::string TOP_RIGHT = "\u2557";
+    const std::string BOTTOM_LEFT = "\u255A";
+    const std::string BOTTOM_RIGHT = "\u255D";
+    const std::string HORIZONTAL = "\u2550\u2550";
+    const std::string VERTICAL =  "\u2551";
+    const std::string FREE = "\u2592\u2592";
+    const std::string WALL = "\u2588\u2588"; 
+    const std::string SINGLEMONSTER = "M\u2592";
+    const std::string MULTIPLEMONSTERS = "MM";
+    const std::string HERO = "\u2523\u252B";
     Map gameMap; ///< A játéktér.
     bool mapsetready; ///< A játéktér betöltését jelző változó.
     bool gamestarted; ///< A játék indulását jelző változó.
