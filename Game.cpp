@@ -8,11 +8,11 @@ bool Game::printMonsters(int x, int y){
     
     if (count == 1)
     {
-        std::cout<<"M░";
+        std::cout<<SINGLEMONSTER;
         return true;
     } 
     else if(count >= 2){
-        std::cout<<"MM";
+        std::cout<<MULTIPLEMONSTERS;
         return true;
     }
     return false;
@@ -135,30 +135,30 @@ void Game::run(){
 
 void Game::printMap(){
     int maxWidth = gameMap.getMaxLength();
-    std::cout<<"╔";
+    std::cout<<TOP_LEFT;
 
     for (int i = 0; i < maxWidth; i++)
-        std::cout<<"══";
+        std::cout<<HORIZONTAL;
 
-    std::cout<<"╗"<<std::endl;
+    std::cout<<TOP_RIGHT<<std::endl;
 
     for (int y = 0; y < gameMap.getMapSize(); y++){
-        std::cout<<"║";
+        std::cout<<VERTICAL;
         for (int x = 0; x < gameMap.getRowWidth(y); x++){
-            if (gameMap.get(x,y) == Map::type::Wall) std::cout<<"██";
-            else if (hero.x == x && hero.y == y) std::cout<<"┣┫";
+            if (gameMap.get(x,y) == Map::type::Wall) std::cout<<WALL;
+            else if (hero.x == x && hero.y == y) std::cout<<HERO;
             else if (printMonsters(x,y));
-            else std::cout<<"░░";
+            else std::cout<<FREE;
         }
         if(gameMap.getRowWidth(y)<maxWidth)
             for (int i = 0; i < (maxWidth-gameMap.getRowWidth(y)); i++)
-                std::cout<<"██";
-        std::cout<<"║"<<std::endl;
+                std::cout<<WALL;
+        std::cout<<VERTICAL<<std::endl;
     }
-    std::cout<<"╚";
+    std::cout<<BOTTOM_LEFT;
 
     for (int i = 0; i < maxWidth; i++)
-        std::cout<<"══";
+        std::cout<<HORIZONTAL;
 
-    std::cout<<"╝"<<std::endl;
+    std::cout<<BOTTOM_RIGHT<<std::endl;
 }
