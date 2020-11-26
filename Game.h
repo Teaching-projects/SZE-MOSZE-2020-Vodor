@@ -48,7 +48,7 @@ private:
     const std::string VERTICAL =  "\u2551";
     const std::string FREE = "\u2591\u2591";
     const std::string WALL = "\u2588\u2588"; 
-    const std::string SINGLEMONSTER = "M\u2592";
+    const std::string SINGLEMONSTER = "M\u2591";
     const std::string MULTIPLEMONSTERS = "MM";
     const std::string HERO = "\u2523\u252B";
     Map gameMap; ///< A játéktér.
