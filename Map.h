@@ -26,14 +26,19 @@ class Map{
 private:
     std::vector<std::string> map; ///< A játék térképe.
 public:
+    int getMapSize() { return map.size();}
+    int getRowWidth(int y) {return map[y].length(); }
+    int getMaxLength();
+
     /// Enum a térkép elemeinek.
     enum type{
         Free, ///< járható út 
         Wall ///< fal
         };
-
+    Map(){}
     /// Map konstruktor, beolvas egy térképet egy adott fájlból.
     Map(const std::string& filename /** [in] a fájl elérési útvonala*/);
+    
 
     /// Függvény, ami visszaadja az adott koordinátán milyen elem szerepel a térképen.
     /*!

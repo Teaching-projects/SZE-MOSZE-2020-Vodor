@@ -19,3 +19,11 @@ Map::type Map::get(unsigned int x, unsigned int y) const{
     else return Map::type::Wall;
     
 }
+
+int Map::getMaxLength(){
+    int maxLength = 0;
+    for (int i = 0; i < (int) map.size(); i++)
+        if ((int) map[i].length()>maxLength)
+            maxLength = (int) map[i].length();
+    return maxLength;
+}
