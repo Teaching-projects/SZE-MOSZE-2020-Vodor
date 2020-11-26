@@ -63,16 +63,16 @@ void Game::putMonster(Monster monster, int x, int y){
 
 bool Game::checkIfMoveIsValid(const std::string& direction){
     if (direction == "north") return (gameMap.get(hero.x, hero.y-1) == Map::type::Free ? true : false); 
-    else if (direction == "east") return (gameMap.get(hero.x-1, hero.y) == Map::type::Free ? true : false);
-    else if (direction == "west") return (gameMap.get(hero.x+1, hero.y) == Map::type::Free ? true : false);
+    else if (direction == "east") return (gameMap.get(hero.x+1, hero.y) == Map::type::Free ? true : false);
+    else if (direction == "west") return (gameMap.get(hero.x-1, hero.y) == Map::type::Free ? true : false);
     else if (direction == "south") return (gameMap.get(hero.x, hero.y+1) == Map::type::Free ? true : false);
     else return false;
 }
 
 void Game::moveHero(const std::string& direction){
     if (direction == "north") hero.y--;
-    if (direction == "east") hero.x--;
-    if (direction == "west") hero.x++;
+    if (direction == "east") hero.x++;
+    if (direction == "west") hero.x--;
     if (direction == "south") hero.y++;
 }
 
