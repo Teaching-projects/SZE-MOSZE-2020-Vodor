@@ -46,7 +46,7 @@ private:
     const std::string BOTTOM_RIGHT = "\u255D";
     const std::string HORIZONTAL = "\u2550\u2550";
     const std::string VERTICAL =  "\u2551";
-    const std::string FREE = "\u2592\u2592";
+    const std::string FREE = "\u2591\u2591";
     const std::string WALL = "\u2588\u2588"; 
     const std::string SINGLEMONSTER = "M\u2592";
     const std::string MULTIPLEMONSTERS = "MM";
