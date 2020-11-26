@@ -76,24 +76,29 @@ Csapattagok:</h1>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Leírás</h1>
-<p>Az indításnál 2 paramétert kell megadni a helyes lefutáshoz, ez két fájlnevet/elérési utat jelent. Egy példa a bemeneti paraméterekre: <em>unit1.json unit2.json</em>. Ezután lefut a játék, amely leszimulálja a két karakter közötti harcot. A játék addig tart, amíg az egyik karakter életereje el nem fogy, ekkor győztest hírdet a játék.</p>
-<p>A program lefutását két osztály biztosítja:</p><ul>
-<li><a class="el" href="classUnit.html" title="Unit class.">Unit</a></li>
-<li>Game </li>
+<p>Az indításnál 0 vagy 1 paramétert kell megadni a helyes lefutáshoz:</p><ul>
+<li><b>0 paraméter:</b> Ebben az esetben a játék során a felhasználónak kell megadni a pályát, a Herot, valamint a Monstereket is. Ezek mindegyikéhez elérési útvonalat kell adni az adott elemet tartalmazó fájlhoz, illetve a <a class="el" href="classHero.html" title="Hero class.">Hero</a> és a Monsterek esetében koordinátákat is.</li>
+<li><b>1 paraméter:</b> Ebben az esetben paraméterként egy <a class="el" href="classJSON.html" title="JSON class.">JSON</a> formátumú scenario fájlt kell átadni. A játék során azonban itt is meg kell adni a pályát, illetve az egyes Unitok koordinátáit a felhasználónak. Példa: <code>./a.out scenario1.json</code></li>
 </ul>
+<p>Egy játék elindítása után a játékos south, east, west, valamint north parancsokkal tud mozogni a pályán. Ha olyan mezőre lép a <a class="el" href="classHero.html" title="Hero class.">Hero</a>, ahol <a class="el" href="classMonster.html" title="Monster class.">Monster(ek)</a> található(ak) csata veszi kezdetét. A csata addig tart, amíg a mezőn <a class="el" href="classMonster.html" title="Monster class.">Monster(ek)</a> található(ak). A játék addig tart, amíg a pályán van <a class="el" href="classMonster.html" title="Monster class.">Monster</a>, vagy a <a class="el" href="classHero.html" title="Hero class.">Hero</a> meg nem hal.</p>
 <h2><a class="anchor" id="autotoc_md3"></a>
-Unit</h2>
-<p>Az osztály 3 adattaggal rendelkezik, amelyek a karakterek nevét, életerejét és sebzését határozzák meg.</p>
-<p>Három függvényt - adattagokhoz tartozó getter függvényeken kívül - tartalmaz az osztály, az egyik a <b>takeDmg()</b>, ami sebzést oszt ki az adott karakterre egy előre megadaott érték alapján, a másik a(z) <b>isDead()</b>, ami azt vizsgálja, hogy az adott karakter meghalt-e. Ezeken felül a <b>parseUnit()</b>, amely az inputként megadott fájlok feldolgozásáért felelős.</p>
+Használható parancsok a játék során</h2>
+<p>Menüben használható parancsok:</p><ul>
+<li><b>setmap:</b> Játéktér beállítása.</li>
+<li><b>puthero:</b> <a class="el" href="classHero.html" title="Hero class.">Hero</a> beállítása, ebből 1 lehetséges.</li>
+<li><b>putmonster:</b> <a class="el" href="classMonster.html" title="Monster class.">Monster</a> beállítása, ebből több is lehetséges.</li>
+<li><b>run:</b> A játék elindítása.<ul>
+<li><b>exit:</b> Kilépés a programból.</li>
+</ul>
+</li>
+</ul>
+<p>Játék elindítása után használható parancsok:</p><ul>
+<li><b>north:</b> a karakter mozgatása északi irányba</li>
+<li><b>south:</b> a karakter mozgatása déli irányba</li>
+<li><b>east:</b> a karakter mozgatása keleti irányba</li>
+<li><b>west:</b> a karakter mozgatása nyugati irányba</li>
+</ul>
 <h2><a class="anchor" id="autotoc_md4"></a>
-Game</h2>
-<p>Ez az osztály a program lefutását vezényeli le. 2 adattagot tartalmaz:</p><ul>
-<li><b>u1</b>, <b>u2</b>: a játékban részt vevő két karakter</li>
-</ul>
-<p>Ezenfelül 1 darab függvény van az osztályban.</p><ul>
-<li><b>runGame()</b>: levezényli a játékot</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
 Documentation</h2>
 <p><a href="https://teaching-projects.github.io/SZE-MOSZE-2020-Vodor/">https://teaching-projects.github.io/SZE-MOSZE-2020-Vodor/</a> </p>
 </div></div><!-- contents -->

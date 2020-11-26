@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['sze_2dmosze_2d2020_2dvodor_42',['SZE-MOSZE-2020-Vodor',['../md_README.html',1,'']]]
+  ['occupiedexception_50',['OccupiedException',['../classGame_1_1OccupiedException.html',1,'Game']]]
 ];

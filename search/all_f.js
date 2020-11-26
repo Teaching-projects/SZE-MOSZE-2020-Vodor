@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['wall_45',['Wall',['../classMap.html#a41697b848ea9a5aad1910714e0196b7ba874474147b8fcfcec145b20926fc83bf',1,'Map']]],
-  ['wrongindexexception_46',['WrongIndexException',['../classMap_1_1WrongIndexException.html',1,'Map']]]
+  ['sze_2dmosze_2d2020_2dvodor_62',['SZE-MOSZE-2020-Vodor',['../md_README.html',1,'']]],
+  ['setmap_63',['setMap',['../classGame.html#ab83e25f737717d7bb4ec95b22efc82d9',1,'Game']]]
 ];

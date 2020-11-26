@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['magical_94',['magical',['../structDamage.html#a496876891f196c2b4ac9afe9f31b77b4',1,'Damage']]],
-  ['map_95',['map',['../classMap.html#acfd48b449ebeaa742732028840a5dc0c',1,'Map']]]
+  ['gamemap_134',['gameMap',['../classGame.html#a54bd5e12ece09856c800deae0d3ab70b',1,'Game']]],
+  ['gamestarted_135',['gamestarted',['../classGame.html#ae13c9295ec4cf8a451a93df3504ab253',1,'Game']]]
 ];
