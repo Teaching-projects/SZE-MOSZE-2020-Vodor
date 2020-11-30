@@ -21,7 +21,6 @@ Prince Aidan of Khanduras: LVL8
    HP: 65/65
   DMG: Physical: 10, Magical: 8
   ACD: 0.526127
-Add the file path for the map!
 ╔════════════════════════════╗
 ║████████████████████████████║
 ║██░░░░░░██░░░░████████░░░░██║
