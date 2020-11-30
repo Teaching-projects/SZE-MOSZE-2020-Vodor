@@ -1,15 +1,4 @@
-Add the file path for the map!
-The selected map: 
 ╔════════════════════════════╗
-║████████████████████████████║
-║██░░░░░░██░░░░████████░░░░██║
-║██░░████████░░░░████░░░░████║
-║██░░░░░░██░░░░████░░░░██████║
-║██████░░██░░████░░░░████████║
-║██░░░░░░░░░░░░░░░░██████████║
-║████████████████████████████║
-╚════════════════════════════╝
-Add the coordinates for the Hero(Dark_Wanderer.json) (x,y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Zombie.json) (x, y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Zombie.json) (x, y): Add the coordinates for Monster(Fallen.json) (x, y): Add the coordinates for Monster(Blood_Raven.json) (x, y): ╔════════════════════════════╗
 ║████████████████████████████║
 ║██░░░░░░██░░░░████████░░░░██║
 ║██┣┫████████░░░░████░░░░████║
@@ -32,18 +21,7 @@ Prince Aidan of Khanduras: LVL8
    HP: 65/65
   DMG: Physical: 10, Magical: 8
   ACD: 0.526127
-Add the file path for the map!
-The selected map: 
 ╔════════════════════════════╗
-║████████████████████████████║
-║██░░░░░░██░░░░████████░░░░██║
-║██░░████████░░░░████░░░░████║
-║██░░░░░░██░░░░████░░░░██████║
-║██████░░██░░████░░░░████████║
-║██░░░░░░░░░░░░░░░░██████████║
-║████████████████████████████║
-╚════════════════════════════╝
-Add the coordinates for the Hero(Dark_Wanderer.json) (x,y): Add the coordinates for Monster(Blood_Raven.json) (x, y): ╔════════════════════════════╗
 ║████████████████████████████║
 ║██░░░░░░██░░░░████████░░░░██║
 ║██┣┫████████░░░░████░░░░████║
