@@ -29,13 +29,14 @@ const JSON JSON::parseFromString(std::string inputString){
         else
         {
             std::string value = matches[2];
+
             if (!value.empty() && std::all_of(value.begin(), value.end(), [](char c){return std::isdigit(c);})) attributes[matches[1]] = std::stoi(value);
             else if (!value.empty() && std::all_of(value.begin(), value.end(), [](char c){return ((std::isdigit(c) || c == '.') ? true : false);})) attributes[matches[1]] = std::stod(value);
             else attributes[matches[1]] = value;
             inputString = matches.suffix().str();
         }            
     }
-    if(std::regex_search(inputString, matchList, regexForList)){
+    while(std::regex_search(inputString, matchList, regexForList)){
         std::string values = matchList[2];
         while (values.find(",")!=std::string::npos)
             values.erase(values.find(","),1);
