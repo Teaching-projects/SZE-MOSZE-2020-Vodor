@@ -158,7 +158,34 @@ TEST(unittests, gameTestThrow){
     ASSERT_THROW(game.putHero(Hero::parse("test/units/unit1.json"),1,2), Map::WrongIndexException);
 }
 
+TEST(unittests, checkHeroPosition){
+   MarkedMap map("exampleMarkedMap.txt");
+    std::pair<int, int> testPair(2,1);
+    ASSERT_EQ(map.getHeroPosition(),testPair);
+}
+
+TEST(unittests, checkMonsterPosition){
+    MarkedMap map("exampleMarkedMap.txt");
+    std::vector<std::pair<int,int>> testV1 = {
+        std::make_pair(2, 3),
+        std::make_pair(3, 4),
+        std::make_pair(6, 5)
+        };
+     std::vector<std::pair<int,int>> testV2 = {
+        std::make_pair(6, 2),
+        std::make_pair(7, 2),
+        std::make_pair(3, 3)
+        };
+    std::vector<std::pair<int,int>> testV3 = {
+        std::make_pair(6, 3)
+        };
+    ASSERT_EQ(map.getMonsterPosition('1'),testV1);
+    ASSERT_EQ(map.getMonsterPosition('2'),testV2);
+    ASSERT_EQ(map.getMonsterPosition('3'),testV3);    
+}
+
 int main(int argc, char** argv){
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
