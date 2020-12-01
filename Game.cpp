@@ -172,14 +172,15 @@ PreparedGame::PreparedGame(const std::string& filename){
             okay = false;
    
     if (okay){
-        setMap(MarkedMap(attributes.get<std::string>("map")));       
-        putHero(Hero::parse(attributes.get<std::string>("hero")));
+        setMap(MarkedMap(attributes.get<std::string>("map"))); 
+        std::pair<int, int> heroPosition = gameMap.getHeroPosition();     
+        putHero(Hero::parse(attributes.get<std::string>("hero")), heroPosition.first, heroPosition.second);
         std::vector<std::pair<std::string, std::vector<std::pair<int,int>>>> monsters3;
         monsters3.push_back(std::make_pair("monster-1", gameMap.getMonsterPositions('1')));
         monsters3.push_back(std::make_pair("monster-2", gameMap.getMonsterPositions('2')));
         monsters3.push_back(std::make_pair("monster-3", gameMap.getMonsterPositions('3')));
-        for (int i = 0; i < monsters3.size(); i++)
-            for (int j = 0; j < monsters3[i].second.size(); j++)
+        for (int i = 0; i < (int) monsters3.size(); i++)
+            for (int j = 0; j < (int) monsters3[i].second.size(); j++)
                 putMonster(Monster::parse(attributes.get<std::string>(monsters3[i].first)), monsters3[i].second[j].first,monsters3[i].second[j].second);
         
         mapsetready = true;
