@@ -46,8 +46,8 @@ std::pair<int,int> MarkedMap::getHeroPosition() const
     {
         for (int j = 0; j < (int) map[i].length(); j++)
         {
-            if(map[i][j] == 'H'){
-                heroposition = std::make_pair(i,j);               
+            if(map[j][i] == 'H'){
+                heroposition = std::make_pair(j,i);               
             }  
         }
     }
@@ -59,8 +59,8 @@ std::vector<std::pair<int,int>> MarkedMap::getMonsterPosition(char c) const{
     for(int i=0; i < (int)map.size();i++){
         for (int j = 0; j < (int) map[i].length(); j++)
         {
-            if(map[i][j] == 'c'){
-                MonsterPosition.push_back(std::make_pair(i,j));
+            if(map[j][i] == c){
+                MonsterPosition.push_back(std::make_pair(j,i));
             }  
         }
     }
