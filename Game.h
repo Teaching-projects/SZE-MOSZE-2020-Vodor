@@ -63,6 +63,8 @@ protected:
     bool checkIfMoveIsValid(const std::string& direction);
     /// Ez a függvény lép egyet a hőssel.
     void moveHero(const std::string& direction);
+    /// Ez a függvény kirajzolja a játékteret.
+    void printMap();
 public:
     /// Game default konstruktor 
     Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){}
@@ -82,8 +84,6 @@ public:
     void putHero(Hero hero, int x, int y);
     /// Ez a függvény hozzáad egy ellenfelet.
     void putMonster(Monster monster, int x, int y);
-    /// Ez a függvény kirajzolja a játékteret.
-    void printMap();
     /// Ez a függvény elindítja.
     void run();
 

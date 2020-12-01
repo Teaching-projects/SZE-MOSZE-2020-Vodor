@@ -173,7 +173,7 @@ PreparedGame::PreparedGame(const std::string& filename){
    
     if (okay){
         setMap(MarkedMap(attributes.get<std::string>("map")));       
-
+        putHero(Hero::parse(attributes.get<std::string>("hero")));
         std::vector<std::pair<std::string, std::vector<std::pair<int,int>>>> monsters3;
         monsters3.push_back(std::make_pair("monster-1", gameMap.getMonsterPositions('1')));
         monsters3.push_back(std::make_pair("monster-2", gameMap.getMonsterPositions('2')));
