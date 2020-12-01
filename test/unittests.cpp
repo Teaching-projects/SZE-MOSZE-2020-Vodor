@@ -172,9 +172,9 @@ TEST(unittests, checkMonsterPosition){
         std::make_pair(6, 5)
         };
      std::vector<std::pair<int,int>> testV2 = {
-        std::make_pair(3, 3),
         std::make_pair(6, 2),
-        std::make_pair(7, 2)
+        std::make_pair(7, 2),
+        std::make_pair(3, 3)
         };
     std::vector<std::pair<int,int>> testV3 = {
         std::make_pair(6, 3)
