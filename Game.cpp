@@ -166,21 +166,22 @@ void Game::printMap(){
 PreparedGame::PreparedGame(const std::string& filename){
     bool okay = true;
     std::vector<std::string> expectedKeys= {"map", "hero", "monster-1", "monster-2", "monster-3"};
-    JSON map = JSON::parseFromFile(filename);
+    JSON attributes = JSON::parseFromFile(filename);
     for (auto &&key : expectedKeys)
-        if (!map.count(key))
+        if (!attributes.count(key))
             okay = false;
    
     if (okay){
-        //setMap(MarkedMap(map.get<std::string>("map")));
-        //TODO: ??? heroPosition = MarkedMap::getHeroPosition();
-        //TODO: ??? monster1Positions = MarkedMap::getMonsterPositions('1');
-        //TODO: ??? monster2Positions = MarkedMap::getMonsterPositions('2');
-        //TODO: ??? monster3Positions = MarkedMap::getMonsterPositions('3');
-        //putHero(map.get<std::string>("hero"),heroPosition[???], heroPosition[??]);
-        //amig van monster1 position
-        //putMonster(map.get<std::string>("monster-1"), monster1Positions[???], monster1Positions[???]);
-        //amig 2..3.. van 
+        setMap(MarkedMap(attributes.get<std::string>("map")));       
+
+        std::vector<std::pair<std::string, std::vector<std::pair<int,int>>>> monsters3;
+        monsters3.push_back(std::make_pair("monster-1", gameMap.getMonsterPositions('1')));
+        monsters3.push_back(std::make_pair("monster-2", gameMap.getMonsterPositions('2')));
+        monsters3.push_back(std::make_pair("monster-3", gameMap.getMonsterPositions('3')));
+        for (int i = 0; i < monsters3.size(); i++)
+            for (int j = 0; j < monsters3[i].second.size(); j++)
+                putMonster(Monster::parse(attributes.get<std::string>(monsters3[i].first)), monsters3[i].second[j].first,monsters3[i].second[j].second);
+        
         mapsetready = true;
         heroready = true;
         gamestarted = false;

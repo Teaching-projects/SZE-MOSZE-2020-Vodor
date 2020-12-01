@@ -114,6 +114,8 @@ public:
 };
 
 class PreparedGame : private Game{
+private:
+    MarkedMap gameMap;
 public:
     PreparedGame(const std::string& filename);
     using Game::run;
