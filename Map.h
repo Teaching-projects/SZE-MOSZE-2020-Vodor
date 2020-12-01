@@ -22,8 +22,9 @@
 #include <string>
 #include <fstream>
 
+
 class Map{
-private:
+protected:
     std::vector<std::string> map; ///< A játék térképe.
 public:
     int getMapSize() { return map.size();}
@@ -52,6 +53,17 @@ public:
     public:
         WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
+};
+
+
+class MarkedMap : Map
+{
+    public:
+    ///A MarkedMap konstruktura beolvas egy térképet egy adott fájból amiben előre megtalálhatóak a Hős (H) és a szörnyek (1-2-3) pozíciói
+    MarkedMap(const std::string& filename /** [in] a fájl elérési útvonala*/);
+   
+    std::pair<int,int> getHeroPosition() const; ///Visszaadja a Hero (H) poziciojat
+    std::vector<std::pair<int,int>> getMonsterPositions(char c) const; ///Visszaadja a Monster (1-2-3) poziciojat
 };
 
 #endif
