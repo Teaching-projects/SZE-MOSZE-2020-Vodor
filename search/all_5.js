@@ -12,5 +12,6 @@ var searchData=
   ['gethitby_33',['getHitBy',['../classHero.html#a58cdb16e1e37119f2a7d205df50de6bd',1,'Hero::getHitBy()'],['../classMonster.html#a82c7fd1c8411981fbbfa5b2cc86da6f2',1,'Monster::getHitBy()']]],
   ['getlevel_34',['getLevel',['../classHero.html#a17e77f3769e62aeb4e1807bbfc720f47',1,'Hero']]],
   ['getmaxhealthpoints_35',['getMaxHealthPoints',['../classHero.html#ac6a7deeb6e390a23536d622042f4c48e',1,'Hero']]],
-  ['getname_36',['getName',['../classUnit.html#a0497994e384db5c080ec78e9b645fa40',1,'Unit']]]
+  ['getmonsterposition_36',['getMonsterPosition',['../classMarkedMap.html#ad87c44c6009490edffb9fa29759b71a2',1,'MarkedMap']]],
+  ['getname_37',['getName',['../classUnit.html#a0497994e384db5c080ec78e9b645fa40',1,'Unit']]]
 ];
