@@ -162,3 +162,18 @@ int main(int argc, char** argv){
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
+TEST(untittests, checkHeroPosition){
+    Game game;
+    ASSERT_NO_THROW(game.setMap(MarkedMap("exampleMarkedMap.txt")));
+    ASSERT_NO_THROW(game.run());
+    ASSERT_NO_THROW(game.getHeroPosition());
+}
+TEST(untittests, checkMonsterPosition){
+    Game game;
+    ASSERT_NO_THROW(game.setMap(MarkedMap("exampleMarkedMap.txt")));
+    ASSERT_NO_THROW(game.run());
+    ASSERT_NO_THROW(game.getMonsterPosition(1));
+    ASSERT_NO_THROW(game.getMonsterPosition(2));
+    ASSERT_NO_THROW(game.getMonsterPosition(3));
+}
