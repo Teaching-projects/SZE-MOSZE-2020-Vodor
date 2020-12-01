@@ -20,7 +20,7 @@ bool Game::printMonsters(int x, int y){
 
 void Game::setMap(Map map){  
     if(!gamestarted)     
-        if(this->hero.hero == nullptr && monsters.empty() && !gamestarted){
+        if(!heroready && monsters.empty()){
             gameMap = map;
             mapsetready = true;
         }
@@ -31,7 +31,7 @@ void Game::setMap(Map map){
 
 void Game::putHero(Hero hero, int x, int y){
     if(!gamestarted)
-        if(this->hero.hero != nullptr && !gamestarted) throw AlreadyHasHeroException("Game already has Hero.");
+        if(heroready) throw AlreadyHasHeroException("Game already has Hero.");
         else
         {
             if(mapsetready){
@@ -161,4 +161,29 @@ void Game::printMap(){
         std::cout<<HORIZONTAL;
 
     std::cout<<BOTTOM_RIGHT<<std::endl;
+}
+
+PreparedGame::PreparedGame(const std::string& filename){
+    bool okay = true;
+    std::vector<std::string> expectedKeys= {"map", "hero", "monster-1", "monster-2", "monster-3"};
+    JSON map = JSON::parseFromFile(filename);
+    for (auto &&key : expectedKeys)
+        if (!map.count(key))
+            okay = false;
+   
+    if (okay){
+        //setMap(MarkedMap(map.get<std::string>("map")));
+        //TODO: ??? heroPosition = MarkedMap::getHeroPosition();
+        //TODO: ??? monster1Positions = MarkedMap::getMonsterPositions('1');
+        //TODO: ??? monster2Positions = MarkedMap::getMonsterPositions('2');
+        //TODO: ??? monster3Positions = MarkedMap::getMonsterPositions('3');
+        //putHero(map.get<std::string>("hero"),heroPosition[???], heroPosition[??]);
+        //amig van monster1 position
+        //putMonster(map.get<std::string>("monster-1"), monster1Positions[???], monster1Positions[???]);
+        //amig 2..3.. van 
+        mapsetready = true;
+        heroready = true;
+        gamestarted = false;
+    }
+    else throw JSON::ParseException("Missing keys.");
 }

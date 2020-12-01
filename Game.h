@@ -39,7 +39,7 @@ struct b_Hero{
 };
 
 class Game{
-private:
+protected:
     const std::string TOP_LEFT = "\u2554";
     const std::string TOP_RIGHT = "\u2557";
     const std::string BOTTOM_LEFT = "\u255A";
@@ -111,5 +111,11 @@ public:
         public:
         GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
+};
+
+class PreparedGame : private Game{
+public:
+    PreparedGame(const std::string& filename);
+    using Game::run;
 };
 #endif
