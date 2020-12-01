@@ -164,16 +164,27 @@ int main(int argc, char** argv){
 }
 
 TEST(untittests, checkHeroPosition){
-    MarkedMap map;
-    ASSERT_NO_THROW(map.setMap(MarkedMap("exampleMarkedMap.txt")));
-    ASSERT_NO_THROW(map.run());
-    ASSERT_NO_THROW(map.getHeroPosition());
+   MarkedMap map("exampleMarkedMap.txt");
+    std::pair<int, int> testPair(2,1);
+    ASSERT_EQ(map.getHeroPosition(),testPair);
 }
 TEST(untittests, checkMonsterPosition){
-    Game game;
-    ASSERT_NO_THROW(map.setMap(MarkedMap("exampleMarkedMap.txt")));
-    ASSERT_NO_THROW(map.run());
-    ASSERT_NO_THROW(map.getMonsterPosition(1));
-    ASSERT_NO_THROW(map.getMonsterPosition(2));
-    ASSERT_NO_THROW(map.getMonsterPosition(3));
+    MarkedMap map("exampleMarkedMap.txt");
+    std::vector<std::pair<int,int>> testV1 = {
+        std::make_pair(2, 3),
+        std::make_pair(3, 4),
+        std::make_pair(6, 5)};
+    };
+     std::vector<std::pair<int,int>> testV2 = {
+        std::make_pair(3, 3),
+        std::make_pair(6, 2),
+        std::make_pair(7, 2)};
+    };
+    std::vector<std::pair<int,int>> testV3 = {
+        std::make_pair(6, 3),
+    };
+    ASSERT_EQ(map.getMonsterPosition(1),testV1);
+    ASSERT_EQ(map.getMonsterPosition(2),testV2);
+    ASSERT_EQ(map.getMonsterPosition(3),testV3);
+    
 }
