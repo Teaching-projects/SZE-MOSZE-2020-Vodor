@@ -158,13 +158,13 @@ TEST(unittests, gameTestThrow){
     ASSERT_THROW(game.putHero(Hero::parse("test/units/unit1.json"),1,2), Map::WrongIndexException);
 }
 
-TEST(untittests, checkHeroPosition){
+TEST(unittests, checkHeroPosition){
    MarkedMap map("exampleMarkedMap.txt");
     std::pair<int, int> testPair(2,1);
     ASSERT_EQ(map.getHeroPosition(),testPair);
 }
 
-TEST(untittests, checkMonsterPosition){
+TEST(unittests, checkMonsterPosition){
     MarkedMap map("exampleMarkedMap.txt");
     std::vector<std::pair<int,int>> testV1 = {
         std::make_pair(2, 3),
