@@ -164,16 +164,16 @@ int main(int argc, char** argv){
 }
 
 TEST(untittests, checkHeroPosition){
-    Game game;
-    ASSERT_NO_THROW(game.setMap(MarkedMap("exampleMarkedMap.txt")));
-    ASSERT_NO_THROW(game.run());
-    ASSERT_NO_THROW(game.getHeroPosition());
+    MarkedMap map;
+    ASSERT_NO_THROW(map.setMap(MarkedMap("exampleMarkedMap.txt")));
+    ASSERT_NO_THROW(map.run());
+    ASSERT_NO_THROW(map.getHeroPosition());
 }
 TEST(untittests, checkMonsterPosition){
     Game game;
-    ASSERT_NO_THROW(game.setMap(MarkedMap("exampleMarkedMap.txt")));
-    ASSERT_NO_THROW(game.run());
-    ASSERT_NO_THROW(game.getMonsterPosition(1));
-    ASSERT_NO_THROW(game.getMonsterPosition(2));
-    ASSERT_NO_THROW(game.getMonsterPosition(3));
+    ASSERT_NO_THROW(map.setMap(MarkedMap("exampleMarkedMap.txt")));
+    ASSERT_NO_THROW(map.run());
+    ASSERT_NO_THROW(map.getMonsterPosition(1));
+    ASSERT_NO_THROW(map.getMonsterPosition(2));
+    ASSERT_NO_THROW(map.getMonsterPosition(3));
 }
