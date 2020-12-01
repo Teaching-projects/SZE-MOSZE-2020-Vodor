@@ -81,13 +81,15 @@ public:
     /// Ez a függvény visszaadja a Hős szintjét.
 	int getLevel() const { return b_level; }
     /// Ez a függvény visszaadja a Hős maximális életerejét.
-	int getMaxHealthPoints() const {return b_maxHp; }
+	int getMaxHealthPoints() const { return b_maxHp; }
     /// Ez a függvény végzi a Hős XP növekedését.
     void addXp(int amount/** [in] a növekedés mértéke */ ) { b_xp += amount; }
     /// Ez a függvény ellenőrzi/végzi a szintlépést.
 	void levelup();
     /// Ez a függvény megüti a Hőst.
     void getHitBy(Unit* other/** [in] ellenfél karakter*/);
+
+	int getLightRadius() const { return b_light_radius; }
 };
 
 #endif
