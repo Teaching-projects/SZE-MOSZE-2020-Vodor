@@ -39,6 +39,8 @@ struct b_Hero{
 };
 
 class Game{
+private:
+    Map gameMap; ///< A játéktér.
 protected:
     const std::string TOP_LEFT = "\u2554";
     const std::string TOP_RIGHT = "\u2557";
@@ -51,7 +53,6 @@ protected:
     const std::string SINGLEMONSTER = "M\u2591";
     const std::string MULTIPLEMONSTERS = "MM";
     const std::string HERO = "\u2523\u252B";
-    Map gameMap; ///< A játéktér.
     bool mapsetready; ///< A játéktér betöltését jelző változó.
     bool gamestarted; ///< A játék indulását jelző változó.
     bool heroready;  ///< A hős betöltését jelző változó.
