@@ -39,21 +39,25 @@ MarkedMap::MarkedMap(const std::string& filename){
     mapFile.close();
 }
 
-std::pair<int,int> MarkedMap::getHeroPosition() const{
-    for(int i=1; i < (int)map.size();i++){
+std::pair<int,int> MarkedMap::getHeroPosition() const
+{
+     std::pair<int, int> heroposition;
+    for(int i=0; i < (int)map.size();i++)
+    {
         for (int j = 0; j < (int) map[i].length(); j++)
         {
             if(map[i][j] == 'H'){
                 std::pair<int, int> heroposition(i,j);
-                return heroposition;
+                
             }  
         }
     }
+    return heroposition;
 }
 
 std::vector<std::pair<int,int>> MarkedMap::getMonsterPositions(char c) const{
     std::vector<std::pair<int,int>> MonsterPosition;
-    for(int i=1; i < (int)map.size();i++){
+    for(int i=0; i < (int)map.size();i++){
         for (int j = 0; j < (int) map[i].length(); j++)
         {
             if(map[i][j] == c){
