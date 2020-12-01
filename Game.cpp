@@ -134,31 +134,32 @@ void Game::run(){
 }
 
 void Game::printMap(){
-    int maxWidth = gameMap.getMaxLength();
+    int widthL = ((hero.x < hero.hero->getLightRadius()) ? hero.x : hero.hero->getLightRadius());
+    int widthR = ((gameMap.getMaxLength() <= (hero.hero->getLightRadius()+hero.x) ) ? (gameMap.getMaxLength()-hero.x-1) : hero.hero->getLightRadius());
+    int heightT = ((hero.y < hero.hero->getLightRadius()) ? hero.y : hero.hero->getLightRadius());
+    int heightB = ((gameMap.getMapSize() <= (hero.y+hero.hero->getLightRadius()) ) ? (gameMap.getMapSize()-hero.y-1) : hero.hero->getLightRadius());
+
     std::cout<<TOP_LEFT;
-
-    for (int i = 0; i < maxWidth; i++)
+    for (int i = 0; i < (widthL+1+widthR); i++)
         std::cout<<HORIZONTAL;
-
     std::cout<<TOP_RIGHT<<std::endl;
 
-    for (int y = 0; y < gameMap.getMapSize(); y++){
+    for (int y = (hero.y-heightT); y < (hero.y+heightB+1); y++){
         std::cout<<VERTICAL;
-        for (int x = 0; x < gameMap.getRowWidth(y); x++){
+        for (int x = (hero.x-widthL); x < ((gameMap.getRowWidth(y) < (hero.x+widthR+1)) ? gameMap.getRowWidth(y) : hero.x+widthR+1) ; x++){
             if (gameMap.get(x,y) == Map::type::Wall) std::cout<<WALL;
             else if (hero.x == x && hero.y == y) std::cout<<HERO;
             else if (printMonsters(x,y));
             else std::cout<<FREE;
         }
-        if(gameMap.getRowWidth(y)<maxWidth)
-            for (int i = 0; i < (maxWidth-gameMap.getRowWidth(y)); i++)
-                std::cout<<WALL;
+        if(gameMap.getRowWidth(y)<(hero.x+widthR+1))
+            for (int i = 0; i < ((hero.x+widthR+1)-gameMap.getRowWidth(y)); i++)
+                std::cout<<FREE;
         std::cout<<VERTICAL<<std::endl;
     }
+
     std::cout<<BOTTOM_LEFT;
-
-    for (int i = 0; i < maxWidth; i++)
+    for (int i = 0; i < (widthL+1+widthR); i++)
         std::cout<<HORIZONTAL;
-
     std::cout<<BOTTOM_RIGHT<<std::endl;
 }
