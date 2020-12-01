@@ -90,6 +90,7 @@ void Hero::levelup(){
 		b_hP = b_maxHp;
 		b_damage.physical += b_damage_bonus_per_level;
 		b_damage.magical += b_magical_damage_bonus_per_level;
+		b_light_radius += b_light_radius_bonus_per_level;
 		b_xp -= b_experience_per_level;
 		b_level++;
 		b_acd *= b_cooldown_multiplier_per_level;
