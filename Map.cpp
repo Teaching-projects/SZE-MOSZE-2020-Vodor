@@ -54,15 +54,15 @@ std::pair<int,int> MarkedMap::getHeroPosition() const
     return heroposition;
 }
 
-std::vector<std::pair<int,int>> MarkedMap::getMonsterPosition(char c) const{
-    std::vector<std::pair<int,int>> MonsterPosition;
+std::vector<std::pair<int,int>> MarkedMap::getMonsterPositions(char c) const{
+    std::vector<std::pair<int,int>> monsterPositions;
     for(int i=0; i < (int)map.size();i++){
         for (int j = 0; j < (int) map[i].length(); j++)
         {
             if(map[i][j] == c){
-                MonsterPosition.push_back(std::make_pair(j,i));
+                monsterPositions.push_back(std::make_pair(j,i));
             }  
         }
     }
-    return MonsterPosition;
+    return monsterPositions;
 }

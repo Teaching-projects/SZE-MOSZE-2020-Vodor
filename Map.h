@@ -62,9 +62,10 @@ class MarkedMap : public Map
     public:
     ///A MarkedMap konstruktura beolvas egy térképet egy adott fájból amiben előre megtalálhatóak a Hős (H) és a szörnyek (1-2-3) pozíciói
     MarkedMap(const std::string& filename /** [in] a fájl elérési útvonala*/);
+    MarkedMap();
    
     std::pair<int,int> getHeroPosition() const; ///Visszaadja a Hero (H) poziciojat
-    std::vector<std::pair<int,int>> getMonsterPosition(char c) const; ///Visszaadja a Monster (1-2-3) poziciojat
+    std::vector<std::pair<int,int>> getMonsterPositions(char c) const; ///Visszaadja a Monster (1-2-3) poziciojat
 };
 
 #endif
