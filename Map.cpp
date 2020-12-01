@@ -49,7 +49,7 @@ std::pair<int,int> MarkedMap::getHeroPosition() const{
             }  
         }
     }
-};
+}
 
 std::vector<std::pair<int,int>> MarkedMap::getMonsterPositions(char c) const{
     std::vector<std::pair<int,int>> MonsterPosition;
@@ -63,4 +63,4 @@ std::vector<std::pair<int,int>> MarkedMap::getMonsterPositions(char c) const{
         }
     }
     return MonsterPosition;
-};
+}
