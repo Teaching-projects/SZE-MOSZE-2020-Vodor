@@ -179,9 +179,9 @@ TEST(unittests, checkMonsterPosition){
     std::vector<std::pair<int,int>> testV3 = {
         std::make_pair(6, 3)
         };
-    ASSERT_EQ(map.getMonsterPosition('1'),testV1);
-    ASSERT_EQ(map.getMonsterPosition('2'),testV2);
-    ASSERT_EQ(map.getMonsterPosition('3'),testV3);    
+    ASSERT_EQ(map.getMonsterPositions('1'),testV1);
+    ASSERT_EQ(map.getMonsterPositions('2'),testV2);
+    ASSERT_EQ(map.getMonsterPositions('3'),testV3);    
 }
 
 int main(int argc, char** argv){
