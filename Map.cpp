@@ -59,7 +59,7 @@ std::vector<std::pair<int,int>> MarkedMap::getMonsterPosition(char c) const{
     for(int i=0; i < (int)map.size();i++){
         for (int j = 0; j < (int) map[i].length(); j++)
         {
-            if(map[i][j] == c){
+            if(map[i][j] == 'c'){
                 MonsterPosition.push_back(std::make_pair(i,j));
             }  
         }
