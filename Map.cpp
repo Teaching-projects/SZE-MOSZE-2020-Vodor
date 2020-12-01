@@ -27,3 +27,42 @@ int Map::getMaxLength(){
             maxLength = (int) map[i].length();
     return maxLength;
 }
+MarkedMap::MarkedMap(const std::string& filename){
+    std::ifstream mapFile(filename);
+    if(mapFile.good()) 
+    {
+        std::string line;
+        while (getline(mapFile, line))
+            map.push_back(line);
+    }
+    else throw std::runtime_error("File does not exist: " + filename);
+    mapFile.close();
+}
+
+std::pair<int,int> MarkedMap::getHeroPosition() const
+{
+     std::pair<int, int> heroposition;
+    for(int i=0; i < (int)map.size();i++)
+    {
+        for (int j = 0; j < (int) map[i].length(); j++)
+        {
+            if(map[i][j] == 'H'){
+                heroposition = std::make_pair(j,i);               
+            }  
+        }
+    }
+    return heroposition;
+}
+
+std::vector<std::pair<int,int>> MarkedMap::getMonsterPosition(char c) const{
+    std::vector<std::pair<int,int>> MonsterPosition;
+    for(int i=0; i < (int)map.size();i++){
+        for (int j = 0; j < (int) map[i].length(); j++)
+        {
+            if(map[i][j] == c){
+                MonsterPosition.push_back(std::make_pair(j,i));
+            }  
+        }
+    }
+    return MonsterPosition;
+}
