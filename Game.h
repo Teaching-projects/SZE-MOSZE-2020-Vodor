@@ -85,7 +85,7 @@ public:
     void putHero(Hero hero, int x, int y);
     /// Ez a függvény hozzáad egy ellenfelet.
     void putMonster(Monster monster, int x, int y);
-    /// Ez a függvény elindítja.
+    /// Ez a függvény elindítja a játékot.
     void run();
 
     class OccupiedException : public std::runtime_error{ 
@@ -114,11 +114,31 @@ public:
     };
 };
 
+
+
+/*!
+ * \class PreparedGame
+ * 
+ * \brief PreparedGame class
+ * 
+ * Az előkészített játékért felelős osztály.
+ * 
+ * 
+ * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+ * 
+ * \version 4.0
+ * 
+ * \date 2020/11/02 13:22
+ * 
+ * Created on 2020/11/02 13:22
+ */
+
 class PreparedGame : private Game{
 private:
-    MarkedMap gameMap;
+    MarkedMap gameMap; ///< A játéktér.
 public:
-    PreparedGame(const std::string& filename);
+    /// PreparedGame konstruktor
+    PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
     using Game::run;
 };
 #endif

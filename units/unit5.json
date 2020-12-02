@@ -10,6 +10,7 @@
     "cooldown_multiplier_per_level": 0.5,
     "magical_damage_bonus_per_level" : 0,
     "defense" : 5,
-    "defense_bonus_per_level" : 5
+    "defense_bonus_per_level" : 5,
+    "light_radius": 55
 }
 

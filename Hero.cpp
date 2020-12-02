@@ -49,19 +49,23 @@ void Hero::fightTilDeath(Monster& other) {
 
 Hero Hero::parse(const std::string& fname) {
 	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level", "defense", "defense_bonus_per_level",
-							 "cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown", "magical_damage_bonus_per_level"};
+							 "cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown", "magical_damage_bonus_per_level", "light_radius"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
     	bool okay = true;
     	for (auto key : keysNeeded)
        		if(!returnedJSON.count(key))
 			okay = false;
 	Damage damage;
+	int light_radius_bonus_per_level;
 
 	if(returnedJSON.count("damage")) damage.physical = returnedJSON.get<int>("damage");
 	else damage.physical = 0;
 	
 	if(returnedJSON.count("magical-damage")) damage.magical = returnedJSON.get<int>("magical-damage");
 	else damage.magical = 0;
+
+	if(returnedJSON.count("light_radius_bonus_per_level")) light_radius_bonus_per_level = returnedJSON.get<int>("light_radius_bonus_per_level");
+	else light_radius_bonus_per_level = 1;
     
 	if (okay) 
 	     return Hero(returnedJSON.get<std::string>("name"), 
@@ -74,7 +78,9 @@ Hero Hero::parse(const std::string& fname) {
 			returnedJSON.get<int>("damage_bonus_per_level"),
 			returnedJSON.get<int>("magical_damage_bonus_per_level"),
 			returnedJSON.get<double>("cooldown_multiplier_per_level"),
-			returnedJSON.get<int>("defense_bonus_per_level"));
+			returnedJSON.get<int>("defense_bonus_per_level"),
+			returnedJSON.get<int>("light_radius"),
+			light_radius_bonus_per_level);
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
 
@@ -84,6 +90,7 @@ void Hero::levelup(){
 		b_hP = b_maxHp;
 		b_damage.physical += b_damage_bonus_per_level;
 		b_damage.magical += b_magical_damage_bonus_per_level;
+		b_light_radius += b_light_radius_bonus_per_level;
 		b_xp -= b_experience_per_level;
 		b_level++;
 		b_acd *= b_cooldown_multiplier_per_level;

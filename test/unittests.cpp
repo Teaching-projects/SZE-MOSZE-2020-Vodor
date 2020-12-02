@@ -123,13 +123,13 @@ TEST(unittests, checkMagicalDMG){
     Monster monster = Monster::parse("units/Zombie.json");
     ASSERT_EQ(hero.getDamage().magical, 20);
     ASSERT_EQ(monster.getDamage().magical,0);
-    }
+}
 
 TEST(unittests, checkMagicalDMG2){
     JSON test = JSON::parseFromFile("units/unit5.json");
     ASSERT_EQ(test.get<int>("magical-damage"), 0);
 
-    }
+}
 TEST(unittests, mapClassTest){
     ASSERT_NO_THROW(Map("maps/exampleMap.txt"));
     ASSERT_THROW(Map("nincsilyen.txt"),std::runtime_error);
@@ -186,6 +186,14 @@ TEST(unittests, checkMonsterPosition){
 
 TEST(unittests, preparedGameTests){
     ASSERT_NO_THROW(PreparedGame game("scenarios/preparedGameScenario.json"));
+}
+
+TEST(unittests, checkLightRadius){
+    Hero hero = Hero::parse("units/unit1.json");
+    ASSERT_EQ(hero.getLightRadius(), 2);
+    hero.addXp(15);
+    hero.levelup();
+    ASSERT_EQ(hero.getLightRadius(), 3);
 }
 
 int main(int argc, char** argv){
