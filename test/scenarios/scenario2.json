@@ -1,6 +1,6 @@
 {
     "hero" : "Dark_Wanderer.json",
-    "hero_position" : "1 2",
+    "hero_position" : "1 1",
     "map" : "exampleMap.txt",
     "monsters" : ["Blood_Raven.json"],
     "positions" : ["1 3"]
