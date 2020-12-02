@@ -1,7 +1,7 @@
 #include <iostream>
 #include <map>
 #include <string>
-//#include <filesystem>
+#include <filesystem>
 #include <sstream>
 #include <algorithm>
 #include <iterator>
@@ -28,7 +28,7 @@ void bad_exit(int exitcode){
 int main(int argc, char** argv){
     if (argc!=2) bad_exit(1);
     else{
-        //if (!std::filesystem::exists(argv[1])) bad_exit(2);
+        if (!std::filesystem::exists(argv[1])) bad_exit(2);
         PreparedGame game(argv[1]);
         try
         {
