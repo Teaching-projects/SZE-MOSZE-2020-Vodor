@@ -130,10 +130,10 @@ void Game::run(){
 }
 
 void Game::printMap(){
-    int west = ((hero.x < hero.hero->getLightRadius()) ? 0 : hero.x-hero.hero->getLightRadius());
-    int east = ((gameMap.getMaxLength() > hero.x+hero.hero->getLightRadius()) ? hero.x+hero.hero->getLightRadius()+1 : gameMap.getMaxLength());
-    int north = ((hero.y < hero.hero->getLightRadius()) ? 0 : hero.y-hero.hero->getLightRadius());
-    int south = ((gameMap.getMapSize() > (hero.y+hero.hero->getLightRadius())) ? (hero.y+hero.hero->getLightRadius()+1) : gameMap.getMapSize());
+    int west = (hero.x < hero.hero->getLightRadius()) ? 0 : hero.x-hero.hero->getLightRadius();
+    int east = (gameMap.getMaxLength() > hero.x+hero.hero->getLightRadius()) ? hero.x+hero.hero->getLightRadius()+1 : gameMap.getMaxLength();
+    int north = (hero.y < hero.hero->getLightRadius()) ? 0 : hero.y-hero.hero->getLightRadius();
+    int south = (gameMap.getMapSize() > (hero.y+hero.hero->getLightRadius())) ? (hero.y+hero.hero->getLightRadius()+1) : gameMap.getMapSize();
 
     std::cout<<TOP_LEFT;
     for (int i = west; i < east; i++)
