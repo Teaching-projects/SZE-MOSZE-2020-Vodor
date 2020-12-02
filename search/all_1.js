@@ -12,8 +12,10 @@ var searchData=
   ['b_5fhero_12',['b_Hero',['../structb__Hero.html',1,'']]],
   ['b_5fhp_13',['b_hP',['../classUnit.html#a3b204ff195f0597886c846a302c248e4',1,'Unit']]],
   ['b_5flevel_14',['b_level',['../classHero.html#a0d59903becd638fee6f389c726d0d34a',1,'Hero']]],
-  ['b_5fmagical_5fdamage_5fbonus_5fper_5flevel_15',['b_magical_damage_bonus_per_level',['../classHero.html#ac933d44f916418e08e664d3b81551306',1,'Hero']]],
-  ['b_5fmaxhp_16',['b_maxHp',['../classHero.html#aa8965c8d3c55019657d26ea9d339e714',1,'Hero']]],
-  ['b_5fname_17',['b_name',['../classUnit.html#afedc97662a40a6e5397e5efcd321d5e1',1,'Unit']]],
-  ['b_5fxp_18',['b_xp',['../classHero.html#a8ebe25a7457958d4770d0844bd148983',1,'Hero']]]
+  ['b_5flight_5fradius_15',['b_light_radius',['../classHero.html#a926b8325b51bcf774bcbe7dc082840d4',1,'Hero']]],
+  ['b_5flight_5fradius_5fbonus_5fper_5flevel_16',['b_light_radius_bonus_per_level',['../classHero.html#a066f43ca77422fab3e44ec41de53078a',1,'Hero']]],
+  ['b_5fmagical_5fdamage_5fbonus_5fper_5flevel_17',['b_magical_damage_bonus_per_level',['../classHero.html#ac933d44f916418e08e664d3b81551306',1,'Hero']]],
+  ['b_5fmaxhp_18',['b_maxHp',['../classHero.html#aa8965c8d3c55019657d26ea9d339e714',1,'Hero']]],
+  ['b_5fname_19',['b_name',['../classUnit.html#afedc97662a40a6e5397e5efcd321d5e1',1,'Unit']]],
+  ['b_5fxp_20',['b_xp',['../classHero.html#a8ebe25a7457958d4770d0844bd148983',1,'Hero']]]
 ];
