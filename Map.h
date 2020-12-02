@@ -28,8 +28,11 @@ class Map{
 protected:
     std::vector<std::string> map; ///< A játék térképe.
 public:
+    /// Ez a függvény visszaadja a játéktér magasságát.
     int getMapSize() { return map.size();}
+    /// Ez a függvény visszaadja a játéktér szélességét az adott sorba.
     int getRowWidth(int y) {return map[y].length(); }
+    /// Ez a függvény visszaadja a játéktér max szélességét.
     int getMaxLength();
 
     /// Enum a térkép elemeinek.
@@ -56,16 +59,35 @@ public:
     };
 };
 
+/*!
+ * \class MarkedMap
+ * 
+ * \brief MarkedMap class
+ * 
+ * A MarkedMap konstruktura beolvas egy térképet egy adott fájból amiben előre megtalálhatóak a Hős és a szörnyek pozíciói
+ * 
+ * 
+ * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+ * 
+ * \version 4.0
+ * 
+ * \date 2020/11/17 18:39
+ * 
+ * Created on 2020/11/17 18:39
+ */
 
 class MarkedMap : public Map
 {
     public:
-    ///A MarkedMap konstruktura beolvas egy térképet egy adott fájból amiben előre megtalálhatóak a Hős (H) és a szörnyek (1-2-3) pozíciói
+    
+    /// MarkedMap konstruktor 
     MarkedMap(const std::string& filename /** [in] a fájl elérési útvonala*/);
+
+    /// MarkedMap default konstruktor 
     MarkedMap(){}
    
-    std::pair<int,int> getHeroPosition() const; ///Visszaadja a Hero (H) poziciojat
-    std::vector<std::pair<int,int>> getMonsterPositions(char c) const; ///Visszaadja a Monster (1-2-3) poziciojat
+    std::pair<int,int> getHeroPosition() const; ///< Visszaadja a Hős pozícióját
+    std::vector<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monster pozícióját
 };
 
 #endif
