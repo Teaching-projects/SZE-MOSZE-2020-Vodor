@@ -114,52 +114,48 @@ void Game::run(){
             std::cout << hero.hero->getName() << ": LVL" << hero.hero->getLevel() << std::endl
                 << "   HP: "<<hero.hero->getHealthPoints()<<"/"<<hero.hero->getMaxHealthPoints()<<std::endl
                 << "  DMG: "<<hero.hero->getDamage()<<std::endl
-                << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl
-                ;
-
+                << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl;
         }
         else{
             std::cout<<"The hero died"<<std::endl;
             std::cout << hero.hero->getName() << ": LVL" << hero.hero->getLevel() << std::endl
                 << "   HP: "<<hero.hero->getHealthPoints()<<"/"<<hero.hero->getMaxHealthPoints()<<std::endl
                 << "  DMG: "<<hero.hero->getDamage()<<std::endl
-                << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl
-                ;
+                << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl;
             heroready = false;
         }
         gamestarted = false;
     }
     else throw NotInitializedException("Game was not initialized properly.");
-    
 }
 
 void Game::printMap(){
-    int widthL = ((hero.x < hero.hero->getLightRadius()) ? hero.x : hero.hero->getLightRadius());
-    int widthR = ((gameMap.getMaxLength() <= (hero.hero->getLightRadius()+hero.x) ) ? (gameMap.getMaxLength()-hero.x-1) : hero.hero->getLightRadius());
-    int heightT = ((hero.y < hero.hero->getLightRadius()) ? hero.y : hero.hero->getLightRadius());
-    int heightB = ((gameMap.getMapSize() <= (hero.y+hero.hero->getLightRadius()) ) ? (gameMap.getMapSize()-hero.y-1) : hero.hero->getLightRadius());
+    int west = ((hero.x < hero.hero->getLightRadius()) ? 0 : hero.x-hero.hero->getLightRadius());
+    int east = ((gameMap.getMaxLength() > hero.x+hero.hero->getLightRadius()) ? hero.x+hero.hero->getLightRadius()+1 : gameMap.getMaxLength());
+    int north = ((hero.y < hero.hero->getLightRadius()) ? 0 : hero.y-hero.hero->getLightRadius());
+    int south = ((gameMap.getMapSize() > (hero.y+hero.hero->getLightRadius())) ? (hero.y+hero.hero->getLightRadius()+1) : gameMap.getMapSize());
 
     std::cout<<TOP_LEFT;
-    for (int i = 0; i < (widthL+1+widthR); i++)
+    for (int i = west; i < east; i++)
         std::cout<<HORIZONTAL;
     std::cout<<TOP_RIGHT<<std::endl;
 
-    for (int y = (hero.y-heightT); y < (hero.y+heightB+1); y++){
+    for (int y = north; y < south; y++){
         std::cout<<VERTICAL;
-        for (int x = (hero.x-widthL); x < ((gameMap.getRowWidth(y) < (hero.x+widthR+1)) ? gameMap.getRowWidth(y) : hero.x+widthR+1) ; x++){
+        for (int x = west; x < ((gameMap.getRowWidth(y) < east) ? gameMap.getRowWidth(y) : east) ; x++){
             if (gameMap.get(x,y) == Map::type::Wall) std::cout<<WALL;
             else if (hero.x == x && hero.y == y) std::cout<<HERO;
             else if (printMonsters(x,y));
             else std::cout<<FREE;
         }
-        if(gameMap.getRowWidth(y)<(hero.x+widthR+1))
-            for (int i = 0; i < ((hero.x+widthR+1)-gameMap.getRowWidth(y)); i++)
+        if(gameMap.getRowWidth(y)<east)
+            for (int i = 0; i < (east-gameMap.getRowWidth(y)); i++)
                 std::cout<<FREE;
         std::cout<<VERTICAL<<std::endl;
     }
 
     std::cout<<BOTTOM_LEFT;
-    for (int i = 0; i < (widthL+1+widthR); i++)
+    for (int i = west; i < east; i++)
         std::cout<<HORIZONTAL;
     std::cout<<BOTTOM_RIGHT<<std::endl;
 }
