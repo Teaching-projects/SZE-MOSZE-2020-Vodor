@@ -6,8 +6,9 @@ var searchData=
   ['parsefromstring_56',['parseFromString',['../classJSON.html#ae0d022fc019ef30dea72a925c96612c4',1,'JSON']]],
   ['parsejson_57',['parseJson',['../classJSON.html#a14ee9e831cb7414daf9ab14fdfeca1e2',1,'JSON']]],
   ['physical_58',['physical',['../structDamage.html#aee70c6c924eac810d02f61efbc90c719',1,'Damage']]],
-  ['printmap_59',['printMap',['../classGame.html#a59432db9fcfce098c2613cfa06173e39',1,'Game']]],
-  ['printmonsters_60',['printMonsters',['../classGame.html#acc43e84baae6962399cbb867affd6542',1,'Game']]],
-  ['puthero_61',['putHero',['../classGame.html#a2c9bbc80ff60480af1bbdf06cd3380a7',1,'Game']]],
-  ['putmonster_62',['putMonster',['../classGame.html#a5fc59a7c9f21b26c9b6502217dc5aa5d',1,'Game']]]
+  ['preparedgame_59',['PreparedGame',['../classPreparedGame.html',1,'']]],
+  ['printmap_60',['printMap',['../classGame.html#a59432db9fcfce098c2613cfa06173e39',1,'Game']]],
+  ['printmonsters_61',['printMonsters',['../classGame.html#acc43e84baae6962399cbb867affd6542',1,'Game']]],
+  ['puthero_62',['putHero',['../classGame.html#a2c9bbc80ff60480af1bbdf06cd3380a7',1,'Game']]],
+  ['putmonster_63',['putMonster',['../classGame.html#a5fc59a7c9f21b26c9b6502217dc5aa5d',1,'Game']]]
 ];
