@@ -65,7 +65,7 @@ Hero Hero::parse(const std::string& fname) {
 	else damage.magical = 0;
 
 	if(returnedJSON.count("light_radius_bonus_per_level")) light_radius_bonus_per_level = returnedJSON.get<int>("light_radius_bonus_per_level");
-	else light_radius_bonus_per_level = 0;
+	else light_radius_bonus_per_level = 1;
     
 	if (okay) 
 	     return Hero(returnedJSON.get<std::string>("name"), 
