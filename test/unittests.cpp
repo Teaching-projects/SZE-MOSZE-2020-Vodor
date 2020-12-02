@@ -186,8 +186,6 @@ TEST(unittests, checkMonsterPosition){
 
 TEST(unittests, preparedGameTests){
     ASSERT_NO_THROW(PreparedGame game("scenarios/preparedGameScenario.json"));
-    PreparedGame game("scenarios/preparedGameScenario.json");
-    ASSERT_NO_THROW(game.run());
 }
 
 int main(int argc, char** argv){
