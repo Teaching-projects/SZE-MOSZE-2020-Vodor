@@ -34,8 +34,8 @@ private:
 	int b_magical_damage_bonus_per_level; ///< Hős mágikus sebzésének növekedése szintekként.
     double b_cooldown_multiplier_per_level; ///< Hős támadási idő csökkenés mértéke szintekként.
 	int b_defense_bonus_per_level; ///< Hős védelmi növekedése szintekként.
-	int b_light_radius;
-	int b_light_radius_bonus_per_level;
+	int b_light_radius; ///< Hős látótávolsága.
+	int b_light_radius_bonus_per_level; ///< Hős látótávolsága növekedése szintekként.
 
 public:
     /// A fightTilDeath függvény levezényli a csatát. 
@@ -57,6 +57,8 @@ public:
 	*  \param magical_damage_bonus_per_level [in] Hős mágikus sebézésének növekedése szintekként.
   	*  \param cooldown_multiplier_per_level [in] Hős támadási idő csökkenés mértéke szintekként.
 	*  \param defense_bonus_per_level [in] Hős védelmi növekedése szintekként.
+	*  \param light_radius [in] Hős látótávolsága.
+	*  \param light_radius_bonus_per_level [in] Hős látótávolsága növekedése szintekként.
  	*/
 	Hero(const std::string& name, int hP, Damage dmg, double acd, int defense, 
     	int experience_per_level,
@@ -88,7 +90,7 @@ public:
 	void levelup();
     /// Ez a függvény megüti a Hőst.
     void getHitBy(Unit* other/** [in] ellenfél karakter*/);
-
+	/// Ez a függvény visszaadja a Hős látótávolságát.
 	int getLightRadius() const { return b_light_radius; }
 };
 
