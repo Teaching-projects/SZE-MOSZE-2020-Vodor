@@ -123,13 +123,13 @@ TEST(unittests, checkMagicalDMG){
     Monster monster = Monster::parse("Zombie.json");
     ASSERT_EQ(hero.getDamage().magical, 20);
     ASSERT_EQ(monster.getDamage().magical,0);
-    }
+}
 
 TEST(unittests, checkMagicalDMG2){
     JSON test = JSON::parseFromFile("test/units/unit2.json");
     ASSERT_EQ(test.get<int>("magical-damage"), 2);
 
-    }
+}
 TEST(unittests, mapClassTest){
     ASSERT_NO_THROW(Map("exampleMap.txt"));
     ASSERT_THROW(Map("nincsilyen.txt"),std::runtime_error);
@@ -156,6 +156,14 @@ TEST(unittests, gameTestThrow){
     Game game;
     ASSERT_THROW(game.run(), Game::NotInitializedException);
     ASSERT_THROW(game.putHero(Hero::parse("test/units/unit1.json"),1,2), Map::WrongIndexException);
+}
+
+TEST(unittests, checkLightRadius){
+    Hero hero = Hero::parse("test/units/unit1.json");
+    ASSERT_EQ(hero.getLightRadius(), 2);
+    hero.addXp(150);
+    hero.levelup();
+    ASSERT_EQ(hero.getLightRadius(), 3);
 }
 
 int main(int argc, char** argv){
