@@ -21,6 +21,12 @@ Prince Aidan of Khanduras: LVL8
   ACD: 0.526127
 ╔════════╗
 ║████████║
+║██┣┫░░░░║
+║██░░████║
+║██M░░░░░║
+╚════════╝
+Enter the direction you would like to move (north, east, west, south): ╔════════╗
+║████████║
 ║██░░░░░░║
 ║██┣┫████║
 ║██M░░░░░║

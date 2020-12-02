@@ -4,5 +4,4 @@
     "map" : "exampleMap.txt",
     "monsters" : ["Blood_Raven.json"],
     "positions" : ["1 3"]
-   
 }
