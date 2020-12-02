@@ -1,38 +1,85 @@
 ╔════════════════════════════╗
 ║████████████████████████████║
-║██░░░░░░██░░░░████████░░░░██║
-║██┣┫████████░░░░████░░░░████║
-║██MM░░░░██░░░░████░░░░██████║
+║██M░M░┣┫██░░░░████████░░░░██║
+║██M░████████░░░░████░░░░████║
+║██M░M░M░██░░░░████░░░░██████║
 ║██████░░██░░████░░░░████████║
 ║██░░░░░░░░░░░░░░░░██████████║
 ║████████████████████████████║
 ╚════════════════════════════╝
-Enter the direction you would like to move (north, east, west, south): Prince Aidan of Khanduras(1) vs Fallen
-Prince Aidan of Khanduras(1) vs Fallen
-Prince Aidan of Khanduras(1) vs Zombie
-Prince Aidan of Khanduras(1) vs Fallen
-Prince Aidan of Khanduras(2) vs Fallen
-Prince Aidan of Khanduras(2) vs Zombie
-Prince Aidan of Khanduras(2) vs Fallen
-Prince Aidan of Khanduras(3) vs Blood Raven
-
-Prince Aidan of Khanduras cleared the map.
-Prince Aidan of Khanduras: LVL8
-   HP: 65/65
-  DMG: Physical: 10, Magical: 8
-  ACD: 0.526127
+Enter the direction you would like to move (north, east, west, south): Hunkrow(1) vs Zombie
+╔════════════════════════════╗
+║████████████████████████████║
+║██M░┣┫░░██░░░░████████░░░░██║
+║██M░████████░░░░████░░░░████║
+║██M░M░M░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░░░░░░░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+Enter the direction you would like to move (north, east, west, south): Hunkrow(3) vs Zombie
+╔════════════════════════════╗
+║████████████████████████████║
+║██┣┫░░░░██░░░░████████░░░░██║
+║██M░████████░░░░████░░░░████║
+║██M░M░M░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░░░░░░░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+Enter the direction you would like to move (north, east, west, south): Hunkrow(5) vs Zombie
 ╔════════════════════════════╗
 ║████████████████████████████║
 ║██░░░░░░██░░░░████████░░░░██║
 ║██┣┫████████░░░░████░░░░████║
-║██M░░░░░██░░░░████░░░░██████║
+║██M░M░M░██░░░░████░░░░██████║
 ║██████░░██░░████░░░░████████║
 ║██░░░░░░░░░░░░░░░░██████████║
 ║████████████████████████████║
 ╚════════════════════════════╝
-Enter the direction you would like to move (north, east, west, south): Prince Aidan of Khanduras(1) vs Blood Raven
-The hero died
-Prince Aidan of Khanduras: LVL1
-   HP: 0/30
-  DMG: Physical: 3, Magical: 1
-  ACD: 1.1
+Enter the direction you would like to move (north, east, west, south): Hunkrow(7) vs Fallen
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██┣┫M░M░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░░░░░░░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+Enter the direction you would like to move (north, east, west, south): Hunkrow(7) vs Fallen
+╔════════════════════════════╗
+║████████████████████████████║
+║██░░░░░░██░░░░████████░░░░██║
+║██░░████████░░░░████░░░░████║
+║██░░┣┫M░██░░░░████░░░░██████║
+║██████░░██░░████░░░░████████║
+║██░░░░░░░░░░░░░░░░██████████║
+║████████████████████████████║
+╚════════════════════════════╝
+Enter the direction you would like to move (north, east, west, south): Hunkrow(7) vs Blood Raven
+
+Hunkrow cleared the map.
+Hunkrow: LVL19
+   HP: 236/236
+  DMG: Physical: 29, Magical: 38
+  ACD: 0.218389
+╔══════════════════════════╗
+║██████████████████████████║
+║██░░░░░░░░░░░░░░░░░░░░░░██║
+║██░░░░░░░░██████░░░░░░░░██║
+║██░░░░░░░░██░░░░░░░░░░░░██║
+║██░░░░░░░░██████░░░░░░░░██║
+║██░░░░░░░░░░░░██░░░░░░░░██║
+║██░░░░░░░░██████░░░░░░░░██║
+║██┣┫M░░░░░░░░░░░░░░░░░░░██║
+║██████████████████████████║
+╚══════════════════════════╝
+Enter the direction you would like to move (north, east, west, south): Agent 5.(1) vs Zombie
+
+Agent 5. cleared the map.
+Agent 5.: LVL5
+   HP: 75/75
+  DMG: Physical: 25, Magical: 0
+  ACD: 0.346875
+  
