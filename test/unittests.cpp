@@ -191,7 +191,7 @@ TEST(unittests, preparedGameTests){
 TEST(unittests, checkLightRadius){
     Hero hero = Hero::parse("test/units/unit1.json");
     ASSERT_EQ(hero.getLightRadius(), 2);
-    hero.addXp(150);
+    hero.addXp(15);
     hero.levelup();
     ASSERT_EQ(hero.getLightRadius(), 3);
 }
