@@ -159,7 +159,7 @@ TEST(unittests, gameTestThrow){
 }
 
 TEST(unittests, checkHeroPosition){
-   MarkedMap map("maps/markedmap.txt");
+    MarkedMap map("maps/markedmap.txt");
     std::pair<int, int> testPair(2,1);
     ASSERT_EQ(map.getHeroPosition(),testPair);
 }
@@ -182,6 +182,12 @@ TEST(unittests, checkMonsterPosition){
     ASSERT_EQ(map.getMonsterPositions('1'),testV1);
     ASSERT_EQ(map.getMonsterPositions('2'),testV2);
     ASSERT_EQ(map.getMonsterPositions('3'),testV3);    
+}
+
+TEST(unittests, preparedGameTests){
+    ASSERT_NO_THROW(PreparedGame game("scenarios/preparedGameScenario.json"));
+    PreparedGame game("scenarios/preparedGameScenario.json");
+    ASSERT_NO_THROW(game.run());
 }
 
 int main(int argc, char** argv){
