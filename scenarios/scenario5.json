@@ -1,0 +1,5 @@
+{
+    "hero" : "units/unit5.json",
+    "map" : "maps/scenario5Map.txt",
+    "monster-5" : "units/Zombie.json"
+}

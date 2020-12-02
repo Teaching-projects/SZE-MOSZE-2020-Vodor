@@ -1,0 +1,15 @@
+{
+    "name" : "Agent 5.",
+    "base_health_points" : 55,
+    "damage" : 5,
+    "magical-damage" : 0,
+    "base_attack_cooldown" : 5.55,
+    "experience_per_level" : 5,
+    "health_point_bonus_per_level" : 5,
+    "damage_bonus_per_level" : 5,
+    "cooldown_multiplier_per_level": 0.5,
+    "magical_damage_bonus_per_level" : 0,
+    "defense" : 5,
+    "defense_bonus_per_level" : 5
+}
+

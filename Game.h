@@ -40,6 +40,8 @@ struct b_Hero{
 
 class Game{
 private:
+    Map gameMap; ///< A játéktér.
+protected:
     const std::string TOP_LEFT = "\u2554";
     const std::string TOP_RIGHT = "\u2557";
     const std::string BOTTOM_LEFT = "\u255A";
@@ -51,7 +53,6 @@ private:
     const std::string SINGLEMONSTER = "M\u2591";
     const std::string MULTIPLEMONSTERS = "MM";
     const std::string HERO = "\u2523\u252B";
-    Map gameMap; ///< A játéktér.
     bool mapsetready; ///< A játéktér betöltését jelző változó.
     bool gamestarted; ///< A játék indulását jelző változó.
     bool heroready;  ///< A hős betöltését jelző változó.
@@ -63,6 +64,8 @@ private:
     bool checkIfMoveIsValid(const std::string& direction);
     /// Ez a függvény lép egyet a hőssel.
     void moveHero(const std::string& direction);
+    /// Ez a függvény kirajzolja a játékteret.
+    void printMap();
 public:
     /// Game default konstruktor 
     Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){}
@@ -82,8 +85,6 @@ public:
     void putHero(Hero hero, int x, int y);
     /// Ez a függvény hozzáad egy ellenfelet.
     void putMonster(Monster monster, int x, int y);
-    /// Ez a függvény kirajzolja a játékteret.
-    void printMap();
     /// Ez a függvény elindítja.
     void run();
 
@@ -111,5 +112,13 @@ public:
         public:
         GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
+};
+
+class PreparedGame : private Game{
+private:
+    MarkedMap gameMap;
+public:
+    PreparedGame(const std::string& filename);
+    using Game::run;
 };
 #endif
