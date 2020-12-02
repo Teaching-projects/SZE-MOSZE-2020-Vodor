@@ -9,7 +9,7 @@
 
 TEST(parserTest, test_iostream){                       
     std::ifstream jsonFile;
-    jsonFile.open("test/units/unit1.json");
+    jsonFile.open("units/unit1.json");
     JSON testJSON = JSON::parseJson(jsonFile);
     jsonFile.close();
     ASSERT_EQ(testJSON.get<std::string>("name"),"Hunkrow");
@@ -18,15 +18,15 @@ TEST(parserTest, test_iostream){
 }
 
 TEST(parserTest, test_filename){
-    std::string fname = "test/units/unit2.json";
+    std::string fname = "units/unit5.json";
     JSON testJSON = JSON::parseFromFile(fname);
-    ASSERT_EQ(testJSON.get<std::string>("name"),"Kakazhom");
-    ASSERT_EQ(testJSON.get<int>("base_health_points"),150);
-    ASSERT_EQ(testJSON.get<int>("damage"),15);
+    ASSERT_EQ(testJSON.get<std::string>("name"),"Agent 5.");
+    ASSERT_EQ(testJSON.get<int>("base_health_points"),55);
+    ASSERT_EQ(testJSON.get<int>("damage"),5);
 }
 
 TEST(parserTest, test_string){     
-    std::string fname = "test/units/unit3.json";
+    std::string fname = "units/unit3.json";
     std::ifstream jsonFile;
     jsonFile.open(fname);
     std::string line;
@@ -43,37 +43,37 @@ TEST(parserTest, test_string){
 }
 
 TEST(unittests, good_battle_end){
-    Hero hero = Hero::parse("test/units/unit1.json");
-    Monster monster = Monster::parse("Fallen.json");
+    Hero hero = Hero::parse("units/unit1.json");
+    Monster monster = Monster::parse("units/Fallen.json");
     hero.fightTilDeath(monster);
     ASSERT_EQ(hero.isAlive(),1);
 }
 
 TEST(unittests,good_levelup){
-    Hero hero = Hero::parse("test/units/unit1.json");
-    Monster monster = Monster::parse("Zombie.json");
+    Hero hero = Hero::parse("units/unit1.json");
+    Monster monster = Monster::parse("units/Zombie.json");
     hero.fightTilDeath(monster);
 
-    ASSERT_EQ(hero.getLevel(),1);
+    ASSERT_EQ(hero.getLevel(),3);
    
 }
 
 TEST(unittests, name_check){
-    Hero hero = Hero::parse("test/units/unit1.json");
+    Hero hero = Hero::parse("units/unit1.json");
 
     ASSERT_EQ(hero.getName(),"Hunkrow");
 
 }
 
 TEST(unittests, hp_check){
-    Hero hero = Hero::parse("test/units/unit1.json");
+    Hero hero = Hero::parse("units/unit1.json");
 
     ASSERT_EQ(hero.getHealthPoints(),200);
 
 }
 
 TEST(unittests, parsunit_test){
-    ASSERT_NO_THROW(JSON::parseFromFile("test/units/unit1.json"));
+    ASSERT_NO_THROW(JSON::parseFromFile("units/unit1.json"));
 }
 
 TEST(unittests, whitespaceTest){
@@ -98,8 +98,8 @@ TEST(unittests, brokenFile){
 }
 
 TEST(unittests, parseTest){
-    ASSERT_NO_THROW(Hero::parse("test/units/unit1.json"));
-    ASSERT_NO_THROW(Monster::parse("Zombie.json"));
+    ASSERT_NO_THROW(Hero::parse("units/unit1.json"));
+    ASSERT_NO_THROW(Monster::parse("units/Zombie.json"));
 }
 
 TEST(unittests, wrongPathTaken){
@@ -107,7 +107,7 @@ TEST(unittests, wrongPathTaken){
 }
 
 TEST(unittests, parseTest2){
-    Hero hero = Hero::parse("test/units/unit1.json");
+    Hero hero = Hero::parse("units/unit1.json");
     ASSERT_EQ(hero.getName(), "Hunkrow");
     ASSERT_EQ(hero.getHealthPoints(), 200);
     ASSERT_EQ(hero.getDamage().physical, 11);
@@ -119,53 +119,53 @@ TEST(unittests, scenarioParseTest){
 }
 
 TEST(unittests, checkMagicalDMG){
-    Hero hero = Hero::parse("test/units/unit1.json");
-    Monster monster = Monster::parse("Zombie.json");
+    Hero hero = Hero::parse("units/unit1.json");
+    Monster monster = Monster::parse("units/Zombie.json");
     ASSERT_EQ(hero.getDamage().magical, 20);
     ASSERT_EQ(monster.getDamage().magical,0);
     }
 
 TEST(unittests, checkMagicalDMG2){
-    JSON test = JSON::parseFromFile("test/units/unit2.json");
-    ASSERT_EQ(test.get<int>("magical-damage"), 2);
+    JSON test = JSON::parseFromFile("units/unit5.json");
+    ASSERT_EQ(test.get<int>("magical-damage"), 0);
 
     }
 TEST(unittests, mapClassTest){
-    ASSERT_NO_THROW(Map("exampleMap.txt"));
+    ASSERT_NO_THROW(Map("maps/exampleMap.txt"));
     ASSERT_THROW(Map("nincsilyen.txt"),std::runtime_error);
-    Map test("exampleMap.txt");
+    Map test("maps/exampleMap.txt");
     ASSERT_THROW(test.get(2689,3543),Map::WrongIndexException);       
 }
 
 TEST(unittests, checkDefense){
-    Hero hero = Hero::parse("test/units/unit1.json");
-    Monster monster = Monster::parse("Zombie.json");
+    Hero hero = Hero::parse("units/unit1.json");
+    Monster monster = Monster::parse("units/Zombie.json");
     ASSERT_EQ(hero.getDefense(), 1);
     ASSERT_EQ(monster.getDefense(), 1);
 }
 
 TEST(unittests, gameTestNoThrow){
     Game game;
-    ASSERT_NO_THROW(game.setMap(Map("exampleMap.txt")));
-    ASSERT_NO_THROW(game.putHero(Hero::parse("Dark_Wanderer.json"),1,2));
-    ASSERT_NO_THROW(game.putMonster(Monster::parse("Zombie.json"),1,2));
+    ASSERT_NO_THROW(game.setMap(Map("maps/exampleMap.txt")));
+    ASSERT_NO_THROW(game.putHero(Hero::parse("units/Dark_Wanderer.json"),1,2));
+    ASSERT_NO_THROW(game.putMonster(Monster::parse("units/Zombie.json"),1,2));
     ASSERT_NO_THROW(game.run());
 }
 
 TEST(unittests, gameTestThrow){
     Game game;
     ASSERT_THROW(game.run(), Game::NotInitializedException);
-    ASSERT_THROW(game.putHero(Hero::parse("test/units/unit1.json"),1,2), Map::WrongIndexException);
+    ASSERT_THROW(game.putHero(Hero::parse("units/unit1.json"),1,2), Map::WrongIndexException);
 }
 
 TEST(unittests, checkHeroPosition){
-   MarkedMap map("exampleMarkedMap.txt");
+    MarkedMap map("maps/markedmap.txt");
     std::pair<int, int> testPair(2,1);
     ASSERT_EQ(map.getHeroPosition(),testPair);
 }
 
 TEST(unittests, checkMonsterPosition){
-    MarkedMap map("exampleMarkedMap.txt");
+    MarkedMap map("maps/markedmap.txt");
     std::vector<std::pair<int,int>> testV1 = {
         std::make_pair(2, 3),
         std::make_pair(3, 4),
@@ -179,9 +179,13 @@ TEST(unittests, checkMonsterPosition){
     std::vector<std::pair<int,int>> testV3 = {
         std::make_pair(6, 3)
         };
-    ASSERT_EQ(map.getMonsterPosition('1'),testV1);
-    ASSERT_EQ(map.getMonsterPosition('2'),testV2);
-    ASSERT_EQ(map.getMonsterPosition('3'),testV3);    
+    ASSERT_EQ(map.getMonsterPositions('1'),testV1);
+    ASSERT_EQ(map.getMonsterPositions('2'),testV2);
+    ASSERT_EQ(map.getMonsterPositions('3'),testV3);    
+}
+
+TEST(unittests, preparedGameTests){
+    ASSERT_NO_THROW(PreparedGame game("scenarios/preparedGameScenario.json"));
 }
 
 int main(int argc, char** argv){

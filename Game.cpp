@@ -2,8 +2,8 @@
 
 bool Game::printMonsters(int x, int y){
     int count = 0;
-    for (auto &&i : monsters)
-        if (x == i.x && y == i.y)
+    for (auto &&monster : monsters)
+        if (x == monster.x && y == monster.y)
             count++;
     
     if (count == 1)
@@ -20,7 +20,7 @@ bool Game::printMonsters(int x, int y){
 
 void Game::setMap(Map map){  
     if(!gamestarted)     
-        if(this->hero.hero == nullptr && monsters.empty() && !gamestarted){
+        if(!heroready && monsters.empty()){
             gameMap = map;
             mapsetready = true;
         }
@@ -31,17 +31,17 @@ void Game::setMap(Map map){
 
 void Game::putHero(Hero hero, int x, int y){
     if(!gamestarted)
-        if(this->hero.hero != nullptr && !gamestarted) throw AlreadyHasHeroException("Game already has Hero.");
+        if(heroready) throw AlreadyHasHeroException("Game already has Hero.");
         else
         {
             if(mapsetready){
-                if(gameMap.get(x,y) == Map::type::Free){
+                if(gameMap.get(x,y) == Map::type::Wall) throw OccupiedException("Coordinate occupied");
+                else{
                     this->hero.hero = new Hero(hero);
                     this->hero.x = x;
                     this->hero.y = y;
                     heroready = true;
                 }
-                else throw OccupiedException("Coordinate occupied");
             }
             else throw Map::WrongIndexException("Map not set");
         }
@@ -50,22 +50,21 @@ void Game::putHero(Hero hero, int x, int y){
 
 void Game::putMonster(Monster monster, int x, int y){
     if(mapsetready){ 
-        if(gameMap.get(x,y) == Map::type::Free){
+        if(gameMap.get(x,y) == Map::type::Wall) throw OccupiedException("Coordinate occupied");
+        else{
             MonsterCoords onemonster = {monster,x,y};
             monsters.push_back(onemonster);
-        }
-        else
-            throw OccupiedException("Coordinate occupied");
+        }            
     }
     else 
         throw Map::WrongIndexException("Map not set");
 }
 
 bool Game::checkIfMoveIsValid(const std::string& direction){
-    if (direction == "north") return (gameMap.get(hero.x, hero.y-1) == Map::type::Free ? true : false); 
-    else if (direction == "east") return (gameMap.get(hero.x+1, hero.y) == Map::type::Free ? true : false);
-    else if (direction == "west") return (gameMap.get(hero.x-1, hero.y) == Map::type::Free ? true : false);
-    else if (direction == "south") return (gameMap.get(hero.x, hero.y+1) == Map::type::Free ? true : false);
+    if (direction == "north") return (gameMap.get(hero.x, hero.y-1) != Map::type::Wall ? true : false); 
+    else if (direction == "east") return (gameMap.get(hero.x+1, hero.y) != Map::type::Wall ? true : false);
+    else if (direction == "west") return (gameMap.get(hero.x-1, hero.y) != Map::type::Wall ? true : false);
+    else if (direction == "south") return (gameMap.get(hero.x, hero.y+1) != Map::type::Wall ? true : false);
     else return false;
 }
 
@@ -161,4 +160,35 @@ void Game::printMap(){
         std::cout<<HORIZONTAL;
 
     std::cout<<BOTTOM_RIGHT<<std::endl;
+}
+
+PreparedGame::PreparedGame(const std::string& filename){
+    std::vector<std::string> expectedKeys= {"map", "hero"};
+    JSON attributes = JSON::parseFromFile(filename);
+    for (auto &&key : expectedKeys)
+        if (!attributes.count(key))
+            throw JSON::ParseException("Missing keys.");
+   
+    MarkedMap mapToSet(attributes.get<std::string>("map"));
+    setMap(mapToSet);
+    mapsetready = true;
+    std::pair<int, int> heroPosition = mapToSet.getHeroPosition();
+    Hero heroToPut = Hero::parse(attributes.get<std::string>("hero"));
+    putHero(heroToPut,heroPosition.first, heroPosition.second);
+    heroready = true;
+    
+    for (int i = 1; i < 10; i++)
+    {
+        std::string monsterName = "monster-"+std::to_string(i);
+        if (attributes.count(monsterName))
+        {
+            std::vector<std::pair<int,int>> monsterPositions = mapToSet.getMonsterPositions('0'+i);
+            for (unsigned int i = 0; i < monsterPositions.size(); i++)
+            {
+                Monster monsterToPut = Monster::parse(attributes.get<std::string>(monsterName));
+                putMonster(monsterToPut, monsterPositions[i].first, monsterPositions[i].second);
+            }   
+        }
+    }
+    gamestarted = false;
 }
