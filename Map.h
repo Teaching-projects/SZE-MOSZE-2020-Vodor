@@ -87,7 +87,7 @@ class MarkedMap : public Map
     MarkedMap(){}
    
     std::pair<int,int> getHeroPosition() const; ///< Visszaadja a Hős pozícióját
-    std::vector<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monster pozícióját
+    std::vector<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monsterek pozícióját
 };
 
 #endif
