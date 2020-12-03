@@ -2,6 +2,7 @@
 #define REND_H
 
 #include "Game.h"
+class Game;
 
 class Renderer{
 public:
