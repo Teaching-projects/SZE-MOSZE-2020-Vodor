@@ -11,7 +11,7 @@
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 4.0
+ * \version 5.0
  * 
  * \date 2020/11/02 13:22
  * 
@@ -63,16 +63,16 @@ protected:
     bool mapsetready; ///< A játéktér betöltését jelző változó.
     bool gamestarted; ///< A játék indulását jelző változó.
     bool heroready;  ///< A hős betöltését jelző változó.
-    std::list<MonsterCoords> monsters;  ///< A ellenfelek listája.
+    std::list<MonsterCoords> monsters;  ///< Az ellenfelek listája.
     b_Hero hero; ///< Hős változó
     /// Ez a függvény ellenőrzi a lépést.
     bool checkIfMoveIsValid(const std::string& direction);
     /// Ez a függvény lép egyet a hőssel.
     void moveHero(const std::string& direction);
 
-    std::map<std::string, std::string> textures;
+    std::map<std::string, std::string> textures; ///< A texturák listája.
 
-    std::list<Renderer*> renderers; //LISTA A RENDEREK TÁROLÁSÁRA
+    std::list<Renderer*> renderers; ///< A renderek listája.
 public:
     /// Game default konstruktor 
     Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){
@@ -100,15 +100,15 @@ public:
     void putMonster(Monster monster, int x, int y);
     /// Ez a függvény elindítja a játékot.
     void run();
-
+    /// Ez a függvény új renderelési eljárást add hozzá.
     void registerRenderer(Renderer* renderer) { renderers.push_back(renderer); }
-        
+    /// Ez a függvény visszaadja a Hőst.     
     b_Hero getHero() const { return hero; }
-
+    /// Ez a függvény visszaadja az ellenfeleket.
     std::list<MonsterCoords> getMonsters() const { return monsters; }
-
+    /// Ez a függvény visszaadja a játékteret.
     Map getMap() const { return gameMap; }
-
+    /// Ez a függvény visszaadja a texturákat.
     std::map<std::string, std::string> getTextures() const { return textures;}
 
 
@@ -150,11 +150,11 @@ public:
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 4.0
+ * \version 5.0
  * 
- * \date 2020/11/02 13:22
+ * \date 2020/12/01 15:20
  * 
- * Created on 2020/11/02 13:22
+ * Created on 2020/12/01 15:20
  */
 
 class PreparedGame : private Game{
