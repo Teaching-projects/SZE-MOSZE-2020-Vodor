@@ -33,7 +33,8 @@ int main(int argc, char** argv){
     else{
         if (!std::filesystem::exists(argv[1])) bad_exit(2);
         PreparedGame game(argv[1]);
-        game.registerRenderer(new HeroTextRender());  //ÍGY ADSZ HOZZÁ RENDERERT
+        game.registerRenderer(new HeroTextRender()); 
+        game.registerRenderer(new ObserverTextRenderer());
         try
         {
             game.run();
