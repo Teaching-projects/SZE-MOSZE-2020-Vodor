@@ -88,6 +88,14 @@ public:
     /// Ez a függvény elindítja a játékot.
     void run();
 
+    std::pair<int,int> const getHeroCoords(){ return std::make_pair(hero.x, hero.y); }
+
+    std::list<std::pair<int,int>> const getMonsterCoords();
+
+    Map const getMap(){ return gameMap; }
+
+    friend class Renderer;
+
     class OccupiedException : public std::runtime_error{ 
         public:
         OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg){}
