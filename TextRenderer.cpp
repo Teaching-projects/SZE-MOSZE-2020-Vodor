@@ -32,7 +32,7 @@ void HeroTextRenderer::render(const Game& game) const{
         }
         if(gameMap.getRowWidth(y)<east)
             for (int i = 0; i < (east-gameMap.getRowWidth(y)); i++)
-                b_stream<<item.FREE;
+                b_stream<<item.WALL;
         b_stream<<item.VERTICAL<<std::endl;
     }
 
@@ -69,7 +69,7 @@ void ObserverTextRenderer::render(const Game& game) const{
         }
         if(gameMap.getRowWidth(y)<gameMap.getMaxLength())
             for (int i = 0; i < (gameMap.getMaxLength()-gameMap.getRowWidth(y)); i++)
-                b_stream<<item.FREE;
+                b_stream<<item.WALL;
         b_stream<<item.VERTICAL<<std::endl;
     }
 
