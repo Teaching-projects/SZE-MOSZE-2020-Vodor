@@ -5,7 +5,7 @@
 #include <ostream>
 
 class TextRenderer : public Renderer{
-private:
+protected:
     std::ostream& b_stream;
 public:
     TextRenderer(std::ostream& stream = std::cout) : b_stream(stream){}
