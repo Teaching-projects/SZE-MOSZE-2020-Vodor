@@ -11,7 +11,7 @@
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 4.0
+ * \version 5.0
  * 
  * \date 2020/11/02 13:22
  * 
