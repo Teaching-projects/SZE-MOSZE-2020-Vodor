@@ -6,7 +6,7 @@
 #include <algorithm>
 #include <iterator>
 #include <list>
- 
+
 #include "JSON.h"
 #include "Hero.h"
 #include "Monster.h"
@@ -33,6 +33,8 @@ int main(int argc, char** argv){
     else{
         if (!std::filesystem::exists(argv[1])) bad_exit(2);
         PreparedGame game(argv[1]);
+        std::ofstream stream = std::ofstream("log.txt");
+        game.registerRenderer(new ObserverTextRenderer(stream));
         game.registerRenderer(new HeroTextRenderer()); 
         game.registerRenderer(new ObserverTextRenderer());
         game.registerRenderer(new ObserverSVGRenderer("observerOutput.svg"));
