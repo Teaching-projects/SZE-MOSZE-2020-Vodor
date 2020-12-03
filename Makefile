@@ -1,7 +1,6 @@
-OBJS := JSON.o Hero.o Monster.o Unit.o main.o Map.o Game.o
+OBJS := JSON.o Hero.o Monster.o Unit.o main.o Map.o Game.o SVGRenderer.o TextRenderer.o
 CFLAGS := -Wall -Werror -std=c++17
 RUN := g++-9
-
 SCA := cppcheck
 SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp Map.cpp Game.cpp
 SCAFLAGS := --enable=warning --error-exitcode=1
@@ -32,14 +31,20 @@ Monster.o: Monster.cpp Hero.h Monster.h Unit.h JSON.h Damage.h
 Hero.o: Hero.cpp Monster.h Hero.h Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c Hero.cpp
 
-main.o: main.cpp Monster.h Hero.h Unit.h JSON.h Damage.h Game.h
+main.o: main.cpp Monster.h Hero.h Unit.h JSON.h Damage.h Game.h Renderer.h TextRenderer.h SVGRenderer.h
 	$(RUN) $(CFLAGS) -c main.cpp
 
 Map.o: Map.cpp Map.h
 	$(RUN) $(CFLAGS) -c Map.cpp
 
-Game.o: Game.cpp Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h
+Game.o: Game.cpp Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h Renderer.h
 	$(RUN) $(CFLAGS) -c Game.cpp
+
+SVGRenderer.o: SVGRenderer.cpp SVGRenderer.h Renderer.h Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h
+	$(RUN) $(CFLAGS) -c SVGRenderer.cpp
+
+TextRenderer.o: TextRenderer.cpp SVGRenderer.h Renderer.h Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h
+	$(RUN) $(CFLAGS) -c TextRenderer.cpp
 
 sca:
 	$(SCA) $(SCAOBJS) $(SCAFLAGS)  
