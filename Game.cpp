@@ -102,7 +102,7 @@ void PreparedGame::run(){
             if(hero.hero->isAlive() && !monsters.empty()){
             for (auto &&renderer : renderers)
             {
-                renderer->render(*this);  //MINDEN RENDER A MAGA MÓDJÁN RENDEREL
+                renderer->render(*this); 
             }
             do
             {

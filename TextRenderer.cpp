@@ -1,6 +1,6 @@
 #include "TextRenderer.h"
 
-void HeroTextRender::render(const Game& game) const{
+void HeroTextRenderer::render(const Game& game) const{
     const std::string TOP_LEFT = "\u2554";
     const std::string TOP_RIGHT = "\u2557";
     const std::string BOTTOM_LEFT = "\u255A";

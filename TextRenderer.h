@@ -15,7 +15,7 @@ public:
     }
 };
 
-class HeroTextRender : public TextRenderer{
+class HeroTextRenderer : public TextRenderer{
 public:
     void render(const Game&) const override;
 };  
