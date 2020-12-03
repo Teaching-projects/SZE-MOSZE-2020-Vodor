@@ -51,6 +51,7 @@ public:
 	*  \param dmg [in] Hős támadási ereje.
 	*  \param acd [in] Hős támadási ideje.
 	*  \param defense [in] Hős védelme.
+	*  \param texture [in] Hős textúrája.
   	*  \param experience_per_level [in] Hős szint növekedéséhez szükséges XP mértéke.
   	*  \param health_point_bonus_per_level [in] Hős MAX életpontjának növekedése szintenként.
   	*  \param damage_bonus_per_level [in] Hős fizikális sebzésének növekedése szintenként.
@@ -60,7 +61,7 @@ public:
 	*  \param light_radius [in] Hős látótávolsága.
 	*  \param light_radius_bonus_per_level [in] Hős látótávolsága növekedése szintenként.
  	*/
-	Hero(const std::string& name, int hP, Damage dmg, double acd, int defense, 
+	Hero(const std::string& name, int hP, Damage dmg, double acd, int defense, const std::string& texture, 
     	int experience_per_level,
     	int health_point_bonus_per_level,
     	int damage_bonus_per_level,
@@ -68,7 +69,7 @@ public:
     	double cooldown_multiplier_per_level,
 		int defense_bonus_per_level,
 		int light_radius, 
-		int light_radius_bonus_per_level) : Unit(name, hP, dmg, acd, defense),
+		int light_radius_bonus_per_level) : Unit(name, hP, dmg, acd, defense, texture),
     	b_maxHp(hP), b_xp(0), b_level(1), 
     	b_experience_per_level(experience_per_level),
     	b_health_point_bonus_per_level(health_point_bonus_per_level),

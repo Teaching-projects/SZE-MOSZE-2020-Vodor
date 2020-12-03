@@ -57,6 +57,7 @@ Hero Hero::parse(const std::string& fname) {
 			okay = false;
 	Damage damage;
 	int light_radius_bonus_per_level;
+	std::string texture;
 
 	if(returnedJSON.count("damage")) damage.physical = returnedJSON.get<int>("damage");
 	else damage.physical = 0;
@@ -66,6 +67,9 @@ Hero Hero::parse(const std::string& fname) {
 
 	if(returnedJSON.count("light_radius_bonus_per_level")) light_radius_bonus_per_level = returnedJSON.get<int>("light_radius_bonus_per_level");
 	else light_radius_bonus_per_level = 1;
+
+	if(returnedJSON.count("texture")) texture = returnedJSON.get<std::string>("texture");
+	else texture = "svg/placeholder.svg";
     
 	if (okay) 
 	     return Hero(returnedJSON.get<std::string>("name"), 
@@ -73,6 +77,7 @@ Hero Hero::parse(const std::string& fname) {
 			damage,
 			returnedJSON.get<double>("base_attack_cooldown"),
 			returnedJSON.get<int>("defense"),
+			texture,
 			returnedJSON.get<int>("experience_per_level"),
 			returnedJSON.get<int>("health_point_bonus_per_level"),
 			returnedJSON.get<int>("damage_bonus_per_level"),
