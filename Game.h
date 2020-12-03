@@ -69,10 +69,10 @@ protected:
     bool checkIfMoveIsValid(const std::string& direction);
     /// Ez a függvény lép egyet a hőssel.
     void moveHero(const std::string& direction);
-    /// Ez a függvény kirajzolja a játékteret.
-    void printMap();
 
     std::map<std::string, std::string> textures;
+
+    std::list<Renderer*> renderers; //LISTA A RENDEREK TÁROLÁSÁRA
 public:
     /// Game default konstruktor 
     Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){
@@ -101,13 +101,16 @@ public:
     /// Ez a függvény elindítja a játékot.
     void run();
 
+    void registerRenderer(Renderer* renderer) { renderers.push_back(renderer); }
+        
     b_Hero getHero() const { return hero; }
 
     std::list<MonsterCoords> getMonsters() const { return monsters; }
 
     Map getMap() const { return gameMap; }
 
-    virtual std::map<std::string, std::string> getTextures() const { return textures;}
+    std::map<std::string, std::string> getTextures() const { return textures;}
+
 
     class OccupiedException : public std::runtime_error{ 
         public:
@@ -156,17 +159,11 @@ public:
 
 class PreparedGame : private Game{
 private:
-    std::list<Renderer*> renderers; //LISTA A RENDEREK TÁROLÁSÁRA
     MarkedMap gameMap; ///< A játéktér.
 public:
     /// PreparedGame konstruktor
     PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
-    //using Game::run; //ezt majd innen kivehetjük
-    void run(); //EZ KELLENI FOG, HOGY KÜLÖN RUNJA LEGYEN A PREPAREDGAMENEK, AMIBEN AZ ÖSSZES RENDERRE LEFUT A TÉMA CPP-BEN NÉZD MEG MI TÖRTÉNIK EBBEN!!!!
-    void registerRenderer(Renderer* renderer){
-        renderers.push_back(renderer);
-    }
-
-    std::map<std::string, std::string> getTextures() const override { return textures; }
+    using Game::run; 
+    using Game::registerRenderer;
 };
 #endif
