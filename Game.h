@@ -93,6 +93,8 @@ public:
 
     std::pair<int,int> getHeroCoords() const { return std::make_pair(hero.x, hero.y); }
 
+    int getHeroLightRadius() const { return hero.hero->getLightRadius(); }
+
     std::list<std::pair<int,int>> getMonsterCoords() const;
 
     Map getMap() const { return gameMap; }
