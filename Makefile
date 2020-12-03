@@ -8,7 +8,10 @@ SCAUPFLAGS := --enable=all --output-file=cppreport.txt
 MEMCHECK := valgrind
 MEMCHECKOBJS := cat test/scn1.txt | ./runGame scenarios/scenario1.json
 MEMCHECKFLAGS := --error-exitcode=1 --leak-check=full
+DIFF := diff
 DIFFOBJS := output.txt test/good_output.txt
+DIFFSVGOBSERVEROBJS := observerOutput.svg test/scn1ObsOut.svg
+DIFFSVGCHARACTEROBJS := characterOutput.svg test/scn1CharOut.svg
 CMAKEOBJ := CMakeLists.txt
 SUBDIR := test
 
@@ -57,7 +60,9 @@ memcheck:
 
 diff:
 	./run_test.sh /
-	diff $(DIFFOBJS)
+	$(DIFF) $(DIFFOBJS) /
+	$(DIFF) $(DIFFSVGCHARACTEROBJS) /
+	$(DIFF) $(DIFFSVGOBSERVEROBJS)
 
 doc:
 	doxygen doxconf
