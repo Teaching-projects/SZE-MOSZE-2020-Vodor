@@ -59,10 +59,7 @@ memcheck:
 	$(MEMCHECK) $(MEMCHECKFLAGS) $(MEMCHECKOBJS)
 
 diff:
-	./run_test.sh /
-	$(DIFF) $(DIFFOBJS) /
-	$(DIFF) $(DIFFSVGCHARACTEROBJS) /
-	$(DIFF) $(DIFFSVGOBSERVEROBJS)
+	 $(DIFF) $(DIFFSVGOBSERVEROBJS) && $(DIFF) $(DIFFSVGCHARACTEROBJS) && ./run_test.sh && $(DIFF) $(DIFFOBJS)
 
 doc:
 	doxygen doxconf
