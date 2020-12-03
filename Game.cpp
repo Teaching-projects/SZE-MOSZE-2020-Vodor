@@ -81,7 +81,8 @@ void Game::run(){
                 else monster++;
             }
             if(hero.hero->isAlive() && !monsters.empty()){
-            printMap();
+            for (auto &&renderer : renderers)
+                renderer->render(*this); 
             do
             {
                 std::cout<<"Enter the direction you would like to move (north, east, west, south): ";
@@ -108,43 +109,6 @@ void Game::run(){
         gamestarted = false;
     }
     else throw NotInitializedException("Game was not initialized properly.");
-}
-
-void Game::printMap(){
-    printItem item;
-    int west = (hero.x < hero.hero->getLightRadius()) ? 0 : hero.x-hero.hero->getLightRadius();
-    int east = (gameMap.getMaxLength() > hero.x+hero.hero->getLightRadius()) ? hero.x+hero.hero->getLightRadius()+1 : gameMap.getMaxLength();
-    int north = (hero.y < hero.hero->getLightRadius()) ? 0 : hero.y-hero.hero->getLightRadius();
-    int south = (gameMap.getMapSize() > (hero.y+hero.hero->getLightRadius())) ? (hero.y+hero.hero->getLightRadius()+1) : gameMap.getMapSize();
-
-    std::cout<<item.TOP_LEFT;
-    for (int i = west; i < east; i++)
-        std::cout<<item.HORIZONTAL;
-    std::cout<<item.TOP_RIGHT<<std::endl;
-
-    for (int y = north; y < south; y++){
-        std::cout<<item.VERTICAL;
-        for (int x = west; x < ((gameMap.getRowWidth(y) < east) ? gameMap.getRowWidth(y) : east) ; x++){
-            int countmonster = 0;
-            for (auto &&monster : monsters)
-                if (x == monster.x && y == monster.y)
-                    countmonster++;
-            if (gameMap.get(x,y) == Map::type::Wall) std::cout<<item.WALL;
-            else if (hero.x == x && hero.y == y) std::cout<<item.HERO;
-            else if (countmonster == 1) std::cout<<item.SINGLEMONSTER;
-            else if (countmonster >= 2) std::cout<<item.MULTIPLEMONSTERS;
-            else std::cout<<item.FREE;
-        }
-        if(gameMap.getRowWidth(y)<east)
-            for (int i = 0; i < (east-gameMap.getRowWidth(y)); i++)
-                std::cout<<item.FREE;
-        std::cout<<item.VERTICAL<<std::endl;
-    }
-
-    std::cout<<item.BOTTOM_LEFT;
-    for (int i = west; i < east; i++)
-        std::cout<<item.HORIZONTAL;
-    std::cout<<item.BOTTOM_RIGHT<<std::endl;
 }
 
 PreparedGame::PreparedGame(const std::string& filename){
@@ -182,60 +146,4 @@ PreparedGame::PreparedGame(const std::string& filename){
         }
     }
     gamestarted = false;
-}
-
-void PreparedGame::run(){
-    if (heroready && !monsters.empty() && mapsetready && !gamestarted)
-    {        
-        std::string moveTo ="";
-        gamestarted = true;
-        std::list<std::string> expectedInputs = {"north", "east", "west", "south"};
-        while ((hero.hero->isAlive() && !monsters.empty()))
-        {
-            std::list<MonsterCoords>::iterator monster = monsters.begin();
-            while (monster != monsters.end())
-            {
-                if(hero.hero->isAlive())
-                    if (hero.x == monster->x && hero.y == monster->y){
-                        std::cout 
-                            << hero.hero->getName() << "(" << hero.hero->getLevel()<<")"
-                            << " vs "
-                            << monster->monster.getName()
-                            <<std::endl;
-                        hero.hero->fightTilDeath(monster->monster);        
-                    }
-                if (!monster->monster.isAlive()) monster = monsters.erase(monster); 
-                else monster++;
-            }
-            if(hero.hero->isAlive() && !monsters.empty()){
-
-            for (auto &&renderer : renderers)
-                renderer->render(*this); 
-            
-            do
-            {
-                std::cout<<"Enter the direction you would like to move (north, east, west, south): ";
-                std::cin >> moveTo;
-            } while (std::find(expectedInputs.begin(), expectedInputs.end(), moveTo) == expectedInputs.end() || !checkIfMoveIsValid(moveTo));
-            moveHero(moveTo);
-            }
-        }
-        if (hero.hero->isAlive()){
-            std::cout<<std::endl<<hero.hero->getName()<<" cleared the map."<<std::endl;
-            std::cout << hero.hero->getName() << ": LVL" << hero.hero->getLevel() << std::endl
-                << "   HP: "<<hero.hero->getHealthPoints()<<"/"<<hero.hero->getMaxHealthPoints()<<std::endl
-                << "  DMG: "<<hero.hero->getDamage()<<std::endl
-                << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl;
-        }
-        else{
-            std::cout<<"The hero died"<<std::endl;
-            std::cout << hero.hero->getName() << ": LVL" << hero.hero->getLevel() << std::endl
-                << "   HP: "<<hero.hero->getHealthPoints()<<"/"<<hero.hero->getMaxHealthPoints()<<std::endl
-                << "  DMG: "<<hero.hero->getDamage()<<std::endl
-                << "  ACD: "<<hero.hero->getAttackCoolDown()<<std::endl;
-            heroready = false;
-        }
-        gamestarted = false;
-    }
-    else throw NotInitializedException("Game was not initialized properly.");
 }
