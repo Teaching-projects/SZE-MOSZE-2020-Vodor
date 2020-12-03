@@ -91,11 +91,11 @@ public:
     /// Ez a függvény elindítja a játékot.
     //void run();
 
-    std::pair<int,int> const getHeroCoords(){ return std::make_pair(hero.x, hero.y); }
+    std::pair<int,int> getHeroCoords() const { return std::make_pair(hero.x, hero.y); }
 
-    std::list<std::pair<int,int>> const getMonsterCoords();
+    std::list<std::pair<int,int>> getMonsterCoords() const;
 
-    Map const getMap(){ return gameMap; }
+    Map getMap() const { return gameMap; }
 
     friend class Renderer;
 

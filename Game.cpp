@@ -219,7 +219,7 @@ void Game::printMap(){
     std::cout<<BOTTOM_RIGHT<<std::endl;
 }
 
-std::list<std::pair<int,int>> const Game::getMonsterCoords()
+std::list<std::pair<int,int>>Game::getMonsterCoords() const 
 {
     std::list<std::pair<int,int>> monsterscoords;
     for (auto &&m : monsters)
