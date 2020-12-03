@@ -97,7 +97,7 @@ public:
     /// Ez a függvény hozzáad egy ellenfelet.
     void putMonster(Monster monster, int x, int y);
     /// Ez a függvény elindítja a játékot.
-    //void run();
+    void run();
 
     b_Hero getHero() const { return hero; }
 
