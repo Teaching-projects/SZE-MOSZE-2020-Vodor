@@ -219,16 +219,6 @@ void Game::printMap(){
     std::cout<<BOTTOM_RIGHT<<std::endl;
 }
 
-std::list<std::pair<int,int>>Game::getMonsterCoords() const 
-{
-    std::list<std::pair<int,int>> monsterscoords;
-    for (auto &&m : monsters)
-    {
-        monsterscoords.push_back(std::make_pair(m.x,m.y));
-    }
-    return monsterscoords;
-}
-
 PreparedGame::PreparedGame(const std::string& filename){
     std::vector<std::string> expectedKeys= {"map", "hero"};
     JSON attributes = JSON::parseFromFile(filename);

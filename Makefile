@@ -2,7 +2,7 @@ OBJS := JSON.o Hero.o Monster.o Unit.o main.o Map.o Game.o SVGRenderer.o TextRen
 CFLAGS := -Wall -Werror -std=c++17
 RUN := g++-9
 SCA := cppcheck
-SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp Map.cpp Game.cpp
+SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp Map.cpp Game.cpp SVGRenderer.cpp TextRenderer.cpp
 SCAFLAGS := --enable=warning --error-exitcode=1
 SCAUPFLAGS := --enable=all --output-file=cppreport.txt
 MEMCHECK := valgrind

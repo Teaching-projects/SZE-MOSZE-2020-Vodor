@@ -91,15 +91,11 @@ public:
     /// Ez a függvény elindítja a játékot.
     //void run();
 
-    std::pair<int,int> getHeroCoords() const { return std::make_pair(hero.x, hero.y); }
+    b_Hero getHero() const { return hero; }
 
-    int getHeroLightRadius() const { return hero.hero->getLightRadius(); }
-
-    std::list<std::pair<int,int>> getMonsterCoords() const;
+    MonsterCoords getMonsterCoords() const { return monsters; }
 
     Map getMap() const { return gameMap; }
-
-    friend class Renderer;
 
     class OccupiedException : public std::runtime_error{ 
         public:
