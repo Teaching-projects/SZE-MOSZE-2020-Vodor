@@ -234,6 +234,12 @@ PreparedGame::PreparedGame(const std::string& filename){
     putHero(heroToPut,heroPosition.first, heroPosition.second);
     heroready = true;
     
+    if(attributes.count("wall_texture")) textures["wall_texture"] = attributes.get<std::string>("wall_texture");
+    else textures["wall_texture"] = "textures/placeholder.svg";
+
+    if(attributes.count("free_texture")) textures["free_texture"] = attributes.get<std::string>("free_texture");
+    else textures["free_texture"] = "textures/placeholder.svg";
+
     for (int i = 1; i < 10; i++)
     {
         std::string monsterName = "monster-"+std::to_string(i);

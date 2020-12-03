@@ -35,6 +35,8 @@ int main(int argc, char** argv){
         PreparedGame game(argv[1]);
         game.registerRenderer(new HeroTextRender()); 
         game.registerRenderer(new ObserverTextRenderer());
+        game.registerRenderer(new ObserverSVGRenderer("observerOutput.svg"));
+        game.registerRenderer(new CharacterSVGRenderer("characterOutput.svg"));
         try
         {
             game.run();

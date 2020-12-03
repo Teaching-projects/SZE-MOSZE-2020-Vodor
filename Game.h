@@ -69,9 +69,14 @@ protected:
     void moveHero(const std::string& direction);
     /// Ez a függvény kirajzolja a játékteret.
     void printMap();
+
+    std::map<std::string, std::string> textures;
 public:
     /// Game default konstruktor 
-    Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){}
+    Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){
+        textures["free_texture"] = "textures/free.png";
+        textures["wall_tecture"] = "textures/wall.png";
+    }
     /*! \brief Game konstruktor
  	*         
  	*  
@@ -79,7 +84,10 @@ public:
  	*  
  	*  \param mapFileName [in] jatéktér elérése .
  	*/
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){}
+    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){
+        textures["free_texture"] = "textures/free.png";
+        textures["wall_tecture"] = "textures/wall.png";
+    }
     /// Game dekonstruktor
     ~Game(){ delete hero.hero; }
     /// Ez a függvény beállítja a játékteret.
@@ -96,6 +104,8 @@ public:
     std::list<MonsterCoords> getMonsters() const { return monsters; }
 
     Map getMap() const { return gameMap; }
+
+    virtual std::map<std::string, std::string> getTextures() const { return textures;}
 
     class OccupiedException : public std::runtime_error{ 
         public:
@@ -154,5 +164,7 @@ public:
     void registerRenderer(Renderer* renderer){
         renderers.push_back(renderer);
     }
+
+    std::map<std::string, std::string> getTextures() const override { return textures; }
 };
 #endif
