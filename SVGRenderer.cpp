@@ -2,7 +2,6 @@
 #include <filesystem>
 
 bool printMonsters(int x, int y, std::list<MonsterCoords> monsters, std::ostream& stream, int xSvg, int ySvg){
-    int count = 0;
     std::string monsterTexture;
     for (auto &&monster : monsters)
         if (x == monster.x && y == monster.y){
