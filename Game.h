@@ -41,10 +41,8 @@ struct b_Hero{
     b_Hero() : hero(nullptr), x(-1), y(-1){}
 };
 
-class Game{
-private:
-    Map gameMap; ///< A játéktér.
-protected:
+struct printItem
+{
     const std::string TOP_LEFT = "\u2554";
     const std::string TOP_RIGHT = "\u2557";
     const std::string BOTTOM_LEFT = "\u255A";
@@ -56,13 +54,17 @@ protected:
     const std::string SINGLEMONSTER = "M\u2591";
     const std::string MULTIPLEMONSTERS = "MM";
     const std::string HERO = "\u2523\u252B";
+};
+
+class Game{
+private:
+    Map gameMap; ///< A játéktér.
+protected:
     bool mapsetready; ///< A játéktér betöltését jelző változó.
     bool gamestarted; ///< A játék indulását jelző változó.
     bool heroready;  ///< A hős betöltését jelző változó.
     std::list<MonsterCoords> monsters;  ///< A ellenfelek listája.
     b_Hero hero; ///< Hős változó
-    /// Ez a függvény kiírja az ellenfeleket.
-    bool printMonsters(int x, int y); 
     /// Ez a függvény ellenőrzi a lépést.
     bool checkIfMoveIsValid(const std::string& direction);
     /// Ez a függvény lép egyet a hőssel.
