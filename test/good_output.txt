@@ -24,7 +24,7 @@ Enter the direction you would like to move (north, east, west, south): Hunkrow(1
 ╚══════════════╝
 ╔════════════════════════════╗
 ║████████████████████████████║
-║██M░M░┣┫██░░░░████████░░░░██║
+║██M░┣┫░░██░░░░████████░░░░██║
 ║██M░████████░░░░████░░░░██░░║
 ║██M░M░M░██░░░░████░░░░██░░░░║
 ║██████░░██░░████░░░░██░░░░░░║
@@ -207,6 +207,6 @@ Enter the direction you would like to move (north, east, west, south): Agent 5.(
 
 Agent 5. cleared the map.
 Agent 5.: LVL9
-    HP: 95/95
-   DMG: Physical: 45, Magical: 0
-   ACD: 0.0216797
+   HP: 95/95
+  DMG: Physical: 45, Magical: 0
+  ACD: 0.0216797
