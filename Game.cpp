@@ -133,7 +133,7 @@ void PreparedGame::run(){
 }
 
 
-/*
+
 void Game::run(){
     if (heroready && !monsters.empty() && mapsetready && !gamestarted)
     {
@@ -186,7 +186,7 @@ void Game::run(){
         gamestarted = false;
     }
     else throw NotInitializedException("Game was not initialized properly.");
-}*/
+}
 
 void Game::printMap(){
     int west = (hero.x < hero.hero->getLightRadius()) ? 0 : hero.x-hero.hero->getLightRadius();
