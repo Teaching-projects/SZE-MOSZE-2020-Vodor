@@ -30,7 +30,9 @@ void ObserverSVGRenderer::render(const Game& g) const{
     if (!std::filesystem::exists(WALL)) FREE = "textures/placeholder.svg";
     if (!std::filesystem::exists(WALL)) HERO = "textures/placeholder.svg";
 
-    svg<<"<svg xmlns=\"http://www.w3.org/2000/svg\">\n";
+    int svgWidth = map.getMaxLength()*10;
+    int svgHeight = map.getMapSize()*10;
+    svg<<"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\""<<svgWidth<<"\" height=\""<<svgHeight<<"\">\n";
     for (int y = 0; y < map.getMapSize(); y++)
     {
         xSvg=0;
@@ -72,7 +74,9 @@ void CharacterSVGRenderer::render(const Game& g) const{
     int east = (map.getMaxLength() > hero.x+hero.hero->getLightRadius()) ? hero.x+hero.hero->getLightRadius()+1 : map.getMaxLength();
     int north = (hero.y < hero.hero->getLightRadius()) ? 0 : hero.y-hero.hero->getLightRadius();
     int south = (map.getMapSize() > (hero.y+hero.hero->getLightRadius())) ? (hero.y+hero.hero->getLightRadius()+1) : map.getMapSize();
-    svg<<"<svg xmlns=\"http://www.w3.org/2000/svg\">\n";
+    int svgWidth = map.getMaxLength()*10;
+    int svgHeight = map.getMapSize()*10;
+    svg<<"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\""<<svgWidth<<"\" height=\""<<svgHeight<<"\">\n";
     for (int y = north; y < south; y++)
     {
         xSvg=0;
