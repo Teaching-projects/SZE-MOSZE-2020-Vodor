@@ -93,7 +93,7 @@ public:
 
     b_Hero getHero() const { return hero; }
 
-    MonsterCoords getMonsterCoords() const { return monsters; }
+    MonsterCoords getMonsters() const { return monsters; }
 
     Map getMap() const { return gameMap; }
 
