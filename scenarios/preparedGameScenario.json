@@ -4,6 +4,6 @@
     "monster-1" : "units/Fallen.json",
     "monster-2" : "units/Zombie.json",
     "monster-3" : "units/Blood_Raven.json",
-    "wall_texture" : "svg/wall.svg",
-    "free_texture" : "svg/free.svg"
+    "wall_texture" : "textures/wall.png",
+    "free_texture" : "textures/free.png"
   }

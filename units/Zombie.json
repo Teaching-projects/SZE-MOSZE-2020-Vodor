@@ -6,5 +6,6 @@
     "health_points" : 20, 
     "defense":1,
     "damage" : 1, "attack_cooldown" : 2.8,
-    "race" : "undead"
+    "race" : "undead",
+    "texture" : "textures/zombie.png"
 }
