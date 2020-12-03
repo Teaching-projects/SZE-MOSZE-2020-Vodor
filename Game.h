@@ -89,7 +89,7 @@ public:
     /// Ez a függvény hozzáad egy ellenfelet.
     void putMonster(Monster monster, int x, int y);
     /// Ez a függvény elindítja a játékot.
-    void run();
+    //void run();
 
     std::pair<int,int> const getHeroCoords(){ return std::make_pair(hero.x, hero.y); }
 
@@ -151,8 +151,8 @@ private:
 public:
     /// PreparedGame konstruktor
     PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
-    using Game::run; //ezt majd innen kivehetjük
-    //void run(); EZ KELLENI FOG, HOGY KÜLÖN RUNJA LEGYEN A PREPAREDGAMENEK, AMIBEN AZ ÖSSZES RENDERRE LEFUT A TÉMA CPP-BEN NÉZD MEG MI TÖRTÉNIK EBBEN!!!!
+    //using Game::run; //ezt majd innen kivehetjük
+    void run(); //EZ KELLENI FOG, HOGY KÜLÖN RUNJA LEGYEN A PREPAREDGAMENEK, AMIBEN AZ ÖSSZES RENDERRE LEFUT A TÉMA CPP-BEN NÉZD MEG MI TÖRTÉNIK EBBEN!!!!
     void registerRenderer(Renderer* renderer){
         renderers.push_back(renderer);
     }
