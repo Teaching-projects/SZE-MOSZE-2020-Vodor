@@ -43,7 +43,7 @@ Game.o: Game.cpp Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h Renderer.h
 SVGRenderer.o: SVGRenderer.cpp SVGRenderer.h Renderer.h Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c SVGRenderer.cpp
 
-TextRenderer.o: TextRenderer.cpp SVGRenderer.h Renderer.h Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h
+TextRenderer.o: TextRenderer.cpp TextRenderer.h Renderer.h Game.h Map.h Monster.h Hero.h Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c TextRenderer.cpp
 
 sca:
