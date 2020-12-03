@@ -75,9 +75,17 @@ void Game::moveHero(const std::string& direction){
     if (direction == "south") hero.y++;
 }
 
+/*void PreparedGame::run(){
+    for (auto &&renderer : renderers)
+    {
+        renderer->render(*this);  MINDEN RENDER A MAGA MÓDJÁN RENDEREL
+    }
+}*/
+
 void Game::run(){
     if (heroready && !monsters.empty() && mapsetready && !gamestarted)
     {
+               
         std::string moveTo ="";
         gamestarted = true;
         std::list<std::string> expectedInputs = {"north", "east", "west", "south"};

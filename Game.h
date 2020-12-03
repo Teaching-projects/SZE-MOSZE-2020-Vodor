@@ -21,9 +21,12 @@
 #include "Map.h"
 #include "Monster.h"
 #include "Hero.h"
+#include "Renderer.h"
 #include <string>
 #include <list>
 #include <algorithm>
+
+class Renderer;
 
 struct MonsterCoords{
     Monster monster;
@@ -143,10 +146,15 @@ public:
 
 class PreparedGame : private Game{
 private:
+    std::list<Renderer*> renderers; //LISTA A RENDEREK TÁROLÁSÁRA
     MarkedMap gameMap; ///< A játéktér.
 public:
     /// PreparedGame konstruktor
     PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
-    using Game::run;
+    using Game::run; //ezt majd innen kivehetjük
+    //void run(); EZ KELLENI FOG, HOGY KÜLÖN RUNJA LEGYEN A PREPAREDGAMENEK, AMIBEN AZ ÖSSZES RENDERRE LEFUT A TÉMA CPP-BEN NÉZD MEG MI TÖRTÉNIK EBBEN!!!!
+    void registerRenderer(Renderer* renderer){
+        renderers.push_back(renderer);
+    }
 };
 #endif

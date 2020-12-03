@@ -11,6 +11,9 @@
 #include "Hero.h"
 #include "Monster.h"
 #include "Game.h"
+#include "TextRenderer.h"
+#include "SVGRenderer.h"
+#include "Renderer.h"
  
 const std::map<int,std::string> error_messages = {
     { 1 , "Bad number of arguments. Only a single scenario file should be provided." },
@@ -30,6 +33,7 @@ int main(int argc, char** argv){
     else{
         if (!std::filesystem::exists(argv[1])) bad_exit(2);
         PreparedGame game(argv[1]);
+        //  game.registerRenderer(new HeroTextRender());  ÍGY ADSZ HOZZÁ RENDERERT
         try
         {
             game.run();
