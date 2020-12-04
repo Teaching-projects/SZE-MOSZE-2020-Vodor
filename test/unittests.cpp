@@ -6,6 +6,10 @@
 #include "../Damage.h"
 #include "../Game.h"
 #include <gtest/gtest.h>
+#include <string>
+#include <list>
+#include <fstream>
+
 
 TEST(parserTest, test_iostream){                       
     std::ifstream jsonFile;
@@ -53,23 +57,17 @@ TEST(unittests,good_levelup){
     Hero hero = Hero::parse("units/unit1.json");
     Monster monster = Monster::parse("units/Zombie.json");
     hero.fightTilDeath(monster);
-
-    ASSERT_EQ(hero.getLevel(),3);
-   
+    ASSERT_EQ(hero.getLevel(),3);   
 }
 
 TEST(unittests, name_check){
     Hero hero = Hero::parse("units/unit1.json");
-
     ASSERT_EQ(hero.getName(),"Hunkrow");
-
 }
 
 TEST(unittests, hp_check){
     Hero hero = Hero::parse("units/unit1.json");
-
     ASSERT_EQ(hero.getHealthPoints(),200);
-
 }
 
 TEST(unittests, parsunit_test){
@@ -78,7 +76,6 @@ TEST(unittests, parsunit_test){
 
 TEST(unittests, whitespaceTest){
     JSON testJSON = JSON::parseFromFile("test/muchWhitespace.json");
-
     ASSERT_EQ(testJSON.get<std::string>("name"),"Teszt");
     ASSERT_EQ(testJSON.get<int>("health_points"),12);
     ASSERT_EQ(testJSON.get<int>("damage"),20);
@@ -172,17 +169,17 @@ TEST(unittests, checkHeroPosition){
 
 TEST(unittests, checkMonsterPosition){
     MarkedMap map("maps/markedmap.txt");
-    std::vector<std::pair<int,int>> testV1 = {
+    std::list<std::pair<int,int>> testV1 = {
         std::make_pair(2, 3),
         std::make_pair(3, 4),
         std::make_pair(6, 5)
         };
-     std::vector<std::pair<int,int>> testV2 = {
+     std::list<std::pair<int,int>> testV2 = {
         std::make_pair(6, 2),
         std::make_pair(7, 2),
         std::make_pair(3, 3)
         };
-    std::vector<std::pair<int,int>> testV3 = {
+    std::list<std::pair<int,int>> testV3 = {
         std::make_pair(6, 3)
         };
     ASSERT_EQ(map.getMonsterPositions('1'),testV1);
