@@ -9,6 +9,7 @@ Monster Monster::parse(const std::string& fname) {
 			okay = false;
 
 	Damage damage;
+	std::string texture;
 
 	if(returnedJSON.count("damage")) damage.physical = returnedJSON.get<int>("damage");
 	else damage.physical = 0;
@@ -16,12 +17,16 @@ Monster Monster::parse(const std::string& fname) {
 	if(returnedJSON.count("magical-damage")) damage.magical = returnedJSON.get<int>("magical-damage");
 	else damage.magical = 0;
 
+	if(returnedJSON.count("texture")) texture = returnedJSON.get<std::string>("texture");
+	else texture = "svg/placeholder.svg";
+
 	if (okay) 
 	    return Monster(returnedJSON.get<std::string>("name"), 
 			returnedJSON.get<int>("health_points"),
 			damage,
 			returnedJSON.get<double>("attack_cooldown"),
-			returnedJSON.get<int>("defense"));
+			returnedJSON.get<int>("defense"),
+			texture);
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
 

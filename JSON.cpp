@@ -1,4 +1,5 @@
 #include "JSON.h"
+
 const JSON JSON::parseFromString(std::string inputString){
     static const std::regex parseRegex("\\s*\"([\\w-]*)\"\\s*:\\s*\"?([\\s\\w\\.-\\/]*)\"?\\s*[,}]\\s*");
     static const std::regex regexForList("\\s*\"([\\w]*)\"\\s*:\\s*\"?\\[?\\s*([\\w\\.\"?,?\\s*]*)\"?\\s*[,\\]}]");

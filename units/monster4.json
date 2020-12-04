@@ -1,0 +1,7 @@
+{
+    "name" : "Monster4",
+    "health_points" : 20, 
+    "defense":1,
+    "damage" : 1, "attack_cooldown" : 2.8,
+    "texture" : "textures/monster4.png"
+}

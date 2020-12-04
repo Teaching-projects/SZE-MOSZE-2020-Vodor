@@ -1,23 +1,5 @@
 #include "Game.h"
 
-bool Game::printMonsters(int x, int y){
-    int count = 0;
-    for (auto &&monster : monsters)
-        if (x == monster.x && y == monster.y)
-            count++;
-    
-    if (count == 1)
-    {
-        std::cout<<SINGLEMONSTER;
-        return true;
-    } 
-    else if(count >= 2){
-        std::cout<<MULTIPLEMONSTERS;
-        return true;
-    }
-    return false;
-}
-
 void Game::setMap(Map map){  
     if(!gamestarted)     
         if(!heroready && monsters.empty()){
@@ -77,7 +59,7 @@ void Game::moveHero(const std::string& direction){
 
 void Game::run(){
     if (heroready && !monsters.empty() && mapsetready && !gamestarted)
-    {
+    {     
         std::string moveTo ="";
         gamestarted = true;
         std::list<std::string> expectedInputs = {"north", "east", "west", "south"};
@@ -99,7 +81,8 @@ void Game::run(){
                 else monster++;
             }
             if(hero.hero->isAlive() && !monsters.empty()){
-            printMap();
+            for (auto &&renderer : renderers)
+                renderer->render(*this); 
             do
             {
                 std::cout<<"Enter the direction you would like to move (north, east, west, south): ";
@@ -128,37 +111,6 @@ void Game::run(){
     else throw NotInitializedException("Game was not initialized properly.");
 }
 
-void Game::printMap(){
-    int west = (hero.x < hero.hero->getLightRadius()) ? 0 : hero.x-hero.hero->getLightRadius();
-    int east = (gameMap.getMaxLength() > hero.x+hero.hero->getLightRadius()) ? hero.x+hero.hero->getLightRadius()+1 : gameMap.getMaxLength();
-    int north = (hero.y < hero.hero->getLightRadius()) ? 0 : hero.y-hero.hero->getLightRadius();
-    int south = (gameMap.getMapSize() > (hero.y+hero.hero->getLightRadius())) ? (hero.y+hero.hero->getLightRadius()+1) : gameMap.getMapSize();
-
-    std::cout<<TOP_LEFT;
-    for (int i = west; i < east; i++)
-        std::cout<<HORIZONTAL;
-    std::cout<<TOP_RIGHT<<std::endl;
-
-    for (int y = north; y < south; y++){
-        std::cout<<VERTICAL;
-        for (int x = west; x < ((gameMap.getRowWidth(y) < east) ? gameMap.getRowWidth(y) : east) ; x++){
-            if (gameMap.get(x,y) == Map::type::Wall) std::cout<<WALL;
-            else if (hero.x == x && hero.y == y) std::cout<<HERO;
-            else if (printMonsters(x,y));
-            else std::cout<<FREE;
-        }
-        if(gameMap.getRowWidth(y)<east)
-            for (int i = 0; i < (east-gameMap.getRowWidth(y)); i++)
-                std::cout<<FREE;
-        std::cout<<VERTICAL<<std::endl;
-    }
-
-    std::cout<<BOTTOM_LEFT;
-    for (int i = west; i < east; i++)
-        std::cout<<HORIZONTAL;
-    std::cout<<BOTTOM_RIGHT<<std::endl;
-}
-
 PreparedGame::PreparedGame(const std::string& filename){
     std::vector<std::string> expectedKeys= {"map", "hero"};
     JSON attributes = JSON::parseFromFile(filename);
@@ -174,6 +126,12 @@ PreparedGame::PreparedGame(const std::string& filename){
     putHero(heroToPut,heroPosition.first, heroPosition.second);
     heroready = true;
     
+    if(attributes.count("wall_texture")) textures["wall_texture"] = attributes.get<std::string>("wall_texture");
+    else textures["wall_texture"] = "textures/placeholder.svg";
+
+    if(attributes.count("free_texture")) textures["free_texture"] = attributes.get<std::string>("free_texture");
+    else textures["free_texture"] = "textures/placeholder.svg";
+
     for (int i = 1; i < 10; i++)
     {
         std::string monsterName = "monster-"+std::to_string(i);

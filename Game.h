@@ -11,7 +11,7 @@
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 4.0
+ * \version 5.0
  * 
  * \date 2020/11/02 13:22
  * 
@@ -21,9 +21,12 @@
 #include "Map.h"
 #include "Monster.h"
 #include "Hero.h"
+#include "Renderer.h"
 #include <string>
 #include <list>
 #include <algorithm>
+
+class Renderer;
 
 struct MonsterCoords{
     Monster monster;
@@ -38,10 +41,8 @@ struct b_Hero{
     b_Hero() : hero(nullptr), x(-1), y(-1){}
 };
 
-class Game{
-private:
-    Map gameMap; ///< A játéktér.
-protected:
+struct printItem
+{
     const std::string TOP_LEFT = "\u2554";
     const std::string TOP_RIGHT = "\u2557";
     const std::string BOTTOM_LEFT = "\u255A";
@@ -53,22 +54,31 @@ protected:
     const std::string SINGLEMONSTER = "M\u2591";
     const std::string MULTIPLEMONSTERS = "MM";
     const std::string HERO = "\u2523\u252B";
+};
+
+class Game{
+private:
+    Map gameMap; ///< A játéktér.
+protected:
     bool mapsetready; ///< A játéktér betöltését jelző változó.
     bool gamestarted; ///< A játék indulását jelző változó.
     bool heroready;  ///< A hős betöltését jelző változó.
-    std::list<MonsterCoords> monsters;  ///< A ellenfelek listája.
+    std::list<MonsterCoords> monsters;  ///< Az ellenfelek listája.
     b_Hero hero; ///< Hős változó
-    /// Ez a függvény kiírja az ellenfeleket.
-    bool printMonsters(int x, int y); 
     /// Ez a függvény ellenőrzi a lépést.
     bool checkIfMoveIsValid(const std::string& direction);
     /// Ez a függvény lép egyet a hőssel.
     void moveHero(const std::string& direction);
-    /// Ez a függvény kirajzolja a játékteret.
-    void printMap();
+
+    std::map<std::string, std::string> textures; ///< A texturák listája.
+
+    std::list<Renderer*> renderers; ///< A renderek listája.
 public:
     /// Game default konstruktor 
-    Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){}
+    Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){
+        textures["free_texture"] = "textures/free.png";
+        textures["wall_tecture"] = "textures/wall.png";
+    }
     /*! \brief Game konstruktor
  	*         
  	*  
@@ -76,7 +86,10 @@ public:
  	*  
  	*  \param mapFileName [in] jatéktér elérése .
  	*/
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){}
+    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){
+        textures["free_texture"] = "textures/free.png";
+        textures["wall_tecture"] = "textures/wall.png";
+    }
     /// Game dekonstruktor
     ~Game(){ delete hero.hero; }
     /// Ez a függvény beállítja a játékteret.
@@ -87,6 +100,17 @@ public:
     void putMonster(Monster monster, int x, int y);
     /// Ez a függvény elindítja a játékot.
     void run();
+    /// Ez a függvény új renderelési eljárást add hozzá.
+    void registerRenderer(Renderer* renderer) { renderers.push_back(renderer); }
+    /// Ez a függvény visszaadja a Hőst.     
+    b_Hero getHero() const { return hero; }
+    /// Ez a függvény visszaadja az ellenfeleket.
+    std::list<MonsterCoords> getMonsters() const { return monsters; }
+    /// Ez a függvény visszaadja a játékteret.
+    Map getMap() const { return gameMap; }
+    /// Ez a függvény visszaadja a texturákat.
+    std::map<std::string, std::string> getTextures() const { return textures;}
+
 
     class OccupiedException : public std::runtime_error{ 
         public:
@@ -126,11 +150,11 @@ public:
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 4.0
+ * \version 5.0
  * 
- * \date 2020/11/02 13:22
+ * \date 2020/12/01 15:20
  * 
- * Created on 2020/11/02 13:22
+ * Created on 2020/12/01 15:20
  */
 
 class PreparedGame : private Game{
@@ -139,6 +163,7 @@ private:
 public:
     /// PreparedGame konstruktor
     PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
-    using Game::run;
+    using Game::run; 
+    using Game::registerRenderer;
 };
 #endif

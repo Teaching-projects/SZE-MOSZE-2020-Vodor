@@ -1,5 +1,8 @@
 {
     "hero" : "units/unit5.json",
     "map" : "maps/scenario5Map.txt",
-    "monster-5" : "units/Zombie.json"
+    "monster-4": "units/monster4.json",
+    "monster-5" : "units/monster5.json",
+    "wall_texture" : "textures/wall.png",
+    "free_texture" : "textures/free.png"
 }

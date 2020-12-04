@@ -3,5 +3,7 @@
     "map" : "maps/scenario1Map.txt",
     "monster-1" : "units/Zombie.json",
     "monster-2" : "units/Fallen.json",
-    "monster-3" : "units/Blood_Raven.json"
+    "monster-3" : "units/Blood_Raven.json",
+    "wall_texture" : "textures/wall.png",
+    "free_texture" : "textures/free.png"
 }
