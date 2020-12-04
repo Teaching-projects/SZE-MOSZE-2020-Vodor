@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>SZE-MOSZE-2020-Vodor: TextRenderer.h Forrásfájl</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">SZE-MOSZE-2020-Vodor
+   &#160;<span id="projectnumber">5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Készítette Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "search",false,'Keresés');
+/* @license-end */
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',true,false,'search.php','Keresés');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">TextRenderer.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#ifndef TEXTRENDERER_H</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#define TEXTRENDERER_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;Renderer.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;ostream&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="classTextRenderer.html">   24</a></span>&#160;<span class="keyword">class </span><a class="code" href="classTextRenderer.html">TextRenderer</a> : <span class="keyword">public</span> <a class="code" href="classRenderer.html">Renderer</a>{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="classTextRenderer.html#ac9e47313a4a281cb37aecda4d33fd5a4">   26</a></span>&#160;    std::ostream&amp; <a class="code" href="classTextRenderer.html#ac9e47313a4a281cb37aecda4d33fd5a4">b_stream</a>; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="classTextRenderer.html#a90feac48e4426a6c6f5f57a4347628ed">   29</a></span>&#160;    <a class="code" href="classTextRenderer.html#a90feac48e4426a6c6f5f57a4347628ed">TextRenderer</a>(std::ostream&amp; stream = std::cout) : <a class="code" href="classTextRenderer.html#ac9e47313a4a281cb37aecda4d33fd5a4">b_stream</a>(stream){}</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="classTextRenderer.html#ad5b996b1e4763c61a97e44a3e3ae4c4f">render</a>(<span class="keyword">const</span> <a class="code" href="classGame.html">Game</a>&amp;) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="classTextRenderer.html#a4065c27649ffbb104e85cee0303ada0b">   33</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classTextRenderer.html#a4065c27649ffbb104e85cee0303ada0b">setOutputStream</a>(std::ostream&amp; stream){</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;        <a class="code" href="classTextRenderer.html#ac9e47313a4a281cb37aecda4d33fd5a4">b_stream</a>.copyfmt(stream);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    }</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="classHeroTextRenderer.html">   55</a></span>&#160;<span class="keyword">class </span><a class="code" href="classHeroTextRenderer.html">HeroTextRenderer</a> : <span class="keyword">public</span> <a class="code" href="classTextRenderer.html">TextRenderer</a>{</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="classHeroTextRenderer.html#a496f87a6f8b26e4528c6d74d3be3b21c">   58</a></span>&#160;    <a class="code" href="classHeroTextRenderer.html#a496f87a6f8b26e4528c6d74d3be3b21c">HeroTextRenderer</a>(std::ostream&amp; stream = std::cout) : <a class="code" href="classTextRenderer.html">TextRenderer</a>(stream){}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classHeroTextRenderer.html#a01601c260102970550c3903ce39bdfaf">render</a>(<span class="keyword">const</span> <a class="code" href="classGame.html">Game</a>&amp;) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;};  </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="classObserverTextRenderer.html">   79</a></span>&#160;<span class="keyword">class </span><a class="code" href="classObserverTextRenderer.html">ObserverTextRenderer</a> : <span class="keyword">public</span> <a class="code" href="classTextRenderer.html">TextRenderer</a>{</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="classObserverTextRenderer.html#aec5ed1e80a64c24bf388dbd61f170c37">   82</a></span>&#160;    <a class="code" href="classObserverTextRenderer.html#aec5ed1e80a64c24bf388dbd61f170c37">ObserverTextRenderer</a>(std::ostream&amp; stream = std::cout) : <a class="code" href="classTextRenderer.html">TextRenderer</a>(stream){}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classObserverTextRenderer.html#af0901f1e787e31e9f256a0c0134e4595">render</a>(<span class="keyword">const</span> <a class="code" href="classGame.html">Game</a>&amp;) <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassHeroTextRenderer_html_a496f87a6f8b26e4528c6d74d3be3b21c"><div class="ttname"><a href="classHeroTextRenderer.html#a496f87a6f8b26e4528c6d74d3be3b21c">HeroTextRenderer::HeroTextRenderer</a></div><div class="ttdeci">HeroTextRenderer(std::ostream &amp;stream=std::cout)</div><div class="ttdoc">HeroTextRenderer konstruktor.</div><div class="ttdef"><b>Definition:</b> TextRenderer.h:58</div></div>
+<div class="ttc" id="aclassTextRenderer_html_a4065c27649ffbb104e85cee0303ada0b"><div class="ttname"><a href="classTextRenderer.html#a4065c27649ffbb104e85cee0303ada0b">TextRenderer::setOutputStream</a></div><div class="ttdeci">void setOutputStream(std::ostream &amp;stream)</div><div class="ttdoc">Ez a függvény beállítja kimenetet.</div><div class="ttdef"><b>Definition:</b> TextRenderer.h:33</div></div>
+<div class="ttc" id="aclassTextRenderer_html"><div class="ttname"><a href="classTextRenderer.html">TextRenderer</a></div><div class="ttdoc">TextRenderer abstract class.</div><div class="ttdef"><b>Definition:</b> TextRenderer.h:24</div></div>
+<div class="ttc" id="aclassTextRenderer_html_a90feac48e4426a6c6f5f57a4347628ed"><div class="ttname"><a href="classTextRenderer.html#a90feac48e4426a6c6f5f57a4347628ed">TextRenderer::TextRenderer</a></div><div class="ttdeci">TextRenderer(std::ostream &amp;stream=std::cout)</div><div class="ttdoc">TextRenderer konstruktor.</div><div class="ttdef"><b>Definition:</b> TextRenderer.h:29</div></div>
+<div class="ttc" id="aclassHeroTextRenderer_html_a01601c260102970550c3903ce39bdfaf"><div class="ttname"><a href="classHeroTextRenderer.html#a01601c260102970550c3903ce39bdfaf">HeroTextRenderer::render</a></div><div class="ttdeci">void render(const Game &amp;) const override</div><div class="ttdoc">Render függvény.</div><div class="ttdef"><b>Definition:</b> TextRenderer.cpp:3</div></div>
+<div class="ttc" id="aclassObserverTextRenderer_html_aec5ed1e80a64c24bf388dbd61f170c37"><div class="ttname"><a href="classObserverTextRenderer.html#aec5ed1e80a64c24bf388dbd61f170c37">ObserverTextRenderer::ObserverTextRenderer</a></div><div class="ttdeci">ObserverTextRenderer(std::ostream &amp;stream=std::cout)</div><div class="ttdoc">TextRenderer konstruktor.</div><div class="ttdef"><b>Definition:</b> TextRenderer.h:82</div></div>
+<div class="ttc" id="aclassTextRenderer_html_ad5b996b1e4763c61a97e44a3e3ae4c4f"><div class="ttname"><a href="classTextRenderer.html#ad5b996b1e4763c61a97e44a3e3ae4c4f">TextRenderer::render</a></div><div class="ttdeci">virtual void render(const Game &amp;) const =0</div><div class="ttdoc">Render függvény.</div></div>
+<div class="ttc" id="aclassRenderer_html"><div class="ttname"><a href="classRenderer.html">Renderer</a></div><div class="ttdoc">Renderer abstract class.</div><div class="ttdef"><b>Definition:</b> Renderer.h:24</div></div>
+<div class="ttc" id="aclassObserverTextRenderer_html_af0901f1e787e31e9f256a0c0134e4595"><div class="ttname"><a href="classObserverTextRenderer.html#af0901f1e787e31e9f256a0c0134e4595">ObserverTextRenderer::render</a></div><div class="ttdeci">void render(const Game &amp;) const override</div><div class="ttdoc">Render függvény.</div><div class="ttdef"><b>Definition:</b> TextRenderer.cpp:45</div></div>
+<div class="ttc" id="aclassTextRenderer_html_ac9e47313a4a281cb37aecda4d33fd5a4"><div class="ttname"><a href="classTextRenderer.html#ac9e47313a4a281cb37aecda4d33fd5a4">TextRenderer::b_stream</a></div><div class="ttdeci">std::ostream &amp; b_stream</div><div class="ttdoc">A kimenet típusa.</div><div class="ttdef"><b>Definition:</b> TextRenderer.h:26</div></div>
+<div class="ttc" id="aclassHeroTextRenderer_html"><div class="ttname"><a href="classHeroTextRenderer.html">HeroTextRenderer</a></div><div class="ttdoc">HeroTextRenderer abstract class.</div><div class="ttdef"><b>Definition:</b> TextRenderer.h:55</div></div>
+<div class="ttc" id="aclassGame_html"><div class="ttname"><a href="classGame.html">Game</a></div><div class="ttdoc">Game class.</div><div class="ttdef"><b>Definition:</b> Game.h:59</div></div>
+<div class="ttc" id="aclassObserverTextRenderer_html"><div class="ttname"><a href="classObserverTextRenderer.html">ObserverTextRenderer</a></div><div class="ttdoc">ObserverTextRenderer abstract class.</div><div class="ttdef"><b>Definition:</b> TextRenderer.h:79</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Készítette &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

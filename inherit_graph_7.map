@@ -1,5 +1,3 @@
 <map id="Osztályhierarchia&#45;ábra" name="Osztályhierarchia&#45;ábra">
-<area shape="rect" id="node1" href="$classUnit.html" title="Unit class." alt="" coords="5,31,55,57"/>
-<area shape="rect" id="node2" href="$classHero.html" title="Hero class." alt="" coords="113,5,167,32"/>
-<area shape="rect" id="node3" href="$classMonster.html" title="Monster class." alt="" coords="103,56,177,83"/>
+<area shape="rect" id="node1" href="$structprintItem.html" title=" " alt="" coords="5,5,88,32"/>
 </map>

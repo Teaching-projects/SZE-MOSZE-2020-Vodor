@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7egame_138',['~Game',['../classGame.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]]
+  ['textrenderer_175',['TextRenderer',['../classTextRenderer.html#a90feac48e4426a6c6f5f57a4347628ed',1,'TextRenderer']]]
 ];

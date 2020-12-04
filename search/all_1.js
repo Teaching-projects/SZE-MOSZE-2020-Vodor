@@ -17,5 +17,8 @@ var searchData=
   ['b_5fmagical_5fdamage_5fbonus_5fper_5flevel_17',['b_magical_damage_bonus_per_level',['../classHero.html#ac933d44f916418e08e664d3b81551306',1,'Hero']]],
   ['b_5fmaxhp_18',['b_maxHp',['../classHero.html#aa8965c8d3c55019657d26ea9d339e714',1,'Hero']]],
   ['b_5fname_19',['b_name',['../classUnit.html#afedc97662a40a6e5397e5efcd321d5e1',1,'Unit']]],
-  ['b_5fxp_20',['b_xp',['../classHero.html#a8ebe25a7457958d4770d0844bd148983',1,'Hero']]]
+  ['b_5fout_20',['b_out',['../classSVGRenderer.html#aba1fdcd5d948ef67177f08edc0008b0b',1,'SVGRenderer']]],
+  ['b_5fstream_21',['b_stream',['../classTextRenderer.html#ac9e47313a4a281cb37aecda4d33fd5a4',1,'TextRenderer']]],
+  ['b_5ftexture_22',['b_texture',['../classUnit.html#a3241ff3216b750cb7fc3f1c869a89812',1,'Unit']]],
+  ['b_5fxp_23',['b_xp',['../classHero.html#a8ebe25a7457958d4770d0844bd148983',1,'Hero']]]
 ];

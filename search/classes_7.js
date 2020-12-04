@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['notinitializedexception_91',['NotInitializedException',['../classGame_1_1NotInitializedException.html',1,'Game']]]
+  ['map_108',['Map',['../classMap.html',1,'']]],
+  ['markedmap_109',['MarkedMap',['../classMarkedMap.html',1,'']]],
+  ['monster_110',['Monster',['../classMonster.html',1,'']]],
+  ['monstercoords_111',['MonsterCoords',['../structMonsterCoords.html',1,'']]]
 ];

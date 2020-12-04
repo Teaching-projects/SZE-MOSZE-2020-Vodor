@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['hero_85',['Hero',['../classHero.html',1,'']]]
+  ['game_103',['Game',['../classGame.html',1,'']]],
+  ['gamealreadystartedexception_104',['GameAlreadyStartedException',['../classGame_1_1GameAlreadyStartedException.html',1,'Game']]]
 ];

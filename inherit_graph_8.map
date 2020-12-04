@@ -1,0 +1,9 @@
+<map id="Osztályhierarchia&#45;ábra" name="Osztályhierarchia&#45;ábra">
+<area shape="rect" id="node1" href="$classRenderer.html" title="Renderer abstract class." alt="" coords="5,81,87,108"/>
+<area shape="rect" id="node2" href="$classSVGRenderer.html" title="SVGRenderer abstract class." alt="" coords="135,56,243,83"/>
+<area shape="rect" id="node5" href="$classTextRenderer.html" title="TextRenderer abstract class." alt="" coords="135,107,243,133"/>
+<area shape="rect" id="node3" href="$classCharacterSVGRenderer.html" title="CharacterSVGRenderer class." alt="" coords="291,5,461,32"/>
+<area shape="rect" id="node4" href="$classObserverSVGRenderer.html" title="ObserverSVGRenderer class." alt="" coords="293,56,459,83"/>
+<area shape="rect" id="node6" href="$classHeroTextRenderer.html" title="HeroTextRenderer abstract class." alt="" coords="307,107,445,133"/>
+<area shape="rect" id="node7" href="$classObserverTextRenderer.html" title="ObserverTextRenderer abstract class." alt="" coords="293,157,459,184"/>
+</map>
