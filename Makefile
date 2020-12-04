@@ -1,8 +1,8 @@
-OBJS := JSON.o Hero.o Monster.o Unit.o main.o Map.o Game.o SVGRenderer.o TextRenderer.o
+OBJS := JSON.o Hero.o Monster.o main.o Map.o Game.o SVGRenderer.o TextRenderer.o
 CFLAGS := -Wall -Werror -std=c++17
 RUN := g++-9
 SCA := cppcheck
-SCAOBJS := JSON.cpp Hero.cpp Monster.cpp Unit.cpp main.cpp Map.cpp Game.cpp SVGRenderer.cpp TextRenderer.cpp
+SCAOBJS := JSON.cpp Hero.cpp Monster.cpp main.cpp Map.cpp Game.cpp SVGRenderer.cpp TextRenderer.cpp
 SCAFLAGS := --enable=warning --error-exitcode=1
 SCAUPFLAGS := --enable=all --output-file=cppreport.txt
 MEMCHECK := valgrind
@@ -25,9 +25,6 @@ runGame: $(OBJS)
 JSON.o: JSON.cpp JSON.h
 	$(RUN) $(CFLAGS) -c JSON.cpp
 	
-Unit.o: Unit.cpp Unit.h JSON.h Damage.h
-	$(RUN) $(CFLAGS) -c Unit.cpp
-
 Monster.o: Monster.cpp Hero.h Monster.h Unit.h JSON.h Damage.h
 	$(RUN) $(CFLAGS) -c Monster.cpp
 
