@@ -25,23 +25,24 @@
 #include <string>
 #include <list>
 #include <map>
+#include <ostream>
 
 class Renderer;
 
-struct MonsterCoords{
+struct MonsterCoords{   //dox
     Monster monster;
     int x;
     int y;
 };
 
-struct b_Hero{
+struct b_Hero{//dox
     Hero* hero;
     int x;
     int y;
     b_Hero() : hero(nullptr), x(-1), y(-1){}
 };
 
-struct printItem
+struct printItem//dox
 {
     const std::string TOP_LEFT = "\u2554";
     const std::string TOP_RIGHT = "\u2557";

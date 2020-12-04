@@ -19,6 +19,7 @@
  */
 
 #include <map>
+#include <iterator>
 #include <variant>
 #include <type_traits>
 #include <list>
