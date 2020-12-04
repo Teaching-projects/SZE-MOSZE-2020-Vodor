@@ -116,6 +116,12 @@ TEST(unittests, parseTest2){
 
 TEST(unittests, scenarioParseTest){
     ASSERT_NO_THROW(JSON::parseFromFile("test/testScenario.json"));
+    JSON test = JSON::parseFromFile("test/testScenario.json"));
+    JSON::list testList = { "Fallen.json", "Fallen.json", "Zombie.json", "Fallen.json",
+        "Zombie.json", "Fallen.json", "Blood_Raven.json" }
+    ASSERT_EQ(test.get<std::string>("hero"), "Dark_Wanderer.json");
+    ASSERT_EQ(test.get<JSON::list>("monsters"), testList);
+    ASSERT_EQ(test.get<std::string>("teszt"), "Elek.json");
 }
 
 TEST(unittests, checkMagicalDMG){
