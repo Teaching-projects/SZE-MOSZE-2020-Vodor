@@ -1,7 +1,7 @@
 #include "TextRenderer.h"
+#include <list>
 
 void HeroTextRenderer::render(const Game& game) const{
-
     printItem item;
     b_Hero hero = game.getHero();
     std::list<MonsterCoords> monsters = game.getMonsters();

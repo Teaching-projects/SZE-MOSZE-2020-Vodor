@@ -19,11 +19,7 @@
  */
 
 #include <map>
-#include <regex>
-#include <fstream>
 #include <variant>
-#include <cctype>
-#include <algorithm>
 #include <type_traits>
 #include <list>
 

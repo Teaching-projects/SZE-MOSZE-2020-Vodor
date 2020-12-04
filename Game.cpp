@@ -1,4 +1,6 @@
 #include "Game.h"
+#include <algorithm>
+#include <iostream>
 
 void Game::setMap(Map map){  
     if(!gamestarted)     

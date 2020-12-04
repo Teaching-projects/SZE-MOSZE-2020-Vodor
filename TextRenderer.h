@@ -2,7 +2,7 @@
 #define TEXTRENDERER_H
 
 #include "Renderer.h"
-#include <ostream>
+#include <iostream>
 
 /*!
  * \class TextRenderer

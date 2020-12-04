@@ -1,4 +1,5 @@
 #include "Monster.h"
+#include <vector>
 
 Monster Monster::parse(const std::string& fname) {
 	std::vector <std::string> keysNeeded {"name", "health_points", "attack_cooldown", "defense"};

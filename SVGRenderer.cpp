@@ -1,5 +1,8 @@
 #include "SVGRenderer.h"
 #include <filesystem>
+#include <fstream>
+#include <list>
+#include <map>
 
 bool printMonsters(int x, int y, std::list<MonsterCoords> monsters, std::ostream& stream, int xSvg, int ySvg){
     std::string monsterTexture;
@@ -32,6 +35,7 @@ void ObserverSVGRenderer::render(const Game& g) const{
 
     int svgWidth = map.getMaxLength()*10;
     int svgHeight = map.getMapSize()*10;
+
     svg<<"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\""<<svgWidth<<"\" height=\""<<svgHeight<<"\">\n";
     for (int y = 0; y < map.getMapSize(); y++)
     {
@@ -70,6 +74,7 @@ void CharacterSVGRenderer::render(const Game& g) const{
     if (!std::filesystem::exists(WALL)) WALL = "textures/placeholder.svg";
     if (!std::filesystem::exists(WALL)) FREE = "textures/placeholder.svg";
     if (!std::filesystem::exists(WALL)) HERO = "textures/placeholder.svg";
+
     int west = (hero.x < hero.hero->getLightRadius()) ? 0 : hero.x-hero.hero->getLightRadius();
     int east = (map.getMaxLength() > hero.x+hero.hero->getLightRadius()) ? hero.x+hero.hero->getLightRadius()+1 : map.getMaxLength();
     int north = (hero.y < hero.hero->getLightRadius()) ? 0 : hero.y-hero.hero->getLightRadius();

@@ -20,6 +20,7 @@
 
 #include "Unit.h"
 #include "Hero.h"
+#include <string>
 
 class Hero;
 

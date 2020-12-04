@@ -21,8 +21,6 @@
 
 #include <vector>
 #include <string>
-#include <fstream>
-
 
 class Map{
 protected:

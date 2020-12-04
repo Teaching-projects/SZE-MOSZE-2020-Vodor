@@ -1,6 +1,7 @@
 #ifndef DAMAGE_H
 #define DAMAGE_H
 #include <iostream>
+
 struct Damage
 	{
 		int physical; ///< A karakter támadási ereje.

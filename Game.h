@@ -24,7 +24,7 @@
 #include "Renderer.h"
 #include <string>
 #include <list>
-#include <algorithm>
+#include <map>
 
 class Renderer;
 

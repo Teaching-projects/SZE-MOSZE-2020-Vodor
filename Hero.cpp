@@ -1,6 +1,5 @@
 #include "Hero.h"
 #include <vector>
-#include <cmath>
 
 void Hero::fightTilDeath(Monster& other) {
 	double acdthis = this->getAttackCoolDown();

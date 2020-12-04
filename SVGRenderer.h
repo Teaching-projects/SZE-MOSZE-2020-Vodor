@@ -2,6 +2,7 @@
 #define SVGRENDERER_H
 
 #include "Renderer.h"
+#include <string>
 
 /*!
  * \class SVGRenderer

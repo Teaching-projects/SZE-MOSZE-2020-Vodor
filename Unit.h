@@ -18,10 +18,9 @@
  * Created on 2020/11/02 13:22
  */
 
-
-#include <string>
 #include "JSON.h"
 #include "Damage.h"
+#include <string>
 
 class Unit
 {
@@ -46,7 +45,7 @@ public:
 	/// Ez a függvény visszaadja a karakter nevét.
 	std::string getName() const { return b_name; }
 	/// Ez a függvény visszaadja a karakter meghalt-e.
-	bool isAlive() const;
+	bool isAlive() const { return b_hP > 0; }
 	/// Ez a függvény visszaadja a karakter támadási erejét.
 	Damage getDamage() const { return b_damage; }
 	/// Ez a függvény visszaadja a karakter támadási idejét.

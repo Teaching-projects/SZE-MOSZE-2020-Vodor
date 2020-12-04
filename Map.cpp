@@ -1,4 +1,5 @@
 #include "Map.h"
+#include <fstream>
 
 Map::Map(const std::string& filename){
     std::ifstream mapFile(filename);
