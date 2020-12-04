@@ -1,8 +1,8 @@
 #include "Monster.h"
-#include <vector>
+#include <list>
 
 Monster Monster::parse(const std::string& fname) {
-	std::vector <std::string> keysNeeded {"name", "health_points", "attack_cooldown", "defense"};
+	std::list <std::string> keysNeeded {"name", "health_points", "attack_cooldown", "defense"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
 	bool okay = true;
 	for (auto key : keysNeeded)

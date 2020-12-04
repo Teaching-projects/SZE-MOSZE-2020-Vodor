@@ -20,6 +20,7 @@
  */
 
 #include <vector>
+#include <list>
 #include <string>
 #include <ostream>
 
@@ -86,7 +87,7 @@ class MarkedMap : public Map
     MarkedMap(){}
    
     std::pair<int,int> getHeroPosition() const; ///< Visszaadja a Hős pozícióját
-    std::vector<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monsterek pozícióját
+    std::list<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monsterek pozícióját
 };
 
 #endif

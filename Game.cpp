@@ -114,7 +114,9 @@ void Game::run(){
 }
 
 PreparedGame::PreparedGame(const std::string& filename){
-    std::vector<std::string> expectedKeys= {"map", "hero"};
+    std::string monsterName;
+    std::list<std::pair<int,int>> monsterPositions;
+    std::list<std::string> expectedKeys= {"map", "hero"};
     JSON attributes = JSON::parseFromFile(filename);
     for (auto &&key : expectedKeys)
         if (!attributes.count(key))
@@ -136,15 +138,16 @@ PreparedGame::PreparedGame(const std::string& filename){
 
     for (int i = 1; i < 10; i++)
     {
-        std::string monsterName = "monster-"+std::to_string(i);
+        monsterName = "monster-"+std::to_string(i);
         if (attributes.count(monsterName))
         {
-            std::vector<std::pair<int,int>> monsterPositions = mapToSet.getMonsterPositions('0'+i);
-            for (unsigned int i = 0; i < monsterPositions.size(); i++)
+            monsterPositions = mapToSet.getMonsterPositions('0'+i);
+            for (auto &&monsterPosition : monsterPositions)
             {
                 Monster monsterToPut = Monster::parse(attributes.get<std::string>(monsterName));
-                putMonster(monsterToPut, monsterPositions[i].first, monsterPositions[i].second);
-            }   
+                putMonster(monsterToPut, monsterPosition.first, monsterPosition.second);
+            }
+            monsterPositions.clear();
         }
     }
     gamestarted = false;

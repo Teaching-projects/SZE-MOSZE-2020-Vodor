@@ -50,8 +50,8 @@ std::pair<int,int> MarkedMap::getHeroPosition() const
     return heroposition;
 }
 
-std::vector<std::pair<int,int>> MarkedMap::getMonsterPositions(char c) const{
-    std::vector<std::pair<int,int>> monsterPositions;
+std::list<std::pair<int,int>> MarkedMap::getMonsterPositions(char c) const{
+    std::list<std::pair<int,int>> monsterPositions;
     for(int i=0; i < (int)map.size();i++)
         for (int j = 0; j < (int) map[i].length(); j++)
             if(map[i][j] == c)

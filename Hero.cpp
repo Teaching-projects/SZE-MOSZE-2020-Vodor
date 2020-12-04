@@ -1,5 +1,5 @@
 #include "Hero.h"
-#include <vector>
+#include <list>
 
 void Hero::fightTilDeath(Monster& other) {
 	double acdthis = this->getAttackCoolDown();
@@ -47,7 +47,7 @@ void Hero::fightTilDeath(Monster& other) {
 }
 
 Hero Hero::parse(const std::string& fname) {
-	std::vector <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level", "defense", "defense_bonus_per_level",
+	std::list <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level", "defense", "defense_bonus_per_level",
 							 "cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown", "magical_damage_bonus_per_level", "light_radius"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
     	bool okay = true;
