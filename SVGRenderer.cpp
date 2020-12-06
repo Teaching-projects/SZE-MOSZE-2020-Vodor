@@ -93,5 +93,4 @@ void CharacterSVGRenderer::render(const Game& g) const{
     }
     svg<<"</svg>";
     svg.close();
-
 }

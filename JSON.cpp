@@ -75,7 +75,6 @@ const JSON JSON::parseFromFile(const std::string& json) {
         }
     }
     else return parseFromString(json);
-    
 }
 
 const JSON JSON::parseJson(std::istream& jsonFile) {

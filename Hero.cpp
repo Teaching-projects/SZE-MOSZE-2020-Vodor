@@ -119,5 +119,4 @@ void Hero::getHitBy(Unit* other){
 			b_hP -= other->getDamage().magical;
 		else b_hP = 0;
 	}
-		
 }

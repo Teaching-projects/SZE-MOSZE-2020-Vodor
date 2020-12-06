@@ -24,7 +24,6 @@ Monster Monster::parse(const std::string& fname) {
 
 	if (!std::filesystem::exists(texture)) texture = "textures/placeholder.svg";
 
-
 	if (okay) 
 	    return Monster(returnedJSON.get<std::string>("name"), 
 			returnedJSON.get<int>("health_points"),
@@ -34,7 +33,6 @@ Monster Monster::parse(const std::string& fname) {
 			texture);
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
-
 
 void Monster::getHitBy(Hero* other) {
 	if(other->getDamage().physical > b_defense){
