@@ -1,5 +1,6 @@
 #include "Hero.h"
 #include <list>
+#include <filesystem>
 
 void Hero::fightTilDeath(Monster& other) {
 	double acdthis = this->getAttackCoolDown();
@@ -68,7 +69,9 @@ Hero Hero::parse(const std::string& fname) {
 	else light_radius_bonus_per_level = 1;
 
 	if(returnedJSON.count("texture")) texture = returnedJSON.get<std::string>("texture");
-	else texture = "svg/placeholder.svg";
+	else texture = "textures/placeholder.svg";
+
+	if (!std::filesystem::exists(texture)) texture = "textures/placeholder.svg";
     
 	if (okay) 
 	     return Hero(returnedJSON.get<std::string>("name"), 

@@ -1,5 +1,6 @@
 #include "Monster.h"
 #include <list>
+#include <filesystem>
 
 Monster Monster::parse(const std::string& fname) {
 	std::list <std::string> keysNeeded {"name", "health_points", "attack_cooldown", "defense"};
@@ -19,7 +20,10 @@ Monster Monster::parse(const std::string& fname) {
 	else damage.magical = 0;
 
 	if(returnedJSON.count("texture")) texture = returnedJSON.get<std::string>("texture");
-	else texture = "svg/placeholder.svg";
+	else texture = "textures/placeholder.svg";
+
+	if (!std::filesystem::exists(texture)) texture = "textures/placeholder.svg";
+
 
 	if (okay) 
 	    return Monster(returnedJSON.get<std::string>("name"), 
