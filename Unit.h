@@ -1,6 +1,10 @@
 #ifndef UNIT_H
 #define UNIT_H
 
+#include "JSON.h"
+#include "Damage.h"
+#include <string>
+
 /*!
  * \class Unit
  * 
@@ -17,10 +21,6 @@
  * 
  * Created on 2020/11/02 13:22
  */
-
-#include "JSON.h"
-#include "Damage.h"
-#include <string>
 
 class Unit
 {

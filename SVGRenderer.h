@@ -47,6 +47,7 @@ public:
  * 
  * Created on 2020/12/03 21:37
  */
+
 class CharacterSVGRenderer : public SVGRenderer{
 public:
     /// CharacterSVGRenderer konstruktor
