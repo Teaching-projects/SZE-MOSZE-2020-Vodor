@@ -9,7 +9,7 @@ var searchData=
   ['b_5fdefense_5fbonus_5fper_5flevel_9',['b_defense_bonus_per_level',['../classHero.html#a7b5a66ea675fbea0e8feff920d3e0f59',1,'Hero']]],
   ['b_5fexperience_5fper_5flevel_10',['b_experience_per_level',['../classHero.html#ad5d1b8177f8a0505055a3097bff0d94a',1,'Hero']]],
   ['b_5fhealth_5fpoint_5fbonus_5fper_5flevel_11',['b_health_point_bonus_per_level',['../classHero.html#a9e03413029e2e780afbcc45cb95adb7c',1,'Hero']]],
-  ['b_5fhero_12',['b_Hero',['../structb__Hero.html',1,'']]],
+  ['b_5fhero_12',['b_Hero',['../structb__Hero.html',1,'b_Hero'],['../structb__Hero.html#ae6fa20f811578b81a6179cfc0f550ffa',1,'b_Hero::b_Hero()']]],
   ['b_5fhp_13',['b_hP',['../classUnit.html#a3b204ff195f0597886c846a302c248e4',1,'Unit']]],
   ['b_5flevel_14',['b_level',['../classHero.html#a0d59903becd638fee6f389c726d0d34a',1,'Hero']]],
   ['b_5flight_5fradius_15',['b_light_radius',['../classHero.html#a926b8325b51bcf774bcbe7dc082840d4',1,'Hero']]],

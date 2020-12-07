@@ -18,7 +18,7 @@ var searchData=
   ['getmapsize_45',['getMapSize',['../classMap.html#a839effe30ba3687f91bd5d559ea065dd',1,'Map']]],
   ['getmaxhealthpoints_46',['getMaxHealthPoints',['../classHero.html#ac6a7deeb6e390a23536d622042f4c48e',1,'Hero']]],
   ['getmaxlength_47',['getMaxLength',['../classMap.html#a0251720ef3610a38d4ced1f90ed459e8',1,'Map']]],
-  ['getmonsterpositions_48',['getMonsterPositions',['../classMarkedMap.html#a5e533e861edffc4b352219c5f573afd2',1,'MarkedMap']]],
+  ['getmonsterpositions_48',['getMonsterPositions',['../classMarkedMap.html#a2418a7ae3845fde7cc3bbbb09a5bc00c',1,'MarkedMap']]],
   ['getmonsters_49',['getMonsters',['../classGame.html#a014840346ebadca9b1d4c3e6b8ec2a82',1,'Game']]],
   ['getname_50',['getName',['../classUnit.html#a0497994e384db5c080ec78e9b645fa40',1,'Unit']]],
   ['getrowwidth_51',['getRowWidth',['../classMap.html#a99177d3fc23bb2126d47a18b457739a5',1,'Map']]],
