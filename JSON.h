@@ -1,6 +1,12 @@
 #ifndef JSON_H
 #define JSON_H
 
+#include <map>
+#include <iterator>
+#include <variant>
+#include <type_traits>
+#include <list>
+
 /*!
  * \class JSON
  * 
@@ -18,22 +24,12 @@
  * Created on 2020/11/02 13:22
  */
 
-#include <map>
-#include <regex>
-#include <fstream>
-#include <variant>
-#include <cctype>
-#include <algorithm>
-#include <type_traits>
-#include <list>
-
 using jsonData = std::map <std::string, std::variant<std::string, int, double>>;
 
 class JSON
 {
 private:
 	jsonData b_data; ///< Adatoknak létrehozott map.
-
 public:
 	typedef std::list<std::variant<std::string, int, double>> list;
     /*! \brief JSON konstruktor
@@ -61,11 +57,9 @@ public:
     static const JSON parseJson(std::istream& jsonFile/** [in] a beolvasott JSON fájlt tartalmazó istream */);
     /// Ez a függvény vizsgálja adott key benne van-e mapben.
     const int count(const std::string& key/** [in] kulcs*/);
-    /// Ez a függvény visszaad egy listát a key alapján.
-	///Hibát dob, amennyiben az adott kulcs nincs a mapben.
-	template <typename T> 
-	inline typename std::enable_if<std::is_same<T, JSON::list>::value, T>::type 
-	get(const std::string& key){
+
+	/// Ez a függvény visszaad egy valuet a key alapján és hibát dob, amennyiben az adott kulcs nincs a mapben.
+	template <typename T> inline typename std::enable_if<std::is_same<T, JSON::list>::value, T>::type get(const std::string& key/** [in] kulcs*/){
 		if (!count(key)) throw ParseException("Key does not exist in map!");
 		else{
 				list toReturn;
@@ -78,21 +72,14 @@ public:
 			}
 		}
 
-	/// Ez a függvény visszaad egy valuet a key alapján.
-	///Hibát dob, amennyiben az adott kulcs nincs a mapben.
-	template <typename T> inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type
-	get(const std::string& key/** [in] kulcs*/){
+	/// Ez a függvény visszaad egy valuet a key alapján és hibát dob, amennyiben az adott kulcs nincs a mapben.
+	template <typename T> inline typename std::enable_if<!std::is_same<T, JSON::list>::value, T>::type get(const std::string& key/** [in] kulcs*/){
        	if (!count(key)) throw ParseException("Key does not exist in map!");
         else return std::get<T>(b_data[key]);
     }
 
     class ParseException : public std::runtime_error{
     public:
-       	/*! \brief ParseException konstruktor
- 		*         
- 		*  
-		*  \param data [in] hibaüzenet.
- 		*/
        	ParseException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 };

@@ -1,7 +1,9 @@
 #include "Monster.h"
+#include <list>
+#include <filesystem>
 
 Monster Monster::parse(const std::string& fname) {
-	std::vector <std::string> keysNeeded {"name", "health_points", "attack_cooldown", "defense"};
+	std::list <std::string> keysNeeded {"name", "health_points", "attack_cooldown", "defense"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
 	bool okay = true;
 	for (auto key : keysNeeded)
@@ -18,7 +20,9 @@ Monster Monster::parse(const std::string& fname) {
 	else damage.magical = 0;
 
 	if(returnedJSON.count("texture")) texture = returnedJSON.get<std::string>("texture");
-	else texture = "svg/placeholder.svg";
+	else texture = "textures/placeholder.svg";
+
+	if (!std::filesystem::exists(texture)) texture = "textures/placeholder.svg";
 
 	if (okay) 
 	    return Monster(returnedJSON.get<std::string>("name"), 
@@ -29,7 +33,6 @@ Monster Monster::parse(const std::string& fname) {
 			texture);
 	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
 }
-
 
 void Monster::getHitBy(Hero* other) {
 	if(other->getDamage().physical > b_defense){

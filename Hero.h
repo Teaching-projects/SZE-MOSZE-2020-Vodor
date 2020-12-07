@@ -1,6 +1,9 @@
 #ifndef HERO_H
 #define HERO_H
 
+#include "Unit.h"
+#include "Monster.h"
+
 /*!
  * \class Hero
  * 
@@ -17,9 +20,6 @@
  * 
  * Created on 2020/11/02 13:22
  */
-
-#include "Unit.h"
-#include "Monster.h"
 
 class Monster;
 

@@ -1,6 +1,10 @@
 #ifndef MAP_H
 #define MAP_H
 
+#include <vector>
+#include <list>
+#include <string>
+#include <ostream>
 
 /*!
  * \class Map
@@ -19,11 +23,6 @@
  * Created on 2020/11/17 18:39
  */
 
-#include <vector>
-#include <string>
-#include <fstream>
-
-
 class Map{
 protected:
     std::vector<std::string> map; ///< A játék térképe.
@@ -40,11 +39,12 @@ public:
         Free, ///< járható út 
         Wall ///< fal
         };
+    
+    /// Map alapértelmezett konstruktor 
     Map(){}
     /// Map konstruktor, beolvas egy térképet egy adott fájlból.
     Map(const std::string& filename /** [in] a fájl elérési útvonala*/);
     
-
     /// Függvény, ami visszaadja az adott koordinátán milyen elem szerepel a térképen.
     /*!
         \param x [in] x koordináta
@@ -87,7 +87,7 @@ class MarkedMap : public Map
     MarkedMap(){}
    
     std::pair<int,int> getHeroPosition() const; ///< Visszaadja a Hős pozícióját
-    std::vector<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monsterek pozícióját
+    std::list<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monsterek pozícióját
 };
 
 #endif

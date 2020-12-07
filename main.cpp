@@ -1,11 +1,7 @@
-#include <iostream>
 #include <map>
 #include <string>
 #include <filesystem>
-#include <sstream>
-#include <algorithm>
-#include <iterator>
-#include <list>
+#include <fstream>
 
 #include "JSON.h"
 #include "Hero.h"
@@ -13,7 +9,6 @@
 #include "Game.h"
 #include "TextRenderer.h"
 #include "SVGRenderer.h"
-#include "Renderer.h"
  
 const std::map<int,std::string> error_messages = {
     { 1 , "Bad number of arguments. Only a single scenario file should be provided." },

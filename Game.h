@@ -1,6 +1,96 @@
 #ifndef GAME_H
 #define GAME_H
 
+#include "Map.h"
+#include "Monster.h"
+#include "Hero.h"
+#include "Renderer.h"
+#include <string>
+#include <list>
+#include <map>
+#include <ostream>
+
+class Renderer;
+
+/*!
+ * \struct MonsterCoords
+ * 
+ * \brief MonsterCoords struct
+ * 
+ * Ellenfelet tartalmazó struct.
+ * 
+ * 
+ * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+ * 
+ * \version 5.0
+ * 
+ * \date 2020/12/06 16:30
+ * 
+ * Created on 2020/12/06 16:30
+ */
+
+struct MonsterCoords{ 
+    Monster monster;  ///< Ellenfelet tartalmazó változó.
+    int x; ///< Ellenfél x koordinátája.
+    int y; ///< Ellenfél y koordinátája.
+};
+
+/*!
+ * \struct b_Hero
+ * 
+ * \brief b_Hero struct
+ * 
+ * Hőst tartalmazó struct.
+ * 
+ * 
+ * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+ * 
+ * \version 5.0
+ * 
+ * \date 2020/12/06 16:30
+ * 
+ * Created on 2020/12/06 16:30
+ */
+
+struct b_Hero{ 
+    Hero* hero; ///< Hőst tartalmazó változó.
+    int x; ///< Hős x koordinátája.
+    int y; ///< Hős y koordinátája.
+    /// b_Hero alapértelmezett konstruktor 
+    b_Hero() : hero(nullptr), x(-1), y(-1){}
+};
+
+/*!
+ * \struct printItem
+ * 
+ * \brief printItem struct
+ * 
+ * A kirajzoláshoz szükséges segéd karaktereket tartalmazó struct.
+ * 
+ * 
+ * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+ * 
+ * \version 5.0
+ * 
+ * \date 2020/12/06 16:30
+ * 
+ * Created on 2020/12/06 16:30
+ */
+
+struct printItem{
+    const std::string TOP_LEFT = "\u2554";
+    const std::string TOP_RIGHT = "\u2557";
+    const std::string BOTTOM_LEFT = "\u255A";
+    const std::string BOTTOM_RIGHT = "\u255D";
+    const std::string HORIZONTAL = "\u2550\u2550";
+    const std::string VERTICAL =  "\u2551";
+    const std::string FREE = "\u2591\u2591";
+    const std::string WALL = "\u2588\u2588"; 
+    const std::string SINGLEMONSTER = "M\u2591";
+    const std::string MULTIPLEMONSTERS = "MM";
+    const std::string HERO = "\u2523\u252B";
+};
+
 /*!
  * \class Game
  * 
@@ -17,44 +107,6 @@
  * 
  * Created on 2020/11/02 13:22
  */
-
-#include "Map.h"
-#include "Monster.h"
-#include "Hero.h"
-#include "Renderer.h"
-#include <string>
-#include <list>
-#include <algorithm>
-
-class Renderer;
-
-struct MonsterCoords{
-    Monster monster;
-    int x;
-    int y;
-};
-
-struct b_Hero{
-    Hero* hero;
-    int x;
-    int y;
-    b_Hero() : hero(nullptr), x(-1), y(-1){}
-};
-
-struct printItem
-{
-    const std::string TOP_LEFT = "\u2554";
-    const std::string TOP_RIGHT = "\u2557";
-    const std::string BOTTOM_LEFT = "\u255A";
-    const std::string BOTTOM_RIGHT = "\u255D";
-    const std::string HORIZONTAL = "\u2550\u2550";
-    const std::string VERTICAL =  "\u2551";
-    const std::string FREE = "\u2591\u2591";
-    const std::string WALL = "\u2588\u2588"; 
-    const std::string SINGLEMONSTER = "M\u2591";
-    const std::string MULTIPLEMONSTERS = "MM";
-    const std::string HERO = "\u2523\u252B";
-};
 
 class Game{
 private:
@@ -74,7 +126,7 @@ protected:
 
     std::list<Renderer*> renderers; ///< A renderek listája.
 public:
-    /// Game default konstruktor 
+    /// Game alapértelmezett konstruktor 
     Game(): gameMap(Map()), mapsetready(false), gamestarted(false),heroready(false){
         textures["free_texture"] = "textures/free.png";
         textures["wall_tecture"] = "textures/wall.png";
@@ -111,7 +163,6 @@ public:
     /// Ez a függvény visszaadja a texturákat.
     std::map<std::string, std::string> getTextures() const { return textures;}
 
-
     class OccupiedException : public std::runtime_error{ 
         public:
         OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg){}
@@ -137,8 +188,6 @@ public:
         GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 };
-
-
 
 /*!
  * \class PreparedGame

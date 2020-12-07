@@ -2,6 +2,7 @@
 #define SVGRENDERER_H
 
 #include "Renderer.h"
+#include <string>
 
 /*!
  * \class SVGRenderer
@@ -46,6 +47,7 @@ public:
  * 
  * Created on 2020/12/03 21:37
  */
+
 class CharacterSVGRenderer : public SVGRenderer{
 public:
     /// CharacterSVGRenderer konstruktor
