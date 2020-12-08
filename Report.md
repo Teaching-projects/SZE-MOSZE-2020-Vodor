@@ -2,9 +2,9 @@
 
 | Név | Github azonosito  | Javasolt relatív érdemjegy | Becsült óra | Indoklás  | 
 | --- | ---- | --- | ------------------ | --------- |
-| Borbély Roland | @rolandborbely |  | 50-60 |  |
-| Vitéz Marcell | @vit3z-marcell |  | <10 |  |
-| Voznek Péter | @petinexus |  | 40-50 |  |
+| Borbély Roland | @rolandborbely | +1 | 50-60 |  |
+| Vitéz Marcell | @vit3z-marcell | -2 | <10 |  |
+| Voznek Péter | @petinexus | 0 | 40-50 |  |
 
 
 # Videók
@@ -16,41 +16,65 @@
 
 | Feladat | Merge ideje a határidóhöz (nap) | Change request körök | Reviewer | 
 | ------- | ------------------------------- | -------------------- | -------- |
-| Feladat 1 | -2 | 0 | @oliverosz | 
-| Feladat 2 | +2 | 1 | @wajzy |
-| jsonparser | ... | ... | @wajzy |
-| levelup | ... | ... | @oliverosz |
-| attackspeed | ... | ... | @vizvezetek |
-| documentation | ... | ... | @otherteam / @never |
-| unittest | ... | ... | @otherteam / @gonna, @let |
-| makefile | ... | ... | @hegyhati |
-| refactor | ... | ... | @hegyhati |
-| docker | ... | ... | @hegyhati |
-| jsonpimp | Merge: 11.12 | ... | @otherteam / @you, @down |
-| map | Merge: 11.13 | ... | @otherteam / @never, @gonna |
-| game | Merge: mm.dd | ... | @otherteam / @run, @arond |
-| defense | Merge: mm.dd | ... | @otherteam / @and, @desert |
-| damage | Merge: mm.dd | ... | @otherteam / @you  |
-| markedmap | Merge: mm.dd | ... | @otherteam / @otherguy1,otherguy2 |
-| preparedgame | nem készült el | - | -
-| light radius | Merge: mm.dd | ... | @otherteam / @otherguy1,otherguy2 |
-| rendering | Merge: mm.dd | ... | @otherteam / @otherguy1,otherguy2 |
+| Feladat 1 | -3 | 2 | @hegyhati | 
+| Feladat 2 | +3 | 0 | @wajzy |
+| jsonparser | +2 | 1 | @wajzy |
+| levelup | -1 | 2 | @oliverosz |
+| attackspeed | -5 | 0 | @vizvezetek |
+| documentation | -7 | 1 | @daemons / @Lazar-source, @mesmatyi |
+| unittest | -4 | 0 | @daemons / @Lazar-source, @mesmatyi |
+| makefile | -5 | 3 | @hegyhati |
+| refactor | 0 | 1 | @hegyhati |
+| docker | -6 | 1 | @hegyhati |
+| jsonpimp | Merge: 11.12 | 0 | @petinexus |
+| map | Merge: 11.20 | 0 | @daemons / @Lazar-source |
+| game | Merge: 11.26 | 1 | @daemons / @Lazar-source, @mesmatyi |
+| defense | Merge: 11.23 | 1 | @daemons / @Lazar-source |
+| damage | Merge: 11.21 | 1 | @daemons / @Lazar-source  |
+| markedmap | Merge: 12.01 | 0 | @daemons / @Lazar-source |
+| preparedgame | Merge: 12.02 | 0 | @daemons / @mesmatyi |
+| light radius | Merge: 12.02 | 0 | @daemons / @Lazar-source |
+| rendering | Merge: 12.03 | 0 | @daemons / @Lazar-source, @mesmatyi |
 
 # Unit tesztek
 
 | Osztály | Publikus metódusok száma | Unit tesztelt metódusok száma | Unit tesztek száma |
 | --- | --- | --- | --- |
-| `Unit` | 4 | 2 | 8 |
-| `Hero` | 5 | 0 | 0 | 
-| ... |
+| `Unit` | 8 | 6 | 7 |
+| `Hero` | 9 | 6 | 8 | 
+| `Monster` | 3 | 2 | 8 |
+| `JSON` | 6 | 5 | 8 |
+| `Game` | 12 | 5 | 2 |
+| `PreparedGame` | 3 | 1 | 2 |
+| `Map` | 6 | 2 | 1 |
+| `MarkedMap` | 4 | 3 | 2 |
+| `Render` | 1 | 0 | 0 |
+| `SVGRenderer` | 2 | 0 | 0 |
+| `CharacerSVGRenderer` | 2 | 0 | 0 |
+| `ObserverSVGRenderer` | 2 | 0 | 0 |
+| `TextRenderer` | 3 | 0 | 0 |
+| `HeroTextRenderer` | 2 | 0 | 0 |
+| `ObserverTextRenderer` | 2 | 0 | 0 |
 
 # Kód dokumentáció
 
 | Teljesen dokumentált osztályok | Részben dokumentált osztályok | Nem dokumentált osztályok |
 | --- | --- | --- | 
-| `Unit` | `Game` | `JSON` | 
-| `Hero` | ... | ... |  
-| ... |
+| `Unit` | - | - |
+| `Hero` | - | - |
+| `Monster` | - | - |
+| `JSON` | - | - |
+| `Game` | - | - |
+| `PreparedGame` | - | - |
+| `Map` | - | - |
+| `MarkedMap` | - | - |
+| `Render` | - | - |
+| `SVGRenderer` | - | - |
+| `CharacerSVGRenderer` | - | - |
+| `ObserverSVGRenderer` | - | - |
+| `TextRenderer` | - | - |
+| `HeroTextRenderer` | - | - |
+| `ObserverTextRenderer` | - | - |
 
 
 # Mindenféle számok
@@ -58,17 +82,17 @@
  - Összes cpp kódsor :
  - Egyéb kódsor (make,doxyfile,shellscript, ...) :
  - cppcheck
-   - warning :
-   - style :
-   - performance :
-   - unusedFunction : 
-   - missingInclude : 
+   - warning : 0
+   - style : 8
+   - performance : 0
+   - unusedFunction : 0
+   - missingInclude : 1
  
 # Implicit megtanult dolgok
 Olyanok, amik nem a tárgy anyaga, de muszáj/hasznos volt elsajátítani:
  - alapvető shell/python scripting
  - `std::variant`
- - ...
+ - reguláris kifejezések
 
 # Feedback (optional)
  
