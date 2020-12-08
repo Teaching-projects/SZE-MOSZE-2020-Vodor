@@ -4,7 +4,7 @@
 | --- | ---- | --- | ------------------ | --------- |
 | Borbély Roland | @rolandborbely | +1 | 50-60 |  |
 | Vitéz Marcell | @vit3z-marcell | -2 | <10 |  |
-| Voznek Péter | @petinexus | 0 | 40-50 |  |
+| Voznek Péter | @petinexus | 0 | 40-50 | A feladatok megoldásakor az esetek döntő többségében jelen volt, segédkezett bennük, sokat ő végzett el. Amikor kellett jött és segített, a rá bízott feladatokat önállóan megoldotta. A dokumentáció legnagyobb részét ő készítette el, de a többi, tananyaghoz kapcsolódó feladat megoldását is közelről, érdeklődően figyelte. A Daemons csapat review-olásában is részt vett. |
 
 
 # Videók
@@ -79,8 +79,13 @@
 
 # Mindenféle számok
 
- - Összes cpp kódsor : 1240 (+ 208 whitespace)
- - Egyéb kódsor (make,doxyfile,shellscript, ...) : 153 (+ 29 whitespace)
+ - Összes cpp kódsor : 1230 (whitespace nélkül)
+ - Egyéb kódsor (make,doxyfile,shellscript, ...) :
+    - make: 52
+    - doxy: 212
+    - shell script: 6
+    - docker: 16
+    - yml: 49
  - cppcheck
    - warning : 0
    - style : 8
@@ -93,6 +98,7 @@ Olyanok, amik nem a tárgy anyaga, de muszáj/hasznos volt elsajátítani:
  - alapvető shell/python scripting
  - `std::variant`
  - reguláris kifejezések
+ - alapvető linux ismeretek
 
 # Feedback (optional)
  
