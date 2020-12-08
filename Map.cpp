@@ -3,13 +3,11 @@
 
 Map::Map(const std::string& filename){
     std::ifstream mapFile(filename);
-    if(mapFile.good()) 
-    {
-        std::string line;
-        while (getline(mapFile, line))
-            map.push_back(line);
-    }
-    else throw std::runtime_error("File does not exist: " + filename);
+    if(!mapFile.good()) throw std::runtime_error("File does not exist: " + filename);
+
+    std::string line;
+    while (getline(mapFile, line))
+        map.push_back(line);
     mapFile.close();
 }
 
@@ -29,13 +27,12 @@ int Map::getMaxLength(){
 }
 MarkedMap::MarkedMap(const std::string& filename){
     std::ifstream mapFile(filename);
-    if(mapFile.good()) 
-    {
-        std::string line;
-        while (getline(mapFile, line))
-            map.push_back(line);
-    }
-    else throw std::runtime_error("File does not exist: " + filename);
+    if(!mapFile.good()) throw std::runtime_error("File does not exist: " + filename);
+
+    std::string line;
+    while (getline(mapFile, line))
+        map.push_back(line);
+    
     mapFile.close();
 }
 
@@ -57,6 +54,5 @@ std::list<std::pair<int,int>> MarkedMap::getMonsterPositions(char c) const{
             if(map[i][j] == c)
                 monsterPositions.push_back(std::make_pair(j,i));
     
-    if(monsterPositions.empty()) throw std::runtime_error(c+ " monster is not on the map.");
     else return monsterPositions;
 }

@@ -28,11 +28,11 @@ protected:
     std::vector<std::string> map; ///< A játék térképe.
 public:
     /// Ez a függvény visszaadja a játéktér magasságát.
-    int getMapSize() { return map.size();}
+    int getMapSize() const { return map.size();}
     /// Ez a függvény visszaadja a játéktér szélességét az adott sorba.
-    int getRowWidth(int y) {return map[y].length(); }
+    int getRowWidth(int y) const {return map[y].length(); }
     /// Ez a függvény visszaadja a játéktér max szélességét.
-    int getMaxLength();
+    int getMaxLength() const;
 
     /// Enum a térkép elemeinek.
     enum type{

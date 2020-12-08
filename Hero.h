@@ -28,14 +28,14 @@ private:
 	int b_maxHp; ///< Hős maximális életereje.
 	int b_xp; ///< Hős fejlődési pont.
 	int b_level; ///< Hős szintje.
-    int b_experience_per_level; ///< Hős szint növekedéséhez szükséges XP mértéke.
-    int b_health_point_bonus_per_level; ///< Hős MAX életpontjának növekedése szintenként.
-    int b_damage_bonus_per_level; ///< Hős fizikai sebzésének növekedése szintenként.
-	int b_magical_damage_bonus_per_level; ///< Hős mágikus sebzésének növekedése szintenként.
-    double b_cooldown_multiplier_per_level; ///< Hős támadási idő csökkenés mértéke szintenként.
-	int b_defense_bonus_per_level; ///< Hős védelmi növekedése szintenként.
+    const int b_experience_per_level; ///< Hős szint növekedéséhez szükséges XP mértéke.
+    const int b_health_point_bonus_per_level; ///< Hős MAX életpontjának növekedése szintenként.
+    const int b_damage_bonus_per_level; ///< Hős fizikai sebzésének növekedése szintenként.
+	const int b_magical_damage_bonus_per_level; ///< Hős mágikus sebzésének növekedése szintenként.
+    const double b_cooldown_multiplier_per_level; ///< Hős támadási idő csökkenés mértéke szintenként.
+	const int b_defense_bonus_per_level; ///< Hős védelmi növekedése szintenként.
 	int b_light_radius; ///< Hős látótávolsága.
-	int b_light_radius_bonus_per_level; ///< Hős látótávolsága növekedése szintenként.
+	const int b_light_radius_bonus_per_level; ///< Hős látótávolsága növekedése szintenként.
 
 public:
      /*! \brief Hero konstruktor

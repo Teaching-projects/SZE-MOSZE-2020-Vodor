@@ -31,7 +31,7 @@ class Renderer;
 
 struct MonsterCoords{ 
     Monster monster;  ///< Ellenfelet tartalmazó változó.
-    int x; ///< Ellenfél x koordinátája.
+    const int x; ///< Ellenfél x koordinátája.
     int y; ///< Ellenfél y koordinátája.
 };
 

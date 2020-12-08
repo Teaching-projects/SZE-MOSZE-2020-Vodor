@@ -64,7 +64,7 @@ void Game::run(){
     {     
         std::string moveTo ="";
         gamestarted = true;
-        std::list<std::string> expectedInputs = {"north", "east", "west", "south"};
+        const std::list<std::string> expectedInputs = {"north", "east", "west", "south"};
         while ((hero.hero->isAlive() && !monsters.empty()))
         {
             std::list<MonsterCoords>::iterator monster = monsters.begin();
@@ -118,7 +118,7 @@ void Game::run(){
 PreparedGame::PreparedGame(const std::string& filename){
     std::string monsterName;
     std::list<std::pair<int,int>> monsterPositions;
-    std::list<std::string> expectedKeys= {"map", "hero"};
+    const std::list<std::string> expectedKeys= {"map", "hero"};
     JSON attributes = JSON::parseFromFile(filename);
     for (auto &&key : expectedKeys)
         if (!attributes.count(key))
