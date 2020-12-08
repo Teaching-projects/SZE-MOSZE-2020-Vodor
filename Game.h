@@ -163,29 +163,114 @@ public:
     /// Ez a függvény visszaadja a texturákat.
     std::map<std::string, std::string> getTextures() const { return textures;}
 
+    /*!
+    * \class OccupiedException
+    * 
+    * \brief OccupiedException class
+    * 
+    * A OccupiedException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class OccupiedException : public std::runtime_error{ 
         public:
-        explicit OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// OccupiedException konstruktor
+        explicit OccupiedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
+    /*!
+    * \class AlreadyHasHeroException
+    * 
+    * \brief AlreadyHasHeroException class
+    * 
+    * A AlreadyHasHeroException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class AlreadyHasHeroException : public std::runtime_error{
         public:
-        explicit AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// AlreadyHasHeroException konstruktor
+        explicit AlreadyHasHeroException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
+    /*!
+    * \class AlreadyHasUnitsException
+    * 
+    * \brief AlreadyHasUnitsException class
+    * 
+    * A AlreadyHasUnitsException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class AlreadyHasUnitsException : public std::runtime_error{
         public:
-        explicit AlreadyHasUnitsException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// AlreadyHasUnitsException konstruktor
+        explicit AlreadyHasUnitsException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
+    /*!
+    * \class NotInitializedException
+    * 
+    * \brief NotInitializedException class
+    * 
+    * A NotInitializedException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class NotInitializedException : public std::runtime_error{
         public:
-        explicit NotInitializedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// NotInitializedException konstruktor
+        explicit NotInitializedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
+    /*!
+    * \class GameAlreadyStartedException
+    * 
+    * \brief GameAlreadyStartedException class
+    * 
+    * A GameAlreadyStartedException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class GameAlreadyStartedException : public std::runtime_error{
         public:
-        explicit GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// GameAlreadyStartedException konstruktor
+        explicit GameAlreadyStartedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 };
 

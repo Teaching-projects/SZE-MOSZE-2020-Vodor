@@ -53,9 +53,26 @@ public:
     */
     Map::type get(unsigned int x, unsigned int y) const;
 
+    /*!
+    * \class WrongIndexException
+    * 
+    * \brief WrongIndexException class
+    * 
+    * A WrongIndexException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class WrongIndexException : public std::runtime_error{
-    public:
-        explicit WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        public:
+        /// WrongIndexException konstruktor
+        explicit WrongIndexException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 };
 
@@ -64,7 +81,7 @@ public:
  * 
  * \brief MarkedMap class
  * 
- * A MarkedMap konstruktura beolvas egy térképet egy adott fájból amiben előre megtalálhatóak a Hős és a szörnyek pozíciói
+ * A MarkedMap konstruktura beolvas egy térképet egy adott fájból amiben előre megtalálhatóak a Hős és a szörnyek pozíciói.
  * 
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter

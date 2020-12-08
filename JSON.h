@@ -78,9 +78,26 @@ public:
         else return std::get<T>(b_data[key]);
     }
 
+    /*!
+    * \class ParseException
+    * 
+    * \brief ParseException class
+    * 
+    * A ParseException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class ParseException : public std::runtime_error{
     public:
-       explicit ParseException(const std::string& errMsg) : std::runtime_error(errMsg){}
+	    /// ParseException konstruktor
+       explicit ParseException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 };
 
