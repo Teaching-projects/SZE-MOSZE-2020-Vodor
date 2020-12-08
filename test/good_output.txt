@@ -250,4 +250,3 @@ Agent 5.: LVL9
    HP: 95/95
   DMG: Physical: 45, Magical: 0
   ACD: 0.0216797
-  
