@@ -145,7 +145,7 @@ public:
     /// Game dekonstruktor
     ~Game(){ delete hero.hero; }
     /// Ez a függvény beállítja a játékteret.
-    void setMap(Map map);
+    void setMap(const Map& map);
     /// Ez a függvény hozzáadja a hőst.
     void putHero(Hero hero, int x, int y);
     /// Ez a függvény hozzáad egy ellenfelet.

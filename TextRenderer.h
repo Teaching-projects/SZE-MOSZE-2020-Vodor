@@ -56,7 +56,7 @@ class HeroTextRenderer : public TextRenderer{
 public:
     /// HeroTextRenderer konstruktor
     HeroTextRenderer(std::ostream& stream = std::cout/** [in] a kimenet típusa*/) : TextRenderer(stream){}
-    void render(const Game&/**[in] a kiírandó Game*/) const override;
+    virtual void render(const Game&/**[in] a kiírandó Game*/) const override;
 };  
 
 /*!
@@ -81,7 +81,7 @@ public:
     /// TextRenderer konstruktor
     ObserverTextRenderer(std::ostream& stream = std::cout/** [in] a kimenet típusa*/) : TextRenderer(stream){}
     /// Render függvény
-    void render(const Game&/**[in] a kiírandó Game*/) const override;
+    virtual void render(const Game&/**[in] a kiírandó Game*/) const override;
 };
 
 

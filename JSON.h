@@ -37,7 +37,7 @@ public:
  	*  
 	*  \param data [in] adat.
  	*/
-    explicit JSON(jsonData data) : b_data(data){}
+    explicit JSON(const jsonData& data) : b_data(data){}
     /// JSON fájlból beolvasott karakterlánc parzolását végző függvény.
     /// Hibát dob, amennyiben hiányos, vagy sérült a fájl. Pl.: hiányoznak kulcsok adott párokból, vagy nincsenek meg a kezdő, és/vagy záró karakterek
     /*!

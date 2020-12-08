@@ -16,7 +16,6 @@ bool printMonsters(int x, int y, std::list<MonsterCoords> monsters, std::ostream
 }
 
 void ObserverSVGRenderer::render(const Game& g) const{
-    int xSvg=0;
     int ySvg=0;
     Map map = g.getMap();
     b_Hero hero = g.getHero();
@@ -37,7 +36,7 @@ void ObserverSVGRenderer::render(const Game& g) const{
     svg<<"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\""<<svgWidth<<"\" height=\""<<svgHeight<<"\">\n";
     for (int y = 0; y < map.getMapSize(); y++)
     {
-        xSvg=0;
+        int xSvg=0;
         for (int x = 0; x < map.getRowWidth(y); x++)
         {
             if(map.get(x,y) == Map::type::Wall) svg<<"\t<image href=\""<<WALL<<"\" width=\"10\" height=\"10\" x=\""<<xSvg<<"\" y=\""<<ySvg<<"\"/>\n";
@@ -58,7 +57,6 @@ void ObserverSVGRenderer::render(const Game& g) const{
 }
 
 void CharacterSVGRenderer::render(const Game& g) const{
-    int xSvg=0;
     int ySvg=0;
     Map map = g.getMap();
     b_Hero hero = g.getHero();
@@ -81,7 +79,7 @@ void CharacterSVGRenderer::render(const Game& g) const{
     svg<<"<svg xmlns=\"http://www.w3.org/2000/svg\" width=\""<<svgWidth<<"\" height=\""<<svgHeight<<"\">\n";
     for (int y = north; y < south; y++)
     {
-        xSvg=0;
+        int xSvg=0;
         for (int x = west; x < ((map.getRowWidth(y) < east) ? map.getRowWidth(y) : east) ; x++){
             if(map.get(x,y) == Map::type::Wall) svg<<"\t<image href=\""<<WALL<<"\" width=\"10\" height=\"10\" x=\""<<xSvg<<"\" y=\""<<ySvg<<"\"/>\n";
             else if (hero.x == x && hero.y == y) svg<<"\t<image href=\""<<HERO<<"\" width=\"10\" height=\"10\" x=\""<<xSvg<<"\" y=\""<<ySvg<<"\"/>\n";

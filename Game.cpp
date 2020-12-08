@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-void Game::setMap(Map map){  
+void Game::setMap(const Map& map){  
     if(!gamestarted)     
         if(!heroready && monsters.empty()){
             gameMap = map;
@@ -80,7 +80,7 @@ void Game::run(){
                         hero.hero->fightTilDeath(monster->monster);        
                     }
                 if (!monster->monster.isAlive()) monster = monsters.erase(monster); 
-                else monster++;
+                else ++monster;
             }
             if(hero.hero->isAlive() && !monsters.empty()){
             for (auto &&renderer : renderers)

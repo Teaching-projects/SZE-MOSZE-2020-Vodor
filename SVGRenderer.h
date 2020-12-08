@@ -53,7 +53,7 @@ public:
     /// CharacterSVGRenderer konstruktor
     explicit CharacterSVGRenderer(const std::string& out/** [in] a kimeneti fájl elérési útja*/) : SVGRenderer(out){}
     /// render függvény
-    virtual void render(const Game&/**[in] a kiírandó Game*/) const;
+    virtual void render(const Game&/**[in] a kiírandó Game*/) const override;
 };
 /*!
  * \class ObserverSVGRenderer
@@ -77,7 +77,7 @@ public:
     /// ObserverSVGRenderer konstruktor
     explicit ObserverSVGRenderer(const std::string& out/** [in] a kimeneti fájl elérési útja*/) : SVGRenderer(out){}
     /// render függvény
-    virtual void render(const Game&/**[in] a kiírandó Game*/) const;
+    virtual void render(const Game&/**[in] a kiírandó Game*/) const override;
 };
 
 #endif
