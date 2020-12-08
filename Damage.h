@@ -23,6 +23,7 @@ struct Damage
 {
 	int physical; ///< A karakter támadási ereje.
 	int magical; ///< A karakter mágikus támadási ereje.
+    
     /// Operátor ami két damaget ad össze.
     Damage operator+(const Damage& other){
         Damage dmgToReturn;
