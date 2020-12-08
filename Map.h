@@ -43,7 +43,7 @@ public:
     /// Map alapértelmezett konstruktor 
     Map(){}
     /// Map konstruktor, beolvas egy térképet egy adott fájlból.
-    Map(const std::string& filename /** [in] a fájl elérési útvonala*/);
+    explicit Map(const std::string& filename /** [in] a fájl elérési útvonala*/);
     
     /// Függvény, ami visszaadja az adott koordinátán milyen elem szerepel a térképen.
     /*!
