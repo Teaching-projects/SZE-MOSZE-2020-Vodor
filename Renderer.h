@@ -23,7 +23,7 @@ class Game;
 
 class Renderer{
 public:
-    /// render függvény
+    /// Render függvény
     virtual void render(const Game&/**[in] a kiírandó Game*/) const = 0;
 };
 
