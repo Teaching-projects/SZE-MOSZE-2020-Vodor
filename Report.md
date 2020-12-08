@@ -79,8 +79,8 @@
 
 # Mindenféle számok
 
- - Összes cpp kódsor :
- - Egyéb kódsor (make,doxyfile,shellscript, ...) :
+ - Összes cpp kódsor : 1240 (+ 208 whitespace)
+ - Egyéb kódsor (make,doxyfile,shellscript, ...) : 153 (+ 29 whitespace)
  - cppcheck
    - warning : 0
    - style : 8
