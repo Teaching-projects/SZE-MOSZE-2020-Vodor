@@ -93,6 +93,8 @@ void Game::run(){
             moveHero(moveTo);
             }
         }
+        for (auto &&renderer : renderers)
+            renderer->render(*this); 
         if (hero.hero->isAlive()){
             std::cout<<std::endl<<hero.hero->getName()<<" cleared the map."<<std::endl;
             std::cout << hero.hero->getName() << ": LVL" << hero.hero->getLevel() << std::endl
