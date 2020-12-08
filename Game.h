@@ -78,17 +78,17 @@ struct b_Hero{
  */
 
 struct printItem{
-    const std::string TOP_LEFT = "\u2554";
-    const std::string TOP_RIGHT = "\u2557";
-    const std::string BOTTOM_LEFT = "\u255A";
-    const std::string BOTTOM_RIGHT = "\u255D";
-    const std::string HORIZONTAL = "\u2550\u2550";
-    const std::string VERTICAL =  "\u2551";
-    const std::string FREE = "\u2591\u2591";
-    const std::string WALL = "\u2588\u2588"; 
-    const std::string SINGLEMONSTER = "M\u2591";
-    const std::string MULTIPLEMONSTERS = "MM";
-    const std::string HERO = "\u2523\u252B";
+    const std::string TOP_LEFT = "\u2554"; ///< Bal felső elem a pálya keretéhez.
+    const std::string TOP_RIGHT = "\u2557"; ///< Jobb felső elem a pálya keretéhez.
+    const std::string BOTTOM_LEFT = "\u255A"; ///< Bal alsó elem a pálya keretéhez.
+    const std::string BOTTOM_RIGHT = "\u255D"; ///< Jobb alsó elem a pálya keretéhez.
+    const std::string HORIZONTAL = "\u2550\u2550"; ///< Vízszintes elem a pálya keretéhez.
+    const std::string VERTICAL =  "\u2551"; ///< Függőleges elem a pálya keretéhez.
+    const std::string FREE = "\u2591\u2591"; ///< Szabad elem a pályán.
+    const std::string WALL = "\u2588\u2588"; ///< Fal elem a pályán.
+    const std::string SINGLEMONSTER = "M\u2591"; ///< Monster elem (1 db).
+    const std::string MULTIPLEMONSTERS = "MM"; ///< Monster elem (2 db).
+    const std::string HERO = "\u2523\u252B"; ///< Hero elem.
 };
 
 /*!
@@ -138,7 +138,7 @@ public:
  	*  
  	*  \param mapFileName [in] jatéktér elérése .
  	*/
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){
+    explicit Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){
         textures["free_texture"] = "textures/free.png";
         textures["wall_tecture"] = "textures/wall.png";
     }
@@ -165,27 +165,27 @@ public:
 
     class OccupiedException : public std::runtime_error{ 
         public:
-        OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        explicit OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class AlreadyHasHeroException : public std::runtime_error{
         public:
-        AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        explicit AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class AlreadyHasUnitsException : public std::runtime_error{
         public:
-        AlreadyHasUnitsException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        explicit AlreadyHasUnitsException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class NotInitializedException : public std::runtime_error{
         public:
-        NotInitializedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        explicit NotInitializedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 
     class GameAlreadyStartedException : public std::runtime_error{
         public:
-        GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        explicit GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 };
 
@@ -211,7 +211,7 @@ private:
     MarkedMap gameMap; ///< A játéktér.
 public:
     /// PreparedGame konstruktor
-    PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
+    explicit PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
     using Game::run; 
     using Game::registerRenderer;
 };

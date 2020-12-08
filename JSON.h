@@ -37,7 +37,7 @@ public:
  	*  
 	*  \param data [in] adat.
  	*/
-    JSON(jsonData data) : b_data(data){}
+    explicit JSON(jsonData data) : b_data(data){}
     /// JSON fájlból beolvasott karakterlánc parzolását végző függvény.
     /// Hibát dob, amennyiben hiányos, vagy sérült a fájl. Pl.: hiányoznak kulcsok adott párokból, vagy nincsenek meg a kezdő, és/vagy záró karakterek
     /*!
@@ -80,7 +80,7 @@ public:
 
     class ParseException : public std::runtime_error{
     public:
-       	ParseException(const std::string& errMsg) : std::runtime_error(errMsg){}
+       explicit ParseException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 };
 

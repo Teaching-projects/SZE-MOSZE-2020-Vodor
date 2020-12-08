@@ -55,7 +55,7 @@ public:
 
     class WrongIndexException : public std::runtime_error{
     public:
-        WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        explicit WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg){}
     };
 };
 
@@ -81,7 +81,7 @@ class MarkedMap : public Map
     public:
     
     /// MarkedMap konstruktor 
-    MarkedMap(const std::string& filename /** [in] a fájl elérési útvonala*/);
+    explicit MarkedMap(const std::string& filename /** [in] a fájl elérési útvonala*/);
 
     /// MarkedMap default konstruktor 
     MarkedMap(){}

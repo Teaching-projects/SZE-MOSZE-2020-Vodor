@@ -51,7 +51,7 @@ public:
 class CharacterSVGRenderer : public SVGRenderer{
 public:
     /// CharacterSVGRenderer konstruktor
-    CharacterSVGRenderer(const std::string& out/** [in] a kimeneti fájl elérési útja*/) : SVGRenderer(out){}
+    explicit CharacterSVGRenderer(const std::string& out/** [in] a kimeneti fájl elérési útja*/) : SVGRenderer(out){}
     /// render függvény
     virtual void render(const Game&/**[in] a kiírandó Game*/) const;
 };
@@ -75,7 +75,7 @@ public:
 class ObserverSVGRenderer : public SVGRenderer{
 public:
     /// ObserverSVGRenderer konstruktor
-    ObserverSVGRenderer(const std::string& out/** [in] a kimeneti fájl elérési útja*/) : SVGRenderer(out){}
+    explicit ObserverSVGRenderer(const std::string& out/** [in] a kimeneti fájl elérési útja*/) : SVGRenderer(out){}
     /// render függvény
     virtual void render(const Game&/**[in] a kiírandó Game*/) const;
 };
