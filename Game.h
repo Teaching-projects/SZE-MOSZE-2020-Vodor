@@ -56,7 +56,7 @@ struct b_Hero{
     Hero* hero; ///< Hőst tartalmazó változó.
     int x; ///< Hős x koordinátája.
     int y; ///< Hős y koordinátája.
-    /// b_Hero alapértelmezett konstruktor 
+    /// b_Hero alapértelmezett konstruktor. 
     b_Hero() : hero(nullptr), x(-1), y(-1){}
 };
 
@@ -116,7 +116,7 @@ protected:
     bool gamestarted; ///< A játék indulását jelző változó.
     bool heroready;  ///< A hős betöltését jelző változó.
     std::list<MonsterCoords> monsters;  ///< Az ellenfelek listája.
-    b_Hero hero; ///< Hős változó
+    b_Hero hero; ///< Hős változó.
     /// Ez a függvény ellenőrzi a lépést.
     bool checkIfMoveIsValid(const std::string& direction);
     /// Ez a függvény lép egyet a hőssel.
@@ -134,15 +134,15 @@ public:
     /*! \brief Game konstruktor
  	*         
  	*  
- 	*  Beállítja a játékot a paramér alapján.
+ 	*  Beállítja a játékot a paraméter alapján.
  	*  
- 	*  \param mapFileName [in] jatéktér elérése .
+ 	*  \param mapFileName [in] jatéktér elérése 
  	*/
     explicit Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){
         textures["free_texture"] = "textures/free.png";
         textures["wall_tecture"] = "textures/wall.png";
     }
-    /// Game dekonstruktor
+    /// Game dekonstruktor.
     ~Game(){ delete hero.hero; }
     /// Ez a függvény beállítja a játékteret.
     void setMap(const Map& map);
@@ -181,7 +181,7 @@ public:
     */
     class OccupiedException : public std::runtime_error{ 
         public:
-        /// OccupiedException konstruktor
+        /// OccupiedException konstruktor.
         explicit OccupiedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
@@ -203,7 +203,7 @@ public:
     */
     class AlreadyHasHeroException : public std::runtime_error{
         public:
-        /// AlreadyHasHeroException konstruktor
+        /// AlreadyHasHeroException konstruktor.
         explicit AlreadyHasHeroException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
@@ -225,7 +225,7 @@ public:
     */
     class AlreadyHasUnitsException : public std::runtime_error{
         public:
-        /// AlreadyHasUnitsException konstruktor
+        /// AlreadyHasUnitsException konstruktor.
         explicit AlreadyHasUnitsException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
@@ -247,7 +247,7 @@ public:
     */
     class NotInitializedException : public std::runtime_error{
         public:
-        /// NotInitializedException konstruktor
+        /// NotInitializedException konstruktor.
         explicit NotInitializedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
@@ -269,7 +269,7 @@ public:
     */
     class GameAlreadyStartedException : public std::runtime_error{
         public:
-        /// GameAlreadyStartedException konstruktor
+        /// GameAlreadyStartedException konstruktor.
         explicit GameAlreadyStartedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 };
@@ -295,7 +295,7 @@ class PreparedGame : private Game{
 private:
     MarkedMap gameMap; ///< A játéktér.
 public:
-    /// PreparedGame konstruktor
+    /// PreparedGame konstruktor.
     explicit PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
     using Game::run; 
     using Game::registerRenderer;

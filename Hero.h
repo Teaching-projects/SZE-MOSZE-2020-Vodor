@@ -46,20 +46,20 @@ public:
  	*  
  	*  Beállítja a Hősök adatait a paraméterek alapján.
  	*  
- 	*  \param name [in] Hős neve.
-	*  \param hp [in] Hős életereje.
-	*  \param dmg [in] Hős támadási ereje.
-	*  \param acd [in] Hős támadási ideje.
-	*  \param defense [in] Hős védelme.
-	*  \param texture [in] Hős textúrája.
-  	*  \param experience_per_level [in] Hős szint növekedéséhez szükséges XP mértéke.
-  	*  \param health_point_bonus_per_level [in] Hős MAX életpontjának növekedése szintenként.
-  	*  \param damage_bonus_per_level [in] Hős fizikális sebzésének növekedése szintenként.
-	*  \param magical_damage_bonus_per_level [in] Hős mágikus sebézésének növekedése szintenként.
-  	*  \param cooldown_multiplier_per_level [in] Hős támadási idő csökkenés mértéke szintenként.
-	*  \param defense_bonus_per_level [in] Hős védelmi növekedése szintenként.
-	*  \param light_radius [in] Hős látótávolsága.
-	*  \param light_radius_bonus_per_level [in] Hős látótávolsága növekedése szintenként.
+ 	*  \param name [in] Hős neve
+	*  \param hp [in] Hős életereje
+	*  \param dmg [in] Hős támadási ereje
+	*  \param acd [in] Hős támadási ideje
+	*  \param defense [in] Hős védelme
+	*  \param texture [in] Hős textúrája
+  	*  \param experience_per_level [in] Hős szint növekedéséhez szükséges XP mértéke
+  	*  \param health_point_bonus_per_level [in] Hős MAX életpontjának növekedése szintenként
+  	*  \param damage_bonus_per_level [in] Hős fizikális sebzésének növekedése szintenként
+	*  \param magical_damage_bonus_per_level [in] Hős mágikus sebézésének növekedése szintenként
+  	*  \param cooldown_multiplier_per_level [in] Hős támadási idő csökkenés mértéke szintenként
+	*  \param defense_bonus_per_level [in] Hős védelmi növekedése szintenként
+	*  \param light_radius [in] Hős látótávolsága
+	*  \param light_radius_bonus_per_level [in] Hős látótávolsága növekedése szintenként
  	*/
 	Hero(const std::string& name, int hP, Damage dmg, double acd, int defense, const std::string& texture, 
     	int experience_per_level,

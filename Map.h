@@ -36,11 +36,11 @@ public:
 
     /// Enum a térkép elemeinek.
     enum type{
-        Free, ///< járható út 
-        Wall ///< fal
+        Free, ///< Járható út.
+        Wall ///< Fal.
         };
     
-    /// Map alapértelmezett konstruktor 
+    /// Map alapértelmezett konstruktora. 
     Map(){}
     /// Map konstruktor, beolvas egy térképet egy adott fájlból.
     explicit Map(const std::string& filename /** [in] a fájl elérési útvonala*/);
@@ -71,7 +71,7 @@ public:
     */
     class WrongIndexException : public std::runtime_error{
         public:
-        /// WrongIndexException konstruktor
+        /// WrongIndexException konstruktor.
         explicit WrongIndexException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 };
@@ -96,15 +96,14 @@ public:
 class MarkedMap : public Map
 {
     public:
-    
-    /// MarkedMap konstruktor 
+    /// MarkedMap konstruktor.
     explicit MarkedMap(const std::string& filename /** [in] a fájl elérési útvonala*/);
-
-    /// MarkedMap default konstruktor 
+    /// MarkedMap default konstruktor.
     MarkedMap(){}
-   
-    std::pair<int,int> getHeroPosition() const; ///< Visszaadja a Hős pozícióját
-    std::list<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monsterek pozícióját
+    ///Visszaadja a Hős pozícióját.
+    std::pair<int,int> getHeroPosition() const;
+    ///Visszaadja a kért Monsterek pozícióját.
+    std::list<std::pair<int,int>> getMonsterPositions(char c) const; 
 };
 
 #endif

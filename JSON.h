@@ -35,11 +35,11 @@ public:
     /*! \brief JSON konstruktor
  	*         
  	*  
-	*  \param data [in] adat.
+	*  \param data [in] adat
  	*/
     explicit JSON(const jsonData& data) : b_data(data){}
     /// JSON fájlból beolvasott karakterlánc parzolását végző függvény.
-    /// Hibát dob, amennyiben hiányos, vagy sérült a fájl. Pl.: hiányoznak kulcsok adott párokból, vagy nincsenek meg a kezdő, és/vagy záró karakterek
+    /// Hibát dob, amennyiben hiányos, vagy sérült a fájl. Pl.: hiányoznak kulcsok adott párokból, vagy nincsenek meg a kezdő, és/vagy záró karakterek.
     /*!
     	\return Visszaadja a JSON fájlból beolvasott értékeket egy mapben.
     */
@@ -96,7 +96,7 @@ public:
     */
     class ParseException : public std::runtime_error{
     public:
-	    /// ParseException konstruktor
+	    /// ParseException konstruktor.
        explicit ParseException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 };
