@@ -43,8 +43,8 @@
 	<image href="textures/wall.png" width="10" height="10" x="130" y="20"/>
 	<image href="textures/wall.png" width="10" height="10" x="0" y="30"/>
 	<image href="textures/free.png" width="10" height="10" x="10" y="30"/>
-	<image href="textures/dark_wanderer.png" width="10" height="10" x="20" y="30"/>
-	<image href="textures/blood_raven.png" width="10" height="10" x="30" y="30"/>
+	<image href="textures/free.png" width="10" height="10" x="20" y="30"/>
+	<image href="textures/dark_wanderer.png" width="10" height="10" x="30" y="30"/>
 	<image href="textures/wall.png" width="10" height="10" x="40" y="30"/>
 	<image href="textures/free.png" width="10" height="10" x="50" y="30"/>
 	<image href="textures/free.png" width="10" height="10" x="60" y="30"/>

@@ -3,13 +3,11 @@
 
 Map::Map(const std::string& filename){
     std::ifstream mapFile(filename);
-    if(mapFile.good()) 
-    {
-        std::string line;
-        while (getline(mapFile, line))
-            map.push_back(line);
-    }
-    else throw std::runtime_error("File does not exist: " + filename);
+    if(!mapFile.good()) throw std::runtime_error("File does not exist: " + filename);
+
+    std::string line;
+    while (getline(mapFile, line))
+        map.push_back(line);
     mapFile.close();
 }
 
@@ -20,7 +18,7 @@ Map::type Map::get(unsigned int x, unsigned int y) const{
     
 }
 
-int Map::getMaxLength(){
+int Map::getMaxLength() const{
     int maxLength = 0;
     for (int i = 0; i < (int) map.size(); i++)
         if ((int) map[i].length()>maxLength)
@@ -29,13 +27,12 @@ int Map::getMaxLength(){
 }
 MarkedMap::MarkedMap(const std::string& filename){
     std::ifstream mapFile(filename);
-    if(mapFile.good()) 
-    {
-        std::string line;
-        while (getline(mapFile, line))
-            map.push_back(line);
-    }
-    else throw std::runtime_error("File does not exist: " + filename);
+    if(!mapFile.good()) throw std::runtime_error("File does not exist: " + filename);
+
+    std::string line;
+    while (getline(mapFile, line))
+        map.push_back(line);
+
     mapFile.close();
 }
 

@@ -48,13 +48,13 @@ void Hero::fightTilDeath(Monster& other) {
 }
 
 Hero Hero::parse(const std::string& fname) {
-	std::list <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level", "defense", "defense_bonus_per_level",
-							 "cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown", "magical_damage_bonus_per_level", "light_radius"};
+	const std::list <std::string> keysNeeded {"experience_per_level","health_point_bonus_per_level", "damage_bonus_per_level", "defense", "defense_bonus_per_level",
+		"cooldown_multiplier_per_level","name", "base_health_points", "base_attack_cooldown", "magical_damage_bonus_per_level", "light_radius"};
 	JSON returnedJSON = JSON::parseFromFile(fname);
-    	bool okay = true;
-    	for (auto key : keysNeeded)
-       		if(!returnedJSON.count(key))
-			okay = false;
+	for (auto key : keysNeeded)
+       	if(!returnedJSON.count(key))
+			throw JSON::ParseException("Incorrect attributes in " + fname + "!");
+
 	Damage damage;
 	int light_radius_bonus_per_level;
 	std::string texture;
@@ -73,22 +73,20 @@ Hero Hero::parse(const std::string& fname) {
 
 	if (!std::filesystem::exists(texture)) texture = "textures/placeholder.svg";
     
-	if (okay) 
-	     return Hero(returnedJSON.get<std::string>("name"), 
-			returnedJSON.get<int>("base_health_points"),
-			damage,
-			returnedJSON.get<double>("base_attack_cooldown"),
-			returnedJSON.get<int>("defense"),
-			texture,
-			returnedJSON.get<int>("experience_per_level"),
-			returnedJSON.get<int>("health_point_bonus_per_level"),
-			returnedJSON.get<int>("damage_bonus_per_level"),
-			returnedJSON.get<int>("magical_damage_bonus_per_level"),
-			returnedJSON.get<double>("cooldown_multiplier_per_level"),
-			returnedJSON.get<int>("defense_bonus_per_level"),
-			returnedJSON.get<int>("light_radius"),
-			light_radius_bonus_per_level);
-	else throw JSON::ParseException("Incorrect attributes in " + fname + "!");
+	return Hero(returnedJSON.get<std::string>("name"), 
+		returnedJSON.get<int>("base_health_points"),
+		damage,
+		returnedJSON.get<double>("base_attack_cooldown"),
+		returnedJSON.get<int>("defense"),
+		texture,
+		returnedJSON.get<int>("experience_per_level"),
+		returnedJSON.get<int>("health_point_bonus_per_level"),
+		returnedJSON.get<int>("damage_bonus_per_level"),
+		returnedJSON.get<int>("magical_damage_bonus_per_level"),
+		returnedJSON.get<double>("cooldown_multiplier_per_level"),
+		returnedJSON.get<int>("defense_bonus_per_level"),
+		returnedJSON.get<int>("light_radius"),
+		light_radius_bonus_per_level);
 }
 
 void Hero::levelup(){

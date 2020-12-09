@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <iostream>
 
-void Game::setMap(Map map){  
+void Game::setMap(const Map& map){  
     if(!gamestarted)     
         if(!heroready && monsters.empty()){
             gameMap = map;
@@ -64,7 +64,7 @@ void Game::run(){
     {     
         std::string moveTo ="";
         gamestarted = true;
-        std::list<std::string> expectedInputs = {"north", "east", "west", "south"};
+        const std::list<std::string> expectedInputs = {"north", "east", "west", "south"};
         while ((hero.hero->isAlive() && !monsters.empty()))
         {
             std::list<MonsterCoords>::iterator monster = monsters.begin();
@@ -80,7 +80,7 @@ void Game::run(){
                         hero.hero->fightTilDeath(monster->monster);        
                     }
                 if (!monster->monster.isAlive()) monster = monsters.erase(monster); 
-                else monster++;
+                else ++monster;
             }
             if(hero.hero->isAlive() && !monsters.empty()){
             for (auto &&renderer : renderers)
@@ -93,6 +93,8 @@ void Game::run(){
             moveHero(moveTo);
             }
         }
+        for (auto &&renderer : renderers)
+            renderer->render(*this); 
         if (hero.hero->isAlive()){
             std::cout<<std::endl<<hero.hero->getName()<<" cleared the map."<<std::endl;
             std::cout << hero.hero->getName() << ": LVL" << hero.hero->getLevel() << std::endl
@@ -116,7 +118,7 @@ void Game::run(){
 PreparedGame::PreparedGame(const std::string& filename){
     std::string monsterName;
     std::list<std::pair<int,int>> monsterPositions;
-    std::list<std::string> expectedKeys= {"map", "hero"};
+    const std::list<std::string> expectedKeys= {"map", "hero"};
     JSON attributes = JSON::parseFromFile(filename);
     for (auto &&key : expectedKeys)
         if (!attributes.count(key))

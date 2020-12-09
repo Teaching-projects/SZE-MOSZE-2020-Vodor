@@ -28,22 +28,22 @@ protected:
     std::vector<std::string> map; ///< A játék térképe.
 public:
     /// Ez a függvény visszaadja a játéktér magasságát.
-    int getMapSize() { return map.size();}
+    int getMapSize() const { return map.size();}
     /// Ez a függvény visszaadja a játéktér szélességét az adott sorba.
-    int getRowWidth(int y) {return map[y].length(); }
+    int getRowWidth(int y) const {return map[y].length(); }
     /// Ez a függvény visszaadja a játéktér max szélességét.
-    int getMaxLength();
+    int getMaxLength() const;
 
     /// Enum a térkép elemeinek.
     enum type{
-        Free, ///< járható út 
-        Wall ///< fal
+        Free, ///< Járható út.
+        Wall ///< Fal.
         };
     
-    /// Map alapértelmezett konstruktor 
+    /// Map alapértelmezett konstruktora. 
     Map(){}
     /// Map konstruktor, beolvas egy térképet egy adott fájlból.
-    Map(const std::string& filename /** [in] a fájl elérési útvonala*/);
+    explicit Map(const std::string& filename /** [in] a fájl elérési útvonala*/);
     
     /// Függvény, ami visszaadja az adott koordinátán milyen elem szerepel a térképen.
     /*!
@@ -53,9 +53,26 @@ public:
     */
     Map::type get(unsigned int x, unsigned int y) const;
 
+    /*!
+    * \class WrongIndexException
+    * 
+    * \brief WrongIndexException class
+    * 
+    * A WrongIndexException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class WrongIndexException : public std::runtime_error{
-    public:
-        WrongIndexException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        public:
+        /// WrongIndexException konstruktor.
+        explicit WrongIndexException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 };
 
@@ -64,12 +81,12 @@ public:
  * 
  * \brief MarkedMap class
  * 
- * A MarkedMap konstruktura beolvas egy térképet egy adott fájból amiben előre megtalálhatóak a Hős és a szörnyek pozíciói
+ * A MarkedMap konstruktura beolvas egy térképet egy adott fájból amiben előre megtalálhatóak a Hős és a szörnyek pozíciói.
  * 
  * 
  * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
  * 
- * \version 4.0
+ * \version 5.0
  * 
  * \date 2020/11/17 18:39
  * 
@@ -79,15 +96,14 @@ public:
 class MarkedMap : public Map
 {
     public:
-    
-    /// MarkedMap konstruktor 
-    MarkedMap(const std::string& filename /** [in] a fájl elérési útvonala*/);
-
-    /// MarkedMap default konstruktor 
+    /// MarkedMap konstruktor.
+    explicit MarkedMap(const std::string& filename /** [in] a fájl elérési útvonala*/);
+    /// MarkedMap default konstruktor.
     MarkedMap(){}
-   
-    std::pair<int,int> getHeroPosition() const; ///< Visszaadja a Hős pozícióját
-    std::list<std::pair<int,int>> getMonsterPositions(char c) const; ///< Visszaadja a kért Monsterek pozícióját
+    ///Visszaadja a Hős pozícióját.
+    std::pair<int,int> getHeroPosition() const;
+    ///Visszaadja a kért Monsterek pozícióját.
+    std::list<std::pair<int,int>> getMonsterPositions(char c) const; 
 };
 
 #endif

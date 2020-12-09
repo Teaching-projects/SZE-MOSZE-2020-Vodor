@@ -31,7 +31,7 @@ class Renderer;
 
 struct MonsterCoords{ 
     Monster monster;  ///< Ellenfelet tartalmazó változó.
-    int x; ///< Ellenfél x koordinátája.
+    const int x; ///< Ellenfél x koordinátája.
     int y; ///< Ellenfél y koordinátája.
 };
 
@@ -56,7 +56,7 @@ struct b_Hero{
     Hero* hero; ///< Hőst tartalmazó változó.
     int x; ///< Hős x koordinátája.
     int y; ///< Hős y koordinátája.
-    /// b_Hero alapértelmezett konstruktor 
+    /// b_Hero alapértelmezett konstruktor. 
     b_Hero() : hero(nullptr), x(-1), y(-1){}
 };
 
@@ -78,17 +78,17 @@ struct b_Hero{
  */
 
 struct printItem{
-    const std::string TOP_LEFT = "\u2554";
-    const std::string TOP_RIGHT = "\u2557";
-    const std::string BOTTOM_LEFT = "\u255A";
-    const std::string BOTTOM_RIGHT = "\u255D";
-    const std::string HORIZONTAL = "\u2550\u2550";
-    const std::string VERTICAL =  "\u2551";
-    const std::string FREE = "\u2591\u2591";
-    const std::string WALL = "\u2588\u2588"; 
-    const std::string SINGLEMONSTER = "M\u2591";
-    const std::string MULTIPLEMONSTERS = "MM";
-    const std::string HERO = "\u2523\u252B";
+    const std::string TOP_LEFT = "\u2554"; ///< Bal felső elem a pálya keretéhez.
+    const std::string TOP_RIGHT = "\u2557"; ///< Jobb felső elem a pálya keretéhez.
+    const std::string BOTTOM_LEFT = "\u255A"; ///< Bal alsó elem a pálya keretéhez.
+    const std::string BOTTOM_RIGHT = "\u255D"; ///< Jobb alsó elem a pálya keretéhez.
+    const std::string HORIZONTAL = "\u2550\u2550"; ///< Vízszintes elem a pálya keretéhez.
+    const std::string VERTICAL =  "\u2551"; ///< Függőleges elem a pálya keretéhez.
+    const std::string FREE = "\u2591\u2591"; ///< Szabad elem a pályán.
+    const std::string WALL = "\u2588\u2588"; ///< Fal elem a pályán.
+    const std::string SINGLEMONSTER = "M\u2591"; ///< Monster elem (1 db).
+    const std::string MULTIPLEMONSTERS = "MM"; ///< Monster elem (2 db).
+    const std::string HERO = "\u2523\u252B"; ///< Hero elem.
 };
 
 /*!
@@ -116,7 +116,7 @@ protected:
     bool gamestarted; ///< A játék indulását jelző változó.
     bool heroready;  ///< A hős betöltését jelző változó.
     std::list<MonsterCoords> monsters;  ///< Az ellenfelek listája.
-    b_Hero hero; ///< Hős változó
+    b_Hero hero; ///< Hős változó.
     /// Ez a függvény ellenőrzi a lépést.
     bool checkIfMoveIsValid(const std::string& direction);
     /// Ez a függvény lép egyet a hőssel.
@@ -134,18 +134,18 @@ public:
     /*! \brief Game konstruktor
  	*         
  	*  
- 	*  Beállítja a játékot a paramér alapján.
+ 	*  Beállítja a játékot a paraméter alapján.
  	*  
- 	*  \param mapFileName [in] jatéktér elérése .
+ 	*  \param mapFileName [in] jatéktér elérése 
  	*/
-    Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){
+    explicit Game(const std::string& mapFileName) : gameMap(Map(mapFileName)), mapsetready(true), gamestarted(false),heroready(false){
         textures["free_texture"] = "textures/free.png";
         textures["wall_tecture"] = "textures/wall.png";
     }
-    /// Game dekonstruktor
+    /// Game dekonstruktor.
     ~Game(){ delete hero.hero; }
     /// Ez a függvény beállítja a játékteret.
-    void setMap(Map map);
+    void setMap(const Map& map);
     /// Ez a függvény hozzáadja a hőst.
     void putHero(Hero hero, int x, int y);
     /// Ez a függvény hozzáad egy ellenfelet.
@@ -163,29 +163,114 @@ public:
     /// Ez a függvény visszaadja a texturákat.
     std::map<std::string, std::string> getTextures() const { return textures;}
 
+    /*!
+    * \class OccupiedException
+    * 
+    * \brief OccupiedException class
+    * 
+    * A OccupiedException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class OccupiedException : public std::runtime_error{ 
         public:
-        OccupiedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// OccupiedException konstruktor.
+        explicit OccupiedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
+    /*!
+    * \class AlreadyHasHeroException
+    * 
+    * \brief AlreadyHasHeroException class
+    * 
+    * A AlreadyHasHeroException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class AlreadyHasHeroException : public std::runtime_error{
         public:
-        AlreadyHasHeroException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// AlreadyHasHeroException konstruktor.
+        explicit AlreadyHasHeroException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
+    /*!
+    * \class AlreadyHasUnitsException
+    * 
+    * \brief AlreadyHasUnitsException class
+    * 
+    * A AlreadyHasUnitsException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class AlreadyHasUnitsException : public std::runtime_error{
         public:
-        AlreadyHasUnitsException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// AlreadyHasUnitsException konstruktor.
+        explicit AlreadyHasUnitsException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
+    /*!
+    * \class NotInitializedException
+    * 
+    * \brief NotInitializedException class
+    * 
+    * A NotInitializedException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class NotInitializedException : public std::runtime_error{
         public:
-        NotInitializedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// NotInitializedException konstruktor.
+        explicit NotInitializedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 
+    /*!
+    * \class GameAlreadyStartedException
+    * 
+    * \brief GameAlreadyStartedException class
+    * 
+    * A GameAlreadyStartedException kivételosztály. 
+    * 
+    * 
+    * \author  Borbély Roland, Vitéz Marcell, Voznek Péter
+    * 
+    * \version 5.0
+    * 
+    * \date 2020/11/17 18:39
+    * 
+    * Created on 2020/11/17 18:39
+    */
     class GameAlreadyStartedException : public std::runtime_error{
         public:
-        GameAlreadyStartedException(const std::string& errMsg) : std::runtime_error(errMsg){}
+        /// GameAlreadyStartedException konstruktor.
+        explicit GameAlreadyStartedException(const std::string& errMsg/** [in] hiba üzenet*/) : std::runtime_error(errMsg){}
     };
 };
 
@@ -210,8 +295,8 @@ class PreparedGame : private Game{
 private:
     MarkedMap gameMap; ///< A játéktér.
 public:
-    /// PreparedGame konstruktor
-    PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
+    /// PreparedGame konstruktor.
+    explicit PreparedGame(const std::string& filename /** [in] a fájl elérési útvonala*/);
     using Game::run; 
     using Game::registerRenderer;
 };
