@@ -78,6 +78,13 @@ Csapattagok:</h1>
 Leírás</h1>
 <p>Az indításnál paraméterként egy <a class="el" href="classJSON.html" title="JSON class.">JSON</a> formátumú scenario fájlt kell megadni a helyes lefutáshoz. Példa: <code>./a.out scenarios/scenario5.json</code></p>
 <p>Egy játék elindítása után a játékos south, east, west, valamint north parancsokkal tud mozogni a pályán. Ha olyan mezőre lép a <a class="el" href="classHero.html" title="Hero class.">Hero</a>, ahol <a class="el" href="classMonster.html" title="Monster class.">Monster(ek)</a> található(ak) csata veszi kezdetét. A csata addig tart, amíg a mezőn <a class="el" href="classMonster.html" title="Monster class.">Monster(ek)</a> található(ak). A játék addig tart, amíg a pályán van <a class="el" href="classMonster.html" title="Monster class.">Monster</a>, vagy a <a class="el" href="classHero.html" title="Hero class.">Hero</a> meg nem hal.</p>
+<p>A játék futása során négyféle kimenet keletkezik a jelenlegi beállítások alapján:</p><ul>
+<li>SVG fájlba menti az éppen aktuális pályát a program.</li>
+<li>SVG fájlba menti a <a class="el" href="classHero.html" title="Hero class.">Hero</a> által "belátott" területet a program.</li>
+<li>Konzolra kiírja az aktuális pályát a program.</li>
+<li>Konzolra kiírja a <a class="el" href="classHero.html" title="Hero class.">Hero</a> által "belátott" területet a program.</li>
+</ul>
+<p>Az SVG fájlokban mindig az utolsó lépés utáni kimenet látható. </p>
 <h2><a class="anchor" id="autotoc_md3"></a>
 Használható parancsok a játék során</h2>
 <ul>

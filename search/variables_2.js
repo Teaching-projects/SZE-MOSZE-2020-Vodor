@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hero_202',['hero',['../structb__Hero.html#abe5558c8a25e2c0df2b16a134f76c7f5',1,'b_Hero::hero()'],['../classGame.html#a8097e0308e344c5882fe1a7d17229bc7',1,'Game::hero()']]],
-  ['heroready_203',['heroready',['../classGame.html#af11570103bd4d2c3f47577d4485f32c4',1,'Game']]]
+  ['gamemap_226',['gameMap',['../classGame.html#a54bd5e12ece09856c800deae0d3ab70b',1,'Game::gameMap()'],['../classPreparedGame.html#adcde0843e280b73e0736cbb22fc97b5c',1,'PreparedGame::gameMap()']]],
+  ['gamestarted_227',['gamestarted',['../classGame.html#ae13c9295ec4cf8a451a93df3504ab253',1,'Game']]]
 ];

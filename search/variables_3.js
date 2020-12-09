@@ -1,8 +1,6 @@
 var searchData=
 [
-  ['magical_204',['magical',['../structDamage.html#a496876891f196c2b4ac9afe9f31b77b4',1,'Damage']]],
-  ['map_205',['map',['../classMap.html#acfd48b449ebeaa742732028840a5dc0c',1,'Map']]],
-  ['mapsetready_206',['mapsetready',['../classGame.html#a971609ad23260f876a3e734a50b33de8',1,'Game']]],
-  ['monster_207',['monster',['../structMonsterCoords.html#adec245e5bf05aa6fe495f1e5feaa0695',1,'MonsterCoords']]],
-  ['monsters_208',['monsters',['../classGame.html#a15bdb5ecd883223698bb655b39dbe68a',1,'Game']]]
+  ['hero_228',['HERO',['../structprintItem.html#a4262a9a2077b074ca004d79c30d8b8ee',1,'printItem::HERO()'],['../structb__Hero.html#abe5558c8a25e2c0df2b16a134f76c7f5',1,'b_Hero::hero()'],['../classGame.html#a8097e0308e344c5882fe1a7d17229bc7',1,'Game::hero()']]],
+  ['heroready_229',['heroready',['../classGame.html#af11570103bd4d2c3f47577d4485f32c4',1,'Game']]],
+  ['horizontal_230',['HORIZONTAL',['../structprintItem.html#a37b00b85984c94b1d576058695360cd0',1,'printItem']]]
 ];

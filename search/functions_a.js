@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['observersvgrenderer_162',['ObserverSVGRenderer',['../classObserverSVGRenderer.html#aa7dbf7934f8635ed1e67e35691b21a3a',1,'ObserverSVGRenderer']]],
-  ['observertextrenderer_163',['ObserverTextRenderer',['../classObserverTextRenderer.html#aec5ed1e80a64c24bf388dbd61f170c37',1,'ObserverTextRenderer']]]
+  ['notinitializedexception_178',['NotInitializedException',['../classGame_1_1NotInitializedException.html#ad64f074698a8c85cbc5ee046aa8a971b',1,'Game::NotInitializedException']]]
 ];

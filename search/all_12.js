@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['wall_95',['Wall',['../classMap.html#a41697b848ea9a5aad1910714e0196b7ba874474147b8fcfcec145b20926fc83bf',1,'Map']]],
-  ['wrongindexexception_96',['WrongIndexException',['../classMap_1_1WrongIndexException.html',1,'Map']]]
+  ['vertical_107',['VERTICAL',['../structprintItem.html#a6a6c265f3b518942baa1a994171bcb19',1,'printItem']]]
 ];

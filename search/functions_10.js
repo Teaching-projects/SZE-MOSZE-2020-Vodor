@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7egame_179',['~Game',['../classGame.html#ae3d112ca6e0e55150d2fdbc704474530',1,'Game']]]
+  ['unit_200',['Unit',['../classUnit.html#a65f15e4c3a9621e92bf068d54d0bc390',1,'Unit']]]
 ];

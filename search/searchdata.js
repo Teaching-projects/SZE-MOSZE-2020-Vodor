@@ -1,12 +1,13 @@
 var indexSectionsWithContent =
 {
-  0: "abcdfghijlmnoprstuwxy~",
+  0: "abcdfghijlmnoprstuvwxy~",
   1: "abcdghjmnoprstuw",
-  2: "abcfghijlmoprstu~",
-  3: "bghmprtxy",
+  2: "abcfghijlmnoprstuw~",
+  3: "bfghmprstvwxy",
   4: "t",
   5: "fw",
-  6: "s"
+  6: "o",
+  7: "st"
 };
 
 var indexSectionNames =
@@ -17,7 +18,8 @@ var indexSectionNames =
   3: "variables",
   4: "enums",
   5: "enumvalues",
-  6: "pages"
+  6: "related",
+  7: "pages"
 };
 
 var indexSectionLabels =
@@ -28,6 +30,7 @@ var indexSectionLabels =
   3: "Változók",
   4: "Enumerációk",
   5: "Enumeráció-értékek",
-  6: "Oldalak"
+  6: "Barátok",
+  7: "Oldalak"
 };
 
