@@ -110,4 +110,4 @@ Olyanok, amik nem a tárgy anyaga, de muszáj/hasznos volt elsajátítani:
 
 - A tervezett eszközök, technológiák kicsit részletesebben le lehetnének írva a félév elején, mint ami a tematikában van, mégha nem is jut idő mindenre végül. Ezen kívül szerintem akár maradhat is a videós oktatás. (@rolandborbely)
 
-- GUI-s megjelenítést. (@petinexus)
+- GUI-s megjelenítés. (@petinexus)
