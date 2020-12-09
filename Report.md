@@ -4,7 +4,7 @@
 | --- | ---- | --- | ------------------ | --------- |
 | Borbély Roland | @rolandborbely | +1 | 50-60 | Projekt managerként fogta össze a csapatot. A kiadott feladatokat a legrövidebb határidőn belül szépen megoldotta. Program kódjai szépek és átláthatóak. Tananyaghoz kapcsolódó feladatok megoldását átlátja, érti és alkalmazni is tudja. A Daemons csapat review-olásában jelentősen részt vett. |
 | Vitéz Marcell | @vit3z-marcell | -2 | <10 |  |
-| Voznek Péter | @petinexus | 0 | 40-50 | A feladatok megoldásakor az esetek döntő többségében jelen volt, segédkezett bennük, sokat ő végzett el. Amikor kellett jött és segített, a rá bízott feladatokat önállóan megoldotta. A dokumentáció legnagyobb részét ő készítette el, de a többi, tananyaghoz kapcsolódó feladat megoldását is közelről, érdeklődően figyelte. A Daemons csapat review-olásában is részt vett. |
+| Voznek Péter | @petinexus | 0 | 40-50 | A feladatok megoldásakor az esetek döntő többségében jelen volt, segédkezett bennük, sokat ő végzett el. Amikor kellett jött és segített, a rá bízott feladatokat önállóan megoldotta. A dokumentáció legnagyobb részét ő készítette el, de a többi, tananyaghoz kapcsolódó feladat megoldását is közelről, érdeklődően figyelte, így alkalmazni is tudja őket. A Daemons csapat review-olásában is részt vett. |
 
 
 # Videók
