@@ -9,7 +9,7 @@
 
 # Videók
 
- - [Gameplay](/videos/gameplay.mp4)
+ - [Gameplay](/videos/mosze_vodor_gameplay.mp4)
  - [CodeBaseDefense](/videos/mosze_vodor_codebasedefense.mp4)
 
 # Befejezett feladatok
