@@ -95,17 +95,21 @@
  
 # Implicit megtanult dolgok
 Olyanok, amik nem a tárgy anyaga, de muszáj/hasznos volt elsajátítani:
- - alapvető shell/python scripting
+ - alapvető shell scripting
  - `std::variant`
- - reguláris kifejezések
+ - reguláris kifejezések használata
  - alapvető linux ismeretek
 
-# Feedback (optional)
+# Feedback
+
+- Úgy érzem ez az egyik leghasznosabb tárgy az egész képzés során, még nem használtam a tanult eszközöket, de a jövőben biztos vagyok benne, hogy hasznát veszem ezeknek. Tetszik a gyakorlatias jellege a tárgynak, sokkal életszerűbbek körülmények így, mint bármi más tárgy esetében. A videós megoldás véleményem szerint jó volt, érthetőbb és könnyebben felfogható így az egész, mint teremben kivetített dolgokat nézegetni. (@rolandborbely)
  
 Melyik részt találtátok a leghasznosabbnak, miért. Használtátok-e az itt megszerzett dolgokat esetleg közben máskor. Volt-e olyan, amit hiányoltatok a tárgyból. Utólag visszagondolva is jó volt-e az online videósdi?
 
 Ha szívesebben írnátok meg anoním módon, OHV-nál várom.
 
-# Üzenet a jövőbe (optional)
+# Üzenet a jövőbe
+
+- A tervezett eszközök, technológiák kicsit részletesebben le lehetnének írva a félév elején, mint ami a tematikában van, mégha nem is jut idő mindenre végül. Ezen kívül szerintem akár maradhat is a videós oktatás. (@rolandborbely)
 
 Így, hogy túlvagytok rajta, mi az, aminek örültetek volna, ha első héten elmondom, avagy: jövőre mit lenne jó, ha elmondanék majd?
